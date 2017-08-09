@@ -40,9 +40,17 @@
       flex: 3 1 auto;
       }
 
-      main #links a {
+      main nav #links a {
+      text-decoration: none;
       margin: 10px;
       }
+
+      main article #keyurls {
+      display: inline-block;
+      text-align: left;
+      vertical-align: middle;
+      }
+      
     </style>
   </head>
   <body>
@@ -68,9 +76,13 @@
       </nav>
 
       <article>
-	You can contact me at <a href="mailto:raffaeleflorio@protonmail.com">raffaeleflorio@protonmail.com</a>, optionally encrypted with <a href="pgp.asc">this PGP key</a> <br>
-	You can get the key through pgp.mit.edu too: <a href="https://pgp.mit.edu/pks/lookup?op=get&search=0x53d62c23cf681104" title="PGP key">PGP key</a> <br>
-	<strong>Fingerprint</strong>: <em>5527 116A DB00 1157 5877 8038 53D6 2C23 CF68 1104</em>
+	You can contact me at <a href="mailto:raffaeleflorio@protonmail.com">raffaeleflorio@protonmail.com</a>, optionally encrypted with my PGP key. <br>
+	You can get the key:
+	<ul id="keyurls">
+	  <li><a href="https://pgp.mit.edu/pks/lookup?op=get&search=0x53d62c23cf681104" title="PGP key">From pgp.mit.edu</a></li>
+	  <li><a href="pgp.asc">From this domain</a></li>
+	</ul> <br>
+	<strong>Here the fingerprint</strong>: <em>5527 116A DB00 1157 5877 8038 53D6 2C23 CF68 1104</em>
       </article>
     </main>
   </body>
