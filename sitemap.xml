@@ -3,17 +3,184 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://raffaeleflorio.github.io/categories/</loc>
+    <loc>https://raffaeleflorio.github.io/project/open-in-qube/</loc>
+    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/project/luks-2fa/</loc>
+    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/key/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/project/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/qubes-os/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://raffaeleflorio.github.io/tags/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://raffaeleflorio.github.io/tags/wm/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/webextension/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/project/webextension-browser-proxy/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/browser/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/linux/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/patch/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/polyfill/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/project/qubes-dmenu/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/project/qubes-dwm/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://raffaeleflorio.github.io/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/2fa/</loc>
+    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/dracut/</loc>
+    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/luks/</loc>
+    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/qubes/</loc>
+    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/security/</loc>
+    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/systemd/</loc>
+    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/post/notsoeasyb0f-hackcon19/</loc>
+    <lastmod>2019-09-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/post/babyb0f-hackcon19/</loc>
+    <lastmod>2019-09-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/post/babypwn-hackcon19/</loc>
+    <lastmod>2019-09-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/post/</loc>
+    <lastmod>2019-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/ctf/</loc>
+    <lastmod>2019-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/hackcon2019/</loc>
+    <lastmod>2019-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/pwn/</loc>
+    <lastmod>2019-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/writeup/</loc>
+    <lastmod>2019-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/x86/</loc>
+    <lastmod>2019-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
