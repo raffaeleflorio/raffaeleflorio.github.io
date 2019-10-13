@@ -185,7 +185,7 @@ $ checksec vuln
 
 <h1 id="the-approach">The approach</h1>
 
-<p>The issue with <code>NX</code> is that we cannot execute code in writable memory segment. So we should find a way to disable, post-exploitation, this protection.</p>
+<p>The issue with <code>NX</code> is that we cannot execute code in writable memory segment. So we should find a way to disable, at run-time, this protection.</p>
 
 <p>Fortunately the <code>mprotect</code> function, in libc, just do this:</p>
 
