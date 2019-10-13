@@ -13,59 +13,6 @@
   </url>
   
   <url>
-    <loc>https://raffaeleflorio.github.io/post/</loc>
-    <lastmod>2019-10-13T21:15:41+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/post/mprotect-urop/</loc>
-    <lastmod>2019-10-13T21:15:41+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/tags/</loc>
-    <lastmod>2019-10-13T21:15:41+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/tags/pwn/</loc>
-    <lastmod>2019-10-13T21:15:41+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/</loc>
-    <lastmod>2019-10-13T21:15:41+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/tags/rop/</loc>
-    <lastmod>2019-10-13T21:15:41+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/tags/shellcode/</loc>
-    <lastmod>2019-10-13T21:15:41+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/tags/urop/</loc>
-    <lastmod>2019-10-13T21:15:41+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/tags/x86/</loc>
-    <lastmod>2019-10-13T21:15:41+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://raffaeleflorio.github.io/key/</loc>
     <lastmod>2019-09-06T00:00:00+00:00</lastmod>
   </url>
@@ -78,6 +25,12 @@
   
   <url>
     <loc>https://raffaeleflorio.github.io/tags/qubes-os/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/</loc>
     <lastmod>2019-09-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -134,6 +87,12 @@
   </url>
   
   <url>
+    <loc>https://raffaeleflorio.github.io/</loc>
+    <lastmod>2019-09-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://raffaeleflorio.github.io/tags/2fa/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -185,6 +144,12 @@
   </url>
   
   <url>
+    <loc>https://raffaeleflorio.github.io/post/</loc>
+    <lastmod>2019-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://raffaeleflorio.github.io/tags/ctf/</loc>
     <lastmod>2019-09-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -197,7 +162,19 @@
   </url>
   
   <url>
+    <loc>https://raffaeleflorio.github.io/tags/pwn/</loc>
+    <lastmod>2019-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://raffaeleflorio.github.io/tags/writeup/</loc>
+    <lastmod>2019-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/x86/</loc>
     <lastmod>2019-09-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
