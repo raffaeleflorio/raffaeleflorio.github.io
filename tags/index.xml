@@ -6,17 +6,53 @@
     <description>Recent content in Tags on raffaeleflorio ~$</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Oct 2019 21:15:41 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 19 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://raffaeleflorio.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>auctf2020</title>
+      <link>https://raffaeleflorio.github.io/tags/auctf2020/</link>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/auctf2020/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ctf</title>
+      <link>https://raffaeleflorio.github.io/tags/ctf/</link>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/ctf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>pwn</title>
       <link>https://raffaeleflorio.github.io/tags/pwn/</link>
-      <pubDate>Sun, 13 Oct 2019 21:15:41 +0200</pubDate>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/tags/pwn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>writeup</title>
+      <link>https://raffaeleflorio.github.io/tags/writeup/</link>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/writeup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>x86</title>
+      <link>https://raffaeleflorio.github.io/tags/x86/</link>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/x86/</guid>
       <description></description>
     </item>
     
@@ -44,15 +80,6 @@
       <pubDate>Sun, 13 Oct 2019 21:15:41 +0200</pubDate>
       
       <guid>https://raffaeleflorio.github.io/tags/urop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>x86</title>
-      <link>https://raffaeleflorio.github.io/tags/x86/</link>
-      <pubDate>Sun, 13 Oct 2019 21:15:41 +0200</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/x86/</guid>
       <description></description>
     </item>
     
@@ -174,29 +201,11 @@
     </item>
     
     <item>
-      <title>ctf</title>
-      <link>https://raffaeleflorio.github.io/tags/ctf/</link>
-      <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/ctf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>hackcon2019</title>
       <link>https://raffaeleflorio.github.io/tags/hackcon2019/</link>
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/tags/hackcon2019/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>writeup</title>
-      <link>https://raffaeleflorio.github.io/tags/writeup/</link>
-      <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/writeup/</guid>
       <description></description>
     </item>
     

@@ -6,10 +6,25 @@
     <description>Recent content in pwn on raffaeleflorio ~$</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Oct 2019 21:15:41 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 19 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://raffaeleflorio.github.io/tags/pwn/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AUCTF 2020 Writeup - Thanksgiving Dinner</title>
+      <link>https://raffaeleflorio.github.io/post/thanksgiving-dinner-auctf2020/</link>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/post/thanksgiving-dinner-auctf2020/</guid>
+      <description>Intro This is the second pwn challenge of AUCTF 2020. It was solved 238 times and it was worth 408 points.
+Description:
+ I just ate a huge dinner. I can barley eat anymore&amp;hellip; so please don&amp;rsquo;t give me too much!
+nc challenges.auctf.com 30011
+Note: ASLR is disabled for this challenge
+ You could download the binary here.
+$ sha256sum ./thanksgiving_dinner 2307af59beead6a2377c3beb2ff26f70d5732ec6b651b5c31e58b8f692bfb70c thanksgiving_dinner  Exploitation The program simply ask for an input.</description>
+    </item>
     
     <item>
       <title>Shellcode Injection - Old but gold</title>

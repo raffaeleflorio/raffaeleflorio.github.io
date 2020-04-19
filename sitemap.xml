@@ -13,32 +13,61 @@
   </url>
   
   <url>
+    <loc>https://raffaeleflorio.github.io/post/thanksgiving-dinner-auctf2020/</loc>
+    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://raffaeleflorio.github.io/post/</loc>
-    <lastmod>2019-10-13T21:15:41+02:00</lastmod>
+    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/</loc>
+    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/auctf2020/</loc>
+    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/ctf/</loc>
+    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/pwn/</loc>
+    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/</loc>
+    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/writeup/</loc>
+    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/x86/</loc>
+    <lastmod>2020-04-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://raffaeleflorio.github.io/post/mprotect-urop/</loc>
     <lastmod>2019-10-13T21:15:41+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/tags/</loc>
-    <lastmod>2019-10-13T21:15:41+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/tags/pwn/</loc>
-    <lastmod>2019-10-13T21:15:41+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/</loc>
-    <lastmod>2019-10-13T21:15:41+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -55,12 +84,6 @@
   
   <url>
     <loc>https://raffaeleflorio.github.io/tags/urop/</loc>
-    <lastmod>2019-10-13T21:15:41+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/tags/x86/</loc>
     <lastmod>2019-10-13T21:15:41+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -185,19 +208,7 @@
   </url>
   
   <url>
-    <loc>https://raffaeleflorio.github.io/tags/ctf/</loc>
-    <lastmod>2019-09-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://raffaeleflorio.github.io/tags/hackcon2019/</loc>
-    <lastmod>2019-09-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/tags/writeup/</loc>
     <lastmod>2019-09-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
