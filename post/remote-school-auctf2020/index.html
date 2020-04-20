@@ -175,7 +175,7 @@
 
 <p>You could download the binary <a href="/binary/auctf2020/remote_school">here</a>.</p>
 
-<pre><code class="language-shell">$ sha256sum remote_school 
+<pre><code class="language-shell">$ sha256sum remote_school
 d0639347713b54603db5f8015fc1015ca911fb10ad9d271c31e9630093054664  remote_school
 </code></pre>
 
@@ -232,8 +232,9 @@ What should we do?
 .....
 </code></pre>
 
-<p>But there isn&rsquo;t any xref to both functions.
-However, after some digging, I found an interesting object:</p>
+<p>But there isn&rsquo;t any xref to both functions.</p>
+
+<p>However, after some digging, I found an interesting object:</p>
 
 <pre><code class="language-shell">[r2]&gt; is
 .....
@@ -251,7 +252,7 @@ However, after some digging, I found an interesting object:</p>
 
 <p>It seems like an associative array. So I tried to attend the &ldquo;Hacker&rdquo; class, with success.</p>
 
-<p>We have an hexadecimal value (maybe an address) and a segfault:</p>
+<p>This class prints a hexadecimal value (maybe an address) and we got a segfault:</p>
 
 <pre><code class="language-shell">&gt; [? for menu]: attend Hacker
 
