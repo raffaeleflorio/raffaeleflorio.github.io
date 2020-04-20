@@ -6,10 +6,23 @@
     <description>Recent content in writeup on raffaeleflorio ~$</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://raffaeleflorio.github.io/tags/writeup/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AUCTF 2020 Writeup - Remote School</title>
+      <link>https://raffaeleflorio.github.io/post/remote-school-auctf2020/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/post/remote-school-auctf2020/</guid>
+      <description>Intro This is the fourth and last pwn challenge. It was solved 63 times and it was worth 960 points.
+Description:
+ Dear Student,
+Due to COVID-19 concerns our curriculum will be moving completely to online courses&amp;hellip; I know we haven&amp;rsquo;t even started our school year yet so this may come as a shock. But I promise it won&amp;rsquo;t be too bad! You can login at challenges.auctf.com 30013.
+Best, Dean of Eon Pillars</description>
+    </item>
     
     <item>
       <title>AUCTF 2020 Writeup - House of Madness</title>
