@@ -13,12 +13,59 @@
   </url>
   
   <url>
+    <loc>https://raffaeleflorio.github.io/post/pick-up-that-can-auctf2020/</loc>
+    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://raffaeleflorio.github.io/friends/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>https://raffaeleflorio.github.io/post/</loc>
+    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/</loc>
+    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/auctf2020/</loc>
+    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/can-bus/</loc>
+    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/car-hacking/</loc>
+    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/ctf/</loc>
+    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://raffaeleflorio.github.io/</loc>
+    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://raffaeleflorio.github.io/tags/writeup/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -34,31 +81,7 @@
   </url>
   
   <url>
-    <loc>https://raffaeleflorio.github.io/post/</loc>
-    <lastmod>2020-04-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/tags/</loc>
-    <lastmod>2020-04-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/tags/auctf2020/</loc>
-    <lastmod>2020-04-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://raffaeleflorio.github.io/tags/cracking/</loc>
-    <lastmod>2020-04-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/tags/ctf/</loc>
     <lastmod>2020-04-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -71,12 +94,6 @@
   
   <url>
     <loc>https://raffaeleflorio.github.io/tags/pwn/</loc>
-    <lastmod>2020-04-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://raffaeleflorio.github.io/tags/writeup/</loc>
     <lastmod>2020-04-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

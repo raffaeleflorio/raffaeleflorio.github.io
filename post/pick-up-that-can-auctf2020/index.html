@@ -4,7 +4,7 @@
          
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>AUCTF 2020 Writeup - Password Cracking Challenges</title>
+        <title>AUCTF 2020 Writeup - Pick Up That CAN</title>
         
         <style>
 
@@ -80,7 +80,7 @@
 
                 <div class="navbar-header">
 
-                    <a class="navbar-brand visible-xs" href="#">AUCTF 2020 Writeup - Password Cracking Challenges</a>
+                    <a class="navbar-brand visible-xs" href="#">AUCTF 2020 Writeup - Pick Up That CAN</a>
 
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
@@ -142,16 +142,16 @@
     
     
 
-    <h4><a href="/post/password-cracking-challenges-auctf2020/">AUCTF 2020 Writeup - Password Cracking Challenges</a></h4>
-    <h5>April 20, 2020</h5>
+    <h4><a href="/post/pick-up-that-can-auctf2020/">AUCTF 2020 Writeup - Pick Up That CAN</a></h4>
+    <h5>May 1, 2020</h5>
     
     <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
     
     <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
     
-    <a href="https://raffaeleflorio.github.io/tags/password"><kbd class="item-tag">password</kbd></a>
+    <a href="https://raffaeleflorio.github.io/tags/car-hacking"><kbd class="item-tag">car-hacking</kbd></a>
     
-    <a href="https://raffaeleflorio.github.io/tags/cracking"><kbd class="item-tag">cracking</kbd></a>
+    <a href="https://raffaeleflorio.github.io/tags/can-bus"><kbd class="item-tag">can-bus</kbd></a>
     
     <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
     
@@ -161,81 +161,112 @@
 
     <br> <div class="text-justify">
 
-<h1 id="salty">Salty</h1>
+<h1 id="intro">Intro</h1>
 
-<p>This challenge was solved 148 times and it was worth 357 points.</p>
+<p>This is the only challenge I solved in the <code>Signals</code> section.</p>
 
-<p>Description:</p>
-
-<blockquote>
-<p>You might need this: 1337</p>
-
-<p>Hash: 5eaff45e09bec5222a9cfa9502a4740d</p>
-
-<p>NOTE: The flag is NOT in the standard auctf{} format</p>
-</blockquote>
-
-<p>The hash seems a salted <code>MD5</code>.</p>
-
-<p>The correct hash mode is <code>md5($salt.$pass)</code>. So with hashcat:</p>
-
-<pre><code class="language-shell">$ hashcat -a 0 -m 20 salty rockyou.txt
-.....
-5eaff45e09bec5222a9cfa9502a4740d:1337:treetop
-.....
-</code></pre>
-
-<p><img src="/images/auctf2020/password-cracking/salty-solved.png" alt="salty solved banner" /></p>
-
-<h1 id="crack-me-2">Crack Me 2</h1>
-
-<p>This challenge was solved 108 times and it was worth 880 points.</p>
+<p>It&rsquo;s been solved 59 times and it was worth 965 points.</p>
 
 <p>Description:</p>
 
 <blockquote>
-<p>Here&rsquo;s another one.</p>
-
-<p>Hash: b1ee3fbc44b4ba721273699ac4511fa1631257f37da7bede3d5ba7bda5e7f96f1bab30e206caf47a5ce8c6587d0fbd6306e70b08a3a7e7233bb707bf21752c33</p>
-
-<p>NOTE: The flag is NOT in the standard auctf{} format</p>
+<p>Here&rsquo;s a log of some kind of network traffic.
+The BASH script will help you set up your tools, and probably give you a hint as to what kind of network this is.</p>
 </blockquote>
 
-<p>I tried various hash modes. However the correct is: <code>SHA3-512</code>. So with hashcat:</p>
+<p>You can download the log <a href="/ctf/signals/auctf2020/pickupthatcan/log">here</a>.</p>
 
-<pre><code class="language-shell">$ hashcat -a 0 -m 17600 crackme2 rockyou.txt
-.....
-b1ee3fbc44b4ba721273699ac4511fa1631257f37da7bede3d5ba7bda5e7f96f1bab30e206caf47a5ce8c6587d0fbd6306e70b08a3a7e7233bb707bf21752c33:gardener
+<pre><code class="language-shell">$ sha256sum log
+6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba6a44a0af03e95a  log
+</code></pre>
+
+<p>The shell script is really short. It&rsquo;s composed of three lines:</p>
+
+<pre><code class="language-sh">modprobe vcan
+sudo ip link add dev vcan0 type vcan
+sudo ip link set up vcan0
+</code></pre>
+
+<h1 id="analysis">Analysis</h1>
+
+<p>The first step was to see the log. Here an excerpt:</p>
+
+<pre><code>(1563316370.627559) can0 002#12000007D9535D0E
+(1563316370.628247) can0 7E8#0641010007E50000
+(1563316370.629271) can0 174#654654AA0E000000
+(1563316370.629272) can0 176#001E0026C8000E
+(1563316370.629273) can0 177#FE11400000
+(1563316370.630309) can0 160#3273530008FFE8
+(1563316370.630311) can0 180#189C353327003E10
+(1563316370.631310) can0 003#6100000000000000
+(1563316370.631311) can0 004#5400000000000000
+(1563316370.631312) can0 005#4D000000
+(1563316370.631313) can0 355#00000000000060
+(1563316370.632996) can0 385#00000000000000
+(1563316370.634018) can0 216#426C
+(1563316370.634019) can0 245#FFE000180010FFE1
 .....
 </code></pre>
 
-<p><img src="/images/auctf2020/password-cracking/crackme2-solved.png" alt="crackme2 solved banner" /></p>
+<p>Unfortunately it didn&rsquo;t mean a lot to me.</p>
 
-<h1 id="big-mac">Big Mac</h1>
+<p>So I started googling about the interface type referenced in the script.</p>
 
-<p>This challenge was solved 101 times and it was worth 895 points.</p>
+<p>As first I found this document: <a href="https://elinux.org/Bringing_CAN_interface_up">Bridging CAN Interface Up</a>.</p>
 
-<p>Description:</p>
+<p>Then this entry on Wikipedia: <a href="https://en.wikipedia.org/wiki/SocketCAN">SocketCAN</a>.</p>
 
-<blockquote>
-<p>You might need this: thisisasecret</p>
+<p>After this discovery I was really excited! The created interface is used on the <code>CAN</code> bus, a standard bus used on <em>vehicle</em>!</p>
 
-<p>Hash: 5ee9fafd697e40593d66bef8427d40f8beca6921</p>
+<h2 id="can-frame">CAN frame</h2>
 
-<p>NOTE: The flag is NOT in the standard auctf{} format</p>
-</blockquote>
+<p>Now the log makes a lot more sense. It&rsquo;s evidently the data exchanged on the bus.</p>
 
-<p>As the name suggests it&rsquo;s surely a <code>HMAC</code>.</p>
+<p>However, to interpret the log, I studied the protocol and the frame format.
+About that I found this interesting entry on Wikipedia: <a href="https://en.wikipedia.org/wiki/CAN_bus#Frames">CAN bus frame</a>.</p>
 
-<p>The correct is <code>HMAC-SHA1</code> with <code>thisisasecret</code> as <code>salt</code>. So with hashcat:</p>
+<p>The protocols supports various types of frame. In this case, however, it&rsquo;s a <code>data frame</code> in the <code>base frame format</code>.</p>
 
-<pre><code class="language-shell">$ hashcat -a 0 -m 160 bigmac rockyou.txt
+<p>The frame structure is really simple.
+The part that interests us is that it has an <code>ID</code> (that defines also the priority of the frame) and the maximum size of the transported <code>data</code> is 8 bytes.</p>
+
+<p><em>However I really enjoyed the details of the frame format. I advice you to read the Wikipedia page. It&rsquo;s really interesting.</em></p>
+
+<p>So it&rsquo;s clear that the hashtag splits the <code>ID</code> from the <code>data</code>.</p>
+
+<h2 id="decoding-the-data">Decoding the data</h2>
+
+<p>At this point I assumed that the data should contain the flag as hexadecimal string.</p>
+
+<p>So I searched for <code>61756374667B</code> (it correspondes to <code>auctf{</code>) and I found these interesting lines:</p>
+
+<pre><code>.....
+(1563316371.102580) can0 003#61756374667B0000
 .....
-5ee9fafd697e40593d66bef8427d40f8beca6921:thisisasecret:scarface
+(1563316371.276500) can0 003#61756374667B496D
+.....
+(1563316371.276500) can0 003#61756374667B496D
 .....
 </code></pre>
 
-<p><img src="/images/auctf2020/password-cracking/bigmac-solved.png" alt="bigmac solved banner" /></p>
+<p>The flag is transmitted in piece. In this case the <code>ID</code> of the frame is <code>003</code>. So I assumed that frames with subsequent <code>ID</code> should contain the other pieces.</p>
+
+<p>I was right. Indeed in the log I found:</p>
+
+<pre><code>.....
+(1563316371.276500) can0 003#61756374667B496D
+(1563316371.276501) can0 004#5468655472617368
+(1563316371.279102) can0 005#4D616E7D
+.....
+</code></pre>
+
+<p>I decoded the hexadecimal strings, concatened the results and here is the flag:</p>
+
+<pre><code class="language-shell">$ cat flag.txt
+auctf{ImTheTrashMan}
+</code></pre>
+
+<p><img src="/images/auctf2020/pickupthatcan/solved.png" alt="pick up that can solved banner" /></p>
 </div>
 
     
@@ -254,16 +285,16 @@ b1ee3fbc44b4ba721273699ac4511fa1631257f37da7bede3d5ba7bda5e7f96f1bab30e206caf47a
     
     
 
-    <h4><a href="/post/pick-up-that-can-auctf2020/">AUCTF 2020 Writeup - Pick Up That CAN</a></h4>
-    <h5>May 1, 2020</h5>
+    <h4><a href="/post/remote-school-auctf2020/">AUCTF 2020 Writeup - Remote School</a></h4>
+    <h5>April 20, 2020</h5>
     
     <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
     
     <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
     
-    <a href="https://raffaeleflorio.github.io/tags/car-hacking"><kbd class="item-tag">car-hacking</kbd></a>
+    <a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
     
-    <a href="https://raffaeleflorio.github.io/tags/can-bus"><kbd class="item-tag">can-bus</kbd></a>
+    <a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
     
     <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
     
@@ -278,16 +309,16 @@ b1ee3fbc44b4ba721273699ac4511fa1631257f37da7bede3d5ba7bda5e7f96f1bab30e206caf47a
     
     
 
-    <h4><a href="/post/remote-school-auctf2020/">AUCTF 2020 Writeup - Remote School</a></h4>
+    <h4><a href="/post/password-cracking-challenges-auctf2020/">AUCTF 2020 Writeup - Password Cracking Challenges</a></h4>
     <h5>April 20, 2020</h5>
     
     <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
     
     <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
     
-    <a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
+    <a href="https://raffaeleflorio.github.io/tags/password"><kbd class="item-tag">password</kbd></a>
     
-    <a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
+    <a href="https://raffaeleflorio.github.io/tags/cracking"><kbd class="item-tag">cracking</kbd></a>
     
     <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
     

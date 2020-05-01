@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>car-hacking on raffaeleflorio ~$</title>
+    <link>https://raffaeleflorio.github.io/tags/car-hacking/</link>
+    <description>Recent content in car-hacking on raffaeleflorio ~$</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://raffaeleflorio.github.io/tags/car-hacking/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AUCTF 2020 Writeup - Pick Up That CAN</title>
+      <link>https://raffaeleflorio.github.io/post/pick-up-that-can-auctf2020/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/post/pick-up-that-can-auctf2020/</guid>
+      <description>Intro This is the only challenge I solved in the Signals section.
+It&amp;rsquo;s been solved 59 times and it was worth 965 points.
+Description:
+ Here&amp;rsquo;s a log of some kind of network traffic. The BASH script will help you set up your tools, and probably give you a hint as to what kind of network this is.
+ You can download the log here.
+$ sha256sum log 6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba6a44a0af03e95a log  The shell script is really short.</description>
+    </item>
+    
+  </channel>
+</rss>
