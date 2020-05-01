@@ -225,7 +225,7 @@ sudo ip link set up vcan0
 <p>However, to interpret the log, I studied the protocol and the frame format.
 About that I found this interesting entry on Wikipedia: <a href="https://en.wikipedia.org/wiki/CAN_bus#Frames">CAN bus frame</a>.</p>
 
-<p>The protocols supports various types of frame. In this case, however, it&rsquo;s a <code>data frame</code> in the <code>base frame format</code>.</p>
+<p>The protocol supports various types of frame. In this case, however, it&rsquo;s a <code>data frame</code> in the <code>base frame format</code>.</p>
 
 <p>The frame structure is really simple.
 The part that interests us is that it has an <code>ID</code> (that defines also the priority of the frame) and the maximum size of the transported <code>data</code> is 8 bytes.</p>
