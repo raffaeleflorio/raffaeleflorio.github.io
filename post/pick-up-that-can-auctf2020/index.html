@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
-         
+        
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>AUCTF 2020 Writeup - Pick Up That CAN</title>
@@ -39,13 +40,21 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
  
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script> 
-
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    
     <script>hljs.initHighlightingOnLoad();</script>
-
 
 
 
@@ -59,39 +68,33 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.55.6" />
+ <meta name="generator" content="Hugo 0.72.0" />
         
 
         
 
         
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         
-        <script type="text/javascript" async
-          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-        </script>
+
         
+
     </head>
 
     <body>
-         
+        
+
         <nav class="navbar navbar-default navbar-fixed-top">
-
             <div class="container">
-
                 <div class="navbar-header">
-
                     <a class="navbar-brand visible-xs" href="#">AUCTF 2020 Writeup - Pick Up That CAN</a>
-
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
                 </div>
-
                 <div class="collapse navbar-collapse">
-
                     
                         <ul class="nav navbar-nav">
                             
@@ -107,7 +110,6 @@
                             
                         </ul>
                     
-
                     
                         <ul class="nav navbar-nav navbar-right">
                             
@@ -117,80 +119,52 @@
                             
                                 <li class="navbar-icon"><a href="https://instagram.com/r7florio/"><i class="fa fa-instagram"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fa fa-key"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key"><i class="fa fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
                             
                         </ul>
                     
-
                 </div>
-
             </div>
-
         </nav>
 
 
 <main>
 
-    <div class="item">
+    <div>
+        <h2>AUCTF 2020 Writeup - Pick Up That CAN</h2>
+        <h5>May 1, 2020</h5>
+        
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
 
-    
-    
-    
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
 
-    
-    
+<a href="https://raffaeleflorio.github.io/tags/car-hacking"><kbd class="item-tag">car-hacking</kbd></a>
 
-    <h4><a href="/post/pick-up-that-can-auctf2020/">AUCTF 2020 Writeup - Pick Up That CAN</a></h4>
-    <h5>May 1, 2020</h5>
-    
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/car-hacking"><kbd class="item-tag">car-hacking</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/can-bus"><kbd class="item-tag">can-bus</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/can-bus"><kbd class="item-tag">can-bus</kbd></a>
 
-</div>
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
 
 
-    <br> <div class="text-justify">
+    </div>
 
-<h1 id="intro">Intro</h1>
-
+    <div align="left" class="content"><h1 id="intro">Intro</h1>
 <p>This is the only challenge I solved in the <code>Signals</code> section.</p>
-
-<p>It&rsquo;s been solved 59 times and it was worth 965 points.</p>
-
+<p>It’s been solved 59 times and it was worth 965 points.</p>
 <p>Description:</p>
-
 <blockquote>
-<p>Here&rsquo;s a log of some kind of network traffic.
-The BASH script will help you set up your tools, and probably give you a hint as to what kind of network this is.</p>
+<p>Here’s a log of some kind of network traffic. The BASH script will help you set up your tools, and probably give you a hint as to what kind of network this is.</p>
 </blockquote>
-
-<p>You can download the log <a href="/ctf/signals/auctf2020/pickupthatcan/log">here</a>.</p>
-
-<pre><code class="language-shell">$ sha256sum log
-6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba6a44a0af03e95a  log
-</code></pre>
-
-<p>The shell script is really short. It&rsquo;s composed of three lines:</p>
-
-<pre><code class="language-sh">modprobe vcan
+<p>You can download the log <a href="/ctf/auctf2020/signals/pickupthatcan.log">here</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sha256sum pickupthatcan.log 
+6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba6a44a0af03e95a  pickupthatcan.log
+</code></pre></div><p>The shell script is really short. It’s composed of three lines:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">modprobe vcan
 sudo ip link add dev vcan0 type vcan
 sudo ip link set up vcan0
-</code></pre>
-
-<h1 id="analysis">Analysis</h1>
-
+</code></pre></div><h1 id="analysis">Analysis</h1>
 <p>The first step was to see the log. Here an excerpt:</p>
-
 <pre><code>(1563316370.627559) can0 002#12000007D9535D0E
 (1563316370.628247) can0 7E8#0641010007E50000
 (1563316370.629271) can0 174#654654AA0E000000
@@ -206,40 +180,22 @@ sudo ip link set up vcan0
 (1563316370.634018) can0 216#426C
 (1563316370.634019) can0 245#FFE000180010FFE1
 .....
-</code></pre>
-
-<p>Unfortunately it didn&rsquo;t mean a lot to me.</p>
-
+</code></pre><p>Unfortunately it didn’t mean a lot to me.</p>
 <p>So I started googling about the interface type referenced in the script.</p>
-
 <p>As first I found this document: <a href="https://elinux.org/Bringing_CAN_interface_up">Bridging CAN Interface Up</a>.</p>
-
 <p>Then this entry on Wikipedia: <a href="https://en.wikipedia.org/wiki/SocketCAN">SocketCAN</a>.</p>
-
 <p>After this discovery I was really excited! The created interface is used on the <code>CAN</code> bus, a standard bus used on <em>vehicle</em>!</p>
-
 <h2 id="can-frame">CAN frame</h2>
-
-<p>Now the log makes a lot more sense. It&rsquo;s evidently the data exchanged on the bus.</p>
-
+<p>Now the log makes a lot more sense. It’s evidently the data exchanged on the bus.</p>
 <p>However, to interpret the log, I studied the protocol and the frame format.
 About that I found this interesting entry on Wikipedia: <a href="https://en.wikipedia.org/wiki/CAN_bus#Frames">CAN bus frame</a>.</p>
-
-<p>The protocol supports various types of frame. In this case, however, it&rsquo;s a <code>data frame</code> in the <code>base frame format</code>.</p>
-
-<p>The frame structure is really simple.
-The part that interests us is that it has an <code>ID</code> (that defines also the priority of the frame) and the maximum size of the transported <code>data</code> is 8 bytes.</p>
-
-<p><em>However I really enjoyed the details of the frame format. I advice you to read the Wikipedia page. It&rsquo;s really interesting.</em></p>
-
-<p>So it&rsquo;s clear that the hashtag splits the <code>ID</code> from the <code>data</code>.</p>
-
+<p>The protocol supports various types of frame. In this case, however, it’s a <code>data frame</code> in the <code>base frame format</code>.</p>
+<p>The frame structure is really simple. The part that interests us is that it has an <code>ID</code> (that defines also the priority of the frame) and the maximum size of the transported <code>data</code> is 8 bytes.</p>
+<p><em>However I really enjoyed the details of the frame format. I advice you to read the Wikipedia page. It’s really interesting.</em></p>
+<p>So it’s clear that the hashtag splits the <code>ID</code> from the <code>data</code>.</p>
 <h2 id="decoding-the-data">Decoding the data</h2>
-
 <p>At this point I assumed that the data should contain the flag as hexadecimal string.</p>
-
 <p>So I searched for <code>61756374667B</code> (it correspondes to <code>auctf{</code>) and I found these interesting lines:</p>
-
 <pre><code>.....
 (1563316371.102580) can0 003#61756374667B0000
 .....
@@ -247,35 +203,23 @@ The part that interests us is that it has an <code>ID</code> (that defines also 
 .....
 (1563316371.276500) can0 003#61756374667B496D
 .....
-</code></pre>
-
-<p>The flag is transmitted in piece. In this case the <code>ID</code> of the frame is <code>003</code>. So I assumed that frames with subsequent <code>ID</code> should contain the other pieces.</p>
-
+</code></pre><p>The flag is transmitted in piece. In this case the <code>ID</code> of the frame is <code>003</code>. So I assumed that frames with subsequent <code>ID</code> should contain the other pieces.</p>
 <p>I was right. Indeed in the log I found:</p>
-
 <pre><code>.....
 (1563316371.276500) can0 003#61756374667B496D
 (1563316371.276501) can0 004#5468655472617368
 (1563316371.279102) can0 005#4D616E7D
 .....
-</code></pre>
-
-<p>I decoded the hexadecimal strings, concatened the results and here is the flag:</p>
-
-<pre><code class="language-shell">$ cat flag.txt
-auctf{ImTheTrashMan}
-</code></pre>
-
-<p><img src="/images/auctf2020/pickupthatcan/solved.png" alt="pick up that can solved banner" /></p>
+</code></pre><p>I decoded the hexadecimal strings, concatened the results and here is the flag:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cat flag.txt
+auctf<span style="color:#f92672">{</span>ImTheTrashMan<span style="color:#f92672">}</span>
+</code></pre></div><p><img src="/ctf/auctf2020/images/pickupthatcan-solved.png" alt="pickupthatcan solved banner"></p>
 </div>
 
     
     
-
     
-
         <h4 class="page-header">Related</h4>
-
          <div class="item">
 
     
@@ -288,16 +232,17 @@ auctf{ImTheTrashMan}
     <h4><a href="/post/remote-school-auctf2020/">AUCTF 2020 Writeup - Remote School</a></h4>
     <h5>April 20, 2020</h5>
     
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
+
+
 
 </div>
   <div class="item">
@@ -312,16 +257,19 @@ auctf{ImTheTrashMan}
     <h4><a href="/post/password-cracking-challenges-auctf2020/">AUCTF 2020 Writeup - Password Cracking Challenges</a></h4>
     <h5>April 20, 2020</h5>
     
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/password"><kbd class="item-tag">password</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/cracking"><kbd class="item-tag">cracking</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/password"><kbd class="item-tag">password</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/cracking"><kbd class="item-tag">cracking</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/hashcat"><kbd class="item-tag">hashcat</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
+
+
 
 </div>
   <div class="item">
@@ -336,32 +284,34 @@ auctf{ImTheTrashMan}
     <h4><a href="/post/thanksgiving-dinner-auctf2020/">AUCTF 2020 Writeup - Thanksgiving Dinner</a></h4>
     <h5>April 19, 2020</h5>
     
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
+
+
 
 </div>
  
-
     
 
+    
     
 
 </main>
 
         <footer>
-
-            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
-
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
         </footer>
-       
+
+        
+
+        
     </body>
 
 </html>

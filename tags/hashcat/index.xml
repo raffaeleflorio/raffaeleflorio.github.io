@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hashcat on raffaeleflorio ~&gt;</title>
+    <link>https://raffaeleflorio.github.io/tags/hashcat/</link>
+    <description>Recent content in hashcat on raffaeleflorio ~&gt;</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://raffaeleflorio.github.io/tags/hashcat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AUCTF 2020 Writeup - Password Cracking Challenges</title>
+      <link>https://raffaeleflorio.github.io/post/password-cracking-challenges-auctf2020/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/post/password-cracking-challenges-auctf2020/</guid>
+      <description>Salty This challenge was solved 148 times and it was worth 357 points.
+Description:
+ You might need this: 1337
+Hash: 5eaff45e09bec5222a9cfa9502a4740d
+NOTE: The flag is NOT in the standard auctf{} format
+ The hash seems a salted MD5.
+The correct hash mode is md5($salt.$pass). So with hashcat:
+$ hashcat -a 0 -m 20 salty rockyou.txt ..... 5eaff45e09bec5222a9cfa9502a4740d:1337:treetop ..... Crack Me 2 This challenge was solved 108 times and it was worth 880 points.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,49 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linux on raffaeleflorio ~$</title>
+    <title>linux on raffaeleflorio ~&gt;</title>
     <link>https://raffaeleflorio.github.io/tags/linux/</link>
-    <description>Recent content in linux on raffaeleflorio ~$</description>
+    <description>Recent content in linux on raffaeleflorio ~&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://raffaeleflorio.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Open in Qube</title>
-      <link>https://raffaeleflorio.github.io/project/open-in-qube/</link>
-      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/project/open-in-qube/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Luks 2FA dracut</title>
-      <link>https://raffaeleflorio.github.io/project/luks-2fa/</link>
-      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/project/luks-2fa/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>qubes-dmenu</title>
+      <title>dmenu for Qubes OS</title>
       <link>https://raffaeleflorio.github.io/project/qubes-dmenu/</link>
-      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/project/qubes-dmenu/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>qubes-dwm</title>
+      <title>dwm for Qubes OS</title>
       <link>https://raffaeleflorio.github.io/project/qubes-dwm/</link>
-      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/project/qubes-dwm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Luks 2FA for dracut</title>
+      <link>https://raffaeleflorio.github.io/project/luks-2fa-dracut/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/project/luks-2fa-dracut/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Open in Qube</title>
+      <link>https://raffaeleflorio.github.io/project/qubes-url-redirector/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/project/qubes-url-redirector/</guid>
       <description></description>
     </item>
     

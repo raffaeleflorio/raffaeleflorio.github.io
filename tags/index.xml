@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on raffaeleflorio ~$</title>
+    <title>Tags on raffaeleflorio ~&gt;</title>
     <link>https://raffaeleflorio.github.io/tags/</link>
-    <description>Recent content in Tags on raffaeleflorio ~$</description>
+    <description>Recent content in Tags on raffaeleflorio ~&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 09 May 2020 00:00:00 +0000</lastBuildDate>
@@ -120,6 +120,15 @@
     </item>
     
     <item>
+      <title>hashcat</title>
+      <link>https://raffaeleflorio.github.io/tags/hashcat/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/hashcat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>password</title>
       <link>https://raffaeleflorio.github.io/tags/password/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
@@ -149,7 +158,7 @@
     <item>
       <title>rop</title>
       <link>https://raffaeleflorio.github.io/tags/rop/</link>
-      <pubDate>Sun, 13 Oct 2019 21:15:41 +0200</pubDate>
+      <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/tags/rop/</guid>
       <description></description>
@@ -158,135 +167,36 @@
     <item>
       <title>shellcode</title>
       <link>https://raffaeleflorio.github.io/tags/shellcode/</link>
-      <pubDate>Sun, 13 Oct 2019 21:15:41 +0200</pubDate>
+      <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/tags/shellcode/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>tutorial</title>
+      <link>https://raffaeleflorio.github.io/tags/tutorial/</link>
+      <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>universal rop</title>
+      <link>https://raffaeleflorio.github.io/tags/universal-rop/</link>
+      <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/universal-rop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>urop</title>
       <link>https://raffaeleflorio.github.io/tags/urop/</link>
-      <pubDate>Sun, 13 Oct 2019 21:15:41 +0200</pubDate>
+      <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/tags/urop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Qubes OS</title>
-      <link>https://raffaeleflorio.github.io/tags/qubes-os/</link>
-      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/qubes-os/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>WM</title>
-      <link>https://raffaeleflorio.github.io/tags/wm/</link>
-      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/wm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>WebExtension</title>
-      <link>https://raffaeleflorio.github.io/tags/webextension/</link>
-      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/webextension/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>browser</title>
-      <link>https://raffaeleflorio.github.io/tags/browser/</link>
-      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/browser/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://raffaeleflorio.github.io/tags/linux/</link>
-      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>patch</title>
-      <link>https://raffaeleflorio.github.io/tags/patch/</link>
-      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/patch/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>polyfill</title>
-      <link>https://raffaeleflorio.github.io/tags/polyfill/</link>
-      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/polyfill/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>2fa</title>
-      <link>https://raffaeleflorio.github.io/tags/2fa/</link>
-      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/2fa/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dracut</title>
-      <link>https://raffaeleflorio.github.io/tags/dracut/</link>
-      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/dracut/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>luks</title>
-      <link>https://raffaeleflorio.github.io/tags/luks/</link>
-      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/luks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>qubes</title>
-      <link>https://raffaeleflorio.github.io/tags/qubes/</link>
-      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/qubes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security</title>
-      <link>https://raffaeleflorio.github.io/tags/security/</link>
-      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>systemd</title>
-      <link>https://raffaeleflorio.github.io/tags/systemd/</link>
-      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/systemd/</guid>
       <description></description>
     </item>
     
@@ -296,6 +206,132 @@
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/tags/hackcon2019/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2fa</title>
+      <link>https://raffaeleflorio.github.io/tags/2fa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/2fa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>browser</title>
+      <link>https://raffaeleflorio.github.io/tags/browser/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/browser/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dmenu</title>
+      <link>https://raffaeleflorio.github.io/tags/dmenu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/dmenu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dracut</title>
+      <link>https://raffaeleflorio.github.io/tags/dracut/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/dracut/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dwm</title>
+      <link>https://raffaeleflorio.github.io/tags/dwm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/dwm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>https://raffaeleflorio.github.io/tags/javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://raffaeleflorio.github.io/tags/linux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>luks</title>
+      <link>https://raffaeleflorio.github.io/tags/luks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/luks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>patch</title>
+      <link>https://raffaeleflorio.github.io/tags/patch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/patch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>polyfill</title>
+      <link>https://raffaeleflorio.github.io/tags/polyfill/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/polyfill/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Qubes OS</title>
+      <link>https://raffaeleflorio.github.io/tags/qubes-os/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/qubes-os/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://raffaeleflorio.github.io/tags/security/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>systemd</title>
+      <link>https://raffaeleflorio.github.io/tags/systemd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/systemd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WebExtension</title>
+      <link>https://raffaeleflorio.github.io/tags/webextension/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/webextension/</guid>
       <description></description>
     </item>
     

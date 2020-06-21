@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>auctf2020 on raffaeleflorio ~$</title>
+    <title>auctf2020 on raffaeleflorio ~&gt;</title>
     <link>https://raffaeleflorio.github.io/tags/auctf2020/</link>
-    <description>Recent content in auctf2020 on raffaeleflorio ~$</description>
+    <description>Recent content in auctf2020 on raffaeleflorio ~&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate>
@@ -18,11 +18,11 @@
       
       <guid>https://raffaeleflorio.github.io/post/pick-up-that-can-auctf2020/</guid>
       <description>Intro This is the only challenge I solved in the Signals section.
-It&amp;rsquo;s been solved 59 times and it was worth 965 points.
+It’s been solved 59 times and it was worth 965 points.
 Description:
- Here&amp;rsquo;s a log of some kind of network traffic. The BASH script will help you set up your tools, and probably give you a hint as to what kind of network this is.
+ Here’s a log of some kind of network traffic. The BASH script will help you set up your tools, and probably give you a hint as to what kind of network this is.
  You can download the log here.
-$ sha256sum log 6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba6a44a0af03e95a log  The shell script is really short.</description>
+$ sha256sum pickupthatcan.log 6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba6a44a0af03e95a pickupthatcan.log The shell script is really short.</description>
     </item>
     
     <item>
@@ -38,7 +38,7 @@ Hash: 5eaff45e09bec5222a9cfa9502a4740d
 NOTE: The flag is NOT in the standard auctf{} format
  The hash seems a salted MD5.
 The correct hash mode is md5($salt.$pass). So with hashcat:
-$ hashcat -a 0 -m 20 salty rockyou.txt ..... 5eaff45e09bec5222a9cfa9502a4740d:1337:treetop .....  Crack Me 2 This challenge was solved 108 times and it was worth 880 points.</description>
+$ hashcat -a 0 -m 20 salty rockyou.txt ..... 5eaff45e09bec5222a9cfa9502a4740d:1337:treetop ..... Crack Me 2 This challenge was solved 108 times and it was worth 880 points.</description>
     </item>
     
     <item>
@@ -50,7 +50,7 @@ $ hashcat -a 0 -m 20 salty rockyou.txt ..... 5eaff45e09bec5222a9cfa9502a4740d:13
       <description>Intro This is the fourth and last pwn challenge. It was solved 63 times and it was worth 960 points.
 Description:
  Dear Student,
-Due to COVID-19 concerns our curriculum will be moving completely to online courses&amp;hellip; I know we haven&amp;rsquo;t even started our school year yet so this may come as a shock. But I promise it won&amp;rsquo;t be too bad! You can login at challenges.auctf.com 30013.
+Due to COVID-19 concerns our curriculum will be moving completely to online courses… I know we haven’t even started our school year yet so this may come as a shock. But I promise it won’t be too bad! You can login at challenges.auctf.com 30013.
 Best, Dean of Eon Pillars</description>
     </item>
     
@@ -66,7 +66,7 @@ Description:
 nc challenges.auctf.com 30012
 Note: ASLR is disabled for this challenge
  You could download the binary here.
-$ sha256sum ./house_of_madness 15b1a68ae0e1d4eee4f917cc92412d90fd3a4adbb5a55a83b115e0f438baaf93 house_of_madness  Exploitation When we launch the program shows a banner and it asks us to make a choice.</description>
+$ sha256sum ./house_of_madness 15b1a68ae0e1d4eee4f917cc92412d90fd3a4adbb5a55a83b115e0f438baaf93 house_of_madness Exploitation When we launch the program shows a banner and it asks us to make a choice.</description>
     </item>
     
     <item>
@@ -77,11 +77,11 @@ $ sha256sum ./house_of_madness 15b1a68ae0e1d4eee4f917cc92412d90fd3a4adbb5a55a83b
       <guid>https://raffaeleflorio.github.io/post/thanksgiving-dinner-auctf2020/</guid>
       <description>Intro This is the second pwn challenge of AUCTF 2020. It was solved 238 times and it was worth 408 points.
 Description:
- I just ate a huge dinner. I can barley eat anymore&amp;hellip; so please don&amp;rsquo;t give me too much!
+ I just ate a huge dinner. I can barley eat anymore… so please don’t give me too much!
 nc challenges.auctf.com 30011
 Note: ASLR is disabled for this challenge
- You could download the binary here.
-$ sha256sum ./thanksgiving_dinner 2307af59beead6a2377c3beb2ff26f70d5732ec6b651b5c31e58b8f692bfb70c thanksgiving_dinner  Exploitation The program simply ask for an input.</description>
+ You could download the binary here
+$ sha256sum ./thanksgiving_dinner 2307af59beead6a2377c3beb2ff26f70d5732ec6b651b5c31e58b8f692bfb70c thanksgiving_dinner Exploitation The program simply ask for an input.</description>
     </item>
     
   </channel>

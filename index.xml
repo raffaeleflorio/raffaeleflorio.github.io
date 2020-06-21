@@ -1,33 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>raffaeleflorio ~$</title>
+    <title>raffaeleflorio ~&gt;</title>
     <link>https://raffaeleflorio.github.io/</link>
-    <description>Recent content on raffaeleflorio ~$</description>
+    <description>Recent content on raffaeleflorio ~&gt;</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 09 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://raffaeleflorio.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Open in Qube</title>
-      <link>https://raffaeleflorio.github.io/project/open-in-qube/</link>
-      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/project/open-in-qube/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Luks 2FA dracut</title>
-      <link>https://raffaeleflorio.github.io/project/luks-2fa/</link>
-      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/project/luks-2fa/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Cosa significa contribuire alla cultura hacker?</title>
@@ -49,7 +31,7 @@ Chi è un hacker? Una definizione di hacker che va dritta al punto è:
       
       <guid>https://raffaeleflorio.github.io/post/hacker-culture/</guid>
       <description>Hacker and doubt Over time I matched the hacker culture with the culture of doubt.
-So contributing to the hacker culture would mean contributing to the culture of doubt. But I guess this doesn&amp;rsquo;t mean a lot.
+So contributing to the hacker culture would mean contributing to the culture of doubt. But I guess this doesn’t mean a lot.
 In this regard, I would start from the relationship between hackers and doubt.
 Who is a hacker? A definition of hacker that goes straight to the point is:
  A hacker is nothing but a person who loves to understand how things work.</description>
@@ -62,21 +44,11 @@ Who is a hacker? A definition of hacker that goes straight to the point is:
       
       <guid>https://raffaeleflorio.github.io/post/pick-up-that-can-auctf2020/</guid>
       <description>Intro This is the only challenge I solved in the Signals section.
-It&amp;rsquo;s been solved 59 times and it was worth 965 points.
+It’s been solved 59 times and it was worth 965 points.
 Description:
- Here&amp;rsquo;s a log of some kind of network traffic. The BASH script will help you set up your tools, and probably give you a hint as to what kind of network this is.
+ Here’s a log of some kind of network traffic. The BASH script will help you set up your tools, and probably give you a hint as to what kind of network this is.
  You can download the log here.
-$ sha256sum log 6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba6a44a0af03e95a log  The shell script is really short.</description>
-    </item>
-    
-    <item>
-      <title>Friends</title>
-      <link>https://raffaeleflorio.github.io/friends/</link>
-      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/friends/</guid>
-      <description>Giacomo Iengo In his blog he takes care of CTF writeup and whatever inspire him.
-Here is the link on github.io: giacomoiengo</description>
+$ sha256sum pickupthatcan.log 6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba6a44a0af03e95a pickupthatcan.log The shell script is really short.</description>
     </item>
     
     <item>
@@ -92,7 +64,7 @@ Hash: 5eaff45e09bec5222a9cfa9502a4740d
 NOTE: The flag is NOT in the standard auctf{} format
  The hash seems a salted MD5.
 The correct hash mode is md5($salt.$pass). So with hashcat:
-$ hashcat -a 0 -m 20 salty rockyou.txt ..... 5eaff45e09bec5222a9cfa9502a4740d:1337:treetop .....  Crack Me 2 This challenge was solved 108 times and it was worth 880 points.</description>
+$ hashcat -a 0 -m 20 salty rockyou.txt ..... 5eaff45e09bec5222a9cfa9502a4740d:1337:treetop ..... Crack Me 2 This challenge was solved 108 times and it was worth 880 points.</description>
     </item>
     
     <item>
@@ -104,7 +76,7 @@ $ hashcat -a 0 -m 20 salty rockyou.txt ..... 5eaff45e09bec5222a9cfa9502a4740d:13
       <description>Intro This is the fourth and last pwn challenge. It was solved 63 times and it was worth 960 points.
 Description:
  Dear Student,
-Due to COVID-19 concerns our curriculum will be moving completely to online courses&amp;hellip; I know we haven&amp;rsquo;t even started our school year yet so this may come as a shock. But I promise it won&amp;rsquo;t be too bad! You can login at challenges.auctf.com 30013.
+Due to COVID-19 concerns our curriculum will be moving completely to online courses… I know we haven’t even started our school year yet so this may come as a shock. But I promise it won’t be too bad! You can login at challenges.auctf.com 30013.
 Best, Dean of Eon Pillars</description>
     </item>
     
@@ -120,7 +92,7 @@ Description:
 nc challenges.auctf.com 30012
 Note: ASLR is disabled for this challenge
  You could download the binary here.
-$ sha256sum ./house_of_madness 15b1a68ae0e1d4eee4f917cc92412d90fd3a4adbb5a55a83b115e0f438baaf93 house_of_madness  Exploitation When we launch the program shows a banner and it asks us to make a choice.</description>
+$ sha256sum ./house_of_madness 15b1a68ae0e1d4eee4f917cc92412d90fd3a4adbb5a55a83b115e0f438baaf93 house_of_madness Exploitation When we launch the program shows a banner and it asks us to make a choice.</description>
     </item>
     
     <item>
@@ -131,72 +103,21 @@ $ sha256sum ./house_of_madness 15b1a68ae0e1d4eee4f917cc92412d90fd3a4adbb5a55a83b
       <guid>https://raffaeleflorio.github.io/post/thanksgiving-dinner-auctf2020/</guid>
       <description>Intro This is the second pwn challenge of AUCTF 2020. It was solved 238 times and it was worth 408 points.
 Description:
- I just ate a huge dinner. I can barley eat anymore&amp;hellip; so please don&amp;rsquo;t give me too much!
+ I just ate a huge dinner. I can barley eat anymore… so please don’t give me too much!
 nc challenges.auctf.com 30011
 Note: ASLR is disabled for this challenge
- You could download the binary here.
-$ sha256sum ./thanksgiving_dinner 2307af59beead6a2377c3beb2ff26f70d5732ec6b651b5c31e58b8f692bfb70c thanksgiving_dinner  Exploitation The program simply ask for an input.</description>
+ You could download the binary here
+$ sha256sum ./thanksgiving_dinner 2307af59beead6a2377c3beb2ff26f70d5732ec6b651b5c31e58b8f692bfb70c thanksgiving_dinner Exploitation The program simply ask for an input.</description>
     </item>
     
     <item>
       <title>Shellcode Injection - Old but gold</title>
       <link>https://raffaeleflorio.github.io/post/mprotect-urop/</link>
-      <pubDate>Sun, 13 Oct 2019 21:15:41 +0200</pubDate>
+      <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/post/mprotect-urop/</guid>
       <description>Intro Some time ago, a friend of mine (dag-tech), asked me about a technique to run a shellcode with NX enabled. So he gave me a simple program:
-//src.c #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; int main(int argc, char **argv) { char buf[16]; puts(&amp;quot;Can you pwn me????&amp;quot;); read(0, buf, 512); return 0; }  $ gcc -z noexecstack -fno-stack-protector -o vuln src.c $ checksec vuln Arch: amd64-64-little RELRO: Partial RELRO Stack: No canary found NX: NX enabled PIE: No PIE (0x400000)  The approach The issue with NX is that we cannot execute code in writable memory segment.</description>
-    </item>
-    
-    <item>
-      <title>My OpenPGP Key</title>
-      <link>https://raffaeleflorio.github.io/key/</link>
-      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/key/</guid>
-      <description>My OpenPGP key is downloadable from this domain or from a key server like zimmermann.mayfirst.org.
-My primary key fingerprint is: 6F1B 35D5 4A43 864C 62D3 ACC3 0DEF F00A 47CF 317F</description>
-    </item>
-    
-    <item>
-      <title>WebExtension Browser Proxy</title>
-      <link>https://raffaeleflorio.github.io/project/webextension-browser-proxy/</link>
-      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/project/webextension-browser-proxy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>qubes-dmenu</title>
-      <link>https://raffaeleflorio.github.io/project/qubes-dmenu/</link>
-      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/project/qubes-dmenu/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>qubes-dwm</title>
-      <link>https://raffaeleflorio.github.io/project/qubes-dwm/</link>
-      <pubDate>Fri, 06 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/project/qubes-dwm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>HackCon&#39;19 writeup - Not So Easy B0f</title>
-      <link>https://raffaeleflorio.github.io/post/notsoeasyb0f-hackcon19/</link>
-      <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/post/notsoeasyb0f-hackcon19/</guid>
-      <description>Intro This is the third pwn challenge. It was solved 29 times and it&amp;rsquo;s worth 469 points.
-Description:
- I have stack canaries enabled, Can you still B0f me ?
- In addition to the binary there is also a specific libc.
-You can download the binary here and the libc here
-$ sha256sum notsoeasyb0f notsoeasyb0f-libc.so 9cdc861043359904c6807d31990f7369c1fec2d25e545e263bb4ae2e5786883e notsoeasyb0f 74ca69ada4429ae5fce87f7e3addb56f1b53964599e8526244fecd164b3c4b44 notsoeasyb0f-libc.so  Exploitation This program asks for a name, echoes it back, then it asks a sentence.</description>
+//src.c #include &amp;lt;stdio.h&amp;gt;#include &amp;lt;unistd.h&amp;gt; int main(int argc, char **argv) { char buf[16]; puts(&amp;#34;Can you pwn me????&amp;#34;); read(0, buf, 512); return 0; } $ gcc -z noexecstack -fno-stack-protector -o vuln src.c $ checksec vuln Arch: amd64-64-little RELRO: Partial RELRO Stack: No canary found NX: NX enabled PIE: No PIE (0x400000) The approach The issue with NX is that we cannot execute code in writable memory segment.</description>
     </item>
     
     <item>
@@ -205,12 +126,12 @@ $ sha256sum notsoeasyb0f notsoeasyb0f-libc.so 9cdc861043359904c6807d31990f7369c1
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/post/babyb0f-hackcon19/</guid>
-      <description>Intro This is the first and easiest pwn challenge. It was solved 117 times and it&amp;rsquo;s worth 100 points.
+      <description>Intro This is the first and easiest pwn challenge. It was solved 117 times and it’s worth 100 points.
 Description:
- It&amp;rsquo;s a b0f , Can&amp;rsquo;t be easier than that.
+ It’s a b0f , Can’t be easier than that.
  You could download the binary here.
-$ sha256sum ./babyb0f 68344bb2c6aa56fdcc75379b3ced882abdf4e9bffa0bba63006dfb6c11ed7c47 babyb0f  Exploitation The program simply asks for an input that overflow a buffer:
-$ ./baby_b0f AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA Try Again Segmentation fault (core dumped) $ checksec ./baby_b0f Arch: amd64-64-little RELRO: Partial RELRO Stack: No canary found NX: NX enabled PIE: No PIE (0x400000)  As usual I opened the binary with r2.</description>
+$ sha256sum ./babyb0f 68344bb2c6aa56fdcc75379b3ced882abdf4e9bffa0bba63006dfb6c11ed7c47 babyb0f Exploitation The program simply asks for an input that overflow a buffer:
+$ ./baby_b0f AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA Try Again Segmentation fault (core dumped) $ checksec ./baby_b0f Arch: amd64-64-little RELRO: Partial RELRO Stack: No canary found NX: NX enabled PIE: No PIE (0x400000) As usual I opened the binary with r2.</description>
     </item>
     
     <item>
@@ -219,12 +140,81 @@ $ ./baby_b0f AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/post/babypwn-hackcon19/</guid>
-      <description>Intro This is the second pwn challenge. It was solved 36 times and it&amp;rsquo;s worth 451 points.
+      <description>Intro This is the second pwn challenge. It was solved 36 times and it’s worth 451 points.
 Description:
- You don&amp;rsquo;t need eip control for every pwn.
+ You don’t need eip control for every pwn.
  You can download the binary here
-$ sha256sum ./babypwn 57b32556465e890bdefdcccd6e515f6a2888300f48e9b7a7df0bb66694bda45b babypwn  Exploitation The program asks five input, echoes them back and prints a message of failure. However there is a segfault caused by a buffer overflow.
+$ sha256sum ./babypwn 57b32556465e890bdefdcccd6e515f6a2888300f48e9b7a7df0bb66694bda45b babypwn Exploitation The program asks five input, echoes them back and prints a message of failure. However there is a segfault caused by a buffer overflow.
 $ ./babypwn 1 2 3 4 5 1 2 3 4 5 Naaa , Try HArder $ .</description>
+    </item>
+    
+    <item>
+      <title>HackCon&#39;19 writeup - Not So Easy B0f</title>
+      <link>https://raffaeleflorio.github.io/post/notsoeasyb0f-hackcon19/</link>
+      <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/post/notsoeasyb0f-hackcon19/</guid>
+      <description>Intro This is the third pwn challenge. It was solved 29 times and it’s worth 469 points.
+Description:
+ I have stack canaries enabled, Can you still B0f me ?
+ In addition to the binary there is also a specific libc.
+You can download the binary here and the libc here
+$ sha256sum notsoeasyb0f notsoeasyb0f-libc.so 9cdc861043359904c6807d31990f7369c1fec2d25e545e263bb4ae2e5786883e notsoeasyb0f 74ca69ada4429ae5fce87f7e3addb56f1b53964599e8526244fecd164b3c4b44 notsoeasyb0f-libc.so Exploitation This program asks for a name, echoes it back, then it asks a sentence.</description>
+    </item>
+    
+    <item>
+      <title>dmenu for Qubes OS</title>
+      <link>https://raffaeleflorio.github.io/project/qubes-dmenu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/project/qubes-dmenu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dwm for Qubes OS</title>
+      <link>https://raffaeleflorio.github.io/project/qubes-dwm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/project/qubes-dwm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Friends</title>
+      <link>https://raffaeleflorio.github.io/friends/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/friends/</guid>
+      <description>Giacomo Iengo In his blog he takes care of CTF writeup and whatever inspires him.
+Here is the link on github.io: giacomoiengo</description>
+    </item>
+    
+    <item>
+      <title>Luks 2FA for dracut</title>
+      <link>https://raffaeleflorio.github.io/project/luks-2fa-dracut/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/project/luks-2fa-dracut/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Open in Qube</title>
+      <link>https://raffaeleflorio.github.io/project/qubes-url-redirector/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/project/qubes-url-redirector/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WebExtension Browser Proxy</title>
+      <link>https://raffaeleflorio.github.io/project/webextension-browser-proxy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/project/webextension-browser-proxy/</guid>
+      <description></description>
     </item>
     
   </channel>
