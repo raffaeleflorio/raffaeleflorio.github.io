@@ -6,7 +6,7 @@
     <description>Recent content in java on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://raffaeleflorio.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Road to Simplicity: Hexagonal Architecture [Part One]</title>
       <link>https://raffaeleflorio.github.io/post/rts1-hexagonal-architecture/</link>
-      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/post/rts1-hexagonal-architecture/</guid>
       <description>Intro Software writing taught me that: a well written software is a simple software.
