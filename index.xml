@@ -6,10 +6,25 @@
     <description>Recent content on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://raffaeleflorio.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Road to Simplicity: Hexagonal Architecture [Part One]</title>
+      <link>https://raffaeleflorio.github.io/post/rts1-hexagonal-architecture/</link>
+      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/post/rts1-hexagonal-architecture/</guid>
+      <description>Intro Software writing taught me that: a well written software is a simple software.
+So I started to think how to achieve simplicity in a methodological way. This is the first post of a series about this methodology.
+Naturally it&amp;rsquo;s a snapshot because it&amp;rsquo;s in constant evolution.
+Simplicity A definition of simplicity is:
+ The quality or condition of being easy to understand or do.
+Oxford dictionary (https://www.lexico.com/en/definition/simplicity)
+ So, a simple software is a software that is easy to understand.</description>
+    </item>
     
     <item>
       <title>Cosa significa contribuire alla cultura hacker?</title>
