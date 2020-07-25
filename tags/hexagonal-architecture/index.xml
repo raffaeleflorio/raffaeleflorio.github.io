@@ -13,10 +13,10 @@
     
     <item>
       <title>Road to Simplicity: Hexagonal Architecture [Part One]</title>
-      <link>https://raffaeleflorio.github.io/post/rts1-hexagonal-architecture/</link>
+      <link>https://raffaeleflorio.github.io/post/road-to-simplicity-hexagonal-architecture-part-one/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/rts1-hexagonal-architecture/</guid>
+      <guid>https://raffaeleflorio.github.io/post/road-to-simplicity-hexagonal-architecture-part-one/</guid>
       <description>Intro Software writing taught me that: a well written software is a simple software.
 So I started to think how to achieve simplicity in a methodological way. This is the first post of a series about this methodology.
 Naturally it&amp;rsquo;s a snapshot because it&amp;rsquo;s in constant evolution.

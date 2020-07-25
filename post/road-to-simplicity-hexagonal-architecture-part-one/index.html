@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Road to Simplicity: Hexagonal Architecture [Part One]</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Roboto Mono', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: #00a6d8;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://raffaeleflorio.github.io/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%20Mono">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.72.0" />
+        
+
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">Road to Simplicity: Hexagonal Architecture [Part One]</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/post/">Posts</a></li>
+                            
+                                <li><a href="/project/">Projects</a></li>
+                            
+                                <li><a href="/tags/">Tags</a></li>
+                            
+                                <li><a href="/friends/">Friends</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fa fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaele-florio-79967919b/"><i class="fa fa-linkedin"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://instagram.com/r7florio/"><i class="fa fa-instagram"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fa fa-key"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>Road to Simplicity: Hexagonal Architecture [Part One]</h2>
+        <h5>July 23, 2020</h5>
+        
+<a href="https://raffaeleflorio.github.io/tags/software-engineering"><kbd class="item-tag">software engineering</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/hexagonal-architecture"><kbd class="item-tag">hexagonal architecture</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/road-to-simplicity"><kbd class="item-tag">road to simplicity</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/reactive"><kbd class="item-tag">reactive</kbd></a>
+
+
+    </div>
+
+    <div align="left" class="content"><h1 id="intro">Intro</h1>
+<p>Software writing taught me that: <strong>a well written software is a simple software</strong>.</p>
+<p>So I started to think how to achieve simplicity in a methodological way. This is the first post of a series about this methodology.</p>
+<p>Naturally it&rsquo;s a snapshot because it&rsquo;s in constant evolution.</p>
+<h1 id="simplicity">Simplicity</h1>
+<p>A definition of simplicity is:</p>
+<blockquote>
+<p>The quality or condition of being easy to understand or do.</p>
+<p>Oxford dictionary (<a href="https://www.lexico.com/en/definition/simplicity">https://www.lexico.com/en/definition/simplicity</a>)</p>
+</blockquote>
+<p>So, a simple software is a software that is easy to understand.</p>
+<p>After all software are written by humans for humans. This implies that they should be understandable. Simplicity guarantees that its understandability isn&rsquo;t an intellectual pain.</p>
+<p>A software solves a problem. So to build the former you should understand the latter.</p>
+<p>But to build a <em>simple</em> software you should understand - <em>clearly</em> - a problem.</p>
+<h1 id="first-step-architecture">First step: architecture</h1>
+<p>On the <a href="https://martinfowler.com/architecture/">Martin Fowler blog</a> there is a deep definition of architecture and its explanation:</p>
+<blockquote>
+<p>&ldquo;Architecture is about the important stuff. Whatever that is.&rdquo;</p>
+<p>On first blush, that sounds trite, but I find it carries a lot of richness.
+It means that the heart of thinking architecturally about software is to decide what is important,
+(i.e. what is architectural), and then expend energy on keeping those architectural elements in good condition.</p>
+</blockquote>
+<p>Ultimately the important stuffs are about the solved problem. In other words about the software domain.</p>
+<p>So we need an architecture that allows us to express - <em>clearly</em> - the software domain.</p>
+<p>I think that the <code>hexagonal architecture</code> (a.k.a. <code>ports and adapter architecture</code>) is an ideal candidate.</p>
+<p>It&rsquo;s based on layered architecture, so the outer layer depends on the inner layer. Each layer is represented as a hexagon.</p>
+<p>Here a UML-like diagram to express the below concepts:</p>
+<p><img src="/svg/hexagonal_architecture.svg" alt="hexagonal architecture"></p>
+<p>In this architecture the innermost hexagon is dedicated to the software domain. Here we define domain objects and we express clearly:</p>
+<ul>
+<li>what the domain does as <code>input port</code> or <code>use case</code> (I prefer the latter because expressiveness).</li>
+<li>what the domain need, to fulfill use cases, as <code>output port</code>.</li>
+</ul>
+<p>Conceptually on the sides of the domain layer there are use case and output port interfaces.</p>
+<p>The communication between the outer layers and the domain layer happens through these interfaces.</p>
+<p>The outer layer provides output port implementations and they use the use case interfaces.
+The implementations and use case clients are are called adapter. Because they adapt our interface to a specific technology.</p>
+<p>This relation is an instance of the <a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">dependency inversion principle</a>.
+Simply put: high level concept, the domain, doesn&rsquo;t rely on a specific technology. Instead low level concept depends upon high level concept.
+In other words our code is <em>technology agnostic</em>.</p>
+<p>As you can see the concepts expressed in the outer layers are just details.
+The real important stuff, the domain, is isolated and expressed clearly.</p>
+<h1 id="code">Code</h1>
+<p>A little project accompanies this series to show this methodology.
+It&rsquo;s written in Java with the reactive paradigm from the beginning. For this reason the <a href="http://reactivex.io/">ReactiveX</a> library is also used in the domain layer.</p>
+<p>The software analyzes the capabilities (e.g. the java version, the network speed and so on) of the machine and it exposes them through REST API.</p>
+<p>It&rsquo;s inspired by a real world software that I wrote because of work.</p>
+<p>The first step is to define the innermost hexagon.</p>
+<p>We can already identify:</p>
+<ul>
+<li>the main use case, expressed as <code>GetCapabilitiesUseCase</code></li>
+<li>the object that describe the machine capabilities, expressed as <code>Capabilities</code></li>
+</ul>
+<p>The use case is an interface:</p>
+<p><em>(if you never used ReactiveX: a Single means that the method will return asynchronously an object or an error)</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetCapabilitiesUseCase</span> <span style="color:#f92672">{</span>
+  Single<span style="color:#f92672">&lt;</span>Capabilities<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getCapabilities</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>The <code>Capabilities</code> objects are immutable (<em>precisely they&rsquo;re value objects</em>). And there is an associated builder (<em>I&rsquo;m using lombok annotations to generate the code</em>):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RequiredArgsConstructor</span>
+<span style="color:#a6e22e">@Value</span>
+<span style="color:#a6e22e">@Builder</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Capabilities</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> String javaVersion<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Long networkSpeed<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Initially we just need to analyze two capabilities:</p>
+<ul>
+<li>java version, expressed as <code>GetJavaVersionPortOut</code></li>
+<li>network speed, expressed as <code>GetNetworkSpeedPortOut</code></li>
+</ul>
+<p>Here are the port out interfaces:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetJavaVersionPortOut</span> <span style="color:#f92672">{</span>
+  Single<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getJavaVersion</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetNetworkSpeedPortOut</span> <span style="color:#f92672">{</span>
+  Single<span style="color:#f92672">&lt;</span>Long<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getNetworkSpeed</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Finally we can define the implementation of the use case:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RequiredArgsConstructor</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Analyzer</span> <span style="color:#66d9ef">implements</span> GetCapabilitiesUseCase <span style="color:#f92672">{</span>
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> Single<span style="color:#f92672">&lt;</span>Capabilities<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getCapabilities</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> Single<span style="color:#f92672">.</span><span style="color:#a6e22e">just</span><span style="color:#f92672">(</span>Capabilities<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">())</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">flatMap</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">::</span>getJavaVersion<span style="color:#f92672">)</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">flatMap</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">::</span>getNetworkSpeed<span style="color:#f92672">)</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>CapabilitiesBuilder<span style="color:#f92672">::</span>build<span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> Single<span style="color:#f92672">&lt;</span>CapabilitiesBuilder<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getJavaVersion</span><span style="color:#f92672">(</span>CapabilitiesBuilder builder<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> getJavaVersionPortOut
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">getJavaVersion</span><span style="color:#f92672">()</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>builder<span style="color:#f92672">::</span>javaVersion<span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> Single<span style="color:#f92672">&lt;</span>CapabilitiesBuilder<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getNetworkSpeed</span><span style="color:#f92672">(</span>CapabilitiesBuilder builder<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> getNetworkSpeedPortOut
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">getNetworkSpeed</span><span style="color:#f92672">()</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>builder<span style="color:#f92672">::</span>networkSpeed<span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> GetJavaVersionPortOut getJavaVersionPortOut<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> GetNetworkSpeedPortOut getNetworkSpeedPortOut<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>As said the outer layers communicate with inner layers through use case interfaces. For this reason I made the implementation as package private.
+In this way we <em>program an interface and not an implementation</em>.</p>
+<p>Nonetheless we need some way to return an instance of <code>Analyzer</code> to the outer layers. They will be in another package, so they cannot instantiate an <code>Analyzer</code> object.</p>
+<p>For this reason I usually define <code>UseCaseFactory</code> accessible by outer layers:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UseCaseFactory</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> GetCapabilitiesUseCase <span style="color:#a6e22e">getCapabilitiesUseCase</span><span style="color:#f92672">(</span>
+    GetJavaVersionPortOut getJavaVersionPortOut<span style="color:#f92672">,</span>
+    GetNetworkSpeedPortOut getNetworkSpeedPortOut
+  <span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Analyzer<span style="color:#f92672">(</span>getJavaVersionPortOut<span style="color:#f92672">,</span> getNetworkSpeedPortOut<span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Furthermore the factory improves expressiveness because it states clearly the use case dependencies.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>For this post that&rsquo;s all.</p>
+<p>As you can see from the code, the hexagonal architecture allows us to describe the important stuff - the domain - without any technological dependency.
+Obviously the programming language and the library for the chosen paradigm are excluded.</p>
+<p>The project is on <a href="https://github.com/raffaeleflorio/client-analyzer">github</a> and I&rsquo;ll update it following the posts.</p>
+<p><em><strong>Stay tuned! :D</strong></em></p>
+<h1 id="useful-resources">Useful resources</h1>
+<ul>
+<li><a href="https://martinfowler.com/architecture/">Martin Fowler about architecture</a></li>
+<li><a href="https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html">Uncle Bob about clean architecture</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency inversion principle</a></li>
+<li><a href="http://reactivex.io/">ReactiveX</a></li>
+<li><a href="https://www.reactivemanifesto.org/">The Reactive Manifesto</a></li>
+</ul>
+</div>
+
+    
+    
+    
+
+    
+    
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+
