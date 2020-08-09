@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Road to Simplicity: Tests Are Not Tests [Part Two]</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Roboto Mono', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: #00a6d8;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://raffaeleflorio.github.io/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%20Mono">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.72.0" />
+        
+
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">Road to Simplicity: Tests Are Not Tests [Part Two]</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/post/">Posts</a></li>
+                            
+                                <li><a href="/project/">Projects</a></li>
+                            
+                                <li><a href="/tags/">Tags</a></li>
+                            
+                                <li><a href="/friends/">Friends</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fa fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaele-florio-79967919b/"><i class="fa fa-linkedin"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://instagram.com/r7florio/"><i class="fa fa-instagram"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fa fa-key"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>Road to Simplicity: Tests Are Not Tests [Part Two]</h2>
+        <h5>August 9, 2020</h5>
+        
+<a href="https://raffaeleflorio.github.io/tags/software-engineering"><kbd class="item-tag">software engineering</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/test-driven-development"><kbd class="item-tag">test driven development</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/road-to-simplicity"><kbd class="item-tag">road to simplicity</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/reactive"><kbd class="item-tag">reactive</kbd></a>
+
+
+    </div>
+
+    <div align="left" class="content"><h1 id="intro">Intro</h1>
+<p>This is the second post of <code>Road to Simplicity</code>. And it&rsquo;s about the role of tests in software writing.</p>
+<p>(<em>The first <a href="/post/road-to-simplicity-hexagonal-architecture-part-one/">part</a> is about the goal of the series and <code>hexagonal architecture</code></em>)</p>
+<h1 id="test-and-correctness">Test and correctness</h1>
+<p>I think that it&rsquo;s inappropriate to associate <em>test</em> with <em>verification of correctness</em>.
+After all with a test we can verify that a software module (e.g. a function) returns an expected output with a given input.
+But we cannot prove correctness in this way. We can prove correctness mathematically. And this is what we do to prove algorithms correctness.</p>
+<p>We can see tests as experiments on the software system. And the below quote expresses concisely the above concept:</p>
+<blockquote>
+<p>No amount of experimentation can ever prove me right;
+a single experiment can prove me wrong</p>
+<p>Albert Einstein</p>
+</blockquote>
+<p>So, at most, a test could prove wrongness&hellip;</p>
+<h1 id="fear-of-change">Fear of change</h1>
+<p>Software aren&rsquo;t static system. They are in evolution. We can add or delete a feature. We can change its structure. And it changes according the solved problem.
+There are a <strong>lot</strong> of reason to change.</p>
+<p>However, with an evolution, we can break something that <em>worked</em> in the past. This event is called <em>regression</em>.
+Eventually we can find regressions manually. But this is a bad road because we could change:</p>
+<ul>
+<li>a software with a lot of use case. So this method is not efficient;</li>
+<li>a software that we didn&rsquo;t write. So we didn&rsquo;t know every aspect;</li>
+<li>a software that we wrote a long time ago. So we could forget some aspect.</li>
+</ul>
+<p>For these reasons we need a tool that guarantees to us non-regression. This tool is test.</p>
+<p>Tests free us from the fear of change. Indeed if a test fail we can investigate and fix the issues. Otherwise we can rest assured: <em>we didn&rsquo;t break something that worked in the past</em>.
+This implies code malleability.</p>
+<p>This is the most evident advantage. But there is another subtler.</p>
+<h1 id="yourself-as-client-of-yourself">Yourself as client of yourself</h1>
+<p>The goal of <code>Road to Simplicity</code> is to express a methodology to reach simplicity. And there is a connection with tests.</p>
+<p>In the last post we already defined a use case. In reality I write use case and its test simultaneously.</p>
+<p>These tests are crucial because use cases represents what our software does.
+And they guarantees simplicity because when we write tests we&rsquo;re the client of ourselves. And, as programmers, we love simple and clean interface.
+Furthermore, because test is more code, we don&rsquo;t want to write unnecessary lines. In this way we are forced to write the most minimal and simplest interface.</p>
+<h1 id="code">Code</h1>
+<p>In this series I use a demo project to express concretely these ideas. It&rsquo;s written in Java 11 with reactive programming thanks to <a href="http://reactivex.io/">ReactiveX</a>.
+The project is hosted on <a href="https://github.com/raffaeleflorio/client-analyzer">github</a>.</p>
+<p>The software analyzes the capabilities (e.g. java version) of the machine. Then it will expose them through REST API.</p>
+<p>In the previous part we expressed our use case (<code>GetCapabilitiesUseCase</code>) as:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetCapabilitiesUseCase</span> <span style="color:#f92672">{</span>
+  Single<span style="color:#f92672">&lt;</span>Capabilities<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getCapabilities</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>So here the first test definition. I&rsquo;m using <a href="https://junit.org/junit5/">JUnit 5</a> with <a href="http://reactivex.io/">ReactiveX</a> test facility.
+It verifies that the returned capabilities object is correct. We are passing to the use case factory two mocked port out implementations:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GetCapabilitiesUseCaseTest</span> <span style="color:#f92672">{</span>
+  <span style="color:#a6e22e">@Test</span>
+  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ok</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Throwable <span style="color:#f92672">{</span>
+    String javaVersion <span style="color:#f92672">=</span> randomString<span style="color:#f92672">();</span>
+    Long networkSpeed <span style="color:#f92672">=</span> randomLong<span style="color:#f92672">();</span>
+    GetCapabilitiesUseCase useCase <span style="color:#f92672">=</span> UseCaseFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getCapabilitiesUseCase</span><span style="color:#f92672">(</span>
+      <span style="color:#f92672">()</span> <span style="color:#f92672">-&gt;</span> Single<span style="color:#f92672">.</span><span style="color:#a6e22e">just</span><span style="color:#f92672">(</span>javaVersion<span style="color:#f92672">),</span>
+      <span style="color:#f92672">()</span> <span style="color:#f92672">-&gt;</span> Single<span style="color:#f92672">.</span><span style="color:#a6e22e">just</span><span style="color:#f92672">(</span>networkSpeed<span style="color:#f92672">)</span>
+    <span style="color:#f92672">);</span>
+
+    TestObserver<span style="color:#f92672">&lt;</span>Capabilities<span style="color:#f92672">&gt;</span> useCaseObserver <span style="color:#f92672">=</span> useCase
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">getCapabilities</span><span style="color:#f92672">()</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">test</span><span style="color:#f92672">();</span>
+    assertTrue<span style="color:#f92672">(</span>useCaseObserver<span style="color:#f92672">.</span><span style="color:#a6e22e">await</span><span style="color:#f92672">(</span>100<span style="color:#f92672">,</span> TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">MILLISECONDS</span><span style="color:#f92672">));</span>
+
+    useCaseObserver
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">assertResult</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Capabilities<span style="color:#f92672">(</span>javaVersion<span style="color:#f92672">,</span> networkSpeed<span style="color:#f92672">));</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> String <span style="color:#a6e22e">randomString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> UUID<span style="color:#f92672">.</span><span style="color:#a6e22e">randomUUID</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> Long <span style="color:#a6e22e">randomLong</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> ThreadLocalRandom<span style="color:#f92672">.</span><span style="color:#a6e22e">current</span><span style="color:#f92672">().</span><span style="color:#a6e22e">nextLong</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>During the writing I discovered that there is a room of improvement. Currently our use case could return negative network speed.</p>
+<p>This is possible because the <code>Capabilities</code> class allows these values. So I improved its constructor with an exception:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Value</span>
+<span style="color:#a6e22e">@Builder</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Capabilities</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Capabilities</span><span style="color:#f92672">(</span>String javaVersion<span style="color:#f92672">,</span> Long networkSpeed<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">javaVersion</span> <span style="color:#f92672">=</span> javaVersion<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">networkSpeed</span> <span style="color:#f92672">=</span> networkSpeed<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">networkSpeed</span> <span style="color:#f92672">&lt;</span> 0L<span style="color:#f92672">)</span> <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Network speed should be greater than 0!&#34;</span><span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> String javaVersion<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Long networkSpeed<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Then I added the test class about <code>Capabilities</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CapabilitiesTest</span> <span style="color:#f92672">{</span>
+  <span style="color:#a6e22e">@Test</span>
+  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">with_negative_network_speed</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Throwable <span style="color:#f92672">{</span>
+    String javaVersion <span style="color:#f92672">=</span> randomString<span style="color:#f92672">();</span>
+    Long networkSpeed <span style="color:#f92672">=</span> randomNegativeLong<span style="color:#f92672">();</span>
+
+    <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">new</span> Capabilities<span style="color:#f92672">(</span>javaVersion<span style="color:#f92672">,</span> networkSpeed<span style="color:#f92672">);</span>
+      <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalStateException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Invalid capabilities built!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IllegalArgumentException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> String <span style="color:#a6e22e">randomString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> UUID<span style="color:#f92672">.</span><span style="color:#a6e22e">randomUUID</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> Long <span style="color:#a6e22e">randomNegativeLong</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> ThreadLocalRandom<span style="color:#f92672">.</span><span style="color:#a6e22e">current</span><span style="color:#f92672">().</span><span style="color:#a6e22e">nextLong</span><span style="color:#f92672">(</span>1L<span style="color:#f92672">,</span> Long<span style="color:#f92672">.</span><span style="color:#a6e22e">MAX_VALUE</span><span style="color:#f92672">)</span> <span style="color:#f92672">*</span> <span style="color:#f92672">-</span>1L<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>And I updated the use case test:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GetCapabilitiesUseCaseTest</span> <span style="color:#f92672">{</span>
+  <span style="color:#a6e22e">@Test</span>
+  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ok</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Throwable <span style="color:#f92672">{</span>
+    String javaVersion <span style="color:#f92672">=</span> randomString<span style="color:#f92672">();</span>
+    Long networkSpeed <span style="color:#f92672">=</span> randomNonNegativeLong<span style="color:#f92672">();</span>
+    GetCapabilitiesUseCase useCase <span style="color:#f92672">=</span> UseCaseFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getCapabilitiesUseCase</span><span style="color:#f92672">(</span>
+      <span style="color:#f92672">()</span> <span style="color:#f92672">-&gt;</span> Single<span style="color:#f92672">.</span><span style="color:#a6e22e">just</span><span style="color:#f92672">(</span>javaVersion<span style="color:#f92672">),</span>
+      <span style="color:#f92672">()</span> <span style="color:#f92672">-&gt;</span> Single<span style="color:#f92672">.</span><span style="color:#a6e22e">just</span><span style="color:#f92672">(</span>networkSpeed<span style="color:#f92672">)</span>
+    <span style="color:#f92672">);</span>
+
+    TestObserver<span style="color:#f92672">&lt;</span>Capabilities<span style="color:#f92672">&gt;</span> useCaseObserver <span style="color:#f92672">=</span> useCase
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">getCapabilities</span><span style="color:#f92672">()</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">test</span><span style="color:#f92672">();</span>
+    assertTrue<span style="color:#f92672">(</span>useCaseObserver<span style="color:#f92672">.</span><span style="color:#a6e22e">await</span><span style="color:#f92672">(</span>100<span style="color:#f92672">,</span> TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">MILLISECONDS</span><span style="color:#f92672">));</span>
+
+    useCaseObserver
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">assertResult</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Capabilities<span style="color:#f92672">(</span>javaVersion<span style="color:#f92672">,</span> networkSpeed<span style="color:#f92672">));</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> String <span style="color:#a6e22e">randomString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> UUID<span style="color:#f92672">.</span><span style="color:#a6e22e">randomUUID</span><span style="color:#f92672">().</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> Long <span style="color:#a6e22e">randomNonNegativeLong</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> ThreadLocalRandom<span style="color:#f92672">.</span><span style="color:#a6e22e">current</span><span style="color:#f92672">().</span><span style="color:#a6e22e">nextLong</span><span style="color:#f92672">(</span>0L<span style="color:#f92672">,</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">MAX_VALUE</span><span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>I run the tests and they are successful.</p>
+<p>At this point we can extend our domain without fear of regressions. We have tests that protect us. Furthermore we have a neat use case interface.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>For this post that&rsquo;s all.
+I like to stress that tests are not for the present. We are not verifying with them software correctness.
+Tests are for the future because they guarantee malleability, extensibility and maintainability. At the end they guarantee code simplicity.</p>
+<p><em><strong>Stay tuned! :D</strong></em></p>
+<h1 id="resources">Resources</h1>
+<ul>
+<li><a href="https://junit.org/junit5/">JUnit 5</a></li>
+<li><a href="http://reactivex.io/">ReactiveX</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Monkey_testing">Monkey Testing</a></li>
+</ul>
+</div>
+
+    
+    
+    
+        <h4 class="page-header">Related</h4>
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/road-to-simplicity-hexagonal-architecture-part-one/">Road to Simplicity: Hexagonal Architecture [Part One]</a></h4>
+    <h5>July 23, 2020</h5>
+    
+<a href="https://raffaeleflorio.github.io/tags/software-engineering"><kbd class="item-tag">software engineering</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/hexagonal-architecture"><kbd class="item-tag">hexagonal architecture</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/road-to-simplicity"><kbd class="item-tag">road to simplicity</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/reactive"><kbd class="item-tag">reactive</kbd></a>
+
+
+
+</div>
+ 
+    
+
+    
+    
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+

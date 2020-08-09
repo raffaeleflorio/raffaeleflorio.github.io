@@ -6,24 +6,15 @@
     <description>Recent content in Tags on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://raffaeleflorio.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>hexagonal architecture</title>
-      <link>https://raffaeleflorio.github.io/tags/hexagonal-architecture/</link>
-      <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/hexagonal-architecture/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>java</title>
       <link>https://raffaeleflorio.github.io/tags/java/</link>
-      <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/tags/java/</guid>
       <description></description>
@@ -32,7 +23,7 @@
     <item>
       <title>reactive</title>
       <link>https://raffaeleflorio.github.io/tags/reactive/</link>
-      <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/tags/reactive/</guid>
       <description></description>
@@ -41,7 +32,7 @@
     <item>
       <title>road to simplicity</title>
       <link>https://raffaeleflorio.github.io/tags/road-to-simplicity/</link>
-      <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/tags/road-to-simplicity/</guid>
       <description></description>
@@ -50,9 +41,27 @@
     <item>
       <title>software engineering</title>
       <link>https://raffaeleflorio.github.io/tags/software-engineering/</link>
-      <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/tags/software-engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>test driven development</title>
+      <link>https://raffaeleflorio.github.io/tags/test-driven-development/</link>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/test-driven-development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hexagonal architecture</title>
+      <link>https://raffaeleflorio.github.io/tags/hexagonal-architecture/</link>
+      <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/hexagonal-architecture/</guid>
       <description></description>
     </item>
     
