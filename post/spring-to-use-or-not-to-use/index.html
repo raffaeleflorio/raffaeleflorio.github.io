@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Spring Framework: To Use Or Not To Use, That Is The Question</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Roboto Mono', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: #00a6d8;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://raffaeleflorio.github.io/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%20Mono">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.72.0" />
+        
+
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">Spring Framework: To Use Or Not To Use, That Is The Question</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/post/">Posts</a></li>
+                            
+                                <li><a href="/project/">Projects</a></li>
+                            
+                                <li><a href="/tags/">Tags</a></li>
+                            
+                                <li><a href="/friends/">Friends</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fa fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaele-florio-79967919b/"><i class="fa fa-linkedin"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://instagram.com/r7florio/"><i class="fa fa-instagram"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fa fa-key"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>Spring Framework: To Use Or Not To Use, That Is The Question</h2>
+        <h5>November 18, 2020</h5>
+        
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/spring"><kbd class="item-tag">spring</kbd></a>
+
+
+    </div>
+
+    <div align="left" class="content"><p>It&rsquo;s impossible to write OOP code with <a href="https://spring.io">Spring</a>.
+From its core it promotes the use of singletons and anemic data structures a.k.a. data &ldquo;objects&rdquo; a.k.a. DTO.
+This fuels procedural programming and kills OOP.</p>
+<p>In the next paragraphs I&rsquo;ll highlight three <em>major</em> Spring components involved. I start from the core.</p>
+<h1 id="ioc-container">IoC Container</h1>
+<p>The core of Spring is the IoC container, represented by the <a href="https://docs.spring.io/spring-framework/docs/5.3.0/javadoc-api/org/springframework/context/ApplicationContext.html"><code>ApplicationContext</code></a> interface.
+Basically it defines a context through which we get beans. A bean is an object managed by the container and it has a name attached to it.</p>
+<p>We can configure the context thanks to some annotations, called steorotype.
+These annotations were introduced in Spring 2.5 and enhanced in Spring 3.0. Previously we could only use an external XML. This was even worse&hellip;</p>
+<p>So we annotate a class with a stereotype, the container reads it and it builds a bean. A bean is a <em>singleton</em>.
+For this reason it cannot represent anything specific. This means that to do something useful we should pass around data &ldquo;objects&rdquo; through them.</p>
+<p>A bean is an object only from a technological point of view. But at the conceptual level it&rsquo;s just a namespace for procedures.
+In other words it&rsquo;s a bunch of procedure grouped by a name. Nothing more. Every bean, regardless the stereotype, is bad.</p>
+<p>This is not OOP. But I&rsquo;m not saying anything new. It&rsquo;s known that singleton are bad. But this (anti)pattern is the Spring backbone.</p>
+<p>At this point it should suffice to say that everything else in Spring is based on bean.
+This means that every Spring application is composed by bean that works on data structure. Definitely this is not OOP.</p>
+<p>However I think that things gets worse with the next two components&hellip;</p>
+<h1 id="spring-mvc">Spring MVC</h1>
+<p>The MVC architecture is one of the most used and it&rsquo;s based on three components:</p>
+<ul>
+<li>Model, it manages the state;</li>
+<li>View, it&rsquo;s a representation (e.g. HTML or JSON) of the model;</li>
+<li>Controller, it handles user (not necessarly a person) input.</li>
+</ul>
+<p>Here is a sketch from the Martin Fowler <a href="https://martinfowler.com/eaaCatalog/modelViewController.html">blog</a>:</p>
+<p><img src="/img/spring-to-use-or-not-to-use/mvc-sketch.gif" alt="An MVC sketch from Martin Fowler"></p>
+<p>So an user interacts with the controller. Then the latter communicates with the model and finally it returns a view to the user.
+The view knows how to represent the model.</p>
+<p>But, in order to represent it, the view should break encapsulation. Indeed it should have direct access to the model attributes.
+And there isn&rsquo;t any difference if the model exposes getters.</p>
+<p>The issue is that the model is not respected. It&rsquo;s treated as a bag of data.
+But in OOP way of thinking only the model should know its internal and only the model should know how to represent itself.
+Nobody else should know either. Currently I&rsquo;m using the <a href="https://www.yegor256.com/2016/04/05/printers-instead-of-getters.html">Printer pattern</a> to support multiple representations (e.g. JSON or XML).</p>
+<p>This issue is not Spring specific, but it&rsquo;s related to the MVC architecture.</p>
+<p>However this is an example of a Spring <code>RestController</code> that exposes the dangers:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RestController</span>
+<span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/books&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BooksController</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@GetMapping</span>
+    Collection<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getBooks</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// ....
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> theBooks<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>The method <code>getBooks</code> returns a collection of books. Spring MVC converts each <code>Book</code> to JSON.
+But in order to do this it requires to break encapsulation (with getters or JSON serializer or other mechanism).
+In other words the <code>Book</code> should be a data structures. Or it should be a mix between an object and a data structure. A terrible design, a monster.</p>
+<h1 id="spring-data">Spring Data</h1>
+<p>When I started to learn Spring Data I was really impressed about its power&hellip; Now I&rsquo;m worried about its role because it&rsquo;s <em>very</em> dangerous to OOP.</p>
+<p>There is a central component in the Spring Data project: the <code>Repository</code> interface.
+It abstracts the access to a database and manages the lifecycle of an entity. Every entity has an ID associated.</p>
+<p>Every method of a repository represents a query to the underlying database. We can define the queries manually.
+However Spring Data can derive them from method names according some <a href="https://docs.spring.io/spring-data/commons/docs/2.4.0/reference/html">keywords</a>.
+It&rsquo;s powerful.</p>
+<p>For example, assuming <code>SQL</code>, from a method called <code>findAll</code> it derives <code>SELECT * FROM TABLE_NAME</code>.</p>
+<p>To get a repository all we need is to write a Java interface that respects some rules. Then Spring builds a bean and we gat it from the context.</p>
+<p>The rules are pretty simple. The interface should extends <code>Repository</code>. While the methods should respect the aforesaid keywords.</p>
+<p>This is an example of a repository:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">BookRepository</span> <span style="color:#66d9ef">extends</span> Repository<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">,</span> Long<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+    Collection<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAll</span><span style="color:#f92672">();</span>
+    Optional<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findById</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><code>Book</code> refers to the managed entity, <code>Long</code> to the type of its id. And it supports two method:</p>
+<ul>
+<li><code>findAll</code>, through which we can get all the books in the database;</li>
+<li><code>findById</code>, through which we can get the book associated with an id.</li>
+</ul>
+<p>As I said every query is generated by Spring Data. We don&rsquo;t need anything else. Spring does all the job.</p>
+<p>Then this is an example of the <code>Book</code> entity:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Entity</span>
+<span style="color:#a6e22e">@Table</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;BOOK&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Book</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Id</span>
+    <span style="color:#66d9ef">private</span> Long id<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String title<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Double price<span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">// no args constructor, getters and setters omitted
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><p>Spring Data requires:</p>
+<ul>
+<li>an attribute annotated with @Id;</li>
+<li>a no argument constructor;</li>
+<li>a setter for each attribute.</li>
+</ul>
+<p>As easily imaginable Spring Data requires an anemic data structure.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Clearly Spring promotes anemic &ldquo;objects&rdquo;. For this reason is normal to find in Spring application bunch of procedures collected in bean.
+Where each procedure manipulates some data structures.</p>
+<p>I loved Spring. But I&rsquo;m not using it anymore for the benefit of maintainability and simplicity.
+And OOP is better than procedural programming because it improves them.</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://docs.spring.io/spring-framework/docs/5.3.0/reference/html/core.html">Spring Core documentation</a></li>
+<li><a href="https://martinfowler.com/eaaCatalog/modelViewController.html">Model View Controller</a></li>
+<li><a href="https://www.yegor256.com/2014/12/01/orm-offensive-anti-pattern.html">ORM is an Offensive Anti-Pattern</a></li>
+</ul>
+</div>
+
+    
+    
+    
+        <h4 class="page-header">Related</h4>
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/road-to-simplicity-tests-are-not-tests-part-two/">Road to Simplicity: Tests Are Not Tests [Part Two]</a></h4>
+    <h5>August 9, 2020</h5>
+    
+<a href="https://raffaeleflorio.github.io/tags/software-engineering"><kbd class="item-tag">software engineering</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/test-driven-development"><kbd class="item-tag">test driven development</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/road-to-simplicity"><kbd class="item-tag">road to simplicity</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/reactive"><kbd class="item-tag">reactive</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/road-to-simplicity-hexagonal-architecture-part-one/">Road to Simplicity: Hexagonal Architecture [Part One]</a></h4>
+    <h5>July 23, 2020</h5>
+    
+<a href="https://raffaeleflorio.github.io/tags/software-engineering"><kbd class="item-tag">software engineering</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/hexagonal-architecture"><kbd class="item-tag">hexagonal architecture</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/road-to-simplicity"><kbd class="item-tag">road to simplicity</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/reactive"><kbd class="item-tag">reactive</kbd></a>
+
+
+
+</div>
+ 
+    
+
+    
+    
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+

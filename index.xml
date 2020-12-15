@@ -6,10 +6,21 @@
     <description>Recent content on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://raffaeleflorio.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring Framework: To Use Or Not To Use, That Is The Question</title>
+      <link>https://raffaeleflorio.github.io/post/spring-to-use-or-not-to-use/</link>
+      <pubDate>Wed, 18 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/post/spring-to-use-or-not-to-use/</guid>
+      <description>It&amp;rsquo;s impossible to write OOP code with Spring. From its core it promotes the use of singletons and anemic data structures a.k.a. data &amp;ldquo;objects&amp;rdquo; a.k.a. DTO. This fuels procedural programming and kills OOP.
+In the next paragraphs I&amp;rsquo;ll highlight three major Spring components involved. I start from the core.
+IoC Container The core of Spring is the IoC container, represented by the ApplicationContext interface. Basically it defines a context through which we get beans.</description>
+    </item>
     
     <item>
       <title>Road to Simplicity: Tests Are Not Tests [Part Two]</title>
