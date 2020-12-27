@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta name="monetization" content="$ilp.uphold.com/rHp7LeydLZ6B">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Java: The Object Equality Problem</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Roboto Mono', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: #00a6d8;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://raffaeleflorio.github.io/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%20Mono">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.72.0" />
+        
+
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">Java: The Object Equality Problem</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/post/">Posts</a></li>
+                            
+                                <li><a href="/project/">Projects</a></li>
+                            
+                                <li><a href="/tags/">Tags</a></li>
+                            
+                                <li><a href="/friends/">Friends</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fa fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaele-florio-79967919b/"><i class="fa fa-linkedin"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://instagram.com/r7florio/"><i class="fa fa-instagram"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fa fa-key"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>Java: The Object Equality Problem</h2>
+        <h5>December 18, 2020</h5>
+        
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/responsability-decoupling"><kbd class="item-tag">responsability-decoupling</kbd></a>
+
+
+    </div>
+
+    <div align="left" class="content"><p><img src="/img/java-the-object-equality-problem/cover.jpeg" alt="post cover"></p>
+<p>I was writing some Java test code when I faced up the voracity of the <code>equals</code> method. It presents, despite its ostensible simplicity, a tricky problem.</p>
+<p>I&rsquo;d like to emphasize that this is not a specific Java issue. For example C# has a <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type">homologous</a> way.</p>
+<h1 id="a-bit-of-java-context">A bit of Java context</h1>
+<p>The <code>Object</code> class is the root of every class. It defines various methods and <code>equals</code> is one of them.
+By default this method has a simple behavior: an object x is only equals to itself. Any other object is different.</p>
+<p>Obviously the <code>equals</code> method has the common properties of an equivalence relation.
+It is <em>reflexive</em>: x is equal to x; It is <em>symmetric</em>: if x is equal to y, then y is equal to x; and so on&hellip;</p>
+<p>Furthermore a logic relationship links <code>equals</code> and the <code>hashCode</code> method.
+The latter returns the object hash. In this context it&rsquo;s an integer representation of the object. So if two object are equal, then their hash should be equal too.</p>
+<h1 id="the-problem">The problem</h1>
+<p><img src="/img/java-the-object-equality-problem/the-ripple-problem.jpeg" alt="the ripple problem"></p>
+<p>I&rsquo;ll use a simple code example to highlight the main issue. Here is the starting point:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Book</span> <span style="color:#f92672">{</span>
+  String <span style="color:#a6e22e">title</span><span style="color:#f92672">();</span>
+
+  String <span style="color:#a6e22e">author</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbBook</span> <span style="color:#66d9ef">implements</span> Book <span style="color:#f92672">{</span>
+  <span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>We can ask to a <code>Book</code> instance its title and its author. A <code>DbBook</code> instance represents a book stored in a database.</p>
+<p>As I said the <code>Object</code> class is the root of every class. This means that <code>DbBook</code> also inherits the <code>equals</code> method with its default behavior.
+So we should override <code>equals</code> to implement a custom equivalence relation. To respect the aforesaid logic implicatio we should also override the <code>hashCode</code> method.</p>
+<p>Now suppose that in our context two books are equal if they have the same title.
+This seems the <code>equals</code> goal and here is a common implementation (I generated it with the IDE):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbBook</span> <span style="color:#66d9ef">implements</span> Book <span style="color:#f92672">{</span>
+  <span style="color:#f92672">...</span>
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Object o<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span> <span style="color:#f92672">==</span> o<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!(</span>o <span style="color:#66d9ef">instanceof</span> DbBook<span style="color:#f92672">))</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">final</span> DbBook dbBook <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>DbBook<span style="color:#f92672">)</span> o<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">return</span> title<span style="color:#f92672">().</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>dbBook<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span><span style="color:#f92672">());</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">hashCode</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> Objects<span style="color:#f92672">.</span><span style="color:#a6e22e">hash</span><span style="color:#f92672">(</span>title<span style="color:#f92672">());</span>
+  <span style="color:#f92672">}</span>
+  <span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>However because the <code>instanceof</code> check, <code>aDbBook</code> is only comparable to <code>anotherDbBook</code>.
+This means that an <code>AnotherBookImplementation</code> instance is always different from <code>aDbBook</code>, though having the same title.</p>
+<p>The problem seems the <code>instanceof</code> check. So we can weak it a bit:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbBook</span> <span style="color:#66d9ef">implements</span> Book <span style="color:#f92672">{</span>
+  <span style="color:#f92672">...</span>
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Object o<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span> <span style="color:#f92672">==</span> o<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!(</span>o <span style="color:#66d9ef">instanceof</span> Book<span style="color:#f92672">))</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">final</span> Book book <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Book<span style="color:#f92672">)</span> o<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">return</span> title<span style="color:#f92672">().</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span><span style="color:#f92672">());</span>
+  <span style="color:#f92672">}</span>
+  <span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>In this way we are restricting <code>o</code> to be a <code>Book</code> instance.</p>
+<p>The effect of this change is the <strong>destruction</strong> of our software. As I anticipated the <code>equals</code> method should be reflexive.
+This means that <strong>every</strong> <code>Book</code> implementation must exhibit this <code>equals</code> behavior.
+In other words: every <code>Book</code> implementation is <strong>high-coupled</strong> with each other. Definitely it&rsquo;s a really bad approach.</p>
+<h1 id="a-different-approach">A different approach</h1>
+<p><img src="/img/java-the-object-equality-problem/decoupling-responsability.jpeg" alt="decoupling responsability"></p>
+<p>The main issue of the <code>equals</code> approach is that responsabilities aren&rsquo;t decoupled correctly.
+There should be another object responsible of the comparison. There should be another object that <em>represents</em> the comparison.</p>
+<p>There may be various implementation of this approach. I&rsquo;ll suggest one called <em>representation-based</em> and another <em>behavior-based</em>.</p>
+<h2 id="representation-based-equality">Representation-based equality</h2>
+<p>The first one derives from this <a href="https://www.yegor256.com/2017/07/11/how-to-redesign-equals.html">article</a>. Basically an object (like <code>aDbBook</code>) can gives us a representation of itself.
+Then a <code>Comparison&lt;R&gt;</code> object represents a comparison between two <code>R</code> representation. In this way a representation is similar to the hash returned by <code>hashCode</code>.
+But it&rsquo;s more generic because it could be based on bytes, strings and so on&hellip;</p>
+<p>However this means that <code>aCat</code> could be equal to <code>aDog</code>, if they have the same representation. I consider this as the main drawback of this approach.</p>
+<h2 id="behavior-based-equality">Behavior-based equality</h2>
+<p>The <em>behavior-based</em> is born from an observation. I think that the only valid discriminating factor about objects is their behavior.
+It&rsquo;s exposed through the methods. Or, more formally, through the messages the object supports. The protocol or interface is the collection of the supported messages.</p>
+<p>For this reason the first step to define equality should be based on interfaces. Then an <code>Equality</code> object will represent the equality between two objects with the same interface.</p>
+<p>In this way <code>aCat</code> will be always different from <code>aDog</code> because the different interfaces. Presumably the former implements a <code>Cat</code> interface, the latter a <code>Dog</code> interface.
+Nonetheless, thanks to polymorphism, if they both implement a <code>Pet</code> interface, then they could be equal. This could be possibile with <code>anEquality</code> limited to the <code>Pet</code> interface.</p>
+<p>Here is an example related to the initial <code>Book</code> example. I defined two <code>Equality</code> classes to stress out that equality is not a <code>Book</code> responsability.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Equality</span> <span style="color:#f92672">{</span>
+  Boolean <span style="color:#a6e22e">equals</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TitleBasedEquality</span> <span style="color:#66d9ef">implements</span> Equality <span style="color:#f92672">{</span>
+  TitleBasedEquality<span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Book book<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> Book anotherBook<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">book</span> <span style="color:#f92672">=</span> book<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">anotherBook</span> <span style="color:#f92672">=</span> anotherBook<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> Boolean <span style="color:#a6e22e">equals</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span><span style="color:#f92672">().</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>anotherBook<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span><span style="color:#f92672">());</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Book book<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Book anotherBook<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PrefixBasedEquality</span> <span style="color:#66d9ef">implements</span> Equality <span style="color:#f92672">{</span>
+  PrefixBasedEquality<span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Book book<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> Book anotherBook<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> Integer length<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">book</span> <span style="color:#f92672">=</span> book<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">anotherBook</span> <span style="color:#f92672">=</span> anotherBook<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> length<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> Boolean <span style="color:#a6e22e">equals</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    var first <span style="color:#f92672">=</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span><span style="color:#f92672">().</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>length<span style="color:#f92672">);</span>
+    var second <span style="color:#f92672">=</span> anotherBook<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span><span style="color:#f92672">().</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>length<span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">return</span> first<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>second<span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Book book<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Book anotherBook<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Integer length<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>So a <code>TitleBasedEquality</code> object compares the full title. A <code>PrefixBasedEquality</code>compares only a prefix.</p>
+<p>We gather a lot of flexibility. And we can choose the correct equality comparison based on the context. This is possible thanks to the responsability decoupling.</p>
+<p>However, as you can see, I&rsquo;m using <code>String.equals</code>. I could replace it with <code>StringEquality</code>. But I consider this case as a reasonable compromise forced by the programming language.</p>
+<p>A possible drawback of this approach regards an interface with only void methods. In this case each pair of instances are always equal.
+But this means that these type of objects are only and always comparated on their interface. I find it coherent and I find it respectful towards the objects.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Definitely the object equality problem is a tough problem. I think that the major issue is that we think equality in terms of data. But objects are not data.
+This is the reason because I support the idea of some sort of behavior-based comparison. After all the exhibited behavior is what distinguishes one object from another one. Nothing more.</p>
+</div>
+
+    
+    
+    
+        <h4 class="page-header">Related</h4>
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/spring-to-use-or-not-to-use/">Spring Framework: To Use Or Not To Use, That Is The Question</a></h4>
+    <h5>November 18, 2020</h5>
+    
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/spring"><kbd class="item-tag">spring</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/road-to-simplicity-tests-are-not-tests-part-two/">Road to Simplicity: Tests Are Not Tests [Part Two]</a></h4>
+    <h5>August 9, 2020</h5>
+    
+<a href="https://raffaeleflorio.github.io/tags/software-engineering"><kbd class="item-tag">software engineering</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/test-driven-development"><kbd class="item-tag">test driven development</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/road-to-simplicity"><kbd class="item-tag">road to simplicity</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/reactive"><kbd class="item-tag">reactive</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/road-to-simplicity-hexagonal-architecture-part-one/">Road to Simplicity: Hexagonal Architecture [Part One]</a></h4>
+    <h5>July 23, 2020</h5>
+    
+<a href="https://raffaeleflorio.github.io/tags/software-engineering"><kbd class="item-tag">software engineering</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/hexagonal-architecture"><kbd class="item-tag">hexagonal architecture</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/road-to-simplicity"><kbd class="item-tag">road to simplicity</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/reactive"><kbd class="item-tag">reactive</kbd></a>
+
+
+
+</div>
+ 
+    
+
+    
+    
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+

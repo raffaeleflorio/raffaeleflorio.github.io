@@ -6,10 +6,21 @@
     <description>Recent content in java on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://raffaeleflorio.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java: The Object Equality Problem</title>
+      <link>https://raffaeleflorio.github.io/post/java-the-object-equality-problem/</link>
+      <pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/post/java-the-object-equality-problem/</guid>
+      <description>I was writing some Java test code when I faced up the voracity of the equals method. It presents, despite its ostensible simplicity, a tricky problem.
+I&amp;rsquo;d like to emphasize that this is not a specific Java issue. For example C# has a homologous way.
+A bit of Java context The Object class is the root of every class. It defines various methods and equals is one of them. By default this method has a simple behavior: an object x is only equals to itself.</description>
+    </item>
     
     <item>
       <title>Spring Framework: To Use Or Not To Use, That Is The Question</title>
