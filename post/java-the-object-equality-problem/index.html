@@ -140,7 +140,7 @@
 
 <a href="https://raffaeleflorio.github.io/tags/oop"><kbd class="item-tag">oop</kbd></a>
 
-<a href="https://raffaeleflorio.github.io/tags/responsability-decoupling"><kbd class="item-tag">responsability-decoupling</kbd></a>
+<a href="https://raffaeleflorio.github.io/tags/responsibility-decoupling"><kbd class="item-tag">responsibility-decoupling</kbd></a>
 
 
     </div>
@@ -207,8 +207,8 @@ This means that an <code>AnotherBookImplementation</code> instance is always dif
 This means that <strong>every</strong> <code>Book</code> implementation must exhibit this <code>equals</code> behavior.
 In other words: every <code>Book</code> implementation is <strong>high-coupled</strong> with each other. Definitely it&rsquo;s a really bad approach.</p>
 <h1 id="a-different-approach">A different approach</h1>
-<p><img src="/img/java-the-object-equality-problem/decoupling-responsability.jpeg" alt="decoupling responsability"></p>
-<p>The main issue of the <code>equals</code> approach is that responsabilities aren&rsquo;t decoupled correctly.
+<p><img src="/img/java-the-object-equality-problem/decoupling-responsibility.jpeg" alt="decoupling responsibility"></p>
+<p>The main issue of the <code>equals</code> approach is that responsibilities aren&rsquo;t decoupled correctly.
 There should be another object responsible of the comparison. There should be another object that <em>represents</em> the comparison.</p>
 <p>There may be various implementation of this approach. I&rsquo;ll suggest one called <em>representation-based</em> and another <em>behavior-based</em>.</p>
 <h2 id="representation-based-equality">Representation-based equality</h2>
@@ -222,7 +222,7 @@ It&rsquo;s exposed through the methods. Or, more formally, through the messages 
 <p>For this reason the first step to define equality should be based on interfaces. Then an <code>Equality</code> object will represent the equality between two objects with the same interface.</p>
 <p>In this way <code>aCat</code> will be always different from <code>aDog</code> because the different interfaces. Presumably the former implements a <code>Cat</code> interface, the latter a <code>Dog</code> interface.
 Nonetheless, thanks to polymorphism, if they both implement a <code>Pet</code> interface, then they could be equal. This could be possibile with <code>anEquality</code> limited to the <code>Pet</code> interface.</p>
-<p>Here is an example related to the initial <code>Book</code> example. I defined two <code>Equality</code> classes to stress out that equality is not a <code>Book</code> responsability.</p>
+<p>Here is an example related to the initial <code>Book</code> example. I defined two <code>Equality</code> classes to stress out that equality is not a <code>Book</code> responsibility.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Equality</span> <span style="color:#f92672">{</span>
   Boolean <span style="color:#a6e22e">equals</span><span style="color:#f92672">();</span>
 <span style="color:#f92672">}</span>
@@ -261,7 +261,7 @@ Nonetheless, thanks to polymorphism, if they both implement a <code>Pet</code> i
   <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Integer length<span style="color:#f92672">;</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>So a <code>TitleBasedEquality</code> object compares the full title. A <code>PrefixBasedEquality</code>compares only a prefix.</p>
-<p>We gather a lot of flexibility. And we can choose the correct equality comparison based on the context. This is possible thanks to the responsability decoupling.</p>
+<p>We gather a lot of flexibility. And we can choose the correct equality comparison based on the context. This is possible thanks to the responsibility decoupling.</p>
 <p>However, as you can see, I&rsquo;m using <code>String.equals</code>. I could replace it with <code>StringEquality</code>. But I consider this case as a reasonable compromise forced by the programming language.</p>
 <p>A possible drawback of this approach regards an interface with only void methods. In this case each pair of instances are always equal.
 But this means that these type of objects are only and always comparated on their interface. I find it coherent and I find it respectful towards the objects.</p>
