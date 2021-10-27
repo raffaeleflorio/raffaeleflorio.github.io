@@ -6,7 +6,18 @@
     <description>Recent content on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Objects &amp; Pursuit of Happiness: Understanding Object Oriented Programming (OOP)</title>
+      <link>https://raffaeleflorio.github.io/post/object-and-pursuit-of-happiness/</link>
+      <pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/post/object-and-pursuit-of-happiness/</guid>
+      <description>Responsibilities are what differentiate objects. They represent what an object can do for us. And in a good object-oriented system, each object should have correct responsibilities.
+Is there any criterion to help us to verify and find them? I think happiness is a good answer.
+A metaphor The common way to define objects is wrong. Objects are not just data plus functions. In other words, objects are not a C file containing structs and related functions.</description>
+    </item>
+    
     <item>
       <title>Java: The Object Equality Problem</title>
       <link>https://raffaeleflorio.github.io/post/java-the-object-equality-problem/</link>
