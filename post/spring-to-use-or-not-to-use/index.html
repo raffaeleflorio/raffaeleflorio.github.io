@@ -34,10 +34,10 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="anonymous">
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
  
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
@@ -68,7 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.72.0" />
+ <meta name="generator" content="Hugo 0.88.1" />
         
 
         
@@ -113,15 +113,17 @@
                     
                         <ul class="nav navbar-nav navbar-right">
                             
-                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fa fa-github"></i></a></li>
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaele-florio-79967919b/"><i class="fa fa-linkedin"></i></a></li>
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaele-florio-79967919b/"><i class="fab fa-linkedin"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="https://instagram.com/r7florio/"><i class="fa fa-instagram"></i></a></li>
+                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key.asc"><i class="fa fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
                             
                         </ul>
                     
@@ -181,7 +183,7 @@ But in OOP way of thinking only the model should know its internal and only the 
 Nobody else should know either. Currently I&rsquo;m using the <a href="https://www.yegor256.com/2016/04/05/printers-instead-of-getters.html">Printer pattern</a> to support multiple representations (e.g. JSON or XML).</p>
 <p>This issue is not Spring specific, but it&rsquo;s related to the MVC architecture.</p>
 <p>However this is an example of a Spring <code>RestController</code> that exposes the dangers:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RestController</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RestController</span>
 <span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/books&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BooksController</span> <span style="color:#f92672">{</span>
     <span style="color:#a6e22e">@GetMapping</span>
@@ -204,7 +206,7 @@ It&rsquo;s powerful.</p>
 <p>To get a repository all we need is to write a Java interface that respects some rules. Then Spring builds a bean and we gat it from the context.</p>
 <p>The rules are pretty simple. The interface should extends <code>Repository</code>. While the methods should respect the aforesaid keywords.</p>
 <p>This is an example of a repository:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">BookRepository</span> <span style="color:#66d9ef">extends</span> Repository<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">,</span> Long<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">BookRepository</span> <span style="color:#66d9ef">extends</span> Repository<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">,</span> Long<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
     Collection<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAll</span><span style="color:#f92672">();</span>
     Optional<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findById</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">);</span>
 <span style="color:#f92672">}</span>
@@ -215,7 +217,7 @@ It&rsquo;s powerful.</p>
 </ul>
 <p>As I said every query is generated by Spring Data. We don&rsquo;t need anything else. Spring does all the job.</p>
 <p>Then this is an example of the <code>Book</code> entity:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Entity</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Entity</span>
 <span style="color:#a6e22e">@Table</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;BOOK&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Book</span> <span style="color:#f92672">{</span>
     <span style="color:#a6e22e">@Id</span>

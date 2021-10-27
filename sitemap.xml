@@ -1,338 +1,196 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://raffaeleflorio.github.io/tags/java/</loc>
     <lastmod>2020-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/post/java-the-object-equality-problem/</loc>
     <lastmod>2020-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/oop/</loc>
     <lastmod>2020-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/post/</loc>
     <lastmod>2020-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/</loc>
     <lastmod>2020-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/responsibility-decoupling/</loc>
     <lastmod>2020-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/</loc>
     <lastmod>2020-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/spring/</loc>
     <lastmod>2020-11-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/post/spring-to-use-or-not-to-use/</loc>
     <lastmod>2020-11-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/reactive/</loc>
     <lastmod>2020-08-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/road-to-simplicity/</loc>
     <lastmod>2020-08-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/post/road-to-simplicity-tests-are-not-tests-part-two/</loc>
     <lastmod>2020-08-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/software-engineering/</loc>
     <lastmod>2020-08-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/test-driven-development/</loc>
     <lastmod>2020-08-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/hexagonal-architecture/</loc>
     <lastmod>2020-07-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/post/road-to-simplicity-hexagonal-architecture-part-one/</loc>
     <lastmod>2020-07-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/post/cultura-hacker/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/cultura-hacker/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/hacker-culture/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/hacking/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/pensieri/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/riflessioni/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/thoughts/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/post/hacker-culture/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/post/pick-up-that-can-auctf2020/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/auctf2020/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/can-bus/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/car-hacking/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/ctf/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/writeup/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/post/password-cracking-challenges-auctf2020/</loc>
     <lastmod>2020-04-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/post/remote-school-auctf2020/</loc>
     <lastmod>2020-04-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/cracking/</loc>
     <lastmod>2020-04-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/hashcat/</loc>
     <lastmod>2020-04-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/password/</loc>
     <lastmod>2020-04-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/pwn/</loc>
     <lastmod>2020-04-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/x86/</loc>
     <lastmod>2020-04-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/post/house-of-madness-auctf2020/</loc>
     <lastmod>2020-04-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/post/thanksgiving-dinner-auctf2020/</loc>
     <lastmod>2020-04-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/rop/</loc>
     <lastmod>2019-10-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/shellcode/</loc>
     <lastmod>2019-10-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/post/mprotect-urop/</loc>
     <lastmod>2019-10-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/tutorial/</loc>
     <lastmod>2019-10-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/universal-rop/</loc>
     <lastmod>2019-10-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/urop/</loc>
     <lastmod>2019-10-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/post/babyb0f-hackcon19/</loc>
     <lastmod>2019-09-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/post/babypwn-hackcon19/</loc>
     <lastmod>2019-09-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/post/notsoeasyb0f-hackcon19/</loc>
     <lastmod>2019-09-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/hackcon2019/</loc>
     <lastmod>2019-09-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/2fa/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/browser/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/dmenu/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/project/qubes-dmenu/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/dracut/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/dwm/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/project/qubes-dwm/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/friends/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/javascript/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/linux/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/luks/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/project/luks-2fa-dracut/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/project/qubes-url-redirector/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/patch/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/polyfill/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/project/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/qubes-os/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/security/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/systemd/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/tags/webextension/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://raffaeleflorio.github.io/project/webextension-browser-proxy/</loc>
   </url>
-  
 </urlset>

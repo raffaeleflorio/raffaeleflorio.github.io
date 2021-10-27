@@ -34,10 +34,10 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="anonymous">
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
  
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
@@ -68,7 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.72.0" />
+ <meta name="generator" content="Hugo 0.88.1" />
         
 
         
@@ -113,15 +113,17 @@
                     
                         <ul class="nav navbar-nav navbar-right">
                             
-                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fa fa-github"></i></a></li>
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaele-florio-79967919b/"><i class="fa fa-linkedin"></i></a></li>
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaele-florio-79967919b/"><i class="fab fa-linkedin"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="https://instagram.com/r7florio/"><i class="fa fa-instagram"></i></a></li>
+                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key.asc"><i class="fa fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
                             
                         </ul>
                     
@@ -158,7 +160,7 @@ The latter returns the object hash. In this context it&rsquo;s an integer repres
 <h1 id="the-problem">The problem</h1>
 <p><img src="/img/java-the-object-equality-problem/the-ripple-problem.jpeg" alt="the ripple problem"></p>
 <p>I&rsquo;ll use a simple code example to highlight the main issue. Here is the starting point:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Book</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Book</span> <span style="color:#f92672">{</span>
   String <span style="color:#a6e22e">title</span><span style="color:#f92672">();</span>
 
   String <span style="color:#a6e22e">author</span><span style="color:#f92672">();</span>
@@ -172,7 +174,7 @@ The latter returns the object hash. In this context it&rsquo;s an integer repres
 So we should override <code>equals</code> to implement a custom equivalence relation. To respect the aforesaid logic implicatio we should also override the <code>hashCode</code> method.</p>
 <p>Now suppose that in our context two books are equal if they have the same title.
 This seems the <code>equals</code> goal and here is a common implementation (I generated it with the IDE):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbBook</span> <span style="color:#66d9ef">implements</span> Book <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbBook</span> <span style="color:#66d9ef">implements</span> Book <span style="color:#f92672">{</span>
   <span style="color:#f92672">...</span>
   <span style="color:#a6e22e">@Override</span>
   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Object o<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -191,7 +193,7 @@ This seems the <code>equals</code> goal and here is a common implementation (I g
 </code></pre></div><p>However because the <code>instanceof</code> check, <code>aDbBook</code> is only comparable to <code>anotherDbBook</code>.
 This means that an <code>AnotherBookImplementation</code> instance is always different from <code>aDbBook</code>, though having the same title.</p>
 <p>The problem seems the <code>instanceof</code> check. So we can weak it a bit:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbBook</span> <span style="color:#66d9ef">implements</span> Book <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbBook</span> <span style="color:#66d9ef">implements</span> Book <span style="color:#f92672">{</span>
   <span style="color:#f92672">...</span>
   <span style="color:#a6e22e">@Override</span>
   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Object o<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -223,7 +225,7 @@ It&rsquo;s exposed through the methods. Or, more formally, through the messages 
 <p>In this way <code>aCat</code> will be always different from <code>aDog</code> because the different interfaces. Presumably the former implements a <code>Cat</code> interface, the latter a <code>Dog</code> interface.
 Nonetheless, thanks to polymorphism, if they both implement a <code>Pet</code> interface, then they could be equal. This could be possibile with <code>anEquality</code> limited to the <code>Pet</code> interface.</p>
 <p>Here is an example related to the initial <code>Book</code> example. I defined two <code>Equality</code> classes to stress out that equality is not a <code>Book</code> responsibility.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Equality</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Equality</span> <span style="color:#f92672">{</span>
   Boolean <span style="color:#a6e22e">equals</span><span style="color:#f92672">();</span>
 <span style="color:#f92672">}</span>
 

@@ -6,11 +6,7 @@
     <description>Recent content in reactive on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://raffaeleflorio.github.io/tags/reactive/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/tags/reactive/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Road to Simplicity: Tests Are Not Tests [Part Two]</title>
       <link>https://raffaeleflorio.github.io/post/road-to-simplicity-tests-are-not-tests-part-two/</link>

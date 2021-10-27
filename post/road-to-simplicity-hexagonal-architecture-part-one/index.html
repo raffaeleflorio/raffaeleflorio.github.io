@@ -34,10 +34,10 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="anonymous">
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
  
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
@@ -68,7 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.72.0" />
+ <meta name="generator" content="Hugo 0.88.1" />
         
 
         
@@ -113,15 +113,17 @@
                     
                         <ul class="nav navbar-nav navbar-right">
                             
-                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fa fa-github"></i></a></li>
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaele-florio-79967919b/"><i class="fa fa-linkedin"></i></a></li>
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaele-florio-79967919b/"><i class="fab fa-linkedin"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="https://instagram.com/r7florio/"><i class="fa fa-instagram"></i></a></li>
+                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key.asc"><i class="fa fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
                             
                         </ul>
                     
@@ -205,11 +207,11 @@ It&rsquo;s written in Java with the reactive paradigm from the beginning. For th
 </ul>
 <p>The use case is an interface:</p>
 <p><em>(if you never used ReactiveX: a Single means that the method will return asynchronously an object or an error)</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetCapabilitiesUseCase</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetCapabilitiesUseCase</span> <span style="color:#f92672">{</span>
   Single<span style="color:#f92672">&lt;</span>Capabilities<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getCapabilities</span><span style="color:#f92672">();</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>The <code>Capabilities</code> objects are immutable (<em>precisely they&rsquo;re value objects</em>). And there is an associated builder (<em>I&rsquo;m using lombok annotations to generate the code</em>):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RequiredArgsConstructor</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RequiredArgsConstructor</span>
 <span style="color:#a6e22e">@Value</span>
 <span style="color:#a6e22e">@Builder</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Capabilities</span> <span style="color:#f92672">{</span>
@@ -222,14 +224,14 @@ It&rsquo;s written in Java with the reactive paradigm from the beginning. For th
 <li>network speed, expressed as <code>GetNetworkSpeedPortOut</code></li>
 </ul>
 <p>Here are the port out interfaces:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetJavaVersionPortOut</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetJavaVersionPortOut</span> <span style="color:#f92672">{</span>
   Single<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getJavaVersion</span><span style="color:#f92672">();</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetNetworkSpeedPortOut</span> <span style="color:#f92672">{</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetNetworkSpeedPortOut</span> <span style="color:#f92672">{</span>
   Single<span style="color:#f92672">&lt;</span>Long<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getNetworkSpeed</span><span style="color:#f92672">();</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>Finally we can define the implementation of the use case:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RequiredArgsConstructor</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RequiredArgsConstructor</span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Analyzer</span> <span style="color:#66d9ef">implements</span> GetCapabilitiesUseCase <span style="color:#f92672">{</span>
   <span style="color:#a6e22e">@Override</span>
   <span style="color:#66d9ef">public</span> Single<span style="color:#f92672">&lt;</span>Capabilities<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getCapabilities</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
@@ -258,7 +260,7 @@ It&rsquo;s written in Java with the reactive paradigm from the beginning. For th
 In this way we <em>program an interface and not an implementation</em>.</p>
 <p>Nonetheless we need some way to return an instance of <code>Analyzer</code> to the outer layers. They will be in another package, so they cannot instantiate an <code>Analyzer</code> object.</p>
 <p>For this reason I usually define <code>UseCaseFactory</code> accessible by outer layers:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UseCaseFactory</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UseCaseFactory</span> <span style="color:#f92672">{</span>
   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> GetCapabilitiesUseCase <span style="color:#a6e22e">getCapabilitiesUseCase</span><span style="color:#f92672">(</span>
     GetJavaVersionPortOut getJavaVersionPortOut<span style="color:#f92672">,</span>
     GetNetworkSpeedPortOut getNetworkSpeedPortOut

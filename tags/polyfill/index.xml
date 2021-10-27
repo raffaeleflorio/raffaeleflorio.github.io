@@ -5,11 +5,7 @@
     <link>https://raffaeleflorio.github.io/tags/polyfill/</link>
     <description>Recent content in polyfill on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://raffaeleflorio.github.io/tags/polyfill/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://raffaeleflorio.github.io/tags/polyfill/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>WebExtension Browser Proxy</title>
       <link>https://raffaeleflorio.github.io/project/webextension-browser-proxy/</link>

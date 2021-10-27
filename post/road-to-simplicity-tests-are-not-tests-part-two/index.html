@@ -34,10 +34,10 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="anonymous">
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
  
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
@@ -68,7 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.72.0" />
+ <meta name="generator" content="Hugo 0.88.1" />
         
 
         
@@ -113,15 +113,17 @@
                     
                         <ul class="nav navbar-nav navbar-right">
                             
-                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fa fa-github"></i></a></li>
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaele-florio-79967919b/"><i class="fa fa-linkedin"></i></a></li>
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaele-florio-79967919b/"><i class="fab fa-linkedin"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="https://instagram.com/r7florio/"><i class="fa fa-instagram"></i></a></li>
+                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key.asc"><i class="fa fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fa fa-envelope-o"></i></a></li>
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
                             
                         </ul>
                     
@@ -189,12 +191,12 @@ Furthermore, because test is more code, we don&rsquo;t want to write unnecessary
 The project is hosted on <a href="https://github.com/raffaeleflorio/client-analyzer">github</a>.</p>
 <p>The software analyzes the capabilities (e.g. java version) of the machine. Then it will expose them through REST API.</p>
 <p>In the previous part we expressed our use case (<code>GetCapabilitiesUseCase</code>) as:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetCapabilitiesUseCase</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetCapabilitiesUseCase</span> <span style="color:#f92672">{</span>
   Single<span style="color:#f92672">&lt;</span>Capabilities<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getCapabilities</span><span style="color:#f92672">();</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>So here the first test definition. I&rsquo;m using <a href="https://junit.org/junit5/">JUnit 5</a> with <a href="http://reactivex.io/">ReactiveX</a> test facility.
 It verifies that the returned capabilities object is correct. We are passing to the use case factory two mocked port out implementations:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GetCapabilitiesUseCaseTest</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GetCapabilitiesUseCaseTest</span> <span style="color:#f92672">{</span>
   <span style="color:#a6e22e">@Test</span>
   <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ok</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Throwable <span style="color:#f92672">{</span>
     String javaVersion <span style="color:#f92672">=</span> randomString<span style="color:#f92672">();</span>
@@ -223,7 +225,7 @@ It verifies that the returned capabilities object is correct. We are passing to 
 <span style="color:#f92672">}</span>
 </code></pre></div><p>During the writing I discovered that there is a room of improvement. Currently our use case could return negative network speed.</p>
 <p>This is possible because the <code>Capabilities</code> class allows these values. So I improved its constructor with an exception:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Value</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Value</span>
 <span style="color:#a6e22e">@Builder</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Capabilities</span> <span style="color:#f92672">{</span>
   <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Capabilities</span><span style="color:#f92672">(</span>String javaVersion<span style="color:#f92672">,</span> Long networkSpeed<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -237,7 +239,7 @@ It verifies that the returned capabilities object is correct. We are passing to 
   <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Long networkSpeed<span style="color:#f92672">;</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>Then I added the test class about <code>Capabilities</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CapabilitiesTest</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CapabilitiesTest</span> <span style="color:#f92672">{</span>
   <span style="color:#a6e22e">@Test</span>
   <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">with_negative_network_speed</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Throwable <span style="color:#f92672">{</span>
     String javaVersion <span style="color:#f92672">=</span> randomString<span style="color:#f92672">();</span>
@@ -259,7 +261,7 @@ It verifies that the returned capabilities object is correct. We are passing to 
   <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>And I updated the use case test:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GetCapabilitiesUseCaseTest</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GetCapabilitiesUseCaseTest</span> <span style="color:#f92672">{</span>
   <span style="color:#a6e22e">@Test</span>
   <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ok</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Throwable <span style="color:#f92672">{</span>
     String javaVersion <span style="color:#f92672">=</span> randomString<span style="color:#f92672">();</span>
