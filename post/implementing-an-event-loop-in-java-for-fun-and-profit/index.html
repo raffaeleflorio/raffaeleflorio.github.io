@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta name="monetization" content="$ilp.uphold.com/rHp7LeydLZ6B">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Implementing an Event Loop in Java for Fun and Profit</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Roboto Mono', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: #00a6d8;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://raffaeleflorio.github.io/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%20Mono">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.89.4" />
+        
+
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">Implementing an Event Loop in Java for Fun and Profit</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/post/">Posts</a></li>
+                            
+                                <li><a href="/project/">Projects</a></li>
+                            
+                                <li><a href="/tags/">Tags</a></li>
+                            
+                                <li><a href="/friends/">Friends</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaele-florio-79967919b/"><i class="fab fa-linkedin"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>Implementing an Event Loop in Java for Fun and Profit</h2>
+        <h5>November 12, 2021</h5>
+        
+<a href="https://raffaeleflorio.github.io/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/event-loop"><kbd class="item-tag">event loop</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+
+    </div>
+
+    <div align="left" class="content"><p><img src="/img/implementing-an-event-loop-in-java-for-fun-and-profit/cover.jpeg" alt="The article cover"></p>
+<p>The <a href="https://en.wikipedia.org/wiki/Event_loop">event loop</a> pattern always fascinated me. I found it interesting, useful,
+and compatible with object-oriented programming. A lot of us know it thanks to Node.js.</p>
+<p>For some reason, recently, I have been looking to implement it and experiment with it. And I finally got the opportunity
+to do so at work.</p>
+<h1 id="event-loop-concepts">Event Loop Concepts</h1>
+<p>An event loop doesn&rsquo;t do too much. We can ask it to start and stop itself. And once started it waits and reacts to
+events. The events could signal a new message in a queue; an expired timeout and so on. Events trigger an action or a
+script once they occur.</p>
+<p>With this in mind, we can already define these interfaces. They’re evoking the aforesaid behaviors:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">EventLoop</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">stop</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Events</span> <span style="color:#f92672">{</span>
+    Optional<span style="color:#f92672">&lt;</span>Event<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Event</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">trigger</span><span style="color:#f92672">(</span>Script script<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Script</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>JsonObject properties<span style="color:#f92672">,</span> Consumer<span style="color:#f92672">&lt;</span>Instant<span style="color:#f92672">&gt;</span> onSuccess<span style="color:#f92672">,</span> Consumer<span style="color:#f92672">&lt;</span>Throwable<span style="color:#f92672">&gt;</span> onFailure<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>The <code>Script</code> interface deserves more attention. We can ask it to run with given properties and with two callbacks. One
+for success and one for failure. The first one sends the script end time. The second one sends the exception that has
+occurred.</p>
+<h1 id="simple-event-loop">Simple event loop</h1>
+<p>The simplest event loop that comes to mind uses <a href="https://en.wikipedia.org/wiki/Busy_waiting">busy waiting</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BusyWaitingEventLoop</span> <span style="color:#66d9ef">implements</span> EventLoop <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Events events<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Script script<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> AtomicBoolean alive<span style="color:#f92672">;</span>
+
+    BusyWaitingEventLoop<span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Events events<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> Script script<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">(</span>events<span style="color:#f92672">,</span> script<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> AtomicBoolean<span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+
+    BusyWaitingEventLoop<span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Events events<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> Script script<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> AtomicBoolean alive<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">events</span> <span style="color:#f92672">=</span> events<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">script</span> <span style="color:#f92672">=</span> script<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">alive</span> <span style="color:#f92672">=</span> alive<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>alive<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            events<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">().</span><span style="color:#a6e22e">ifPresent</span><span style="color:#f92672">(</span>event <span style="color:#f92672">-&gt;</span> event<span style="color:#f92672">.</span><span style="color:#a6e22e">trigger</span><span style="color:#f92672">(</span>script<span style="color:#f92672">));</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">stop</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        alive<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Once started it checks repeatedly for a new event. Once the event is found, it’ll trigger the script according to its
+own rules.</p>
+<p>But this approach has a major drawback: the event handling blocks the event loop. This means that we can handle only one
+event at a time.</p>
+<h1 id="multithreaded-event-loop">Multithreaded Event Loop</h1>
+<p>An approach to resolve the aforesaid issue is to start the event loop two or more times. Each time in a different
+thread.</p>
+<p>So, here is a potential multithreaded event loop implementation exploiting
+the <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/ExecutorService.html">ExecutorService</a>:</p>
+<blockquote>
+<p><strong>Info</strong>: The <code>ExecutorService</code> responsibility is to run tasks.
+It can run them in different threads or in a single thread.
+Java provides both implementations thanks to a bunch of <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Executors.html">factory methods</a>.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MultithreadedEventLoop</span> <span style="color:#66d9ef">implements</span> EventLoop <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> EventLoop origin<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Integer nThreads<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> ExecutorService executorService<span style="color:#f92672">;</span>
+
+    MultithreadedEventLoop<span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> EventLoop origin<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> Integer nThreads<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> ExecutorService executorService<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">origin</span> <span style="color:#f92672">=</span> origin<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">nThreads</span> <span style="color:#f92672">=</span> nThreads<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">executorService</span> <span style="color:#f92672">=</span> executorService<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>var i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nThreads<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            executorService<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>origin<span style="color:#f92672">::</span>start<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">stop</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        origin<span style="color:#f92672">.</span><span style="color:#a6e22e">stop</span><span style="color:#f92672">();</span>
+        shutdownExecutorService<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shutdownExecutorService</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// Java specific code
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>We can start a <code>MultithreadedEventLoop</code> with eight threads in this way:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        var nThreads <span style="color:#f92672">=</span> 8<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">new</span> MultithreadedEventLoop<span style="color:#f92672">(</span>
+                <span style="color:#66d9ef">new</span> BusyWaitingEventLoop<span style="color:#f92672">(</span>
+                        anEventsObject<span style="color:#f92672">,</span>
+                        aScriptObject
+                <span style="color:#f92672">),</span>
+                nThreads<span style="color:#f92672">,</span>
+                Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newFixedThreadPool</span><span style="color:#f92672">(</span>nThreads<span style="color:#f92672">)</span>
+        <span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Now we can handle eight events in parallels. An improvement, but we can do it even better once we have resolved the main
+issue: the event loop and the script running in the same thread.</p>
+<h1 id="asynchronous-script">Asynchronous Script</h1>
+<p>The solution to the aforesaid issue is to run scripts and event loops in different threads. In this way, we can have
+threads dedicated to the scripts and threads dedicated to the event loop.</p>
+<p>We already have a multithreaded event loop but we are missing the other piece: an asynchronous script.</p>
+<p>Here is an implementation that exploits the <code>ExecutorService</code> again:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AsyncScript</span> <span style="color:#66d9ef">implements</span> Script <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Script origin<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> ExecutorService executorService<span style="color:#f92672">;</span>
+
+    AsyncScript<span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Script origin<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> ExecutorService executorService<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">origin</span> <span style="color:#f92672">=</span> origin<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">executorService</span> <span style="color:#f92672">=</span> executorService<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> JsonObject properties<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> Consumer<span style="color:#f92672">&lt;</span>Instant<span style="color:#f92672">&gt;</span> onSuccess<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> Consumer<span style="color:#f92672">&lt;</span>Throwable<span style="color:#f92672">&gt;</span> onFailure<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>executorService<span style="color:#f92672">.</span><span style="color:#a6e22e">isShutdown</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            executorService<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(()</span> <span style="color:#f92672">-&gt;</span> origin<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>properties<span style="color:#f92672">,</span> onSuccess<span style="color:#f92672">,</span> onFailure<span style="color:#f92672">));</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><code>AsyncScript</code> is a <code>Script</code> decorator. Using this, we can turn a synchronous <code>Script</code> to an asynchronous one.</p>
+<p>Indeed, we can easily integrate <code>AsyncScript</code> in the previous example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        var eventLoopThreads <span style="color:#f92672">=</span> 2<span style="color:#f92672">;</span>
+        var scriptThreads <span style="color:#f92672">=</span> 14<span style="color:#f92672">;</span>
+        var executorService <span style="color:#f92672">=</span> Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newFixedThreadPool</span><span style="color:#f92672">(</span>eventLoopThreads <span style="color:#f92672">+</span> scriptThreads<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">new</span> MultithreadedEventLoop<span style="color:#f92672">(</span>
+                <span style="color:#66d9ef">new</span> BusyWaitingEventLoop<span style="color:#f92672">(</span>
+                        anEventsObject<span style="color:#f92672">,</span>
+                        <span style="color:#66d9ef">new</span> AsyncScript<span style="color:#f92672">(</span>
+                                aScriptObject<span style="color:#f92672">,</span>
+                                executorService
+                        <span style="color:#f92672">)</span>
+                <span style="color:#f92672">),</span>
+                eventLoopThreads<span style="color:#f92672">,</span>
+                executorService
+        <span style="color:#f92672">).</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Now we have an <code>ExecutorService</code> with sixteen threads. Two threads were assigned to the event loop, with fourteen
+available to the scripts. So the event loop will receive new events in two threads. While the scripts will run in others
+fourteen threads.</p>
+<h1 id="java-tip">Java Tip</h1>
+<p>A possible improvement specific to Java is to use generics. Something like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">EventLoop</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">stop</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Events</span><span style="color:#f92672">&lt;</span>I<span style="color:#f92672">,</span> O<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+    Optional<span style="color:#f92672">&lt;</span>Event<span style="color:#f92672">&lt;</span>I<span style="color:#f92672">,</span> O<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">next</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Event</span><span style="color:#f92672">&lt;</span>I<span style="color:#f92672">,</span> O<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">trigger</span><span style="color:#f92672">(</span>Script<span style="color:#f92672">&lt;</span>I<span style="color:#f92672">,</span> O<span style="color:#f92672">&gt;</span> script<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Script</span><span style="color:#f92672">&lt;</span>I<span style="color:#f92672">,</span> O<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>I in<span style="color:#f92672">,</span> Consumer<span style="color:#f92672">&lt;</span>O<span style="color:#f92672">&gt;</span> onSuccess<span style="color:#f92672">,</span> Consumer<span style="color:#f92672">&lt;</span>Throwable<span style="color:#f92672">&gt;</span> onFailure<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>In this way we can handle generic input/output in the <code>Script</code>.</p>
+<h1 id="real-world-scenario">Real-World Scenario</h1>
+<p>While the <code>AggregateEvents</code> aggregates <code>Events</code> objects, in my case, it aggregates
+multiple <a href="https://docs.microsoft.com/en-us/azure/storage/queues/storage-queues-introduction">Azure Queues</a> <code>Events</code> that
+emit <code>AzureQueueMessage</code>. The latter triggers the scripts with the message body as properties. And on completion they
+remove themselves from the queue.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>We can improve the presented implementation in various ways. For example, we can add more capabilities to the event
+loop, such as restarting. But, as always, keep in mind the modeled domain. Furthermore there could be more opportunities
+to catch. For example I can guess a prioritised <code>Events</code> implementation, or I can guess event loops with different
+<code>ExecutorService</code> implementations. In this way, we could have finer-grained control over threads or priorities.</p>
+<p>Currently, I’m investigating a broader and more consistent way to apply this pattern.</p>
+<p>So, stay tuned and happy looping to you all!</p>
+</div>
+
+    
+    
+    
+        <h4 class="page-header">Related</h4>
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/object-and-pursuit-of-happiness/">Objects &amp; Pursuit of Happiness: Understanding Object Oriented Programming (OOP)</a></h4>
+    <h5>October 14, 2021</h5>
+    
+<a href="https://raffaeleflorio.github.io/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/java-the-object-equality-problem/">Java: The Object Equality Problem</a></h4>
+    <h5>December 18, 2020</h5>
+    
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/responsibility-decoupling"><kbd class="item-tag">responsibility-decoupling</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/spring-to-use-or-not-to-use/">Spring Framework: To Use Or Not To Use, That Is The Question</a></h4>
+    <h5>November 18, 2020</h5>
+    
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/spring"><kbd class="item-tag">spring</kbd></a>
+
+
+
+</div>
+ 
+    
+
+    
+    
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+
