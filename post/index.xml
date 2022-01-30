@@ -6,7 +6,18 @@
     <description>Recent content in Posts on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Object Thinking, Boundaries and Reality</title>
+      <link>https://raffaeleflorio.github.io/post/object-thinking-boundaries-and-reality/</link>
+      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/post/object-thinking-boundaries-and-reality/</guid>
+      <description>Ask a software developer, what is &amp;lsquo;good code?&amp;rsquo; They likely will answer something along the lines of, &amp;ldquo;it&amp;rsquo;s clean or elegant code.&amp;rdquo;
+It&amp;rsquo;s likely this person will further list SOLID principles and design patterns as a way to legitimize cleanliness or elegance.
+I think the way this relationship dynamic is interpreted is wrong. What I mean is that SOLID and design patterns do not simply imply good code. It&amp;rsquo;s actually the other way around.</description>
+    </item>
+    
     <item>
       <title>Implementing an Event Loop in Java for Fun and Profit</title>
       <link>https://raffaeleflorio.github.io/post/implementing-an-event-loop-in-java-for-fun-and-profit/</link>

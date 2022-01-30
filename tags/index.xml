@@ -6,20 +6,11 @@
     <description>Recent content in Tags on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>event loop</title>
-      <link>https://raffaeleflorio.github.io/tags/event-loop/</link>
-      <pubDate>Fri, 12 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://raffaeleflorio.github.io/tags/event-loop/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Sat, 29 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>java</title>
       <link>https://raffaeleflorio.github.io/tags/java/</link>
-      <pubDate>Fri, 12 Nov 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/tags/java/</guid>
       <description></description>
@@ -28,7 +19,7 @@
     <item>
       <title>object thinking</title>
       <link>https://raffaeleflorio.github.io/tags/object-thinking/</link>
-      <pubDate>Fri, 12 Nov 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/tags/object-thinking/</guid>
       <description></description>
@@ -37,9 +28,18 @@
     <item>
       <title>oop</title>
       <link>https://raffaeleflorio.github.io/tags/oop/</link>
-      <pubDate>Fri, 12 Nov 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://raffaeleflorio.github.io/tags/oop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>event loop</title>
+      <link>https://raffaeleflorio.github.io/tags/event-loop/</link>
+      <pubDate>Fri, 12 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/tags/event-loop/</guid>
       <description></description>
     </item>
     
