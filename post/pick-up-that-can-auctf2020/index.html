@@ -68,7 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.92.2" />
+ <meta name="generator" content="Hugo 0.98.0" />
         
 
         
@@ -159,13 +159,13 @@
 <p>Here’s a log of some kind of network traffic. The BASH script will help you set up your tools, and probably give you a hint as to what kind of network this is.</p>
 </blockquote>
 <p>You can download the log <a href="/ctf/auctf2020/signals/pickupthatcan.log">here</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sha256sum pickupthatcan.log 
-6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba6a44a0af03e95a  pickupthatcan.log
-</code></pre></div><p>The shell script is really short. It’s composed of three lines:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">modprobe vcan
-sudo ip link add dev vcan0 type vcan
-sudo ip link set up vcan0
-</code></pre></div><h1 id="analysis">Analysis</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sha256sum pickupthatcan.log 
+</span></span><span style="display:flex;"><span>6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba6a44a0af03e95a  pickupthatcan.log
+</span></span></code></pre></div><p>The shell script is really short. It’s composed of three lines:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>modprobe vcan
+</span></span><span style="display:flex;"><span>sudo ip link add dev vcan0 type vcan
+</span></span><span style="display:flex;"><span>sudo ip link set up vcan0
+</span></span></code></pre></div><h1 id="analysis">Analysis</h1>
 <p>The first step was to see the log. Here an excerpt:</p>
 <pre tabindex="0"><code>(1563316370.627559) can0 002#12000007D9535D0E
 (1563316370.628247) can0 7E8#0641010007E50000
@@ -213,9 +213,9 @@ About that I found this interesting entry on Wikipedia: <a href="https://en.wiki
 (1563316371.279102) can0 005#4D616E7D
 .....
 </code></pre><p>I decoded the hexadecimal strings, concatened the results and here is the flag:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cat flag.txt
-auctf<span style="color:#f92672">{</span>ImTheTrashMan<span style="color:#f92672">}</span>
-</code></pre></div><p><img src="/ctf/auctf2020/images/pickupthatcan-solved.png" alt="pickupthatcan solved banner"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ cat flag.txt
+</span></span><span style="display:flex;"><span>auctf<span style="color:#f92672">{</span>ImTheTrashMan<span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><img src="/ctf/auctf2020/images/pickupthatcan-solved.png" alt="pickupthatcan solved banner"></p>
 </div>
 
     

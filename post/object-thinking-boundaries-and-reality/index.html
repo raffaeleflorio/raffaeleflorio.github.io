@@ -68,7 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.92.2" />
+ <meta name="generator" content="Hugo 0.98.0" />
         
 
         
@@ -181,90 +181,90 @@ I&rsquo;m saying that it&rsquo;s better when boundaries are defined by data and 
 <p>At first, he said that users should be able to subscribe to the newsletter. We asked in which way. He said that they
 must provide an email.</p>
 <p>Using <strong>object thinking</strong> we can translate this expectation in this way:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Newsletter</span> <span style="color:#f92672">{</span>
-    Newsletter <span style="color:#a6e22e">subscribe</span><span style="color:#f92672">(</span>Email anEmail<span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>So, given the boundary <em>Newsletter</em> a user can subscribe to it with <em>anEmail</em>. The goal is to satisfy user
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Newsletter</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    Newsletter <span style="color:#a6e22e">subscribe</span><span style="color:#f92672">(</span>Email anEmail<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>So, given the boundary <em>Newsletter</em> a user can subscribe to it with <em>anEmail</em>. The goal is to satisfy user
 expectations (in this context) through interfaces.</p>
 <p>Then he said that a user can also unsubscribe in the same way:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Newsletter</span> <span style="color:#f92672">{</span>
-    Newsletter <span style="color:#a6e22e">subscribe</span><span style="color:#f92672">(</span>Email anEmail<span style="color:#f92672">);</span>
-
-    Newsletter <span style="color:#a6e22e">unsubscribe</span><span style="color:#f92672">(</span>Email anEmail<span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>Obviously, he also expressed the need to broadcast news to subscribers. Then we asked if he needs to authenticate in
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Newsletter</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    Newsletter <span style="color:#a6e22e">subscribe</span><span style="color:#f92672">(</span>Email anEmail<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Newsletter <span style="color:#a6e22e">unsubscribe</span><span style="color:#f92672">(</span>Email anEmail<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Obviously, he also expressed the need to broadcast news to subscribers. Then we asked if he needs to authenticate in
 some way.</p>
 <p>He took it for granted. And he furthermore explained that he expects to access a protected area with a passphrase. Then
 we discovered that, that news describes a fact with words.</p>
 <p>So, we can reflect these expectations in this way:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Newsletter</span> <span style="color:#f92672">{</span>
-    Newsletter <span style="color:#a6e22e">subscribe</span><span style="color:#f92672">(</span>Email anEmail<span style="color:#f92672">);</span>
-
-    Newsletter <span style="color:#a6e22e">unsubscribe</span><span style="color:#f92672">(</span>Email anEmail<span style="color:#f92672">);</span>
-
-    ProtectedArea <span style="color:#a6e22e">protectedArea</span><span style="color:#f92672">(</span>Passphrase aPassphrase<span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Passphrase</span> <span style="color:#f92672">{</span>
-    Boolean <span style="color:#a6e22e">correct</span><span style="color:#f92672">(</span>String passphrase<span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ProtectedArea</span> <span style="color:#f92672">{</span>
-    ProtectedArea <span style="color:#a6e22e">broadcast</span><span style="color:#f92672">(</span>News news<span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">News</span> <span style="color:#f92672">{</span>
-    String <span style="color:#a6e22e">fact</span><span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>This means that <em>Newsletter</em> provides access to a <em>ProtectedArea</em>. And the latter broadcasts <em>News</em>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Newsletter</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    Newsletter <span style="color:#a6e22e">subscribe</span><span style="color:#f92672">(</span>Email anEmail<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Newsletter <span style="color:#a6e22e">unsubscribe</span><span style="color:#f92672">(</span>Email anEmail<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ProtectedArea <span style="color:#a6e22e">protectedArea</span><span style="color:#f92672">(</span>Passphrase aPassphrase<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Passphrase</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    Boolean <span style="color:#a6e22e">correct</span><span style="color:#f92672">(</span>String passphrase<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ProtectedArea</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    ProtectedArea <span style="color:#a6e22e">broadcast</span><span style="color:#f92672">(</span>News news<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">News</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    String <span style="color:#a6e22e">fact</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>This means that <em>Newsletter</em> provides access to a <em>ProtectedArea</em>. And the latter broadcasts <em>News</em>.</p>
 <p>After some time wanted to add the possibility to subscribe to the newsletter with a telephone number. So, we asked if
 <em>anEmail</em> and <em>aPhoneNumber</em> are references through which to send text to a subscriber.</p>
 <p>He agreed, and he pointed out that they also identify subscribers. Then, he expressed the needs to count subscribers.</p>
 <p>This is a way to satisfy these expectations. I added some simple classes as examples:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Newsletter</span> <span style="color:#f92672">{</span>
-    Newsletter <span style="color:#a6e22e">subscribe</span><span style="color:#f92672">(</span>Reference aReference<span style="color:#f92672">);</span>
-
-    Newsletter <span style="color:#a6e22e">unsubscribe</span><span style="color:#f92672">(</span>Reference aReference<span style="color:#f92672">);</span>
-
-    ProtectedArea <span style="color:#a6e22e">protectedArea</span><span style="color:#f92672">(</span>Passphrase aPassphrase<span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Reference</span> <span style="color:#f92672">{</span>
-    String <span style="color:#a6e22e">id</span><span style="color:#f92672">();</span>
-
-    Reference <span style="color:#a6e22e">send</span><span style="color:#f92672">(</span>String text<span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Email</span> <span style="color:#66d9ef">implements</span> Reference <span style="color:#f92672">{</span>
-    <span style="color:#75715e">// implements method that sends email
-</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TelephoneNumber</span> <span style="color:#66d9ef">implements</span> Reference <span style="color:#f92672">{</span>
-    <span style="color:#75715e">// implements method that sends SMS
-</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Passphrase</span> <span style="color:#f92672">{</span>
-    Boolean <span style="color:#a6e22e">correct</span><span style="color:#f92672">(</span>String passphrase<span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SHA512Passphrase</span> <span style="color:#66d9ef">implements</span> Passphrase <span style="color:#f92672">{</span>
-    <span style="color:#75715e">// implements method to verify correctness
-</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ProtectedArea</span> <span style="color:#f92672">{</span>
-    ProtectedArea <span style="color:#a6e22e">broadcast</span><span style="color:#f92672">(</span>News news<span style="color:#f92672">);</span>
-
-    Subscribers <span style="color:#a6e22e">subscribers</span><span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">News</span> <span style="color:#f92672">{</span>
-    String <span style="color:#a6e22e">fact</span><span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Subscribers</span> <span style="color:#f92672">{</span>
-    Long <span style="color:#a6e22e">count</span><span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>At this point, he seems fulfilled (until the next needs).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Newsletter</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    Newsletter <span style="color:#a6e22e">subscribe</span><span style="color:#f92672">(</span>Reference aReference<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Newsletter <span style="color:#a6e22e">unsubscribe</span><span style="color:#f92672">(</span>Reference aReference<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ProtectedArea <span style="color:#a6e22e">protectedArea</span><span style="color:#f92672">(</span>Passphrase aPassphrase<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Reference</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    String <span style="color:#a6e22e">id</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Reference <span style="color:#a6e22e">send</span><span style="color:#f92672">(</span>String text<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Email</span> <span style="color:#66d9ef">implements</span> Reference <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// implements method that sends email
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TelephoneNumber</span> <span style="color:#66d9ef">implements</span> Reference <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// implements method that sends SMS
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Passphrase</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    Boolean <span style="color:#a6e22e">correct</span><span style="color:#f92672">(</span>String passphrase<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SHA512Passphrase</span> <span style="color:#66d9ef">implements</span> Passphrase <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// implements method to verify correctness
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ProtectedArea</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    ProtectedArea <span style="color:#a6e22e">broadcast</span><span style="color:#f92672">(</span>News news<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Subscribers <span style="color:#a6e22e">subscribers</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">News</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    String <span style="color:#a6e22e">fact</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Subscribers</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    Long <span style="color:#a6e22e">count</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>At this point, he seems fulfilled (until the next needs).</p>
 <h1 id="conclusion">Conclusion</h1>
 <p>I started this article by saying that SOLID and design patterns do not imply good code. At most, good code implies them.</p>
 <p>How &lsquo;good&rsquo; your code is, depends only on how much it adheres and reflects the domain. After all, we code for this
@@ -284,6 +284,27 @@ computer to reflect the domain we are facing.</p>
     
         <h4 class="page-header">Related</h4>
          <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/uncover-the-alias-pattern/">Uncover the Alias Pattern</a></h4>
+    <h5>May 11, 2022</h5>
+    
+<a href="https://raffaeleflorio.github.io/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/design-pattern"><kbd class="item-tag">design pattern</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
+
+
+
+</div>
+  <div class="item">
 
     
     
@@ -323,27 +344,6 @@ computer to reflect the domain we are facing.</p>
 <a href="https://raffaeleflorio.github.io/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
 
 <a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
-
-
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="/post/java-the-object-equality-problem/">Java: The Object Equality Problem</a></h4>
-    <h5>December 18, 2020</h5>
-    
-<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
-
-<a href="https://raffaeleflorio.github.io/tags/oop"><kbd class="item-tag">oop</kbd></a>
-
-<a href="https://raffaeleflorio.github.io/tags/responsibility-decoupling"><kbd class="item-tag">responsibility-decoupling</kbd></a>
 
 
 

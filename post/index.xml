@@ -6,7 +6,18 @@
     <description>Recent content in Posts on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Uncover the Alias Pattern</title>
+      <link>https://raffaeleflorio.github.io/post/uncover-the-alias-pattern/</link>
+      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/post/uncover-the-alias-pattern/</guid>
+      <description>While I write OOP code I apply some practices of Elegant Objects.
+One of them is that classes should be final. This means that they cannot be extended through inheritance but only through composition.
+The advantage is simplicity. I mean that, in this way, each object is seen as a cohesive block. What interest to its clients is its exposed behaviour. Nothing more. Instead, through extension, a client can break it.</description>
+    </item>
+    
     <item>
       <title>Object Thinking, Boundaries and Reality</title>
       <link>https://raffaeleflorio.github.io/post/object-thinking-boundaries-and-reality/</link>
@@ -194,7 +205,7 @@ $ sha256sum ./thanksgiving_dinner 2307af59beead6a2377c3beb2ff26f70d5732ec6b651b5
       
       <guid>https://raffaeleflorio.github.io/post/mprotect-urop/</guid>
       <description>Intro Some time ago, a friend of mine (dag-tech), asked me about a technique to run a shellcode with NX enabled. So he gave me a simple program:
-//src.c #include &amp;lt;stdio.h&amp;gt;#include &amp;lt;unistd.h&amp;gt; int main(int argc, char **argv) { char buf[16]; puts(&amp;#34;Can you pwn me????&amp;#34;); read(0, buf, 512); return 0; } $ gcc -z noexecstack -fno-stack-protector -o vuln src.c $ checksec vuln Arch: amd64-64-little RELRO: Partial RELRO Stack: No canary found NX: NX enabled PIE: No PIE (0x400000) The approach The issue with NX is that we cannot execute code in writable memory segment.</description>
+//src.c #include &amp;lt;stdio.h&amp;gt;#include &amp;lt;unistd.h&amp;gt; int main(int argc, char **argv) { 	char buf[16]; 	puts(&amp;#34;Can you pwn me????&amp;#34;); 	read(0, buf, 512); 	return 0; } $ gcc -z noexecstack -fno-stack-protector -o vuln src.c $ checksec vuln  Arch: amd64-64-little  RELRO: Partial RELRO  Stack: No canary found  NX: NX enabled  PIE: No PIE (0x400000) The approach The issue with NX is that we cannot execute code in writable memory segment.</description>
     </item>
     
     <item>
@@ -208,7 +219,7 @@ Description:
  It’s a b0f , Can’t be easier than that.
  You could download the binary here.
 $ sha256sum ./babyb0f 68344bb2c6aa56fdcc75379b3ced882abdf4e9bffa0bba63006dfb6c11ed7c47 babyb0f Exploitation The program simply asks for an input that overflow a buffer:
-$ ./baby_b0f AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA Try Again Segmentation fault (core dumped) $ checksec ./baby_b0f Arch: amd64-64-little RELRO: Partial RELRO Stack: No canary found NX: NX enabled PIE: No PIE (0x400000) As usual I opened the binary with r2.</description>
+$ ./baby_b0f AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA Try Again Segmentation fault (core dumped)  $ checksec ./baby_b0f  Arch: amd64-64-little  RELRO: Partial RELRO  Stack: No canary found  NX: NX enabled  PIE: No PIE (0x400000) As usual I opened the binary with r2.</description>
     </item>
     
     <item>
@@ -222,7 +233,7 @@ Description:
  You don’t need eip control for every pwn.
  You can download the binary here
 $ sha256sum ./babypwn 57b32556465e890bdefdcccd6e515f6a2888300f48e9b7a7df0bb66694bda45b babypwn Exploitation The program asks five input, echoes them back and prints a message of failure. However there is a segfault caused by a buffer overflow.
-$ ./babypwn 1 2 3 4 5 1 2 3 4 5 Naaa , Try HArder $ .</description>
+$ ./babypwn 1 2 3 4 5 1  2  3  4  5  Naaa , Try HArder  $ .</description>
     </item>
     
     <item>

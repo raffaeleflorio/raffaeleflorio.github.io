@@ -6,7 +6,18 @@
     <description>Recent content in oop on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/tags/oop/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/tags/oop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Uncover the Alias Pattern</title>
+      <link>https://raffaeleflorio.github.io/post/uncover-the-alias-pattern/</link>
+      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/post/uncover-the-alias-pattern/</guid>
+      <description>While I write OOP code I apply some practices of Elegant Objects.
+One of them is that classes should be final. This means that they cannot be extended through inheritance but only through composition.
+The advantage is simplicity. I mean that, in this way, each object is seen as a cohesive block. What interest to its clients is its exposed behaviour. Nothing more. Instead, through extension, a client can break it.</description>
+    </item>
+    
     <item>
       <title>Object Thinking, Boundaries and Reality</title>
       <link>https://raffaeleflorio.github.io/post/object-thinking-boundaries-and-reality/</link>

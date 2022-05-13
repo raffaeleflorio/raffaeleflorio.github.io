@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta name="monetization" content="$ilp.uphold.com/rHp7LeydLZ6B">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Uncover the Alias Pattern</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Roboto Mono', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: #00a6d8;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://raffaeleflorio.github.io/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%20Mono">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.98.0" />
+        
+
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">Uncover the Alias Pattern</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/post/">Posts</a></li>
+                            
+                                <li><a href="/project/">Projects</a></li>
+                            
+                                <li><a href="/tags/">Tags</a></li>
+                            
+                                <li><a href="/friends/">Friends</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaeleflorio"><i class="fab fa-linkedin"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>Uncover the Alias Pattern</h2>
+        <h5>May 11, 2022</h5>
+        
+<a href="https://raffaeleflorio.github.io/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/design-pattern"><kbd class="item-tag">design pattern</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
+
+
+    </div>
+
+    <div align="left" class="content"><p><img src="/img/uncover-the-alias-pattern/cover.jpeg" alt="The article cover"></p>
+<p>While I write OOP code I apply some practices of Elegant Objects.</p>
+<p>One of them is that classes should be final. This means that they cannot be extended through inheritance but only
+through composition.</p>
+<p>The advantage is simplicity. I mean that, in this way, each object is seen as a cohesive block. What interest to its
+clients is its exposed behaviour. Nothing more. Instead, through extension, a client can break it.</p>
+<p>For instance, an object can interrelate two of its methods. So, if we can replace through extension one of them we can
+break the other. For this reason, to be sure, we should check its implementation. In this way we increase coupling
+between the extended and the extension.</p>
+<p>In other words, final classes enforces the idea that we should care only of exposed behaviour. And not of
+implementation. Nonetheless, it requires a change of how we reason about them. The Alias pattern simplifies an aspect of
+this change.</p>
+<h1 id="intent">Intent</h1>
+<p>The Alias pattern allows to extend the way a class can build its objects without subclassing or modifying it.</p>
+<h1 id="motivation">Motivation</h1>
+<p>Suppose a final class that creates its objects using some mandatory parameters. How can we add another way to create its
+objects? For instance, how we can add a constructor that use a default value for one or more of its missing parameters?</p>
+<p>One approach could be to add another constructor to the class. But this could get out of hand. Furthermore, it could be
+not possible. For instance, the aforesaid final class could be in an external library.</p>
+<p>Another drawback of this approach is that we can pollute the final class. For instance, we can have a final class that
+builds its objects given a JSON. But after some time we need to add also XML. As you can imagine adding the code to map
+XML to JSON will pollute inevitably that class.</p>
+<p>However, the Alias pattern isn’t limited to final classes. For instance, we cannot have two constructors with same
+parameters but different semantic.</p>
+<p>To resolve this issue we can add static factory methods to the class code. But the same aforesaid drawbacks affects this
+approach. That is: this gets out of hand; this couldn’t be always possibile; this will pollute the class.</p>
+<p>A better approach to both problems is to create another class with the desired constructor behaviour. This class
+encapsulates its own construction logic. And it will delegate everything to the other class, including the actual
+creation. This is the Alias pattern.</p>
+<h1 id="applicability">Applicability</h1>
+<p>Use the Alias pattern when:</p>
+<ul>
+<li>You need to add or modify a constructor of a final class;</li>
+<li>You want to add or modify a constructor of a class without modifying or subclassing it;</li>
+<li>You need two or more constructor of a class with the same parameters without modifying or subclassing it.</li>
+</ul>
+<h1 id="structure">Structure</h1>
+<p>The structure is simple. We need at least two class that implements the same interface: an <code>Alias</code> and an <code>Aliased</code>.</p>
+<p><img src="/img/uncover-the-alias-pattern/structure.png" alt="The Alias pattern UML structure"></p>
+<h1 id="partecipants">Partecipants</h1>
+<ul>
+<li><code>AnInterface</code>
+<ul>
+<li>declares an interface.</li>
+</ul>
+</li>
+<li><code>Aliased</code>
+<ul>
+<li>implements <code>AnInterface</code>;</li>
+<li>exposes one or more constructors.</li>
+</ul>
+</li>
+<li><code>Alias</code>
+<ul>
+<li>implements <code>AnInterface</code>;</li>
+<li>exposes one or more constructors;</li>
+<li>maintains a reference to an <code>Aliased</code> object;</li>
+<li>delegates everything to the referenced <code>Aliased</code> object.</li>
+</ul>
+</li>
+</ul>
+<h1 id="collaboration">Collaboration</h1>
+<ul>
+<li><code>Alias</code> builds - according to its own rules - an <code>Aliased</code> object and maintains a reference of it. Then it delegates
+everything to the aliased.</li>
+</ul>
+<h1 id="consequences">Consequences</h1>
+<p>The Alias Pattern has the following consequences:</p>
+<ul>
+<li>It allows adding or modifying constructors easy;</li>
+<li>It promotes composition over inheritance;</li>
+<li>It increases the number of classes;</li>
+<li>It reduces code duplication when used to replace a recurrent creation;</li>
+<li>Alias classes duplicates delegating code. If this is a problem it could be approach with a base abstract Alias class.</li>
+</ul>
+<h1 id="implementation">Implementation</h1>
+<p>To implement the Alias pattern you need:</p>
+<ol>
+<li>to define an interface;</li>
+<li>to implement the previously defined interface with a class. This will be the aliased one;</li>
+<li>to implement the previously defined interface with an alias class, and you need:
+<ol>
+<li>to define a constructor that builds an aliased object according some needs;</li>
+<li>a private instance variable that reference to the previously built aliased object;</li>
+<li>to delegates everything to the aliased object.</li>
+</ol>
+</li>
+</ol>
+<h1 id="sample-code">Sample Code</h1>
+<p>The below Java-ish code expresses the Alias pattern. In this code the alias injects a default value for an otherwise
+mandatory parameter:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">AnInterface</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">aMethod</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Something <span style="color:#a6e22e">anotherMethod</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Aliased</span> <span style="color:#66d9ef">implements</span> AnInterface <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> A a<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> B b<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Aliased<span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> A a<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> B b<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> a<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> b<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">aMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// implementation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Something <span style="color:#a6e22e">anotherMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// implementation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Alias</span> <span style="color:#66d9ef">implements</span> AnInterface <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Aliased aliased<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Alias<span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> A a<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> Aliased<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                        a<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">new</span> InstanceOfB<span style="color:#f92672">(...)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">Alias</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Aliased aliased<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">aliased</span> <span style="color:#f92672">=</span> aliased<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">aMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">aliased</span><span style="color:#f92672">.</span><span style="color:#a6e22e">aMethod</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Something <span style="color:#a6e22e">anotherMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">aliased</span><span style="color:#f92672">.</span><span style="color:#a6e22e">anotherMethod</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h1 id="related-patterns">Related Patterns</h1>
+<p>At a certain degree, the Alias pattern could be also seen as a way
+to <a href="https://en.wikipedia.org/wiki/Decorator_pattern">decorate</a> the objects construction. This vision is
+especially true if we see a class as an object which responsibility is to create objects.</p>
+</div>
+
+    
+    
+    
+        <h4 class="page-header">Related</h4>
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/object-thinking-boundaries-and-reality/">Object Thinking, Boundaries and Reality</a></h4>
+    <h5>January 29, 2022</h5>
+    
+<a href="https://raffaeleflorio.github.io/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/implementing-an-event-loop-in-java-for-fun-and-profit/">Implementing an Event Loop in Java for Fun and Profit</a></h4>
+    <h5>November 12, 2021</h5>
+    
+<a href="https://raffaeleflorio.github.io/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/event-loop"><kbd class="item-tag">event loop</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/object-and-pursuit-of-happiness/">Objects &amp; Pursuit of Happiness: Understanding Object Oriented Programming (OOP)</a></h4>
+    <h5>October 14, 2021</h5>
+    
+<a href="https://raffaeleflorio.github.io/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/java"><kbd class="item-tag">java</kbd></a>
+
+
+
+</div>
+ 
+    
+
+    
+    
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+

