@@ -16,8 +16,8 @@
       <description>Intro This is the only challenge I solved in the Signals section.
 It’s been solved 59 times and it was worth 965 points.
 Description:
- Here’s a log of some kind of network traffic. The BASH script will help you set up your tools, and probably give you a hint as to what kind of network this is.
- You can download the log here.
+Here’s a log of some kind of network traffic. The BASH script will help you set up your tools, and probably give you a hint as to what kind of network this is.
+You can download the log here.
 $ sha256sum pickupthatcan.log 6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba6a44a0af03e95a pickupthatcan.log The shell script is really short.</description>
     </item>
     
@@ -29,10 +29,10 @@ $ sha256sum pickupthatcan.log 6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba
       <guid>https://raffaeleflorio.github.io/post/password-cracking-challenges-auctf2020/</guid>
       <description>Salty This challenge was solved 148 times and it was worth 357 points.
 Description:
- You might need this: 1337
+You might need this: 1337
 Hash: 5eaff45e09bec5222a9cfa9502a4740d
 NOTE: The flag is NOT in the standard auctf{} format
- The hash seems a salted MD5.
+The hash seems a salted MD5.
 The correct hash mode is md5($salt.$pass). So with hashcat:
 $ hashcat -a 0 -m 20 salty rockyou.txt ..... 5eaff45e09bec5222a9cfa9502a4740d:1337:treetop ..... Crack Me 2 This challenge was solved 108 times and it was worth 880 points.</description>
     </item>
@@ -45,7 +45,7 @@ $ hashcat -a 0 -m 20 salty rockyou.txt ..... 5eaff45e09bec5222a9cfa9502a4740d:13
       <guid>https://raffaeleflorio.github.io/post/remote-school-auctf2020/</guid>
       <description>Intro This is the fourth and last pwn challenge. It was solved 63 times and it was worth 960 points.
 Description:
- Dear Student,
+Dear Student,
 Due to COVID-19 concerns our curriculum will be moving completely to online courses… I know we haven’t even started our school year yet so this may come as a shock. But I promise it won’t be too bad! You can login at challenges.auctf.com 30013.
 Best, Dean of Eon Pillars</description>
     </item>
@@ -58,10 +58,10 @@ Best, Dean of Eon Pillars</description>
       <guid>https://raffaeleflorio.github.io/post/house-of-madness-auctf2020/</guid>
       <description>Intro This is the third pwn challenge. It was solved 100 times and it was worth 897 points.
 Description:
- Welcome to the House of Madness. Can you pwn your way to the keys to get the relic?
+Welcome to the House of Madness. Can you pwn your way to the keys to get the relic?
 nc challenges.auctf.com 30012
 Note: ASLR is disabled for this challenge
- You could download the binary here.
+You could download the binary here.
 $ sha256sum ./house_of_madness 15b1a68ae0e1d4eee4f917cc92412d90fd3a4adbb5a55a83b115e0f438baaf93 house_of_madness Exploitation When we launch the program shows a banner and it asks us to make a choice.</description>
     </item>
     
@@ -73,11 +73,11 @@ $ sha256sum ./house_of_madness 15b1a68ae0e1d4eee4f917cc92412d90fd3a4adbb5a55a83b
       <guid>https://raffaeleflorio.github.io/post/thanksgiving-dinner-auctf2020/</guid>
       <description>Intro This is the second pwn challenge of AUCTF 2020. It was solved 238 times and it was worth 408 points.
 Description:
- I just ate a huge dinner. I can barley eat anymore… so please don’t give me too much!
+I just ate a huge dinner. I can barley eat anymore… so please don’t give me too much!
 nc challenges.auctf.com 30011
 Note: ASLR is disabled for this challenge
- You could download the binary here
-$ sha256sum ./thanksgiving_dinner 2307af59beead6a2377c3beb2ff26f70d5732ec6b651b5c31e58b8f692bfb70c thanksgiving_dinner Exploitation The program simply ask for an input.</description>
+You could download the binary here
+$ sha256sum ./thanksgiving_dinner 2307af59beead6a2377c3beb2ff26f70d5732ec6b651b5c31e58b8f692bfb70c thanksgiving_dinner Exploitation The program simply ask for an input. But it seems not vulnerable to a buffer overflow:</description>
     </item>
     
   </channel>

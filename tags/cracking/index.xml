@@ -15,10 +15,10 @@
       <guid>https://raffaeleflorio.github.io/post/password-cracking-challenges-auctf2020/</guid>
       <description>Salty This challenge was solved 148 times and it was worth 357 points.
 Description:
- You might need this: 1337
+You might need this: 1337
 Hash: 5eaff45e09bec5222a9cfa9502a4740d
 NOTE: The flag is NOT in the standard auctf{} format
- The hash seems a salted MD5.
+The hash seems a salted MD5.
 The correct hash mode is md5($salt.$pass). So with hashcat:
 $ hashcat -a 0 -m 20 salty rockyou.txt ..... 5eaff45e09bec5222a9cfa9502a4740d:1337:treetop ..... Crack Me 2 This challenge was solved 108 times and it was worth 880 points.</description>
     </item>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta name="monetization" content="$ilp.uphold.com/rHp7LeydLZ6B">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>How to Run Podman and Docker-Compose on Windows</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Roboto Mono', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: #00a6d8;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://raffaeleflorio.github.io/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%20Mono">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.100.2" />
+        
+
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">How to Run Podman and Docker-Compose on Windows</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/post/">Posts</a></li>
+                            
+                                <li><a href="/project/">Projects</a></li>
+                            
+                                <li><a href="/tags/">Tags</a></li>
+                            
+                                <li><a href="/friends/">Friends</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaeleflorio"><i class="fab fa-linkedin"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>How to Run Podman and Docker-Compose on Windows</h2>
+        <h5>June 2, 2022</h5>
+        
+<a href="https://raffaeleflorio.github.io/tags/podman"><kbd class="item-tag">podman</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/docker-compose"><kbd class="item-tag">docker-compose</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/docker"><kbd class="item-tag">docker</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/linux"><kbd class="item-tag">linux</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/container"><kbd class="item-tag">container</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/windows"><kbd class="item-tag">windows</kbd></a>
+
+
+    </div>
+
+    <div align="left" class="content"><p><img src="/img/how-to-run-podman-and-docker-compose-on-windows/cover.jpeg" alt="The article cover"></p>
+<p>As you know containers are a Linux thing. Microsoft introduced
+its <a href="https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/">solution</a> but I’ve never seen them used.</p>
+<p>To use containers we have mainly two alternatives: docker and podman. I prefer the latter for two reasons. Because it
+has a daemonless architecture and because it doesn’t need root permission. But using it with docker-compose on Windows
+is tough. That’s why I decided to write and share this story.</p>
+<h1 id="motivation">Motivation</h1>
+<p>I think using Docker Desktop on Windows is the fastest way to use containers. It configures everything by itself. But,
+excluding the architectural preference, I found two other motivations to avoid it:</p>
+<ol>
+<li>License issue. Docker Desktop requires a per-user license for commercial use in large companies.</li>
+<li>You don’t need it. For example, I’ve never used its GUI. Probably because I’m so accustomed to using it on Linux from
+cli.</li>
+</ol>
+<h1 id="prerequisites">Prerequisites</h1>
+<p>Using podman on Windows is feasible thanks WSL2. Microsoft provides instructions according your Windows version. You can
+find them
+here: <a href="https://docs.microsoft.com/en-us/windows/wsl/install">https://docs.microsoft.com/en-us/windows/wsl/install</a>.</p>
+<p>Podman <a href="https://podman.io/releases/2021/02/11/podman-release-v3.0.0.html">supports</a> docker-compose from version 3.0.0.</p>
+<h1 id="tldr">TL;DR</h1>
+<p>The below paragraphs are about the issues I found on Debian and Ubuntu. So, why we need OpenSUSE Tumbleweed as Linux
+distribution. For this reason, I summarised in the <strong>Conclusion</strong> paragraph only the needed steps.</p>
+<h1 id="linux-distributions">Linux distributions</h1>
+<p>On the Microsoft Store there are multiple Linux distributions. And that’s where started my journey.</p>
+<blockquote>
+<p><strong>Info</strong>: Common solutions about distributions are in the Troubleshooting section</p>
+</blockquote>
+<h2 id="debian">Debian</h2>
+<p>The current stable distribution of Debian is version 11. It’s codenamed bullseye and it’s the first one I tried to use.</p>
+<p>The first thing to check is if podman is in the official repository. Fortunately it is and it’s currently at the version
+3.0.1. So, it should work with docker-compose.</p>
+<p>So, I updated the system and I installed podman and docker-compose:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo apt update
+</span></span><span style="display:flex;"><span>$ sudo apt upgrade
+</span></span><span style="display:flex;"><span>$ sudo apt install podman docker-compose
+</span></span></code></pre></div><p>Then I configured podman to avoid using systemd. On WSL2 we cannot rely on it because the init system is a custom
+Microsoft solution.</p>
+<p>To do this I copied <code>/usr/share/containers/containers.conf</code> to <code>$HOME/.config/containers</code>. Then I changed the latter.
+Specifically, I set <code>cgroup_manager</code> to <code>cgroupfs</code> and <code>events_logger</code> to <code>file</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>[engine]
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>cgroup_manager = &#34;cgroupfs&#34;
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>events_logger = &#34;file&#34;
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>I found this tips
+on <a href="https://www.redhat.com/sysadmin/podman-windows-wsl2">https://www.redhat.com/sysadmin/podman-windows-wsl2</a>.</p>
+<p>Then I tried to run a simple container:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ docker run -dp 8080:80 docker.io/httpd
+</span></span></code></pre></div><p>But I got: <code>Error: Error initialising source docker … x509: certificate signed by unkown authority</code>. To resolve this
+issue I installed <code>ca-certificates</code>. Then I tried to run the container again:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo apt install ca-certificates
+</span></span><span style="display:flex;"><span>$ docker-run -dp 8080:80 docker.io/httpd
+</span></span></code></pre></div><p>This time it worked! And the host can reach the container.</p>
+<p>So, I tried a simple docker-compose to test the communication between two containers:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.7&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">db</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.io/mariadb</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">MYSQL_ROOT_PASSWORD</span>: <span style="color:#ae81ff">password</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">phpmyadmin</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.io/phpmyadmin</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">8080</span>:<span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">PMA_ARBITRARY=1</span>
+</span></span></code></pre></div><p>But I got this error:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ docker-compose up
+</span></span><span style="display:flex;"><span>ERROR: Couldn<span style="color:#e6db74">&#39;t connect to Docker daemon at http+docker://localhost - is it running?
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">If it&#39;</span>s at a non-standard location, specify the URL with the DOCKER_HOST environment variable.
+</span></span></code></pre></div><p>Obviously it’s not running. So, I checked the podman documentation and we need to start the podman socket manually. We
+should do it manually because we cannot rely on a systemd service. Then we should indicated the socket location to
+docker-compose.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ podman system service --time<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> unix:///home/user/podman.sock &amp;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> &lt;a number&gt;
+</span></span><span style="display:flex;"><span>$ docker-compose -H unix:///home/user/podman.sock up
+</span></span><span style="display:flex;"><span>Pulling images...
+</span></span><span style="display:flex;"><span>Creating images...
+</span></span><span style="display:flex;"><span>ERROR: <span style="color:#66d9ef">for</span> &lt;service name&gt; network connect is not enabled <span style="color:#66d9ef">for</span> rootless containers
+</span></span><span style="display:flex;"><span>ERROR: <span style="color:#66d9ef">for</span> &lt;service name&gt; network connect is not enabled <span style="color:#66d9ef">for</span> rootless containers
+</span></span></code></pre></div><p>I searched the error and I found a GitHub <a href="https://github.com/containers/podman/issues/9169">issue</a> about podman. It
+seems this is a bug fixed in the version 3.2.
+So, I searched other supported Linux distributions in the hope to find a newer podman version.</p>
+<h2 id="ubuntu">Ubuntu</h2>
+<p>Currently there are three Ubuntu versions:</p>
+<ul>
+<li>18.04.5 LTS</li>
+<li>20.04.4 LTS</li>
+<li>22.04 LTS</li>
+</ul>
+<p>But, as Debian, they doesn&rsquo;t support latest Podman version. For this reason, I didn’t try them at all. And at this
+moment I was a bit unmotivated. I would have appreciated a rolling distribution. And that’s when I see OpenSUSE
+Tumbleweed in the Microsoft Store&hellip;</p>
+<h2 id="opensuse-tumbleweed">OpenSUSE Tumbleweed</h2>
+<p>OpenSUSE Tumbleweed is a rolling distribution. This means it supports the latest versions of packages. Indeed, the
+current podman version is the 4.0.3. Another good news is that I used Tumbleweed for some years, and it was great!</p>
+<p>So, I updated the system and installed podman and docker-compose:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo zypper update
+</span></span><span style="display:flex;"><span>$ sudo zypper install podman docker-compose
+</span></span></code></pre></div><p>At this point I configured podman to not use systemd, as Debian.</p>
+<p>I tried to run a simple container exposing a port. And it worked.</p>
+<p>So, I started the podman socket. Then I launched docker-compose with the same file. And the two containers started!</p>
+<p>But, when I tried to connect to the database from phpmyadmin I received the following error:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>getaddrinfo failed: Name or service not known
+</span></span></code></pre></div><p>I investigated a bit and I found that containers were unable to communicate through DNS name.</p>
+<p>For this reason I researched about networking in Podman 4.x and I found that they changed the network stack. But it
+should also supports DNS resolution.</p>
+<p>Yet, podman continues to support the old network stack (i.e. <code>cni</code>) for compatibility reason. So, I checked what’s the
+enabled stack and it was the old one. So, I research about it and DNS resolution and I found
+an <a href="https://podman.io/getting-started/network#using-dns-in-container-networks">official article</a>. The old stack supports
+plugins and one of them regards DNS name resolution: <code>dnsname</code>.</p>
+<p>So, I searched it on the Tumbleweed repository and it was there. So, I installed it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo zypper install cni-plugin-dnsname
+</span></span></code></pre></div><p>And this time the containers communicated correctly.</p>
+<p>Furthermore, I forced the old stack in podman adding to <code>$HOME/.config/containers/containers.conf</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>[network]
+</span></span><span style="display:flex;"><span>network_backedn = &#34;cni&#34;
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h1 id="troubleshooting">Troubleshooting</h1>
+<h2 id="unable-to-resolve-dns-in-wsl2">Unable to resolve DNS in WSL2</h2>
+<p>On each distribution I was unable to resolve domain names. For example, I got errors like:</p>
+<ul>
+<li><code>Temporary failure resolving ‘&lt;a domain name&gt;’</code></li>
+<li><code>W: Failed to fetch &lt;a URL&gt;</code></li>
+<li><code>Error message: Could not resolve host: &lt;a host name&gt;'</code></li>
+</ul>
+<p>So, I read the <code>/etc/resolv.conf</code> file and there was a bad DNS server. Fortunately Microsoft added a hint:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span># This file was automatically generated by WSL. To stop automatic generation of this file, add the following entry to /etc/wsl.conf:
+</span></span><span style="display:flex;"><span># [network]
+</span></span><span style="display:flex;"><span># generateResolvConf = false
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nameserver &lt;BAD_NAMESERVER&gt;
+</span></span></code></pre></div><p>So, I wrote the <code>/etc/wsl.conf</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[network]
+</span></span><span style="display:flex;"><span>generateResolvConf = false
+</span></span></code></pre></div><p>Then, I removed the <code>/etc/resolv.conf</code> file (it was a link) and I created the correct one:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>nameserver &lt;GOOD_NAMESERVER_IP&gt;
+</span></span></code></pre></div><h1 id="conclusion">Conclusion</h1>
+<p>As you can see running podman with docker-compose on Window was a journey. We covered a lot of steps. So, to simplify
+and have them better organised I wrote again here:</p>
+<ol>
+<li>Install WSL2</li>
+<li>Install OpenSUSE Tumbleweed as Linux distribution</li>
+<li>Correct /etc/resolv.conf, if unable to resolve DNS name in the distribution</li>
+<li>Update the distribution</li>
+<li>Install podman, docker-compose and cni-plugin-dnsname</li>
+<li>Configure podman to not use systemd</li>
+<li>Configure podman to use the cni as network backend</li>
+<li>Launch podman socket</li>
+<li>Profit</li>
+</ol>
+<p>At this point, you can customize your experience to simplify your workflow. For example command aliases or adding
+commands at boot.</p>
+</div>
+
+    
+    
+    
+
+    
+    
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+
