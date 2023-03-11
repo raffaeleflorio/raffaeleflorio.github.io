@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta name="monetization" content="$ilp.uphold.com/rHp7LeydLZ6B">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>The Science Behind Full-Text Search Engines</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Roboto Mono', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: #00a6d8;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://raffaeleflorio.github.io/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%20Mono">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.111.1">
+        
+
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">The Science Behind Full-Text Search Engines</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/post/">Posts</a></li>
+                            
+                                <li><a href="/project/">Projects</a></li>
+                            
+                                <li><a href="/tags/">Tags</a></li>
+                            
+                                <li><a href="/friends/">Friends</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaeleflorio"><i class="fab fa-linkedin"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>The Science Behind Full-Text Search Engines</h2>
+        <h5>February 9, 2023</h5>
+        
+<a href="https://raffaeleflorio.github.io/tags/information-retrieval"><kbd class="item-tag">information retrieval</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/full-text-search-engine"><kbd class="item-tag">full-text search engine</kbd></a>
+
+<a href="https://raffaeleflorio.github.io/tags/search-engine"><kbd class="item-tag">search engine</kbd></a>
+
+
+    </div>
+
+    <div align="left" class="content"><p><img src="/img/the-science-behind-full-text-search-engines/cover.jpeg" alt="The article cover"></p>
+<p>Recently I started using Elasticsearch, which is one of the most known search engine. The things it allows to do
+fascinated me. That’s why I dove into informational retrieval (IR), the science behind it. It’s a huge topic, and a
+silver bullet for search engines doesn&rsquo;t exist. It is user needs and expectations that tailors the model and the process
+to find information. This user-centric vision to measure the quality of an IR system captured me.</p>
+<p>That’s why I decided to write and share the IR core concepts.</p>
+<h1 id="dbms-versus-ir-systems">DBMS versus IR Systems</h1>
+<p>Speaking about finding data brings to mind databases. At first sight, DBMS seem to overlap with IR systems. After all,
+DBMS store data and allow users to query them. Despite this similarity they are different and they have different
+purposes.</p>
+<h2 id="dbms-features">DBMS features</h2>
+<p>DBMS scope is broad. They implement transaction management, data constraints, data independence, etc&hellip; They support
+intensive work and read workloads. The stored data could be structured (e.g., table) or semi-structured (e.g., JSON
+document). Nonetheless, in both case, we need to model data by choosing attributes or fields we need. This means query (
+or insertion) depends upon this structure. In other words, a user needs to know the chosen structure before to build a
+query. And answers to queries are like: &ldquo;these results exactly match the given query&rdquo;. They’re precise.</p>
+<h2 id="ir-systems-features">IR Systems features</h2>
+<p>IR systems scope is narrow, and they excel on read-mostly workload. They focus on searching across a large collection of
+unstructured documents to satisfy an information need. Where a document could be text or multimedia content. While an
+information need is something a user desire to deepen, and it’s expressed through a query. Terms (e.g., words) compose
+both documents and queries. The collection of unstructured documents is also known as corpus.</p>
+<p>Thanks the unstructured data, users can search across a collection of poems and a collection of medical reports in the
+same way. Indeed, the collection could be heterogeneous about covered topic. An obvious example is a collection of web
+pages. Given this heterogeneity, IR systems need also to rank documents and sort them according their relevance. Where a
+relevant document is one that satisfies the information need. And a more relevant one fulfils better the search, so the
+user. Answers to searches are like: &ldquo;these results seems to satisfy the information need&rdquo;. They’re not precise. That’s
+why users satisfaction measures the IR system quality.</p>
+<blockquote>
+<p><strong>Info</strong>: Generally, IR systems can also store and query semi-structured documents (e.g., poems with author). But, the
+focus stays on unstructured one.</p>
+</blockquote>
+<h1 id="precision-and-recall">Precision and Recall</h1>
+<p>Two metrics measures the quality of an IR system: Precision and Recall.</p>
+<p>Precision is the fraction of retrieved documents that are relevant to an information need. Higher precision is
+desirable. Nonetheless, we need also to consider how many relevant documents aren’t retrieved. That’s what recall
+measures.</p>
+<p>Recall is the fraction of relevant documents successfully retrieved. To achieve maximum recall an IR system can simply
+return all documents in the collection. That’s why we need precision.
+Definitely, precision and recall complement each other.</p>
+<h1 id="boolean-model">Boolean Model</h1>
+<p>Suppose an IR system about homogenous and formal documents. Where users state the information need rigorously.</p>
+<p>A scenario of this kind is an IR system about exceptions&rsquo; log. Each document is precise: it states the exception and the
+related stack trace. In such system, a user can search for NullPointerException at line 123 of AClassName or at line 42
+of AnotherClassName.</p>
+<p>The boolean model of information retrieval covers this scenario. It’s the oldest and simplest model. Nonetheless, it
+could be rather useful.</p>
+<p>This model is named in this way because to compose query terms we can use three boolean operators. That is: AND, OR and
+NOT. A single term makes up the most basic query. And a document is relevant if it satisfies the boolean query. This
+means a document is either relevant or not. There isn’t ambiguity. In other words, all matching documents have the same
+relevancy. That’s why this model is useful in a homogenous and formal context.</p>
+<p>As an example, we could express the previous information need like: <code>NullPointerException AND (AClassName:123 OR AnotherClassName:42)</code>. An IR system capable to interpret this query will answer with all exceptions’ log satisfying the
+query.</p>
+<h1 id="inverted-index">Inverted Index</h1>
+<p>To search across a collection of documents we need first to store them. And we need to store them in a way that allows
+us to search them efficiently.</p>
+<p>In the realm of full-text search, the most used data structure is the inverted index. It’s a data structure that maps a
+term to a list of document ids containing that term. The list is called inverted list or posting list. Thanks its
+structure, the inverted index allows us to retrieve documents by a term they contain efficiently. So simple, but so
+powerful!</p>
+<p>As an example, suppose two documents. The first one is: &ldquo;Midway upon the journey of our life&rdquo;. The second one is: &ldquo;How
+heavy do I journey on the way&rdquo;. The resulting inverted index is:</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Inverted List</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Midway</td>
+<td>first</td>
+</tr>
+<tr>
+<td>upon</td>
+<td>first</td>
+</tr>
+<tr>
+<td>the</td>
+<td>first, second</td>
+</tr>
+<tr>
+<td>journey</td>
+<td>first, second</td>
+</tr>
+<tr>
+<td>of</td>
+<td>first</td>
+</tr>
+<tr>
+<td>our</td>
+<td>first</td>
+</tr>
+<tr>
+<td>life</td>
+<td>first</td>
+</tr>
+<tr>
+<td>How</td>
+<td>second</td>
+</tr>
+<tr>
+<td>heavy</td>
+<td>second</td>
+</tr>
+<tr>
+<td>do</td>
+<td>second</td>
+</tr>
+<tr>
+<td>I</td>
+<td>second</td>
+</tr>
+<tr>
+<td>on</td>
+<td>second</td>
+</tr>
+<tr>
+<td>way</td>
+<td>second</td>
+</tr>
+</tbody>
+</table>
+<p>A naive implementation of an inverted index could be based on a hash table. The process through which we save a document
+in the index is called indexing.</p>
+<h1 id="vector-space-model">Vector Space Model</h1>
+<p>Suppose an IR system about heterogeneous documents. Where users express information need based on the terms they’re
+interested. Given the heterogeneity, the IR system need to sort documents according their relevance. It also needs to
+show the most relevant one at the expense of the least relevant. Here, the boolean model cannot help us. After all, it
+supports only the boolean relevance criteria.</p>
+<p>An information need could be as simple as: Apache Kafka. This means the user would like to delve into the distributed
+event-streaming platform. An IR system that ranks better documents about Kafka (the writer) or Apache (the Native
+Americans) will disappoint the user. That’s where the vector space model shines.</p>
+<p>This model represents document and query as a vector, with one dimension per term. The value of each dimension is the
+weight the term has. Because the dot product measure similarity between vectors we can use it to rank documents. Indeed,
+the rank a document has, in relation to a query, is the result of the dot product between the two vectors in question.</p>
+<p>As an example, the previous query could be <code>Q = &lt;1, 1&gt;</code>, where the dimensions are respectively Apache and Kafka. Given
+the same weights the two terms are of the same importance. As imaginable, the users are responsible to choose the weight
+of each term of the query. After all, they know what is more important for them. But the responsible to choose the
+weight of each term of each document is the IR system. Its success is dependant upon this assignment. That’s where
+ranking functions comes to the rescue. They’re functions that map term to weight.</p>
+<blockquote>
+<p><strong>Info</strong>: The dot product definition at Wikipedia: <a href="https://en.wikipedia.org/wiki/Dot_product#Coordinate_definition">https://en.wikipedia.org/wiki/Dot_product#Coordinate_definition</a></p>
+</blockquote>
+<h2 id="naive-ranking-function">Naive ranking function</h2>
+<p>A naive ranking function maps each term in the document to the weight of one. While it maps missing terms to the weight
+of zero.</p>
+<p>As an example, consider the following two documents:</p>
+<ul>
+<li>D1: Apache Kafka is a distributed event-streaming platform. It’s open-source and developed by the Apache Software
+Foundation.</li>
+<li>D2: I’m thrilled to announce I&rsquo;ve just got certified about Apache Kafka by the XYZ company!</li>
+</ul>
+<p>Now consider a user that would like to study Apache Kafka. It could search across the documents by issuing the following
+query:</p>
+<ul>
+<li>Q: Apache Kafka features</li>
+</ul>
+<p>Both documents are related to Apache Kafka. But the first one is more specific, while the second one could be a social
+media post. So, any user issuing this query will be happier if D1 has a higher rank. But this ranking function doesn’t
+meet this expectation.</p>
+<p>Indeed, an IR system could model the vectors like:</p>
+<ul>
+<li><code>Q = &lt;1, 1, 1&gt;</code></li>
+<li><code>D1 = &lt;1, 1, 0&gt;</code></li>
+<li><code>D2 = &lt;1, 1, 0&gt;</code></li>
+</ul>
+<p>Where the first dimension is the term Apache, the second one is Kafka and the third features.
+As we said, the first document is the most relevant. But, by calculating the dot product, they have the same rank (i.e.,
+2).</p>
+<p>An issue with this ranking function is that it doesn’t take in account how much a term is frequent. Intuitively, more
+occurrences of a term means a document covers better a topic. We need to take in account this observation to build a
+better ranking function.</p>
+<blockquote>
+<p><strong>Info</strong>: The vector space model with this ranking function resembles an &ldquo;OR-only boolean model&rdquo;. Indeed, a document
+is relevant if it contains at least one query term. The difference is that here relevancy increases when a document
+contains more query terms.</p>
+</blockquote>
+<h2 id="tf-ranking-function">TF ranking function</h2>
+<p>The TF (Term Frequency) function maps each term to its frequency in the document.
+So, using this function, the previous vectors become:</p>
+<ul>
+<li><code>Q = &lt;1, 1, 1&gt;</code></li>
+<li><code>D1 = &lt;2, 1, 0&gt;</code></li>
+<li><code>D2 = &lt;1, 1, 0&gt;</code></li>
+</ul>
+<p>With these weights in place, the D1 rank (i.e., 3) is higher than D2 rank (i.e., 2). It seems to match the user
+expectation!</p>
+<p>However, this function misses another important characteristic. Let’s examine it with another example.</p>
+<p>Given the following documents and query:</p>
+<ul>
+<li>D1: Apache Kafka is a distributed event-streaming platform. It’s open-source and developed by the Apache Software
+Foundation.</li>
+<li>D3: The second cleanup policy supported by Kafka is compaction. Among various advantages, it allows to implements
+efficiently the event sourcing pattern.</li>
+<li>Q: Apache Kafka compaction</li>
+</ul>
+<p>The user will be happier to see first the D3 document.</p>
+<p>Using the TF function, the related vectors are:</p>
+<ul>
+<li><code>D3 = &lt;0, 1, 1&gt;</code></li>
+<li><code>D1 = &lt;2, 1, 0&gt;</code></li>
+<li><code>Q = &lt;1, 1, 1&gt;</code></li>
+</ul>
+<p>Where the first dimension is Apache, the second one is Kafka and the third one is compaction. Unfortunately, the D1
+rank (i.e., three) is higher than the D3 document (i.e., two). This means a disappointed user.</p>
+<p>What the TF function misses is term rarity. In the previous corpus, the Apache and Kafka terms aren’t rare. Indeed, the
+first one is mentioned two times in the D1 document. While the second one in both documents. This means they doesn’t add
+too much value to the documents in relation to the information need. But, the compaction term is mentioned only one time
+in the D3 document. This means that a rarer term characterises better a document. So, we should tune the TF function
+according this observation. In other words, we need to boost rarer term.</p>
+<h2 id="tf-idf-ranking-function">TF-IDF ranking function</h2>
+<p>The TF-IDF function maps each term to its weight considering two factors. The first one is the aforesaid TF (Term
+Frequency). While the second one is the IDF (Inverse Document Frequency).</p>
+<p>The IDF describes what we intuitively called rarity. We consider a term more rare if it appears in few documents in the
+entire corpus. Indeed, IDF is defined as <code>log(N/DF)</code>. Where N is the numbers of documents in the corpus. While <code>DF</code> (
+Document Frequency) is the numbers of documents where the term we are considering appears. According the
+definition, <code>IDF</code> tends to zero when <code>DF</code> approaches <code>N</code>.</p>
+<p>Therefore, the TF-IDF function calculates the weight of a term by multiplying TF and IDF.
+Let us repeat the previous query with all the documents considered until now:</p>
+<ul>
+<li>D1: Apache Kafka is a distributed event-streaming platform. It’s open-source and developed by the Apache Software
+Foundation.</li>
+<li>D2: I’m thrilled to announce I&rsquo;ve just got certified about Apache Kafka by the XYZ company!</li>
+<li>D3: The second cleanup policy supported by Kafka is compaction. Among various advantages, it allows to implements
+efficiently the event sourcing pattern.</li>
+<li>Q: Apache Kafka compaction</li>
+</ul>
+<p>Using this function the vectors are:</p>
+<ul>
+<li><code>D1 = &lt;0.35, 0, 0&gt;</code></li>
+<li><code>D2 = &lt;0.17, 0, 0&gt;</code></li>
+<li><code>D3 = &lt;0, 0, 0.47&gt;</code></li>
+<li><code>Q = &lt;1, 1, 1&gt;</code></li>
+</ul>
+<p>Where the first dimension is Apache, the second one is Kafka and the third one is compaction.
+Voilà! The D3 ranks (i.e., 0.47) is higher than the D1 rank (0.35). It is also higher than the D2 rank (0.17). As
+expected the D3 document is the most relevant. And another expected result is that the social media post is the least
+relevant. Further to notice is that the term Kafka isn’t considered relevant at all. This is because it appears in each
+document.</p>
+<blockquote>
+<p><strong>Info</strong>: Actually there are multiple ways to define TF, IDF and TF-IDF. The definitions presented here are one of the
+variants. Here is the link to Wikipedia about them: <a href="https://en.wikipedia.org/wiki/Tf-idf#Definition">https://en.wikipedia.org/wiki/Tf-idf#Definition</a>.
+As I anticipated, there isn’t a silver bullet, but a continuous tuning.</p>
+</blockquote>
+<h1 id="conclusion">Conclusion</h1>
+<p>As I said initially, what we covered here are the roots of information retrieval science. For instance, we didn&rsquo;t cover
+indexing optimisations (e.g, stemming). We skipped over on how real search engines mix the aforesaid models. And we also
+didn&rsquo;t mention the length normalisation process, the BM25 ranking function and the probabilistic model. Yeah, it’s a
+huge topic.</p>
+<p>Despite that, now we have all the knowledge needed to build a working search engine. This fascinates me a lot. Yeah,
+it’s a huge topic. But also one to experiment a lot with and enjoy.</p>
+</div>
+
+    
+    
+    
+
+    
+    
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+

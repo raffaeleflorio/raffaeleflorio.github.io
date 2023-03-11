@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>full-text search engine on raffaeleflorio ~/</title>
+    <link>https://raffaeleflorio.github.io/tags/full-text-search-engine/</link>
+    <description>Recent content in full-text search engine on raffaeleflorio ~/</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/tags/full-text-search-engine/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Science Behind Full-Text Search Engines</title>
+      <link>https://raffaeleflorio.github.io/post/the-science-behind-full-text-search-engines/</link>
+      <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://raffaeleflorio.github.io/post/the-science-behind-full-text-search-engines/</guid>
+      <description>Recently I started using Elasticsearch, which is one of the most known search engine. The things it allows to do fascinated me. That’s why I dove into informational retrieval (IR), the science behind it. It’s a huge topic, and a silver bullet for search engines doesn&amp;rsquo;t exist. It is user needs and expectations that tailors the model and the process to find information. This user-centric vision to measure the quality of an IR system captured me.</description>
+    </item>
+    
+  </channel>
+</rss>

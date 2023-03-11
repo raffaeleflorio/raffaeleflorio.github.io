@@ -68,7 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.100.2" />
+ <meta name="generator" content="Hugo 0.111.1">
         
 
         
@@ -235,7 +235,7 @@ Java provides both implementations thanks to a bunch of <a href="https://docs.or
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>var i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nThreads<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>var i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nThreads<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>            executorService<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>origin<span style="color:#f92672">::</span>start<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
@@ -253,7 +253,7 @@ Java provides both implementations thanks to a bunch of <a href="https://docs.or
 </span></span></code></pre></div><p>We can start a <code>MultithreadedEventLoop</code> with eight threads in this way:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        var nThreads <span style="color:#f92672">=</span> 8<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        var nThreads <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">new</span> MultithreadedEventLoop<span style="color:#f92672">(</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> BusyWaitingEventLoop<span style="color:#f92672">(</span>
 </span></span><span style="display:flex;"><span>                        anEventsObject<span style="color:#f92672">,</span>
@@ -291,8 +291,8 @@ threads dedicated to the scripts and threads dedicated to the event loop.</p>
 <p>Indeed, we can easily integrate <code>AsyncScript</code> in the previous example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        var eventLoopThreads <span style="color:#f92672">=</span> 2<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        var scriptThreads <span style="color:#f92672">=</span> 14<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        var eventLoopThreads <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        var scriptThreads <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>        var executorService <span style="color:#f92672">=</span> Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newFixedThreadPool</span><span style="color:#f92672">(</span>eventLoopThreads <span style="color:#f92672">+</span> scriptThreads<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">new</span> MultithreadedEventLoop<span style="color:#f92672">(</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> BusyWaitingEventLoop<span style="color:#f92672">(</span>
