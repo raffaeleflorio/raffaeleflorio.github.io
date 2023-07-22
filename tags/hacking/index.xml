@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hacking on raffaeleflorio ~/</title>
-    <link>https://raffaeleflorio.github.io/tags/hacking/</link>
+    <link>https://www.raffaeleflorio.com/tags/hacking/</link>
     <description>Recent content in hacking on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.raffaeleflorio.com/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cosa significa contribuire alla cultura hacker?</title>
-      <link>https://raffaeleflorio.github.io/post/cultura-hacker/</link>
+      <link>https://www.raffaeleflorio.com/post/cultura-hacker/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/cultura-hacker/</guid>
+      <guid>https://www.raffaeleflorio.com/post/cultura-hacker/</guid>
       <description>Hacker e dubbio Col tempo ho eguagliato la cultura hacker alla cultura del dubbio.
 Dunque contribuire alla cultura hacker significherebbe contribure alla cultura del dubbio. E immagino che, solo questo, non significhi molto.
 A tal proposito partirei dalla relazione fra hacker e dubbio.
@@ -22,10 +22,10 @@ Un hacker non è altro che una persona che ama capire come funzionano le cose.</
     
     <item>
       <title>What does it mean to contribute to the hacker culture?</title>
-      <link>https://raffaeleflorio.github.io/post/hacker-culture/</link>
+      <link>https://www.raffaeleflorio.com/post/hacker-culture/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/hacker-culture/</guid>
+      <guid>https://www.raffaeleflorio.com/post/hacker-culture/</guid>
       <description>Hacker and doubt Over time I matched the hacker culture with the culture of doubt.
 So contributing to the hacker culture would mean contributing to the culture of doubt. But I guess this doesn’t mean a lot.
 In this regard, I would start from the relationship between hackers and doubt.

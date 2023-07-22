@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>car-hacking on raffaeleflorio ~/</title>
-    <link>https://raffaeleflorio.github.io/tags/car-hacking/</link>
+    <link>https://www.raffaeleflorio.com/tags/car-hacking/</link>
     <description>Recent content in car-hacking on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/tags/car-hacking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.raffaeleflorio.com/tags/car-hacking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AUCTF 2020 Writeup - Pick Up That CAN</title>
-      <link>https://raffaeleflorio.github.io/post/pick-up-that-can-auctf2020/</link>
+      <link>https://www.raffaeleflorio.com/post/pick-up-that-can-auctf2020/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/pick-up-that-can-auctf2020/</guid>
+      <guid>https://www.raffaeleflorio.com/post/pick-up-that-can-auctf2020/</guid>
       <description>Intro This is the only challenge I solved in the Signals section.
 It’s been solved 59 times and it was worth 965 points.
 Description:

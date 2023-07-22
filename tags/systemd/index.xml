@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>systemd on raffaeleflorio ~/</title>
-    <link>https://raffaeleflorio.github.io/tags/systemd/</link>
+    <link>https://www.raffaeleflorio.com/tags/systemd/</link>
     <description>Recent content in systemd on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://raffaeleflorio.github.io/tags/systemd/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://www.raffaeleflorio.com/tags/systemd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Luks 2FA for dracut</title>
-      <link>https://raffaeleflorio.github.io/project/luks-2fa-dracut/</link>
+      <link>https://www.raffaeleflorio.com/project/luks-2fa-dracut/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/project/luks-2fa-dracut/</guid>
+      <guid>https://www.raffaeleflorio.com/project/luks-2fa-dracut/</guid>
       <description></description>
     </item>
     

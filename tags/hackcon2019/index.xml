@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hackcon2019 on raffaeleflorio ~/</title>
-    <link>https://raffaeleflorio.github.io/tags/hackcon2019/</link>
+    <link>https://www.raffaeleflorio.com/tags/hackcon2019/</link>
     <description>Recent content in hackcon2019 on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/tags/hackcon2019/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://www.raffaeleflorio.com/tags/hackcon2019/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HackCon&#39;19 writeup - baby b0f</title>
-      <link>https://raffaeleflorio.github.io/post/babyb0f-hackcon19/</link>
+      <link>https://www.raffaeleflorio.com/post/babyb0f-hackcon19/</link>
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/babyb0f-hackcon19/</guid>
+      <guid>https://www.raffaeleflorio.com/post/babyb0f-hackcon19/</guid>
       <description>Intro This is the first and easiest pwn challenge. It was solved 117 times and it’s worth 100 points.
 Description:
 It’s a b0f , Can’t be easier than that.
@@ -23,10 +23,10 @@ $ ./baby_b0f AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     
     <item>
       <title>HackCon&#39;19 writeup - babypwn</title>
-      <link>https://raffaeleflorio.github.io/post/babypwn-hackcon19/</link>
+      <link>https://www.raffaeleflorio.com/post/babypwn-hackcon19/</link>
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/babypwn-hackcon19/</guid>
+      <guid>https://www.raffaeleflorio.com/post/babypwn-hackcon19/</guid>
       <description>Intro This is the second pwn challenge. It was solved 36 times and it’s worth 451 points.
 Description:
 You don’t need eip control for every pwn.
@@ -37,10 +37,10 @@ $ ./babypwn 1 2 3 4 5 1 2 3 4 5 Naaa , Try HArder $ .</description>
     
     <item>
       <title>HackCon&#39;19 writeup - Not So Easy B0f</title>
-      <link>https://raffaeleflorio.github.io/post/notsoeasyb0f-hackcon19/</link>
+      <link>https://www.raffaeleflorio.com/post/notsoeasyb0f-hackcon19/</link>
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/notsoeasyb0f-hackcon19/</guid>
+      <guid>https://www.raffaeleflorio.com/post/notsoeasyb0f-hackcon19/</guid>
       <description>Intro This is the third pwn challenge. It was solved 29 times and it’s worth 469 points.
 Description:
 I have stack canaries enabled, Can you still B0f me ?

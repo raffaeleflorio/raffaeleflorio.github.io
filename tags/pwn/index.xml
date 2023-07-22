@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>pwn on raffaeleflorio ~/</title>
-    <link>https://raffaeleflorio.github.io/tags/pwn/</link>
+    <link>https://www.raffaeleflorio.com/tags/pwn/</link>
     <description>Recent content in pwn on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/tags/pwn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.raffaeleflorio.com/tags/pwn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AUCTF 2020 Writeup - Remote School</title>
-      <link>https://raffaeleflorio.github.io/post/remote-school-auctf2020/</link>
+      <link>https://www.raffaeleflorio.com/post/remote-school-auctf2020/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/remote-school-auctf2020/</guid>
+      <guid>https://www.raffaeleflorio.com/post/remote-school-auctf2020/</guid>
       <description>Intro This is the fourth and last pwn challenge. It was solved 63 times and it was worth 960 points.
 Description:
 Dear Student,
@@ -22,10 +22,10 @@ Best, Dean of Eon Pillars</description>
     
     <item>
       <title>AUCTF 2020 Writeup - House of Madness</title>
-      <link>https://raffaeleflorio.github.io/post/house-of-madness-auctf2020/</link>
+      <link>https://www.raffaeleflorio.com/post/house-of-madness-auctf2020/</link>
       <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/house-of-madness-auctf2020/</guid>
+      <guid>https://www.raffaeleflorio.com/post/house-of-madness-auctf2020/</guid>
       <description>Intro This is the third pwn challenge. It was solved 100 times and it was worth 897 points.
 Description:
 Welcome to the House of Madness. Can you pwn your way to the keys to get the relic?
@@ -37,10 +37,10 @@ $ sha256sum ./house_of_madness 15b1a68ae0e1d4eee4f917cc92412d90fd3a4adbb5a55a83b
     
     <item>
       <title>AUCTF 2020 Writeup - Thanksgiving Dinner</title>
-      <link>https://raffaeleflorio.github.io/post/thanksgiving-dinner-auctf2020/</link>
+      <link>https://www.raffaeleflorio.com/post/thanksgiving-dinner-auctf2020/</link>
       <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/thanksgiving-dinner-auctf2020/</guid>
+      <guid>https://www.raffaeleflorio.com/post/thanksgiving-dinner-auctf2020/</guid>
       <description>Intro This is the second pwn challenge of AUCTF 2020. It was solved 238 times and it was worth 408 points.
 Description:
 I just ate a huge dinner. I can barley eat anymore… so please don’t give me too much!
@@ -52,20 +52,20 @@ $ sha256sum ./thanksgiving_dinner 2307af59beead6a2377c3beb2ff26f70d5732ec6b651b5
     
     <item>
       <title>Shellcode Injection - Old but gold</title>
-      <link>https://raffaeleflorio.github.io/post/mprotect-urop/</link>
+      <link>https://www.raffaeleflorio.com/post/mprotect-urop/</link>
       <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/mprotect-urop/</guid>
+      <guid>https://www.raffaeleflorio.com/post/mprotect-urop/</guid>
       <description>Intro Some time ago, a friend of mine (dag-tech), asked me about a technique to run a shellcode with NX enabled. So he gave me a simple program:
 //src.c #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; int main(int argc, char **argv) { char buf[16]; puts(&amp;#34;Can you pwn me????&amp;#34;); read(0, buf, 512); return 0; } $ gcc -z noexecstack -fno-stack-protector -o vuln src.c $ checksec vuln Arch: amd64-64-little RELRO: Partial RELRO Stack: No canary found NX: NX enabled PIE: No PIE (0x400000) The approach The issue with NX is that we cannot execute code in writable memory segment.</description>
     </item>
     
     <item>
       <title>HackCon&#39;19 writeup - baby b0f</title>
-      <link>https://raffaeleflorio.github.io/post/babyb0f-hackcon19/</link>
+      <link>https://www.raffaeleflorio.com/post/babyb0f-hackcon19/</link>
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/babyb0f-hackcon19/</guid>
+      <guid>https://www.raffaeleflorio.com/post/babyb0f-hackcon19/</guid>
       <description>Intro This is the first and easiest pwn challenge. It was solved 117 times and it’s worth 100 points.
 Description:
 It’s a b0f , Can’t be easier than that.
@@ -76,10 +76,10 @@ $ ./baby_b0f AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     
     <item>
       <title>HackCon&#39;19 writeup - babypwn</title>
-      <link>https://raffaeleflorio.github.io/post/babypwn-hackcon19/</link>
+      <link>https://www.raffaeleflorio.com/post/babypwn-hackcon19/</link>
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/babypwn-hackcon19/</guid>
+      <guid>https://www.raffaeleflorio.com/post/babypwn-hackcon19/</guid>
       <description>Intro This is the second pwn challenge. It was solved 36 times and it’s worth 451 points.
 Description:
 You don’t need eip control for every pwn.
@@ -90,10 +90,10 @@ $ ./babypwn 1 2 3 4 5 1 2 3 4 5 Naaa , Try HArder $ .</description>
     
     <item>
       <title>HackCon&#39;19 writeup - Not So Easy B0f</title>
-      <link>https://raffaeleflorio.github.io/post/notsoeasyb0f-hackcon19/</link>
+      <link>https://www.raffaeleflorio.com/post/notsoeasyb0f-hackcon19/</link>
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/notsoeasyb0f-hackcon19/</guid>
+      <guid>https://www.raffaeleflorio.com/post/notsoeasyb0f-hackcon19/</guid>
       <description>Intro This is the third pwn challenge. It was solved 29 times and it’s worth 469 points.
 Description:
 I have stack canaries enabled, Can you still B0f me ?

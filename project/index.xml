@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on raffaeleflorio ~/</title>
-    <link>https://raffaeleflorio.github.io/project/</link>
+    <link>https://www.raffaeleflorio.com/project/</link>
     <description>Recent content in Projects on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://raffaeleflorio.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://www.raffaeleflorio.com/project/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>dmenu for Qubes OS</title>
-      <link>https://raffaeleflorio.github.io/project/qubes-dmenu/</link>
+      <link>https://www.raffaeleflorio.com/project/qubes-dmenu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/project/qubes-dmenu/</guid>
+      <guid>https://www.raffaeleflorio.com/project/qubes-dmenu/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dwm for Qubes OS</title>
-      <link>https://raffaeleflorio.github.io/project/qubes-dwm/</link>
+      <link>https://www.raffaeleflorio.com/project/qubes-dwm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/project/qubes-dwm/</guid>
+      <guid>https://www.raffaeleflorio.com/project/qubes-dwm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Luks 2FA for dracut</title>
-      <link>https://raffaeleflorio.github.io/project/luks-2fa-dracut/</link>
+      <link>https://www.raffaeleflorio.com/project/luks-2fa-dracut/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/project/luks-2fa-dracut/</guid>
+      <guid>https://www.raffaeleflorio.com/project/luks-2fa-dracut/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Open in Qube</title>
-      <link>https://raffaeleflorio.github.io/project/qubes-url-redirector/</link>
+      <link>https://www.raffaeleflorio.com/project/qubes-url-redirector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/project/qubes-url-redirector/</guid>
+      <guid>https://www.raffaeleflorio.com/project/qubes-url-redirector/</guid>
       <description></description>
     </item>
     
     <item>
       <title>WebExtension Browser Proxy</title>
-      <link>https://raffaeleflorio.github.io/project/webextension-browser-proxy/</link>
+      <link>https://www.raffaeleflorio.com/project/webextension-browser-proxy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/project/webextension-browser-proxy/</guid>
+      <guid>https://www.raffaeleflorio.com/project/webextension-browser-proxy/</guid>
       <description></description>
     </item>
     

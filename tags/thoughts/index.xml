@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>thoughts on raffaeleflorio ~/</title>
-    <link>https://raffaeleflorio.github.io/tags/thoughts/</link>
+    <link>https://www.raffaeleflorio.com/tags/thoughts/</link>
     <description>Recent content in thoughts on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/tags/thoughts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.raffaeleflorio.com/tags/thoughts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What does it mean to contribute to the hacker culture?</title>
-      <link>https://raffaeleflorio.github.io/post/hacker-culture/</link>
+      <link>https://www.raffaeleflorio.com/post/hacker-culture/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/hacker-culture/</guid>
+      <guid>https://www.raffaeleflorio.com/post/hacker-culture/</guid>
       <description>Hacker and doubt Over time I matched the hacker culture with the culture of doubt.
 So contributing to the hacker culture would mean contributing to the culture of doubt. But I guess this doesn’t mean a lot.
 In this regard, I would start from the relationship between hackers and doubt.

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>container on raffaeleflorio ~/</title>
-    <link>https://raffaeleflorio.github.io/tags/container/</link>
+    <link>https://www.raffaeleflorio.com/tags/container/</link>
     <description>Recent content in container on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/tags/container/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.raffaeleflorio.com/tags/container/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Run Podman and Docker-Compose on Windows</title>
-      <link>https://raffaeleflorio.github.io/post/how-to-run-podman-and-docker-compose-on-windows/</link>
+      <link>https://www.raffaeleflorio.com/post/how-to-run-podman-and-docker-compose-on-windows/</link>
       <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/how-to-run-podman-and-docker-compose-on-windows/</guid>
+      <guid>https://www.raffaeleflorio.com/post/how-to-run-podman-and-docker-compose-on-windows/</guid>
       <description>As you know containers are a Linux thing. Microsoft introduced its solution but I’ve never seen them used.
 To use containers we have mainly two alternatives: docker and podman. I prefer the latter for two reasons. Because it has a daemonless architecture and because it doesn’t need root permission. But using it with docker-compose on Windows is tough. That’s why I decided to write and share this story.
 Motivation I think using Docker Desktop on Windows is the fastest way to use containers.</description>

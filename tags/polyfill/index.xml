@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>polyfill on raffaeleflorio ~/</title>
-    <link>https://raffaeleflorio.github.io/tags/polyfill/</link>
+    <link>https://www.raffaeleflorio.com/tags/polyfill/</link>
     <description>Recent content in polyfill on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://raffaeleflorio.github.io/tags/polyfill/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://www.raffaeleflorio.com/tags/polyfill/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>WebExtension Browser Proxy</title>
-      <link>https://raffaeleflorio.github.io/project/webextension-browser-proxy/</link>
+      <link>https://www.raffaeleflorio.com/project/webextension-browser-proxy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/project/webextension-browser-proxy/</guid>
+      <guid>https://www.raffaeleflorio.com/project/webextension-browser-proxy/</guid>
       <description></description>
     </item>
     

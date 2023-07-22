@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>java on raffaeleflorio ~/</title>
-    <link>https://raffaeleflorio.github.io/tags/java/</link>
+    <link>https://www.raffaeleflorio.com/tags/java/</link>
     <description>Recent content in java on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.raffaeleflorio.com/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Object Thinking, Boundaries and Reality</title>
-      <link>https://raffaeleflorio.github.io/post/object-thinking-boundaries-and-reality/</link>
+      <link>https://www.raffaeleflorio.com/post/object-thinking-boundaries-and-reality/</link>
       <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/object-thinking-boundaries-and-reality/</guid>
+      <guid>https://www.raffaeleflorio.com/post/object-thinking-boundaries-and-reality/</guid>
       <description>Ask a software developer, what is &amp;lsquo;good code?&amp;rsquo; They likely will answer something along the lines of, &amp;ldquo;it&amp;rsquo;s clean or elegant code.&amp;rdquo;
 It&amp;rsquo;s likely this person will further list SOLID principles and design patterns as a way to legitimize cleanliness or elegance.
 I think the way this relationship dynamic is interpreted is wrong. What I mean is that SOLID and design patterns do not simply imply good code. It&amp;rsquo;s actually the other way around.</description>
@@ -20,10 +20,10 @@ I think the way this relationship dynamic is interpreted is wrong. What I mean i
     
     <item>
       <title>Implementing an Event Loop in Java for Fun and Profit</title>
-      <link>https://raffaeleflorio.github.io/post/implementing-an-event-loop-in-java-for-fun-and-profit/</link>
+      <link>https://www.raffaeleflorio.com/post/implementing-an-event-loop-in-java-for-fun-and-profit/</link>
       <pubDate>Fri, 12 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/implementing-an-event-loop-in-java-for-fun-and-profit/</guid>
+      <guid>https://www.raffaeleflorio.com/post/implementing-an-event-loop-in-java-for-fun-and-profit/</guid>
       <description>The event loop pattern always fascinated me. I found it interesting, useful, and compatible with object-oriented programming. A lot of us know it thanks to Node.js.
 For some reason, recently, I have been looking to implement it and experiment with it. And I finally got the opportunity to do so at work.
 Event Loop Concepts An event loop doesn&amp;rsquo;t do too much. We can ask it to start and stop itself.</description>
@@ -31,10 +31,10 @@ Event Loop Concepts An event loop doesn&amp;rsquo;t do too much. We can ask it t
     
     <item>
       <title>Objects &amp; Pursuit of Happiness: Understanding Object Oriented Programming (OOP)</title>
-      <link>https://raffaeleflorio.github.io/post/object-and-pursuit-of-happiness/</link>
+      <link>https://www.raffaeleflorio.com/post/object-and-pursuit-of-happiness/</link>
       <pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/object-and-pursuit-of-happiness/</guid>
+      <guid>https://www.raffaeleflorio.com/post/object-and-pursuit-of-happiness/</guid>
       <description>Responsibilities are what differentiate objects. They represent what an object can do for us. And in a good object-oriented system, each object should have correct responsibilities.
 Is there any criterion to help us to verify and find them? I think happiness is a good answer.
 A metaphor The common way to define objects is wrong. Objects are not just data plus functions. In other words, objects are not a C file containing structs and related functions.</description>
@@ -42,10 +42,10 @@ A metaphor The common way to define objects is wrong. Objects are not just data 
     
     <item>
       <title>Java: The Object Equality Problem</title>
-      <link>https://raffaeleflorio.github.io/post/java-the-object-equality-problem/</link>
+      <link>https://www.raffaeleflorio.com/post/java-the-object-equality-problem/</link>
       <pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/java-the-object-equality-problem/</guid>
+      <guid>https://www.raffaeleflorio.com/post/java-the-object-equality-problem/</guid>
       <description>I was writing some Java test code when I faced up the voracity of the equals method. It presents, despite its ostensible simplicity, a tricky problem.
 I&amp;rsquo;d like to emphasize that this is not a specific Java issue. For example C# has a homologous way.
 A bit of Java context The Object class is the root of every class. It defines various methods and equals is one of them. By default this method has a simple behavior: an object x is only equals to itself.</description>
@@ -53,10 +53,10 @@ A bit of Java context The Object class is the root of every class. It defines va
     
     <item>
       <title>Spring Framework: To Use Or Not To Use, That Is The Question</title>
-      <link>https://raffaeleflorio.github.io/post/spring-to-use-or-not-to-use/</link>
+      <link>https://www.raffaeleflorio.com/post/spring-to-use-or-not-to-use/</link>
       <pubDate>Wed, 18 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/spring-to-use-or-not-to-use/</guid>
+      <guid>https://www.raffaeleflorio.com/post/spring-to-use-or-not-to-use/</guid>
       <description>It&amp;rsquo;s impossible to write OOP code with Spring. From its core it promotes the use of singletons and anemic data structures a.k.a. data &amp;ldquo;objects&amp;rdquo; a.k.a. DTO. This fuels procedural programming and kills OOP.
 In the next paragraphs I&amp;rsquo;ll highlight three major Spring components involved. I start from the core.
 IoC Container The core of Spring is the IoC container, represented by the ApplicationContext interface. Basically it defines a context through which we get beans.</description>
@@ -64,10 +64,10 @@ IoC Container The core of Spring is the IoC container, represented by the Applic
     
     <item>
       <title>Road to Simplicity: Tests Are Not Tests [Part Two]</title>
-      <link>https://raffaeleflorio.github.io/post/road-to-simplicity-tests-are-not-tests-part-two/</link>
+      <link>https://www.raffaeleflorio.com/post/road-to-simplicity-tests-are-not-tests-part-two/</link>
       <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/road-to-simplicity-tests-are-not-tests-part-two/</guid>
+      <guid>https://www.raffaeleflorio.com/post/road-to-simplicity-tests-are-not-tests-part-two/</guid>
       <description>Intro This is the second post of Road to Simplicity. And it&amp;rsquo;s about the role of tests in software writing.
 (The first part is about the goal of the series and hexagonal architecture)
 Test and correctness I think that it&amp;rsquo;s inappropriate to associate test with verification of correctness. After all with a test we can verify that a software module (e.g. a function) returns an expected output with a given input.</description>
@@ -75,10 +75,10 @@ Test and correctness I think that it&amp;rsquo;s inappropriate to associate test
     
     <item>
       <title>Road to Simplicity: Hexagonal Architecture [Part One]</title>
-      <link>https://raffaeleflorio.github.io/post/road-to-simplicity-hexagonal-architecture-part-one/</link>
+      <link>https://www.raffaeleflorio.com/post/road-to-simplicity-hexagonal-architecture-part-one/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/road-to-simplicity-hexagonal-architecture-part-one/</guid>
+      <guid>https://www.raffaeleflorio.com/post/road-to-simplicity-hexagonal-architecture-part-one/</guid>
       <description>Intro Software writing taught me that: a well written software is a simple software.
 So I started to think how to achieve simplicity in a methodological way. This is the first post of a series about this methodology.
 Naturally it&amp;rsquo;s a snapshot because it&amp;rsquo;s in constant evolution.

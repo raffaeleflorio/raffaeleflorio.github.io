@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>auctf2020 on raffaeleflorio ~/</title>
-    <link>https://raffaeleflorio.github.io/tags/auctf2020/</link>
+    <link>https://www.raffaeleflorio.com/tags/auctf2020/</link>
     <description>Recent content in auctf2020 on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://raffaeleflorio.github.io/tags/auctf2020/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.raffaeleflorio.com/tags/auctf2020/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AUCTF 2020 Writeup - Pick Up That CAN</title>
-      <link>https://raffaeleflorio.github.io/post/pick-up-that-can-auctf2020/</link>
+      <link>https://www.raffaeleflorio.com/post/pick-up-that-can-auctf2020/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/pick-up-that-can-auctf2020/</guid>
+      <guid>https://www.raffaeleflorio.com/post/pick-up-that-can-auctf2020/</guid>
       <description>Intro This is the only challenge I solved in the Signals section.
 It’s been solved 59 times and it was worth 965 points.
 Description:
@@ -23,10 +23,10 @@ $ sha256sum pickupthatcan.log 6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba
     
     <item>
       <title>AUCTF 2020 Writeup - Password Cracking Challenges</title>
-      <link>https://raffaeleflorio.github.io/post/password-cracking-challenges-auctf2020/</link>
+      <link>https://www.raffaeleflorio.com/post/password-cracking-challenges-auctf2020/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/password-cracking-challenges-auctf2020/</guid>
+      <guid>https://www.raffaeleflorio.com/post/password-cracking-challenges-auctf2020/</guid>
       <description>Salty This challenge was solved 148 times and it was worth 357 points.
 Description:
 You might need this: 1337
@@ -39,10 +39,10 @@ $ hashcat -a 0 -m 20 salty rockyou.txt ..... 5eaff45e09bec5222a9cfa9502a4740d:13
     
     <item>
       <title>AUCTF 2020 Writeup - Remote School</title>
-      <link>https://raffaeleflorio.github.io/post/remote-school-auctf2020/</link>
+      <link>https://www.raffaeleflorio.com/post/remote-school-auctf2020/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/remote-school-auctf2020/</guid>
+      <guid>https://www.raffaeleflorio.com/post/remote-school-auctf2020/</guid>
       <description>Intro This is the fourth and last pwn challenge. It was solved 63 times and it was worth 960 points.
 Description:
 Dear Student,
@@ -52,10 +52,10 @@ Best, Dean of Eon Pillars</description>
     
     <item>
       <title>AUCTF 2020 Writeup - House of Madness</title>
-      <link>https://raffaeleflorio.github.io/post/house-of-madness-auctf2020/</link>
+      <link>https://www.raffaeleflorio.com/post/house-of-madness-auctf2020/</link>
       <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/house-of-madness-auctf2020/</guid>
+      <guid>https://www.raffaeleflorio.com/post/house-of-madness-auctf2020/</guid>
       <description>Intro This is the third pwn challenge. It was solved 100 times and it was worth 897 points.
 Description:
 Welcome to the House of Madness. Can you pwn your way to the keys to get the relic?
@@ -67,10 +67,10 @@ $ sha256sum ./house_of_madness 15b1a68ae0e1d4eee4f917cc92412d90fd3a4adbb5a55a83b
     
     <item>
       <title>AUCTF 2020 Writeup - Thanksgiving Dinner</title>
-      <link>https://raffaeleflorio.github.io/post/thanksgiving-dinner-auctf2020/</link>
+      <link>https://www.raffaeleflorio.com/post/thanksgiving-dinner-auctf2020/</link>
       <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://raffaeleflorio.github.io/post/thanksgiving-dinner-auctf2020/</guid>
+      <guid>https://www.raffaeleflorio.com/post/thanksgiving-dinner-auctf2020/</guid>
       <description>Intro This is the second pwn challenge of AUCTF 2020. It was solved 238 times and it was worth 408 points.
 Description:
 I just ate a huge dinner. I can barley eat anymore… so please don’t give me too much!
