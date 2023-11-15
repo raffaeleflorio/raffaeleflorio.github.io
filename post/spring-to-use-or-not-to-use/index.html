@@ -68,7 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.115.3">
+ <meta name="generator" content="Hugo 0.120.4">
         
 
         
@@ -184,14 +184,14 @@ Nobody else should know either. Currently I&rsquo;m using the <a href="https://w
 <p>This issue is not Spring specific, but it&rsquo;s related to the MVC architecture.</p>
 <p>However this is an example of a Spring <code>RestController</code> that exposes the dangers:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@RestController</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/books&#34;</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BooksController</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequestMapping</span>(<span style="color:#e6db74">&#34;/books&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BooksController</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GetMapping</span>
-</span></span><span style="display:flex;"><span>    Collection<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getBooks</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ....
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> theBooks<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    Collection<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getBooks</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ....</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> theBooks;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>The method <code>getBooks</code> returns a collection of books. Spring MVC converts each <code>Book</code> to JSON.
 But in order to do this it requires to break encapsulation (with getters or JSON serializer or other mechanism).
 In other words the <code>Book</code> should be a data structures. Or it should be a mix between an object and a data structure. A terrible design, a monster.</p>
@@ -206,10 +206,10 @@ It&rsquo;s powerful.</p>
 <p>To get a repository all we need is to write a Java interface that respects some rules. Then Spring builds a bean and we gat it from the context.</p>
 <p>The rules are pretty simple. The interface should extends <code>Repository</code>. While the methods should respect the aforesaid keywords.</p>
 <p>This is an example of a repository:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">BookRepository</span> <span style="color:#66d9ef">extends</span> Repository<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">,</span> Long<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    Collection<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAll</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    Optional<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findById</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">BookRepository</span> <span style="color:#66d9ef">extends</span> Repository<span style="color:#f92672">&lt;</span>Book, Long<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>    Collection<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAll</span>();
+</span></span><span style="display:flex;"><span>    Optional<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findById</span>(Long id);
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p><code>Book</code> refers to the managed entity, <code>Long</code> to the type of its id. And it supports two method:</p>
 <ul>
 <li><code>findAll</code>, through which we can get all the books in the database;</li>
@@ -218,15 +218,15 @@ It&rsquo;s powerful.</p>
 <p>As I said every query is generated by Spring Data. We don&rsquo;t need anything else. Spring does all the job.</p>
 <p>Then this is an example of the <code>Book</code> entity:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Table</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;BOOK&#34;</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Book</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Table</span>(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;BOOK&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Book</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Id</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Long id<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String title<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Double price<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Long id;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String title;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Double price;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// no args constructor, getters and setters omitted
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// no args constructor, getters and setters omitted</span>
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Spring Data requires:</p>
 <ul>
 <li>an attribute annotated with @Id;</li>
@@ -260,6 +260,33 @@ And OOP is better than procedural programming because it improves them.</p>
     
     
 
+    <h4><a href="/post/playwright-on-steroids-overcoming-limits-with-oop/">Playwright on Steroids: Overcoming Limits With Object-Oriented Programming</a></h4>
+    <h5>November 14, 2023</h5>
+    
+<a href="https://www.raffaeleflorio.com/tags/playwright"><kbd class="item-tag">playwright</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/multithreading"><kbd class="item-tag">multithreading</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/performance"><kbd class="item-tag">performance</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/java"><kbd class="item-tag">java</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
     <h4><a href="/post/uncover-the-alias-pattern/">Uncover the Alias Pattern</a></h4>
     <h5>May 11, 2022</h5>
     
@@ -285,29 +312,6 @@ And OOP is better than procedural programming because it improves them.</p>
     <h5>January 29, 2022</h5>
     
 <a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
-
-<a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
-
-<a href="https://www.raffaeleflorio.com/tags/java"><kbd class="item-tag">java</kbd></a>
-
-
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="/post/implementing-an-event-loop-in-java-for-fun-and-profit/">Implementing an Event Loop in Java for Fun and Profit</a></h4>
-    <h5>November 12, 2021</h5>
-    
-<a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
-
-<a href="https://www.raffaeleflorio.com/tags/event-loop"><kbd class="item-tag">event loop</kbd></a>
 
 <a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
 

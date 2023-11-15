@@ -6,12 +6,12 @@
     <description>Recent content in writeup on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.raffaeleflorio.com/tags/writeup/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.raffaeleflorio.com/tags/writeup/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AUCTF 2020 Writeup - Pick Up That CAN</title>
       <link>https://www.raffaeleflorio.com/post/pick-up-that-can-auctf2020/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/pick-up-that-can-auctf2020/</guid>
       <description>Intro This is the only challenge I solved in the Signals section.
 It’s been solved 59 times and it was worth 965 points.
@@ -20,12 +20,10 @@ Here’s a log of some kind of network traffic. The BASH script will help you se
 You can download the log here.
 $ sha256sum pickupthatcan.log 6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba6a44a0af03e95a pickupthatcan.log The shell script is really short.</description>
     </item>
-    
     <item>
       <title>AUCTF 2020 Writeup - Password Cracking Challenges</title>
       <link>https://www.raffaeleflorio.com/post/password-cracking-challenges-auctf2020/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/password-cracking-challenges-auctf2020/</guid>
       <description>Salty This challenge was solved 148 times and it was worth 357 points.
 Description:
@@ -36,12 +34,10 @@ The hash seems a salted MD5.
 The correct hash mode is md5($salt.$pass). So with hashcat:
 $ hashcat -a 0 -m 20 salty rockyou.txt ..... 5eaff45e09bec5222a9cfa9502a4740d:1337:treetop ..... Crack Me 2 This challenge was solved 108 times and it was worth 880 points.</description>
     </item>
-    
     <item>
       <title>AUCTF 2020 Writeup - Remote School</title>
       <link>https://www.raffaeleflorio.com/post/remote-school-auctf2020/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/remote-school-auctf2020/</guid>
       <description>Intro This is the fourth and last pwn challenge. It was solved 63 times and it was worth 960 points.
 Description:
@@ -49,12 +45,10 @@ Dear Student,
 Due to COVID-19 concerns our curriculum will be moving completely to online courses… I know we haven’t even started our school year yet so this may come as a shock. But I promise it won’t be too bad! You can login at challenges.auctf.com 30013.
 Best, Dean of Eon Pillars</description>
     </item>
-    
     <item>
       <title>AUCTF 2020 Writeup - House of Madness</title>
       <link>https://www.raffaeleflorio.com/post/house-of-madness-auctf2020/</link>
       <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/house-of-madness-auctf2020/</guid>
       <description>Intro This is the third pwn challenge. It was solved 100 times and it was worth 897 points.
 Description:
@@ -64,12 +58,10 @@ Note: ASLR is disabled for this challenge
 You could download the binary here.
 $ sha256sum ./house_of_madness 15b1a68ae0e1d4eee4f917cc92412d90fd3a4adbb5a55a83b115e0f438baaf93 house_of_madness Exploitation When we launch the program shows a banner and it asks us to make a choice.</description>
     </item>
-    
     <item>
       <title>AUCTF 2020 Writeup - Thanksgiving Dinner</title>
       <link>https://www.raffaeleflorio.com/post/thanksgiving-dinner-auctf2020/</link>
       <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/thanksgiving-dinner-auctf2020/</guid>
       <description>Intro This is the second pwn challenge of AUCTF 2020. It was solved 238 times and it was worth 408 points.
 Description:
@@ -79,12 +71,10 @@ Note: ASLR is disabled for this challenge
 You could download the binary here
 $ sha256sum ./thanksgiving_dinner 2307af59beead6a2377c3beb2ff26f70d5732ec6b651b5c31e58b8f692bfb70c thanksgiving_dinner Exploitation The program simply ask for an input. But it seems not vulnerable to a buffer overflow:</description>
     </item>
-    
     <item>
       <title>HackCon&#39;19 writeup - baby b0f</title>
       <link>https://www.raffaeleflorio.com/post/babyb0f-hackcon19/</link>
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/babyb0f-hackcon19/</guid>
       <description>Intro This is the first and easiest pwn challenge. It was solved 117 times and it’s worth 100 points.
 Description:
@@ -93,12 +83,10 @@ You could download the binary here.
 $ sha256sum ./babyb0f 68344bb2c6aa56fdcc75379b3ced882abdf4e9bffa0bba63006dfb6c11ed7c47 babyb0f Exploitation The program simply asks for an input that overflow a buffer:
 $ ./baby_b0f AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA Try Again Segmentation fault (core dumped) $ checksec ./baby_b0f Arch: amd64-64-little RELRO: Partial RELRO Stack: No canary found NX: NX enabled PIE: No PIE (0x400000) As usual I opened the binary with r2.</description>
     </item>
-    
     <item>
       <title>HackCon&#39;19 writeup - babypwn</title>
       <link>https://www.raffaeleflorio.com/post/babypwn-hackcon19/</link>
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/babypwn-hackcon19/</guid>
       <description>Intro This is the second pwn challenge. It was solved 36 times and it’s worth 451 points.
 Description:
@@ -107,12 +95,10 @@ You can download the binary here
 $ sha256sum ./babypwn 57b32556465e890bdefdcccd6e515f6a2888300f48e9b7a7df0bb66694bda45b babypwn Exploitation The program asks five input, echoes them back and prints a message of failure. However there is a segfault caused by a buffer overflow.
 $ ./babypwn 1 2 3 4 5 1 2 3 4 5 Naaa , Try HArder $ .</description>
     </item>
-    
     <item>
       <title>HackCon&#39;19 writeup - Not So Easy B0f</title>
       <link>https://www.raffaeleflorio.com/post/notsoeasyb0f-hackcon19/</link>
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/notsoeasyb0f-hackcon19/</guid>
       <description>Intro This is the third pwn challenge. It was solved 29 times and it’s worth 469 points.
 Description:
@@ -121,6 +107,5 @@ In addition to the binary there is also a specific libc.
 You can download the binary here and the libc here
 $ sha256sum notsoeasyb0f notsoeasyb0f-libc.so 9cdc861043359904c6807d31990f7369c1fec2d25e545e263bb4ae2e5786883e notsoeasyb0f 74ca69ada4429ae5fce87f7e3addb56f1b53964599e8526244fecd164b3c4b44 notsoeasyb0f-libc.so Exploitation This program asks for a name, echoes it back, then it asks a sentence.</description>
     </item>
-    
   </channel>
 </rss>

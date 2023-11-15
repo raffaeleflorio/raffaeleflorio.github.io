@@ -6,12 +6,12 @@
     <description>Recent content in hacker-culture on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.raffaeleflorio.com/tags/hacker-culture/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 May 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.raffaeleflorio.com/tags/hacker-culture/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What does it mean to contribute to the hacker culture?</title>
       <link>https://www.raffaeleflorio.com/post/hacker-culture/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/hacker-culture/</guid>
       <description>Hacker and doubt Over time I matched the hacker culture with the culture of doubt.
 So contributing to the hacker culture would mean contributing to the culture of doubt. But I guess this doesn’t mean a lot.
@@ -19,6 +19,5 @@ In this regard, I would start from the relationship between hackers and doubt.
 Who is a hacker? A definition of hacker that goes straight to the point is:
 A hacker is nothing but a person who loves to understand how things work.</description>
     </item>
-    
   </channel>
 </rss>

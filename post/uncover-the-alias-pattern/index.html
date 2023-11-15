@@ -68,7 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.115.3">
+ <meta name="generator" content="Hugo 0.120.4">
         
 
         
@@ -238,54 +238,54 @@ everything to the aliased.</li>
 <h1 id="sample-code">Sample Code</h1>
 <p>The below Java-ish code expresses the Alias pattern. In this code the alias injects a default value for an otherwise
 mandatory parameter:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">AnInterface</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">aMethod</span><span style="color:#f92672">();</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">AnInterface</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">aMethod</span>();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Something <span style="color:#a6e22e">anotherMethod</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    Something <span style="color:#a6e22e">anotherMethod</span>();
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Aliased</span> <span style="color:#66d9ef">implements</span> AnInterface <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> A a<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> B b<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Aliased</span> <span style="color:#66d9ef">implements</span> AnInterface {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> A a;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> B b;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Aliased<span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> A a<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> B b<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> a<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> b<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    Aliased(<span style="color:#66d9ef">final</span> A a, <span style="color:#66d9ef">final</span> B b) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> a;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> b;
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">aMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// implementation
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">aMethod</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// implementation</span>
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Something <span style="color:#a6e22e">anotherMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// implementation
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    Something <span style="color:#a6e22e">anotherMethod</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// implementation</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Alias</span> <span style="color:#66d9ef">implements</span> AnInterface <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Aliased aliased<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Alias</span> <span style="color:#66d9ef">implements</span> AnInterface {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Aliased aliased;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Alias<span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> A a<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">(</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> Aliased<span style="color:#f92672">(</span>
-</span></span><span style="display:flex;"><span>                        a<span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">new</span> InstanceOfB<span style="color:#f92672">(...)</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    Alias(<span style="color:#66d9ef">final</span> A a) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> Aliased(
+</span></span><span style="display:flex;"><span>                        a,
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">new</span> InstanceOfB(...)
+</span></span><span style="display:flex;"><span>                )
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">Alias</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Aliased aliased<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">aliased</span> <span style="color:#f92672">=</span> aliased<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">Alias</span>(<span style="color:#66d9ef">final</span> Aliased aliased) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">aliased</span> <span style="color:#f92672">=</span> aliased;
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">aMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">aliased</span><span style="color:#f92672">.</span><span style="color:#a6e22e">aMethod</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">aMethod</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">aliased</span>.<span style="color:#a6e22e">aMethod</span>();
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Something <span style="color:#a6e22e">anotherMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">aliased</span><span style="color:#f92672">.</span><span style="color:#a6e22e">anotherMethod</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    Something <span style="color:#a6e22e">anotherMethod</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">aliased</span>.<span style="color:#a6e22e">anotherMethod</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h1 id="related-patterns">Related Patterns</h1>
 <p>At a certain degree, the Alias pattern could be also seen as a way
 to <a href="https://en.wikipedia.org/wiki/Decorator_pattern">decorate</a> the objects construction. This vision is
@@ -297,6 +297,33 @@ especially true if we see a class as an object which responsibility is to create
     
         <h4 class="page-header">Related</h4>
          <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/playwright-on-steroids-overcoming-limits-with-oop/">Playwright on Steroids: Overcoming Limits With Object-Oriented Programming</a></h4>
+    <h5>November 14, 2023</h5>
+    
+<a href="https://www.raffaeleflorio.com/tags/playwright"><kbd class="item-tag">playwright</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/multithreading"><kbd class="item-tag">multithreading</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/performance"><kbd class="item-tag">performance</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/java"><kbd class="item-tag">java</kbd></a>
+
+
+
+</div>
+  <div class="item">
 
     
     
@@ -332,27 +359,6 @@ especially true if we see a class as an object which responsibility is to create
 <a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
 
 <a href="https://www.raffaeleflorio.com/tags/event-loop"><kbd class="item-tag">event loop</kbd></a>
-
-<a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
-
-<a href="https://www.raffaeleflorio.com/tags/java"><kbd class="item-tag">java</kbd></a>
-
-
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="/post/object-and-pursuit-of-happiness/">Objects &amp; Pursuit of Happiness: Understanding Object Oriented Programming (OOP)</a></h4>
-    <h5>October 14, 2021</h5>
-    
-<a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
 
 <a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
 

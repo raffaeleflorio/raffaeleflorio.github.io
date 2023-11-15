@@ -6,23 +6,21 @@
     <description>Recent content in software engineering on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.raffaeleflorio.com/tags/software-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.raffaeleflorio.com/tags/software-engineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Road to Simplicity: Tests Are Not Tests [Part Two]</title>
       <link>https://www.raffaeleflorio.com/post/road-to-simplicity-tests-are-not-tests-part-two/</link>
       <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/road-to-simplicity-tests-are-not-tests-part-two/</guid>
       <description>Intro This is the second post of Road to Simplicity. And it&amp;rsquo;s about the role of tests in software writing.
 (The first part is about the goal of the series and hexagonal architecture)
 Test and correctness I think that it&amp;rsquo;s inappropriate to associate test with verification of correctness. After all with a test we can verify that a software module (e.g. a function) returns an expected output with a given input.</description>
     </item>
-    
     <item>
       <title>Road to Simplicity: Hexagonal Architecture [Part One]</title>
       <link>https://www.raffaeleflorio.com/post/road-to-simplicity-hexagonal-architecture-part-one/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/road-to-simplicity-hexagonal-architecture-part-one/</guid>
       <description>Intro Software writing taught me that: a well written software is a simple software.
 So I started to think how to achieve simplicity in a methodological way. This is the first post of a series about this methodology.
@@ -32,6 +30,5 @@ The quality or condition of being easy to understand or do.
 Oxford dictionary (https://www.lexico.com/en/definition/simplicity)
 So, a simple software is a software that is easy to understand.</description>
     </item>
-    
   </channel>
 </rss>

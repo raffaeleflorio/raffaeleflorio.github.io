@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta name="monetization" content="$ilp.uphold.com/rHp7LeydLZ6B">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Playwright on Steroids: Overcoming Limits With Object-Oriented Programming</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Roboto Mono', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: #00a6d8;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://www.raffaeleflorio.com/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%20Mono">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.120.4">
+        
+
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">Playwright on Steroids: Overcoming Limits With Object-Oriented Programming</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/post/">Posts</a></li>
+                            
+                                <li><a href="/project/">Projects</a></li>
+                            
+                                <li><a href="/tags/">Tags</a></li>
+                            
+                                <li><a href="/friends/">Friends</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaeleflorio"><i class="fab fa-linkedin"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>Playwright on Steroids: Overcoming Limits With Object-Oriented Programming</h2>
+        <h5>November 14, 2023</h5>
+        
+<a href="https://www.raffaeleflorio.com/tags/playwright"><kbd class="item-tag">playwright</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/multithreading"><kbd class="item-tag">multithreading</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/performance"><kbd class="item-tag">performance</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/java"><kbd class="item-tag">java</kbd></a>
+
+
+    </div>
+
+    <div align="left" class="content"><p><img src="/img/playwright-on-steroids-overcoming-limits-with-oop/cover.jpeg" alt="The article cover"></p>
+<p>Recently, I worked on a Playwright Java project. One of its characteristics is its single-thread nature. This means we
+have to use a Playwright instance in a single thread at a time. For the performance’s sake, we need to overcome this
+limit.</p>
+<p>To get to the point, in the following demo, we’ll expose an HTTP endpoint that screenshots a web page given its URL. And
+we’ll build various solutions along with their benchmark when it’s useful to do so. These solutions will use the
+following interfaces. And they differ only by the <code>Browser</code> implementation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Browser</span> <span style="color:#66d9ef">extends</span> AutoCloseable {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Screenshot <span style="color:#a6e22e">screenshot</span>(URL url);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Screenshot</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">asByteArray</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    String <span style="color:#a6e22e">mimeType</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="unsafe-solution">Unsafe solution</h1>
+<p>The first and unsafe (i.e., not thread-safe) solution could be the following one.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UnsafePlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Playwright playwright;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Page page;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">UnsafePlaywright</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(Playwright::chromium);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">UnsafePlaywright</span>(<span style="color:#66d9ef">final</span> Function<span style="color:#f92672">&lt;</span>Playwright, BrowserType<span style="color:#f92672">&gt;</span> browserTypeFn) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                browserTypeFn,
+</span></span><span style="display:flex;"><span>                Playwright.<span style="color:#a6e22e">create</span>()
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// this constructor pre-instantiate Playwright objects in order to avoid delay</span>
+</span></span><span style="display:flex;"><span>    UnsafePlaywright(<span style="color:#66d9ef">final</span> Function<span style="color:#f92672">&lt;</span>Playwright, BrowserType<span style="color:#f92672">&gt;</span> browserTypeFn, <span style="color:#66d9ef">final</span> Playwright playwright) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                playwright,
+</span></span><span style="display:flex;"><span>                browserTypeFn.<span style="color:#a6e22e">apply</span>(playwright).<span style="color:#a6e22e">launch</span>().<span style="color:#a6e22e">newContext</span>().<span style="color:#a6e22e">newPage</span>()
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    UnsafePlaywright(
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">final</span> Playwright playwright,
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">final</span> Page page
+</span></span><span style="display:flex;"><span>    ) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">playwright</span> <span style="color:#f92672">=</span> playwright;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">page</span> <span style="color:#f92672">=</span> page;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Screenshot <span style="color:#a6e22e">screenshot</span>(<span style="color:#66d9ef">final</span> URL url) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">navigate</span>(url.<span style="color:#a6e22e">toString</span>());
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Png(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">page</span>.<span style="color:#a6e22e">screenshot</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">playwright</span>.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This solution by itself is useless except in a single-thread context. So, the next step is to build a thread-safe
+solution.</p>
+<h1 id="lock-based-solution">Lock based solution</h1>
+<p>This solution implements the <code>Browser</code> interface considering the single-thread nature of Playwright. It composes the
+<code>UnsafePlaywright</code> and the general-purpose <code>LockBasedBrowser</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LockBasedPlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Browser origin;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">LockBasedPlaywright</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(Playwright::chromium);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">LockBasedPlaywright</span>(<span style="color:#66d9ef">final</span> Function<span style="color:#f92672">&lt;</span>Playwright, BrowserType<span style="color:#f92672">&gt;</span> browserTypeFn) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> LockBasedBrowser(
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">new</span> UnsafePlaywright(browserTypeFn)
+</span></span><span style="display:flex;"><span>                )
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    LockBasedPlaywright(<span style="color:#66d9ef">final</span> Browser origin) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span> <span style="color:#f92672">=</span> origin;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Screenshot <span style="color:#a6e22e">screenshot</span>(<span style="color:#66d9ef">final</span> URL url) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">screenshot</span>(url);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LockBasedBrowser</span> <span style="color:#66d9ef">implements</span> Browser {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Browser origin;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Lock lock;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    LockBasedBrowser(<span style="color:#66d9ef">final</span> Browser origin) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                origin,
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> ReentrantLock()
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    LockBasedBrowser(<span style="color:#66d9ef">final</span> Browser origin, <span style="color:#66d9ef">final</span> Lock lock) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span> <span style="color:#f92672">=</span> origin;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lock</span> <span style="color:#f92672">=</span> lock;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Screenshot <span style="color:#a6e22e">screenshot</span>(<span style="color:#66d9ef">final</span> URL url) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lock</span>.<span style="color:#a6e22e">lock</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">screenshot</span>(url);
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">finally</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lock</span>.<span style="color:#a6e22e">unlock</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p><strong>Tip</strong>: We can use <code>LockBasedBrowser</code> to implement another lock based <code>Browser</code> implementation on top of an unsafe
+one. As an example, Selenium (a library similar to Playwright) is also not thread-safe by default.</p>
+<p>Furthermore, the pattern used to compose objects is
+the <a href="https://www.raffaeleflorio.com/post/uncover-the-alias-pattern/">alias pattern</a>.</p>
+</blockquote>
+<p>According to this implementation, all the screenshot requests will be serialized because of the lock. This will impact
+performance.</p>
+<h2 id="benchmark">Benchmark</h2>
+<p>We’ll do three benchmarks with <a href="https://www.joedog.org/siege-home">siege</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">25</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Transactions:		         <span style="color:#ae81ff">250</span> hits
+</span></span><span style="display:flex;"><span>Availability:		      100.00 %
+</span></span><span style="display:flex;"><span>Elapsed time:		       28.61 secs
+</span></span><span style="display:flex;"><span>Data transferred:	       67.19 MB
+</span></span><span style="display:flex;"><span>Response time:		        2.72 secs
+</span></span><span style="display:flex;"><span>Transaction rate:	        8.74 trans/sec
+</span></span><span style="display:flex;"><span>Throughput:		        2.35 MB/sec
+</span></span><span style="display:flex;"><span>Concurrency:		       23.80
+</span></span><span style="display:flex;"><span>Successful transactions:         <span style="color:#ae81ff">250</span>
+</span></span><span style="display:flex;"><span>Failed transactions:	           <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Longest transaction:	        2.94
+</span></span><span style="display:flex;"><span>Shortest transaction:	        0.20
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">50</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Transactions:		         <span style="color:#ae81ff">500</span> hits
+</span></span><span style="display:flex;"><span>Availability:		      100.00 %
+</span></span><span style="display:flex;"><span>Elapsed time:		       57.03 secs
+</span></span><span style="display:flex;"><span>Data transferred:	      134.37 MB
+</span></span><span style="display:flex;"><span>Response time:		        5.42 secs
+</span></span><span style="display:flex;"><span>Transaction rate:	        8.77 trans/sec
+</span></span><span style="display:flex;"><span>Throughput:		        2.36 MB/sec
+</span></span><span style="display:flex;"><span>Concurrency:		       47.50
+</span></span><span style="display:flex;"><span>Successful transactions:         <span style="color:#ae81ff">500</span>
+</span></span><span style="display:flex;"><span>Failed transactions:	           <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Longest transaction:	        5.83
+</span></span><span style="display:flex;"><span>Shortest transaction:	        0.18
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">100</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Transactions:		        <span style="color:#ae81ff">1000</span> hits
+</span></span><span style="display:flex;"><span>Availability:		      100.00 %
+</span></span><span style="display:flex;"><span>Elapsed time:		      115.19 secs
+</span></span><span style="display:flex;"><span>Data transferred:	      268.74 MB
+</span></span><span style="display:flex;"><span>Response time:		       10.95 secs
+</span></span><span style="display:flex;"><span>Transaction rate:	        8.68 trans/sec
+</span></span><span style="display:flex;"><span>Throughput:		        2.33 MB/sec
+</span></span><span style="display:flex;"><span>Concurrency:		       95.08
+</span></span><span style="display:flex;"><span>Successful transactions:        <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>Failed transactions:	           <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Longest transaction:	       11.67
+</span></span><span style="display:flex;"><span>Shortest transaction:	        0.18
+</span></span></code></pre></div><blockquote>
+<p><strong>Info</strong>: The siege -c parameter sets concurrent users. While the -r parameter sets how many requests each user will
+make.</p>
+</blockquote>
+<p>The throughput is pretty stable because that’s how much the single instance can handle. And, as a consequence, by
+increasing concurrent users, the response time increases. The behavior of this implementation is as we expected.</p>
+<h1 id="on-demand-solution">On-demand solution</h1>
+<p>The next solution is to try to overcome the single thread limit in a naive way. On each request, it will create a new
+browser instance. This implementation composes <code>UnsafePlaywright</code> with the general-purpose <code>OnDemandBrowser</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OnDemandPlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Browser origin;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">OnDemandPlaywright</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(Playwright::chromium);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">OnDemandPlaywright</span>(<span style="color:#66d9ef">final</span> Function<span style="color:#f92672">&lt;</span>Playwright, BrowserType<span style="color:#f92672">&gt;</span> browserTypeFn) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> OnDemandBrowser(
+</span></span><span style="display:flex;"><span>                        () <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">new</span> UnsafePlaywright(browserTypeFn)
+</span></span><span style="display:flex;"><span>                )
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    OnDemandPlaywright(<span style="color:#66d9ef">final</span> Browser origin) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span> <span style="color:#f92672">=</span> origin;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Screenshot <span style="color:#a6e22e">screenshot</span>(<span style="color:#66d9ef">final</span> URL url) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">screenshot</span>(url);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OnDemandBrowser</span> <span style="color:#66d9ef">implements</span> Browser {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Supplier<span style="color:#f92672">&lt;</span>Browser<span style="color:#f92672">&gt;</span> browserSupplier;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    OnDemandBrowser(<span style="color:#66d9ef">final</span> Supplier<span style="color:#f92672">&lt;</span>Browser<span style="color:#f92672">&gt;</span> browserSupplier) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">browserSupplier</span> <span style="color:#f92672">=</span> browserSupplier;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Screenshot <span style="color:#a6e22e">screenshot</span>(<span style="color:#66d9ef">final</span> URL url) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">browserSupplier</span>.<span style="color:#a6e22e">get</span>().<span style="color:#a6e22e">screenshot</span>(url);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>According to this implementation, all the screenshot requests will be parallelized. On the surface, this seems fine. In
+fact, this approach is the worst. This is because each request creates a new <code>UnsafePlaywright</code> instance, so browser
+objects. This means the process will run out of memory in case of requests spike. Furthermore, we&rsquo;ll also delay each
+request because of the <code>UnsafePlaywright</code> instantiation process.</p>
+<h2 id="benchmark-1">Benchmark</h2>
+<p>The following benchmarks express the weaknesses of this approach. They also impact in case of a few requests.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">25</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Transactions:		         <span style="color:#ae81ff">250</span> hits
+</span></span><span style="display:flex;"><span>Availability:		      100.00 %
+</span></span><span style="display:flex;"><span>Elapsed time:		       68.59 secs
+</span></span><span style="display:flex;"><span>Data transferred:	       67.29 MB
+</span></span><span style="display:flex;"><span>Response time:		        6.56 secs
+</span></span><span style="display:flex;"><span>Transaction rate:	        3.64 trans/sec
+</span></span><span style="display:flex;"><span>Throughput:		        0.98 MB/sec
+</span></span><span style="display:flex;"><span>Concurrency:		       23.91
+</span></span><span style="display:flex;"><span>Successful transactions:         <span style="color:#ae81ff">250</span>
+</span></span><span style="display:flex;"><span>Failed transactions:	           <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Longest transaction:	        9.28
+</span></span><span style="display:flex;"><span>Shortest transaction:	        3.94
+</span></span></code></pre></div><h1 id="building-on-top-the-previous-approaches">Building on top the previous approaches</h1>
+<p>The previous two approaches have both pros and cons.</p>
+<!-- raw HTML omitted -->
+<p>Well, it seems they compensate each other. And this suggests to us another approach that mitigates weakness and boosts
+strengths. Indeed, we can say that a set of pre-instantiated <code>Browser</code> objects consume a predictable amount of memory.
+And at the same time, they can parallelize a fixed number of requests.</p>
+<h2 id="pool-solution">Pool solution</h2>
+<p>The aforesaid ideas translate to a pool of <code>Browser</code> objects.</p>
+<p>In the following implementation, we’ll compose the general-purpose <code>PoolBrowser</code> and <code>LockBasedPlaywright</code>. We used the
+latter because <code>Browser</code> objects in the pool are shared among the requests. So, we need thread-safety.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PoolPlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Browser origin;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">PoolPlaywright</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(8);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">PoolPlaywright</span>(<span style="color:#66d9ef">final</span> Integer size) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                size,
+</span></span><span style="display:flex;"><span>                Playwright::chromium
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">PoolPlaywright</span>(<span style="color:#66d9ef">final</span> Integer size, <span style="color:#66d9ef">final</span> Function<span style="color:#f92672">&lt;</span>Playwright, BrowserType<span style="color:#f92672">&gt;</span> browserTypeFn) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                () <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">new</span> LockBasedPlaywright(browserTypeFn),
+</span></span><span style="display:flex;"><span>                size
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    PoolPlaywright(<span style="color:#66d9ef">final</span> Supplier<span style="color:#f92672">&lt;</span>Browser<span style="color:#f92672">&gt;</span> browserSupplier, <span style="color:#66d9ef">final</span> Integer size) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> PoolBrowser(
+</span></span><span style="display:flex;"><span>                        browserSupplier,
+</span></span><span style="display:flex;"><span>                        size
+</span></span><span style="display:flex;"><span>                )
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    PoolPlaywright(<span style="color:#66d9ef">final</span> Browser origin) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span> <span style="color:#f92672">=</span> origin;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Screenshot <span style="color:#a6e22e">screenshot</span>(<span style="color:#66d9ef">final</span> URL url) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">screenshot</span>(url);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PoolBrowser</span> <span style="color:#66d9ef">implements</span> Browser {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> List<span style="color:#f92672">&lt;</span>Browser<span style="color:#f92672">&gt;</span> pool;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> AtomicInteger last;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    PoolBrowser(<span style="color:#66d9ef">final</span> Supplier<span style="color:#f92672">&lt;</span>Browser<span style="color:#f92672">&gt;</span> browserSupplier, <span style="color:#66d9ef">final</span> Integer size) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                x <span style="color:#f92672">-&gt;</span> browserSupplier.<span style="color:#a6e22e">get</span>(),
+</span></span><span style="display:flex;"><span>                size
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    PoolBrowser(<span style="color:#66d9ef">final</span> IntFunction<span style="color:#f92672">&lt;</span>Browser<span style="color:#f92672">&gt;</span> browserFn, <span style="color:#66d9ef">final</span> Integer size) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                IntStream.<span style="color:#a6e22e">range</span>(0, size)
+</span></span><span style="display:flex;"><span>                        .<span style="color:#a6e22e">mapToObj</span>(browserFn)
+</span></span><span style="display:flex;"><span>                        .<span style="color:#a6e22e">toList</span>(),
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> AtomicInteger(<span style="color:#f92672">-</span>1)
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    PoolBrowser(<span style="color:#66d9ef">final</span> List<span style="color:#f92672">&lt;</span>Browser<span style="color:#f92672">&gt;</span> pool, <span style="color:#66d9ef">final</span> AtomicInteger last) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">pool</span> <span style="color:#f92672">=</span> pool;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">last</span> <span style="color:#f92672">=</span> last;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Screenshot <span style="color:#a6e22e">screenshot</span>(<span style="color:#66d9ef">final</span> URL url) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">browser</span>().<span style="color:#a6e22e">screenshot</span>(url);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Browser <span style="color:#a6e22e">browser</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> max <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">size</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">get</span>(
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">last</span>.<span style="color:#a6e22e">accumulateAndGet</span>(0, (left, right) <span style="color:#f92672">-&gt;</span> left <span style="color:#f92672">+</span> 1 <span style="color:#f92672">&lt;</span> max <span style="color:#f92672">?</span> left <span style="color:#f92672">+</span> 1 : 0)
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> browser : <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">pool</span>) {
+</span></span><span style="display:flex;"><span>            browser.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This solution seems to resolve all our issues, but it’s not true. Indeed, in case of requests spike, we cannot predict
+how much time a request will wait before processing. That’s because each request will be processed by a
+single <code>LockBasedBrowser</code> instance. And each instance will serialize the requests it will process. So, in case of
+requests spike, there will be too much contention on the single instance. It’s like we have an unbounded queue of
+requests per single <code>Browser</code> instance. So, to resolve this issue, we can integrate a bound. In this way, we can
+guarantee we can process, at most, a fixed number of requests. And this is useful because we can predict better how much
+time a screenshot will take. Overall, we are improving the software&rsquo;s predictability and quality.</p>
+<h2 id="semaphore-solution">Semaphore solution</h2>
+<p>We have many choices to implement the bounded behavior. One of them is to use a <code>Semaphore</code> to limit access to a
+single <code>LockBasedBrowser</code> instance.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SemaphorePlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Browser origin;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">SemaphorePlaywright</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(Playwright::chromium);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">SemaphorePlaywright</span>(<span style="color:#66d9ef">final</span> Function<span style="color:#f92672">&lt;</span>Playwright, BrowserType<span style="color:#f92672">&gt;</span> browserTypeFn) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                browserTypeFn,
+</span></span><span style="display:flex;"><span>                32
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">SemaphorePlaywright</span>(<span style="color:#66d9ef">final</span> Function<span style="color:#f92672">&lt;</span>Playwright, BrowserType<span style="color:#f92672">&gt;</span> browserTypeFn, <span style="color:#66d9ef">final</span> Integer maxRequests) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> SemaphoreBrowser(
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">new</span> LockBasedPlaywright(browserTypeFn),
+</span></span><span style="display:flex;"><span>                        maxRequests
+</span></span><span style="display:flex;"><span>                )
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    SemaphorePlaywright(<span style="color:#66d9ef">final</span> Browser origin) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span> <span style="color:#f92672">=</span> origin;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Screenshot <span style="color:#a6e22e">screenshot</span>(<span style="color:#66d9ef">final</span> URL url) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">screenshot</span>(url);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SemaphoreBrowser</span> <span style="color:#66d9ef">implements</span> Browser {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Browser origin;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Semaphore semaphore;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    SemaphoreBrowser(<span style="color:#66d9ef">final</span> Browser origin, <span style="color:#66d9ef">final</span> Integer maxRequests) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                origin,
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> Semaphore(maxRequests)
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    SemaphoreBrowser(<span style="color:#66d9ef">final</span> Browser origin, <span style="color:#66d9ef">final</span> Semaphore semaphore) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span> <span style="color:#f92672">=</span> origin;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">semaphore</span> <span style="color:#f92672">=</span> semaphore;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Screenshot <span style="color:#a6e22e">screenshot</span>(<span style="color:#66d9ef">final</span> URL url) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">semaphore</span>.<span style="color:#a6e22e">tryAcquire</span>()) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">screenshot</span>(url);
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">finally</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">semaphore</span>.<span style="color:#a6e22e">release</span>();
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalStateException(<span style="color:#e6db74">&#34;Unable to screenshot. Maximum number of requests reached&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="pool-and-semaphore-solution">Pool and semaphore solution</h2>
+<p>Finally, we need to compose the last two <code>Browser</code> implementations.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PoolSemaphorePlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Browser origin;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">PoolSemaphorePlaywright</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                8,
+</span></span><span style="display:flex;"><span>                32
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">PoolSemaphorePlaywright</span>(<span style="color:#66d9ef">final</span> Integer poolSize, <span style="color:#66d9ef">final</span> Integer maxRequestsPerBrowsr) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                poolSize,
+</span></span><span style="display:flex;"><span>                maxRequestsPerBrowsr,
+</span></span><span style="display:flex;"><span>                Playwright::chromium
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">PoolSemaphorePlaywright</span>(
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">final</span> Integer poolSize,
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">final</span> Integer maxRequestsPerBrowser,
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">final</span> Function<span style="color:#f92672">&lt;</span>Playwright, BrowserType<span style="color:#f92672">&gt;</span> browserTypeFn
+</span></span><span style="display:flex;"><span>    ) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>(
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">new</span> PoolPlaywright(
+</span></span><span style="display:flex;"><span>                        () <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">new</span> SemaphorePlaywright(browserTypeFn, maxRequestsPerBrowser),
+</span></span><span style="display:flex;"><span>                        poolSize
+</span></span><span style="display:flex;"><span>                )
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    PoolSemaphorePlaywright(<span style="color:#66d9ef">final</span> Browser origin) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span> <span style="color:#f92672">=</span> origin;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Screenshot <span style="color:#a6e22e">screenshot</span>(<span style="color:#66d9ef">final</span> URL url) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">screenshot</span>(url);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span>() <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">origin</span>.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In this implementation, each browser in the pool has a semaphore. We can also compose the other way around. This means a
+pool having a single semaphore.</p>
+<h2 id="benchmark-2">Benchmark</h2>
+<p>The following three benchmarks are about the pool-based approach. The pool size is two.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">25</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Transactions:		         <span style="color:#ae81ff">250</span> hits
+</span></span><span style="display:flex;"><span>Availability:		      100.00 %
+</span></span><span style="display:flex;"><span>Elapsed time:		       14.73 secs
+</span></span><span style="display:flex;"><span>Data transferred:	       67.19 MB
+</span></span><span style="display:flex;"><span>Response time:		        1.40 secs
+</span></span><span style="display:flex;"><span>Transaction rate:	       16.97 trans/sec
+</span></span><span style="display:flex;"><span>Throughput:		        4.56 MB/sec
+</span></span><span style="display:flex;"><span>Concurrency:		       23.81
+</span></span><span style="display:flex;"><span>Successful transactions:         <span style="color:#ae81ff">250</span>
+</span></span><span style="display:flex;"><span>Failed transactions:	           <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Longest transaction:	        1.60
+</span></span><span style="display:flex;"><span>Shortest transaction:	        0.19
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">50</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Transactions:		         <span style="color:#ae81ff">500</span> hits
+</span></span><span style="display:flex;"><span>Availability:		      100.00 %
+</span></span><span style="display:flex;"><span>Elapsed time:		       29.38 secs
+</span></span><span style="display:flex;"><span>Data transferred:	      134.37 MB
+</span></span><span style="display:flex;"><span>Response time:		        2.80 secs
+</span></span><span style="display:flex;"><span>Transaction rate:	       17.02 trans/sec
+</span></span><span style="display:flex;"><span>Throughput:		        4.57 MB/sec
+</span></span><span style="display:flex;"><span>Concurrency:		       47.58
+</span></span><span style="display:flex;"><span>Successful transactions:         <span style="color:#ae81ff">500</span>
+</span></span><span style="display:flex;"><span>Failed transactions:	           <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Longest transaction:	        3.01
+</span></span><span style="display:flex;"><span>Shortest transaction:	        0.17
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">100</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Transactions:		        <span style="color:#ae81ff">1000</span> hits
+</span></span><span style="display:flex;"><span>Availability:		      100.00 %
+</span></span><span style="display:flex;"><span>Elapsed time:		       58.90 secs
+</span></span><span style="display:flex;"><span>Data transferred:	      268.74 MB
+</span></span><span style="display:flex;"><span>Response time:		        5.60 secs
+</span></span><span style="display:flex;"><span>Transaction rate:	       16.98 trans/sec
+</span></span><span style="display:flex;"><span>Throughput:		        4.56 MB/sec
+</span></span><span style="display:flex;"><span>Concurrency:		       95.08
+</span></span><span style="display:flex;"><span>Successful transactions:        <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>Failed transactions:	           <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Longest transaction:	        6.01
+</span></span><span style="display:flex;"><span>Shortest transaction:	        0.18
+</span></span></code></pre></div><p>Its behavior is pretty stable. But with too many requests, the response time will start to degrade. It’s important to
+note we have doubled the throughput compared to the lock-based solution. This implementation worked as expected.</p>
+<p>At this point, we can benchmark the pool and semaphore approach. The pool size is two, and the maximum number of
+requests bound is thirty-two. This means we can handle sixty-four requests in parallel. After reaching this limit, the
+service will return an unsuccessful response.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">25</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Transactions:		         <span style="color:#ae81ff">250</span> hits
+</span></span><span style="display:flex;"><span>Availability:		      100.00 %
+</span></span><span style="display:flex;"><span>Elapsed time:		       15.43 secs
+</span></span><span style="display:flex;"><span>Data transferred:	       67.19 MB
+</span></span><span style="display:flex;"><span>Response time:		        1.46 secs
+</span></span><span style="display:flex;"><span>Transaction rate:	       16.20 trans/sec
+</span></span><span style="display:flex;"><span>Throughput:		        4.35 MB/sec
+</span></span><span style="display:flex;"><span>Concurrency:		       23.71
+</span></span><span style="display:flex;"><span>Successful transactions:         <span style="color:#ae81ff">250</span>
+</span></span><span style="display:flex;"><span>Failed transactions:	           <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Longest transaction:	        2.09
+</span></span><span style="display:flex;"><span>Shortest transaction:	        0.60
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">50</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Transactions:		         <span style="color:#ae81ff">500</span> hits
+</span></span><span style="display:flex;"><span>Availability:		      100.00 %
+</span></span><span style="display:flex;"><span>Elapsed time:		       29.33 secs
+</span></span><span style="display:flex;"><span>Data transferred:	      134.37 MB
+</span></span><span style="display:flex;"><span>Response time:		        2.79 secs
+</span></span><span style="display:flex;"><span>Transaction rate:	       17.05 trans/sec
+</span></span><span style="display:flex;"><span>Throughput:		        4.58 MB/sec
+</span></span><span style="display:flex;"><span>Concurrency:		       47.52
+</span></span><span style="display:flex;"><span>Successful transactions:         <span style="color:#ae81ff">500</span>
+</span></span><span style="display:flex;"><span>Failed transactions:	           <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Longest transaction:	        3.03
+</span></span><span style="display:flex;"><span>Shortest transaction:	        0.20
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">100</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Transactions:		         <span style="color:#ae81ff">626</span> hits
+</span></span><span style="display:flex;"><span>Availability:		       62.60 %
+</span></span><span style="display:flex;"><span>Elapsed time:		       37.17 secs
+</span></span><span style="display:flex;"><span>Data transferred:	      168.92 MB
+</span></span><span style="display:flex;"><span>Response time:		        3.57 secs
+</span></span><span style="display:flex;"><span>Transaction rate:	       16.84 trans/sec
+</span></span><span style="display:flex;"><span>Throughput:		        4.54 MB/sec
+</span></span><span style="display:flex;"><span>Concurrency:		       60.14
+</span></span><span style="display:flex;"><span>Successful transactions:         <span style="color:#ae81ff">626</span>
+</span></span><span style="display:flex;"><span>Failed transactions:	         <span style="color:#ae81ff">374</span>
+</span></span><span style="display:flex;"><span>Longest transaction:	        3.97
+</span></span><span style="display:flex;"><span>Shortest transaction:	        0.00
+</span></span></code></pre></div><p>As expected, with this solution, we didn&rsquo;t improve performance but predictability. Indeed, the throughput is comparable
+to the previous solution. At the same time, the response time didn&rsquo;t degrade too much in case of spike. Furthermore, the
+concurrency value in the last benchmark reflects the maximum parallelizable requests. The price to pay to have greater
+predictability is a lower availability value (i.e., successful responses).</p>
+<blockquote>
+<p><strong>Info</strong>: Another option to implement the last solution is to use
+the <a href="https://www.raffaeleflorio.com/post/implementing-an-event-loop-in-java-for-fun-and-profit/">event loop pattern</a>.
+Where each loop enqueues the screenshot request, then each instance in the pool dequeues a request and fulfills it.</p>
+</blockquote>
+<h1 id="conclusion">Conclusion</h1>
+<p>We can consider ourselves satisfied. We overcame the single-thread limit by reaching a good level of performance. We
+also implemented and compared many solutions.</p>
+<p>For simplicity’s sake, we omitted a few features required in a production-ready system. They are timeouts, asynchronous
+requests, exceptions handling, and a self-healing <code>Browser</code> implementation. Indeed, sometimes, Playwright objects fail.
+And the objective of a self-healing implementation is to restore them.</p>
+<p>To conclude, OOP has a bad reputation in terms of performance. It’s like a rule of thumb, but it’s not true. With proper
+objects, we can achieve great performance by not penalizing code elegance and readability. This is not at all obvious,
+and it’s a great gift of OOP.</p>
+</div>
+
+    
+    
+    
+        <h4 class="page-header">Related</h4>
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/uncover-the-alias-pattern/">Uncover the Alias Pattern</a></h4>
+    <h5>May 11, 2022</h5>
+    
+<a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/design-pattern"><kbd class="item-tag">design pattern</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/object-thinking-boundaries-and-reality/">Object Thinking, Boundaries and Reality</a></h4>
+    <h5>January 29, 2022</h5>
+    
+<a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/java"><kbd class="item-tag">java</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/implementing-an-event-loop-in-java-for-fun-and-profit/">Implementing an Event Loop in Java for Fun and Profit</a></h4>
+    <h5>November 12, 2021</h5>
+    
+<a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/event-loop"><kbd class="item-tag">event loop</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/java"><kbd class="item-tag">java</kbd></a>
+
+
+
+</div>
+ 
+    
+
+    
+    
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+

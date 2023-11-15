@@ -5,15 +5,14 @@
     <link>https://www.raffaeleflorio.com/tags/dmenu/</link>
     <description>Recent content in dmenu on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://www.raffaeleflorio.com/tags/dmenu/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <atom:link href="https://www.raffaeleflorio.com/tags/dmenu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>dmenu for Qubes OS</title>
       <link>https://www.raffaeleflorio.com/project/qubes-dmenu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/project/qubes-dmenu/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

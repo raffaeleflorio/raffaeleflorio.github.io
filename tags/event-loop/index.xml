@@ -6,17 +6,16 @@
     <description>Recent content in event loop on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.raffaeleflorio.com/tags/event-loop/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.raffaeleflorio.com/tags/event-loop/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Implementing an Event Loop in Java for Fun and Profit</title>
       <link>https://www.raffaeleflorio.com/post/implementing-an-event-loop-in-java-for-fun-and-profit/</link>
       <pubDate>Fri, 12 Nov 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/implementing-an-event-loop-in-java-for-fun-and-profit/</guid>
       <description>The event loop pattern always fascinated me. I found it interesting, useful, and compatible with object-oriented programming. A lot of us know it thanks to Node.js.
 For some reason, recently, I have been looking to implement it and experiment with it. And I finally got the opportunity to do so at work.
 Event Loop Concepts An event loop doesn&amp;rsquo;t do too much. We can ask it to start and stop itself.</description>
     </item>
-    
   </channel>
 </rss>

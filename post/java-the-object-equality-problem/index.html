@@ -68,7 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.115.3">
+ <meta name="generator" content="Hugo 0.120.4">
         
 
         
@@ -160,50 +160,50 @@ The latter returns the object hash. In this context it&rsquo;s an integer repres
 <h1 id="the-problem">The problem</h1>
 <p><img src="/img/java-the-object-equality-problem/the-ripple-problem.jpeg" alt="the ripple problem"></p>
 <p>I&rsquo;ll use a simple code example to highlight the main issue. Here is the starting point:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Book</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  String <span style="color:#a6e22e">title</span><span style="color:#f92672">();</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Book</span> {
+</span></span><span style="display:flex;"><span>  String <span style="color:#a6e22e">title</span>();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  String <span style="color:#a6e22e">author</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  String <span style="color:#a6e22e">author</span>();
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbBook</span> <span style="color:#66d9ef">implements</span> Book <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbBook</span> <span style="color:#66d9ef">implements</span> Book {
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>We can ask to a <code>Book</code> instance its title and its author. A <code>DbBook</code> instance represents a book stored in a database.</p>
 <p>As I said the <code>Object</code> class is the root of every class. This means that <code>DbBook</code> also inherits the <code>equals</code> method with its default behavior.
 So we should override <code>equals</code> to implement a custom equivalence relation. To respect the aforesaid logic implicatio we should also override the <code>hashCode</code> method.</p>
 <p>Now suppose that in our context two books are equal if they have the same title.
 This seems the <code>equals</code> goal and here is a common implementation (I generated it with the IDE):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbBook</span> <span style="color:#66d9ef">implements</span> Book <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbBook</span> <span style="color:#66d9ef">implements</span> Book {
+</span></span><span style="display:flex;"><span>  ...
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Object o<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span> <span style="color:#f92672">==</span> o<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!(</span>o <span style="color:#66d9ef">instanceof</span> DbBook<span style="color:#f92672">))</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> DbBook dbBook <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>DbBook<span style="color:#f92672">)</span> o<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> title<span style="color:#f92672">().</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>dbBook<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span><span style="color:#f92672">());</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span>(<span style="color:#66d9ef">final</span> Object o) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span> <span style="color:#f92672">==</span> o) <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>(o <span style="color:#66d9ef">instanceof</span> DbBook)) <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> DbBook dbBook <span style="color:#f92672">=</span> (DbBook) o;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> title().<span style="color:#a6e22e">equals</span>(dbBook.<span style="color:#a6e22e">title</span>());
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">hashCode</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Objects<span style="color:#f92672">.</span><span style="color:#a6e22e">hash</span><span style="color:#f92672">(</span>title<span style="color:#f92672">());</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">hashCode</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Objects.<span style="color:#a6e22e">hash</span>(title());
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>However because the <code>instanceof</code> check, <code>aDbBook</code> is only comparable to <code>anotherDbBook</code>.
 This means that an <code>AnotherBookImplementation</code> instance is always different from <code>aDbBook</code>, though having the same title.</p>
 <p>The problem seems the <code>instanceof</code> check. So we can weak it a bit:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbBook</span> <span style="color:#66d9ef">implements</span> Book <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DbBook</span> <span style="color:#66d9ef">implements</span> Book {
+</span></span><span style="display:flex;"><span>  ...
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Object o<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span> <span style="color:#f92672">==</span> o<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!(</span>o <span style="color:#66d9ef">instanceof</span> Book<span style="color:#f92672">))</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> Book book <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Book<span style="color:#f92672">)</span> o<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> title<span style="color:#f92672">().</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span><span style="color:#f92672">());</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span>(<span style="color:#66d9ef">final</span> Object o) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span> <span style="color:#f92672">==</span> o) <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>(o <span style="color:#66d9ef">instanceof</span> Book)) <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> Book book <span style="color:#f92672">=</span> (Book) o;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> title().<span style="color:#a6e22e">equals</span>(book.<span style="color:#a6e22e">title</span>());
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>In this way we are restricting <code>o</code> to be a <code>Book</code> instance.</p>
 <p>The effect of this change is the <strong>destruction</strong> of our software. As I anticipated the <code>equals</code> method should be reflexive.
 This means that <strong>every</strong> <code>Book</code> implementation must exhibit this <code>equals</code> behavior.
@@ -225,43 +225,43 @@ It&rsquo;s exposed through the methods. Or, more formally, through the messages 
 <p>In this way <code>aCat</code> will be always different from <code>aDog</code> because the different interfaces. Presumably the former implements a <code>Cat</code> interface, the latter a <code>Dog</code> interface.
 Nonetheless, thanks to polymorphism, if they both implement a <code>Pet</code> interface, then they could be equal. This could be possibile with <code>anEquality</code> limited to the <code>Pet</code> interface.</p>
 <p>Here is an example related to the initial <code>Book</code> example. I defined two <code>Equality</code> classes to stress out that equality is not a <code>Book</code> responsibility.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Equality</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  Boolean <span style="color:#a6e22e">equals</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Equality</span> {
+</span></span><span style="display:flex;"><span>  Boolean <span style="color:#a6e22e">equals</span>();
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TitleBasedEquality</span> <span style="color:#66d9ef">implements</span> Equality <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  TitleBasedEquality<span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Book book<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> Book anotherBook<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">book</span> <span style="color:#f92672">=</span> book<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">anotherBook</span> <span style="color:#f92672">=</span> anotherBook<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> Boolean <span style="color:#a6e22e">equals</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span><span style="color:#f92672">().</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>anotherBook<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span><span style="color:#f92672">());</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Book book<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Book anotherBook<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PrefixBasedEquality</span> <span style="color:#66d9ef">implements</span> Equality <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  PrefixBasedEquality<span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Book book<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> Book anotherBook<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> Integer length<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">book</span> <span style="color:#f92672">=</span> book<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">anotherBook</span> <span style="color:#f92672">=</span> anotherBook<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> length<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TitleBasedEquality</span> <span style="color:#66d9ef">implements</span> Equality {
+</span></span><span style="display:flex;"><span>  TitleBasedEquality(<span style="color:#66d9ef">final</span> Book book, <span style="color:#66d9ef">final</span> Book anotherBook) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">book</span> <span style="color:#f92672">=</span> book;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">anotherBook</span> <span style="color:#f92672">=</span> anotherBook;
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> Boolean <span style="color:#a6e22e">equals</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    var first <span style="color:#f92672">=</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span><span style="color:#f92672">().</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>length<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    var second <span style="color:#f92672">=</span> anotherBook<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span><span style="color:#f92672">().</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>length<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> first<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>second<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> Boolean <span style="color:#a6e22e">equals</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> book.<span style="color:#a6e22e">title</span>().<span style="color:#a6e22e">equals</span>(anotherBook.<span style="color:#a6e22e">title</span>());
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Book book<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Book anotherBook<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Integer length<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Book book;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Book anotherBook;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PrefixBasedEquality</span> <span style="color:#66d9ef">implements</span> Equality {
+</span></span><span style="display:flex;"><span>  PrefixBasedEquality(<span style="color:#66d9ef">final</span> Book book, <span style="color:#66d9ef">final</span> Book anotherBook, <span style="color:#66d9ef">final</span> Integer length) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">book</span> <span style="color:#f92672">=</span> book;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">anotherBook</span> <span style="color:#f92672">=</span> anotherBook;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> length;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> Boolean <span style="color:#a6e22e">equals</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> first <span style="color:#f92672">=</span> book.<span style="color:#a6e22e">title</span>().<span style="color:#a6e22e">substring</span>(length);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> second <span style="color:#f92672">=</span> anotherBook.<span style="color:#a6e22e">title</span>().<span style="color:#a6e22e">substring</span>(length);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> first.<span style="color:#a6e22e">equals</span>(second);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Book book;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Book anotherBook;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Integer length;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>So a <code>TitleBasedEquality</code> object compares the full title. A <code>PrefixBasedEquality</code>compares only a prefix.</p>
 <p>We gather a lot of flexibility. And we can choose the correct equality comparison based on the context. This is possible thanks to the responsibility decoupling.</p>
 <p>However, as you can see, I&rsquo;m using <code>String.equals</code>. I could replace it with <code>StringEquality</code>. But I consider this case as a reasonable compromise forced by the programming language.</p>
@@ -277,6 +277,33 @@ This is the reason because I support the idea of some sort of behavior-based com
     
         <h4 class="page-header">Related</h4>
          <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/playwright-on-steroids-overcoming-limits-with-oop/">Playwright on Steroids: Overcoming Limits With Object-Oriented Programming</a></h4>
+    <h5>November 14, 2023</h5>
+    
+<a href="https://www.raffaeleflorio.com/tags/playwright"><kbd class="item-tag">playwright</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/multithreading"><kbd class="item-tag">multithreading</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/performance"><kbd class="item-tag">performance</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/java"><kbd class="item-tag">java</kbd></a>
+
+
+
+</div>
+  <div class="item">
 
     
     
@@ -310,29 +337,6 @@ This is the reason because I support the idea of some sort of behavior-based com
     <h5>January 29, 2022</h5>
     
 <a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
-
-<a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
-
-<a href="https://www.raffaeleflorio.com/tags/java"><kbd class="item-tag">java</kbd></a>
-
-
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="/post/implementing-an-event-loop-in-java-for-fun-and-profit/">Implementing an Event Loop in Java for Fun and Profit</a></h4>
-    <h5>November 12, 2021</h5>
-    
-<a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
-
-<a href="https://www.raffaeleflorio.com/tags/event-loop"><kbd class="item-tag">event loop</kbd></a>
 
 <a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
 

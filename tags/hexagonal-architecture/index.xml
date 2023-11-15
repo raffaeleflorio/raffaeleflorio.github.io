@@ -6,12 +6,12 @@
     <description>Recent content in hexagonal architecture on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.raffaeleflorio.com/tags/hexagonal-architecture/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.raffaeleflorio.com/tags/hexagonal-architecture/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Road to Simplicity: Hexagonal Architecture [Part One]</title>
       <link>https://www.raffaeleflorio.com/post/road-to-simplicity-hexagonal-architecture-part-one/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/road-to-simplicity-hexagonal-architecture-part-one/</guid>
       <description>Intro Software writing taught me that: a well written software is a simple software.
 So I started to think how to achieve simplicity in a methodological way. This is the first post of a series about this methodology.
@@ -21,6 +21,5 @@ The quality or condition of being easy to understand or do.
 Oxford dictionary (https://www.lexico.com/en/definition/simplicity)
 So, a simple software is a software that is easy to understand.</description>
     </item>
-    
   </channel>
 </rss>

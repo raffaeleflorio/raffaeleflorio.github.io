@@ -6,12 +6,12 @@
     <description>Recent content in pensieri on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.raffaeleflorio.com/tags/pensieri/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 May 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.raffaeleflorio.com/tags/pensieri/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cosa significa contribuire alla cultura hacker?</title>
       <link>https://www.raffaeleflorio.com/post/cultura-hacker/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/cultura-hacker/</guid>
       <description>Hacker e dubbio Col tempo ho eguagliato la cultura hacker alla cultura del dubbio.
 Dunque contribuire alla cultura hacker significherebbe contribure alla cultura del dubbio. E immagino che, solo questo, non significhi molto.
@@ -19,6 +19,5 @@ A tal proposito partirei dalla relazione fra hacker e dubbio.
 Chi è un hacker? Una definizione di hacker che va dritta al punto è:
 Un hacker non è altro che una persona che ama capire come funzionano le cose.</description>
     </item>
-    
   </channel>
 </rss>

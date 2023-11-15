@@ -6,510 +6,420 @@
     <description>Recent content in Tags on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.raffaeleflorio.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.raffaeleflorio.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>java</title>
+      <link>https://www.raffaeleflorio.com/tags/java/</link>
+      <pubDate>Tue, 14 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/tags/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>multithreading</title>
+      <link>https://www.raffaeleflorio.com/tags/multithreading/</link>
+      <pubDate>Tue, 14 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/tags/multithreading/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>object thinking</title>
+      <link>https://www.raffaeleflorio.com/tags/object-thinking/</link>
+      <pubDate>Tue, 14 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/tags/object-thinking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>oop</title>
+      <link>https://www.raffaeleflorio.com/tags/oop/</link>
+      <pubDate>Tue, 14 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/tags/oop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>performance</title>
+      <link>https://www.raffaeleflorio.com/tags/performance/</link>
+      <pubDate>Tue, 14 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/tags/performance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>playwright</title>
+      <link>https://www.raffaeleflorio.com/tags/playwright/</link>
+      <pubDate>Tue, 14 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/tags/playwright/</guid>
+      <description></description>
+    </item>
     <item>
       <title>full-text search engine</title>
       <link>https://www.raffaeleflorio.com/tags/full-text-search-engine/</link>
       <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/full-text-search-engine/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>information retrieval</title>
       <link>https://www.raffaeleflorio.com/tags/information-retrieval/</link>
       <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/information-retrieval/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>search engine</title>
       <link>https://www.raffaeleflorio.com/tags/search-engine/</link>
       <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/search-engine/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>container</title>
       <link>https://www.raffaeleflorio.com/tags/container/</link>
       <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/container/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>docker</title>
       <link>https://www.raffaeleflorio.com/tags/docker/</link>
       <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/docker/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>docker-compose</title>
       <link>https://www.raffaeleflorio.com/tags/docker-compose/</link>
       <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/docker-compose/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>linux</title>
       <link>https://www.raffaeleflorio.com/tags/linux/</link>
       <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/linux/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>podman</title>
       <link>https://www.raffaeleflorio.com/tags/podman/</link>
       <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/podman/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>windows</title>
       <link>https://www.raffaeleflorio.com/tags/windows/</link>
       <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/windows/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>design pattern</title>
       <link>https://www.raffaeleflorio.com/tags/design-pattern/</link>
       <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/design-pattern/</guid>
       <description></description>
     </item>
-    
-    <item>
-      <title>object thinking</title>
-      <link>https://www.raffaeleflorio.com/tags/object-thinking/</link>
-      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.raffaeleflorio.com/tags/object-thinking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>oop</title>
-      <link>https://www.raffaeleflorio.com/tags/oop/</link>
-      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.raffaeleflorio.com/tags/oop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>java</title>
-      <link>https://www.raffaeleflorio.com/tags/java/</link>
-      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.raffaeleflorio.com/tags/java/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>event loop</title>
       <link>https://www.raffaeleflorio.com/tags/event-loop/</link>
       <pubDate>Fri, 12 Nov 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/event-loop/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>responsibility-decoupling</title>
       <link>https://www.raffaeleflorio.com/tags/responsibility-decoupling/</link>
       <pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/responsibility-decoupling/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>spring</title>
       <link>https://www.raffaeleflorio.com/tags/spring/</link>
       <pubDate>Wed, 18 Nov 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/spring/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>reactive</title>
       <link>https://www.raffaeleflorio.com/tags/reactive/</link>
       <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/reactive/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>road to simplicity</title>
       <link>https://www.raffaeleflorio.com/tags/road-to-simplicity/</link>
       <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/road-to-simplicity/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>software engineering</title>
       <link>https://www.raffaeleflorio.com/tags/software-engineering/</link>
       <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/software-engineering/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>test driven development</title>
       <link>https://www.raffaeleflorio.com/tags/test-driven-development/</link>
       <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/test-driven-development/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>hexagonal architecture</title>
       <link>https://www.raffaeleflorio.com/tags/hexagonal-architecture/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/hexagonal-architecture/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>cultura-hacker</title>
       <link>https://www.raffaeleflorio.com/tags/cultura-hacker/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/cultura-hacker/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>hacker-culture</title>
       <link>https://www.raffaeleflorio.com/tags/hacker-culture/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/hacker-culture/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>hacking</title>
       <link>https://www.raffaeleflorio.com/tags/hacking/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/hacking/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>pensieri</title>
       <link>https://www.raffaeleflorio.com/tags/pensieri/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/pensieri/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>riflessioni</title>
       <link>https://www.raffaeleflorio.com/tags/riflessioni/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/riflessioni/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>thoughts</title>
       <link>https://www.raffaeleflorio.com/tags/thoughts/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/thoughts/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>auctf2020</title>
       <link>https://www.raffaeleflorio.com/tags/auctf2020/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/auctf2020/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>can-bus</title>
       <link>https://www.raffaeleflorio.com/tags/can-bus/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/can-bus/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>car-hacking</title>
       <link>https://www.raffaeleflorio.com/tags/car-hacking/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/car-hacking/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>ctf</title>
       <link>https://www.raffaeleflorio.com/tags/ctf/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/ctf/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>writeup</title>
       <link>https://www.raffaeleflorio.com/tags/writeup/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/writeup/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>cracking</title>
       <link>https://www.raffaeleflorio.com/tags/cracking/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/cracking/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>hashcat</title>
       <link>https://www.raffaeleflorio.com/tags/hashcat/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/hashcat/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>password</title>
       <link>https://www.raffaeleflorio.com/tags/password/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/password/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>pwn</title>
       <link>https://www.raffaeleflorio.com/tags/pwn/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/pwn/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>x86</title>
       <link>https://www.raffaeleflorio.com/tags/x86/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/x86/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>rop</title>
       <link>https://www.raffaeleflorio.com/tags/rop/</link>
       <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/rop/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>shellcode</title>
       <link>https://www.raffaeleflorio.com/tags/shellcode/</link>
       <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/shellcode/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>tutorial</title>
       <link>https://www.raffaeleflorio.com/tags/tutorial/</link>
       <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/tutorial/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>universal rop</title>
       <link>https://www.raffaeleflorio.com/tags/universal-rop/</link>
       <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/universal-rop/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>urop</title>
       <link>https://www.raffaeleflorio.com/tags/urop/</link>
       <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/urop/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>hackcon2019</title>
       <link>https://www.raffaeleflorio.com/tags/hackcon2019/</link>
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/hackcon2019/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>2fa</title>
       <link>https://www.raffaeleflorio.com/tags/2fa/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/2fa/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>browser</title>
       <link>https://www.raffaeleflorio.com/tags/browser/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/browser/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>dmenu</title>
       <link>https://www.raffaeleflorio.com/tags/dmenu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/dmenu/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>dracut</title>
       <link>https://www.raffaeleflorio.com/tags/dracut/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/dracut/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>dwm</title>
       <link>https://www.raffaeleflorio.com/tags/dwm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/dwm/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>javascript</title>
       <link>https://www.raffaeleflorio.com/tags/javascript/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/javascript/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>luks</title>
       <link>https://www.raffaeleflorio.com/tags/luks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/luks/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>patch</title>
       <link>https://www.raffaeleflorio.com/tags/patch/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/patch/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>polyfill</title>
       <link>https://www.raffaeleflorio.com/tags/polyfill/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/polyfill/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Qubes OS</title>
       <link>https://www.raffaeleflorio.com/tags/qubes-os/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/qubes-os/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>security</title>
       <link>https://www.raffaeleflorio.com/tags/security/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/security/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>systemd</title>
       <link>https://www.raffaeleflorio.com/tags/systemd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/systemd/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>WebExtension</title>
       <link>https://www.raffaeleflorio.com/tags/webextension/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/tags/webextension/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

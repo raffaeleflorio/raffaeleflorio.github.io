@@ -68,7 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.115.3">
+ <meta name="generator" content="Hugo 0.120.4">
         
 
         
@@ -184,51 +184,51 @@ priority <a href="https://en.wikipedia.org/wiki/User_story">user stories</a>:</p
 </ul>
 <h2 id="sad-objects">Sad objects</h2>
 <p>With common practices in mind we usually start with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">PastryRepository</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>Pastry pastry<span style="color:#f92672">);</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">PastryRepository</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span>(Pastry pastry);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">delete</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">delete</span>(String name);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    List<span style="color:#f92672">&lt;</span>Pastry<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAll</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Pastry</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Id</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Double price<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> ingredients<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// getters, setters ...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ShowcaseRepository</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>ShowcaseEntry entry<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    List<span style="color:#f92672">&lt;</span>ShowcaseEntry<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAll</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    List<span style="color:#f92672">&lt;</span>Pastry<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAll</span>();
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ShowcaseEntry</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Pastry</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Id</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> UUID id<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Pastry pastry<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Integer quantity<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Double price;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> ingredients;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// getters, setters ...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// getters, setters ...</span>
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PastryService</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// constructor
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sell</span><span style="color:#f92672">(</span>Pastry pastry<span style="color:#f92672">,</span> Integer quantity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// sell a pastry
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ShowcaseRepository</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span>(ShowcaseEntry entry);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>Pastry pastry<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// save a pastry
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    List<span style="color:#f92672">&lt;</span>ShowcaseEntry<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findAll</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ShowcaseEntry</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> UUID id;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Pastry pastry;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Integer quantity;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// getters, setters ...</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PastryService</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// constructor</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sell</span>(Pastry pastry, Integer quantity) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// sell a pastry</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">save</span>(Pastry pastry) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// save a pastry</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>According to the previous happiness definition, the <code>Pastry</code> objects have suicidal thoughts. They’re central in the
 conversation with the owner, but here they’re underestimated. They&rsquo;re screaming that they can do more for us. They are
 reclaiming respect.</p>
@@ -238,33 +238,33 @@ in the Universe (the domain).</p>
 <p>It’s a tragedy.</p>
 <h2 id="happy-objects">Happy objects</h2>
 <p>We can start with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Pastry</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sell</span><span style="color:#f92672">(</span>Integer quantity<span style="color:#f92672">);</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Pastry</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sell</span>(Integer quantity);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    JsonObject <span style="color:#a6e22e">description</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    JsonObject <span style="color:#a6e22e">description</span>();
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Details</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">track</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Details</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">track</span>();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    JsonObject <span style="color:#a6e22e">description</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    JsonObject <span style="color:#a6e22e">description</span>();
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Showcase</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>JsonObject description<span style="color:#f92672">,</span> Integer quantity<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Showcase</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span>(JsonObject description, Integer quantity);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    JsonArray <span style="color:#a6e22e">description</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    JsonArray <span style="color:#a6e22e">description</span>();
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Catalog</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>JsonObject description<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Catalog</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span>(JsonObject description);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>CharSequence name<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">remove</span>(CharSequence name);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Optional<span style="color:#f92672">&lt;</span>Details<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">details</span><span style="color:#f92672">(</span>CharSequence name<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    Optional<span style="color:#f92672">&lt;</span>Details<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">details</span>(CharSequence name);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    JsonArray <span style="color:#a6e22e">description</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    JsonArray <span style="color:#a6e22e">description</span>();
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>The first difference is that every object concerns the domain. They aren’t out of place. After all, they were born
 starting from user stories.</p>
 <p>The second difference is that there isn’t any passive object. In the previous example, <code>Pastry</code> was a DTO without
@@ -289,6 +289,33 @@ writing object-oriented systems. With this in mind, we can assign correct respon
     
         <h4 class="page-header">Related</h4>
          <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/playwright-on-steroids-overcoming-limits-with-oop/">Playwright on Steroids: Overcoming Limits With Object-Oriented Programming</a></h4>
+    <h5>November 14, 2023</h5>
+    
+<a href="https://www.raffaeleflorio.com/tags/playwright"><kbd class="item-tag">playwright</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/multithreading"><kbd class="item-tag">multithreading</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/performance"><kbd class="item-tag">performance</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/java"><kbd class="item-tag">java</kbd></a>
+
+
+
+</div>
+  <div class="item">
 
     
     
@@ -322,29 +349,6 @@ writing object-oriented systems. With this in mind, we can assign correct respon
     <h5>January 29, 2022</h5>
     
 <a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
-
-<a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
-
-<a href="https://www.raffaeleflorio.com/tags/java"><kbd class="item-tag">java</kbd></a>
-
-
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="/post/implementing-an-event-loop-in-java-for-fun-and-profit/">Implementing an Event Loop in Java for Fun and Profit</a></h4>
-    <h5>November 12, 2021</h5>
-    
-<a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
-
-<a href="https://www.raffaeleflorio.com/tags/event-loop"><kbd class="item-tag">event loop</kbd></a>
 
 <a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
 

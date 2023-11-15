@@ -68,7 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.115.3">
+ <meta name="generator" content="Hugo 0.120.4">
         
 
         
@@ -207,67 +207,67 @@ It&rsquo;s written in Java with the reactive paradigm from the beginning. For th
 </ul>
 <p>The use case is an interface:</p>
 <p><em>(if you never used ReactiveX: a Single means that the method will return asynchronously an object or an error)</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetCapabilitiesUseCase</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  Single<span style="color:#f92672">&lt;</span>Capabilities<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getCapabilities</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetCapabilitiesUseCase</span> {
+</span></span><span style="display:flex;"><span>  Single<span style="color:#f92672">&lt;</span>Capabilities<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getCapabilities</span>();
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>The <code>Capabilities</code> objects are immutable (<em>precisely they&rsquo;re value objects</em>). And there is an associated builder (<em>I&rsquo;m using lombok annotations to generate the code</em>):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@RequiredArgsConstructor</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Value</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Builder</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Capabilities</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> String javaVersion<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Long networkSpeed<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Capabilities</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> String javaVersion;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Long networkSpeed;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Initially we just need to analyze two capabilities:</p>
 <ul>
 <li>java version, expressed as <code>GetJavaVersionPortOut</code></li>
 <li>network speed, expressed as <code>GetNetworkSpeedPortOut</code></li>
 </ul>
 <p>Here are the port out interfaces:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetJavaVersionPortOut</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  Single<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getJavaVersion</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetNetworkSpeedPortOut</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  Single<span style="color:#f92672">&lt;</span>Long<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getNetworkSpeed</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetJavaVersionPortOut</span> {
+</span></span><span style="display:flex;"><span>  Single<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getJavaVersion</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetNetworkSpeedPortOut</span> {
+</span></span><span style="display:flex;"><span>  Single<span style="color:#f92672">&lt;</span>Long<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getNetworkSpeed</span>();
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Finally we can define the implementation of the use case:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@RequiredArgsConstructor</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Analyzer</span> <span style="color:#66d9ef">implements</span> GetCapabilitiesUseCase <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Analyzer</span> <span style="color:#66d9ef">implements</span> GetCapabilitiesUseCase {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> Single<span style="color:#f92672">&lt;</span>Capabilities<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getCapabilities</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Single<span style="color:#f92672">.</span><span style="color:#a6e22e">just</span><span style="color:#f92672">(</span>Capabilities<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">())</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">.</span><span style="color:#a6e22e">flatMap</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">::</span>getJavaVersion<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">.</span><span style="color:#a6e22e">flatMap</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">::</span>getNetworkSpeed<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>CapabilitiesBuilder<span style="color:#f92672">::</span>build<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> Single<span style="color:#f92672">&lt;</span>Capabilities<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getCapabilities</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Single.<span style="color:#a6e22e">just</span>(Capabilities.<span style="color:#a6e22e">builder</span>())
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">flatMap</span>(<span style="color:#66d9ef">this</span>::getJavaVersion)
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">flatMap</span>(<span style="color:#66d9ef">this</span>::getNetworkSpeed)
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">map</span>(CapabilitiesBuilder::build);
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Single<span style="color:#f92672">&lt;</span>CapabilitiesBuilder<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getJavaVersion</span><span style="color:#f92672">(</span>CapabilitiesBuilder builder<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Single<span style="color:#f92672">&lt;</span>CapabilitiesBuilder<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getJavaVersion</span>(CapabilitiesBuilder builder) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> getJavaVersionPortOut
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">.</span><span style="color:#a6e22e">getJavaVersion</span><span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>builder<span style="color:#f92672">::</span>javaVersion<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">getJavaVersion</span>()
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">map</span>(builder::javaVersion);
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Single<span style="color:#f92672">&lt;</span>CapabilitiesBuilder<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getNetworkSpeed</span><span style="color:#f92672">(</span>CapabilitiesBuilder builder<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> Single<span style="color:#f92672">&lt;</span>CapabilitiesBuilder<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getNetworkSpeed</span>(CapabilitiesBuilder builder) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> getNetworkSpeedPortOut
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">.</span><span style="color:#a6e22e">getNetworkSpeed</span><span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>builder<span style="color:#f92672">::</span>networkSpeed<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">getNetworkSpeed</span>()
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">map</span>(builder::networkSpeed);
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> GetJavaVersionPortOut getJavaVersionPortOut<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> GetNetworkSpeedPortOut getNetworkSpeedPortOut<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> GetJavaVersionPortOut getJavaVersionPortOut;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> GetNetworkSpeedPortOut getNetworkSpeedPortOut;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>As said the outer layers communicate with inner layers through use case interfaces. For this reason I made the implementation as package private.
 In this way we <em>program an interface and not an implementation</em>.</p>
 <p>Nonetheless we need some way to return an instance of <code>Analyzer</code> to the outer layers. They will be in another package, so they cannot instantiate an <code>Analyzer</code> object.</p>
 <p>For this reason I usually define <code>UseCaseFactory</code> accessible by outer layers:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UseCaseFactory</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> GetCapabilitiesUseCase <span style="color:#a6e22e">getCapabilitiesUseCase</span><span style="color:#f92672">(</span>
-</span></span><span style="display:flex;"><span>    GetJavaVersionPortOut getJavaVersionPortOut<span style="color:#f92672">,</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UseCaseFactory</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> GetCapabilitiesUseCase <span style="color:#a6e22e">getCapabilitiesUseCase</span>(
+</span></span><span style="display:flex;"><span>    GetJavaVersionPortOut getJavaVersionPortOut,
 </span></span><span style="display:flex;"><span>    GetNetworkSpeedPortOut getNetworkSpeedPortOut
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Analyzer<span style="color:#f92672">(</span>getJavaVersionPortOut<span style="color:#f92672">,</span> getNetworkSpeedPortOut<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  ) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Analyzer(getJavaVersionPortOut, getNetworkSpeedPortOut);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Furthermore the factory improves expressiveness because it states clearly the use case dependencies.</p>
 <h1 id="conclusion">Conclusion</h1>
 <p>For this post that&rsquo;s all.</p>
@@ -290,6 +290,33 @@ Obviously the programming language and the library for the chosen paradigm are e
     
         <h4 class="page-header">Related</h4>
          <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/playwright-on-steroids-overcoming-limits-with-oop/">Playwright on Steroids: Overcoming Limits With Object-Oriented Programming</a></h4>
+    <h5>November 14, 2023</h5>
+    
+<a href="https://www.raffaeleflorio.com/tags/playwright"><kbd class="item-tag">playwright</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/multithreading"><kbd class="item-tag">multithreading</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/performance"><kbd class="item-tag">performance</kbd></a>
+
+<a href="https://www.raffaeleflorio.com/tags/java"><kbd class="item-tag">java</kbd></a>
+
+
+
+</div>
+  <div class="item">
 
     
     
@@ -325,27 +352,6 @@ Obviously the programming language and the library for the chosen paradigm are e
 <a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
 
 <a href="https://www.raffaeleflorio.com/tags/event-loop"><kbd class="item-tag">event loop</kbd></a>
-
-<a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
-
-<a href="https://www.raffaeleflorio.com/tags/java"><kbd class="item-tag">java</kbd></a>
-
-
-
-</div>
-  <div class="item">
-
-    
-    
-    
-
-    
-    
-
-    <h4><a href="/post/object-and-pursuit-of-happiness/">Objects &amp; Pursuit of Happiness: Understanding Object Oriented Programming (OOP)</a></h4>
-    <h5>October 14, 2021</h5>
-    
-<a href="https://www.raffaeleflorio.com/tags/oop"><kbd class="item-tag">oop</kbd></a>
 
 <a href="https://www.raffaeleflorio.com/tags/object-thinking"><kbd class="item-tag">object thinking</kbd></a>
 

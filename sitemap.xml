@@ -2,22 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.raffaeleflorio.com/tags/java/</loc>
+    <lastmod>2023-11-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.raffaeleflorio.com/tags/multithreading/</loc>
+    <lastmod>2023-11-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.raffaeleflorio.com/tags/object-thinking/</loc>
+    <lastmod>2023-11-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.raffaeleflorio.com/tags/oop/</loc>
+    <lastmod>2023-11-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.raffaeleflorio.com/tags/performance/</loc>
+    <lastmod>2023-11-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.raffaeleflorio.com/tags/playwright/</loc>
+    <lastmod>2023-11-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.raffaeleflorio.com/post/playwright-on-steroids-overcoming-limits-with-oop/</loc>
+    <lastmod>2023-11-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.raffaeleflorio.com/post/</loc>
+    <lastmod>2023-11-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.raffaeleflorio.com/</loc>
+    <lastmod>2023-11-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.raffaeleflorio.com/tags/</loc>
+    <lastmod>2023-11-14T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.raffaeleflorio.com/tags/full-text-search-engine/</loc>
     <lastmod>2023-02-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.raffaeleflorio.com/tags/information-retrieval/</loc>
     <lastmod>2023-02-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.raffaeleflorio.com/post/</loc>
-    <lastmod>2023-02-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.raffaeleflorio.com/</loc>
-    <lastmod>2023-02-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.raffaeleflorio.com/tags/search-engine/</loc>
-    <lastmod>2023-02-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.raffaeleflorio.com/tags/</loc>
     <lastmod>2023-02-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.raffaeleflorio.com/post/the-science-behind-full-text-search-engines/</loc>
@@ -47,17 +68,8 @@
     <loc>https://www.raffaeleflorio.com/tags/design-pattern/</loc>
     <lastmod>2022-05-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.raffaeleflorio.com/tags/object-thinking/</loc>
-    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.raffaeleflorio.com/tags/oop/</loc>
-    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.raffaeleflorio.com/post/uncover-the-alias-pattern/</loc>
     <lastmod>2022-05-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.raffaeleflorio.com/tags/java/</loc>
-    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.raffaeleflorio.com/post/object-thinking-boundaries-and-reality/</loc>
     <lastmod>2022-01-29T00:00:00+00:00</lastmod>

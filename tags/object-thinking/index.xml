@@ -6,50 +6,51 @@
     <description>Recent content in object thinking on raffaeleflorio ~/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.raffaeleflorio.com/tags/object-thinking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.raffaeleflorio.com/tags/object-thinking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Playwright on Steroids: Overcoming Limits With Object-Oriented Programming</title>
+      <link>https://www.raffaeleflorio.com/post/playwright-on-steroids-overcoming-limits-with-oop/</link>
+      <pubDate>Tue, 14 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/playwright-on-steroids-overcoming-limits-with-oop/</guid>
+      <description>Recently, I worked on a Playwright Java project. One of its characteristics is its single-thread nature. This means we have to use a Playwright instance in a single thread at a time. For the performance’s sake, we need to overcome this limit.
+To get to the point, in the following demo, we’ll expose an HTTP endpoint that screenshots a web page given its URL. And we’ll build various solutions along with their benchmark when it’s useful to do so.</description>
+    </item>
     <item>
       <title>Uncover the Alias Pattern</title>
       <link>https://www.raffaeleflorio.com/post/uncover-the-alias-pattern/</link>
       <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/uncover-the-alias-pattern/</guid>
       <description>While I write OOP code I apply some practices of Elegant Objects.
 One of them is that classes should be final. This means that they cannot be extended through inheritance but only through composition.
 The advantage is simplicity. I mean that, in this way, each object is seen as a cohesive block. What interest to its clients is its exposed behaviour. Nothing more. Instead, through extension, a client can break it.</description>
     </item>
-    
     <item>
       <title>Object Thinking, Boundaries and Reality</title>
       <link>https://www.raffaeleflorio.com/post/object-thinking-boundaries-and-reality/</link>
       <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/object-thinking-boundaries-and-reality/</guid>
       <description>Ask a software developer, what is &amp;lsquo;good code?&amp;rsquo; They likely will answer something along the lines of, &amp;ldquo;it&amp;rsquo;s clean or elegant code.&amp;rdquo;
 It&amp;rsquo;s likely this person will further list SOLID principles and design patterns as a way to legitimize cleanliness or elegance.
 I think the way this relationship dynamic is interpreted is wrong. What I mean is that SOLID and design patterns do not simply imply good code. It&amp;rsquo;s actually the other way around.</description>
     </item>
-    
     <item>
       <title>Implementing an Event Loop in Java for Fun and Profit</title>
       <link>https://www.raffaeleflorio.com/post/implementing-an-event-loop-in-java-for-fun-and-profit/</link>
       <pubDate>Fri, 12 Nov 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/implementing-an-event-loop-in-java-for-fun-and-profit/</guid>
       <description>The event loop pattern always fascinated me. I found it interesting, useful, and compatible with object-oriented programming. A lot of us know it thanks to Node.js.
 For some reason, recently, I have been looking to implement it and experiment with it. And I finally got the opportunity to do so at work.
 Event Loop Concepts An event loop doesn&amp;rsquo;t do too much. We can ask it to start and stop itself.</description>
     </item>
-    
     <item>
       <title>Objects &amp; Pursuit of Happiness: Understanding Object Oriented Programming (OOP)</title>
       <link>https://www.raffaeleflorio.com/post/object-and-pursuit-of-happiness/</link>
       <pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.raffaeleflorio.com/post/object-and-pursuit-of-happiness/</guid>
       <description>Responsibilities are what differentiate objects. They represent what an object can do for us. And in a good object-oriented system, each object should have correct responsibilities.
 Is there any criterion to help us to verify and find them? I think happiness is a good answer.
 A metaphor The common way to define objects is wrong. Objects are not just data plus functions. In other words, objects are not a C file containing structs and related functions.</description>
     </item>
-    
   </channel>
 </rss>
