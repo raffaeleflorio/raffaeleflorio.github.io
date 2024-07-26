@@ -2,6 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.raffaeleflorio.com/project/oogent/</loc>
+  </url><url>
+    <loc>https://www.raffaeleflorio.com/project/luks-2fa-dracut/</loc>
+  </url><url>
+    <loc>https://www.raffaeleflorio.com/project/qubes-url-redirector/</loc>
+  </url><url>
+    <loc>https://www.raffaeleflorio.com/project/qubes-dwm/</loc>
+  </url><url>
+    <loc>https://www.raffaeleflorio.com/project/qubes-dmenu/</loc>
+  </url><url>
+    <loc>https://www.raffaeleflorio.com/project/webextension-browser-proxy/</loc>
+  </url><url>
     <loc>https://www.raffaeleflorio.com/tags/java/</loc>
     <lastmod>2023-11-14T00:00:00+00:00</lastmod>
   </url><url>
@@ -223,23 +235,19 @@
   </url><url>
     <loc>https://www.raffaeleflorio.com/tags/dmenu/</loc>
   </url><url>
-    <loc>https://www.raffaeleflorio.com/project/qubes-dmenu/</loc>
-  </url><url>
     <loc>https://www.raffaeleflorio.com/tags/dracut/</loc>
   </url><url>
     <loc>https://www.raffaeleflorio.com/tags/dwm/</loc>
-  </url><url>
-    <loc>https://www.raffaeleflorio.com/project/qubes-dwm/</loc>
   </url><url>
     <loc>https://www.raffaeleflorio.com/friends/</loc>
   </url><url>
     <loc>https://www.raffaeleflorio.com/tags/javascript/</loc>
   </url><url>
+    <loc>https://www.raffaeleflorio.com/tags/llm/</loc>
+  </url><url>
+    <loc>https://www.raffaeleflorio.com/tags/llm-agent/</loc>
+  </url><url>
     <loc>https://www.raffaeleflorio.com/tags/luks/</loc>
-  </url><url>
-    <loc>https://www.raffaeleflorio.com/project/luks-2fa-dracut/</loc>
-  </url><url>
-    <loc>https://www.raffaeleflorio.com/project/qubes-url-redirector/</loc>
   </url><url>
     <loc>https://www.raffaeleflorio.com/tags/patch/</loc>
   </url><url>
@@ -254,7 +262,5 @@
     <loc>https://www.raffaeleflorio.com/tags/systemd/</loc>
   </url><url>
     <loc>https://www.raffaeleflorio.com/tags/webextension/</loc>
-  </url><url>
-    <loc>https://www.raffaeleflorio.com/project/webextension-browser-proxy/</loc>
   </url>
 </urlset>

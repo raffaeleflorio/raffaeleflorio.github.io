@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>spring on raffaeleflorio ~/</title>
+    <title>Spring on raffaeleflorio ~/</title>
     <link>https://www.raffaeleflorio.com/tags/spring/</link>
-    <description>Recent content in spring on raffaeleflorio ~/</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Spring on raffaeleflorio ~/</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 18 Nov 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.raffaeleflorio.com/tags/spring/index.xml" rel="self" type="application/rss+xml" />
@@ -13,9 +13,7 @@
       <link>https://www.raffaeleflorio.com/post/spring-to-use-or-not-to-use/</link>
       <pubDate>Wed, 18 Nov 2020 00:00:00 +0000</pubDate>
       <guid>https://www.raffaeleflorio.com/post/spring-to-use-or-not-to-use/</guid>
-      <description>It&amp;rsquo;s impossible to write OOP code with Spring. From its core it promotes the use of singletons and anemic data structures a.k.a. data &amp;ldquo;objects&amp;rdquo; a.k.a. DTO. This fuels procedural programming and kills OOP.
-In the next paragraphs I&amp;rsquo;ll highlight three major Spring components involved. I start from the core.
-IoC Container The core of Spring is the IoC container, represented by the ApplicationContext interface. Basically it defines a context through which we get beans.</description>
+      <description>It&amp;rsquo;s impossible to write OOP code with Spring. From its core it promotes the use of singletons and anemic data structures a.k.a. data &amp;ldquo;objects&amp;rdquo; a.k.a. DTO. This fuels procedural programming and kills OOP.&#xA;In the next paragraphs I&amp;rsquo;ll highlight three major Spring components involved. I start from the core.&#xA;IoC Container The core of Spring is the IoC container, represented by the ApplicationContext interface. Basically it defines a context through which we get beans.</description>
     </item>
   </channel>
 </rss>

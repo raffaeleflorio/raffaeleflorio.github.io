@@ -4,14 +4,14 @@
     <title>Qubes OS on raffaeleflorio ~/</title>
     <link>https://www.raffaeleflorio.com/tags/qubes-os/</link>
     <description>Recent content in Qubes OS on raffaeleflorio ~/</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="https://www.raffaeleflorio.com/tags/qubes-os/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>dmenu for Qubes OS</title>
-      <link>https://www.raffaeleflorio.com/project/qubes-dmenu/</link>
+      <title>Open in Qube</title>
+      <link>https://www.raffaeleflorio.com/project/qubes-url-redirector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/project/qubes-dmenu/</guid>
+      <guid>https://www.raffaeleflorio.com/project/qubes-url-redirector/</guid>
       <description></description>
     </item>
     <item>
@@ -22,10 +22,10 @@
       <description></description>
     </item>
     <item>
-      <title>Open in Qube</title>
-      <link>https://www.raffaeleflorio.com/project/qubes-url-redirector/</link>
+      <title>dmenu for Qubes OS</title>
+      <link>https://www.raffaeleflorio.com/project/qubes-dmenu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/project/qubes-url-redirector/</guid>
+      <guid>https://www.raffaeleflorio.com/project/qubes-dmenu/</guid>
       <description></description>
     </item>
   </channel>

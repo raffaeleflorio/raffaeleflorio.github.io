@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>pensieri on raffaeleflorio ~/</title>
+    <title>Pensieri on raffaeleflorio ~/</title>
     <link>https://www.raffaeleflorio.com/tags/pensieri/</link>
-    <description>Recent content in pensieri on raffaeleflorio ~/</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Pensieri on raffaeleflorio ~/</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 09 May 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.raffaeleflorio.com/tags/pensieri/index.xml" rel="self" type="application/rss+xml" />
@@ -13,11 +13,7 @@
       <link>https://www.raffaeleflorio.com/post/cultura-hacker/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
       <guid>https://www.raffaeleflorio.com/post/cultura-hacker/</guid>
-      <description>Hacker e dubbio Col tempo ho eguagliato la cultura hacker alla cultura del dubbio.
-Dunque contribuire alla cultura hacker significherebbe contribure alla cultura del dubbio. E immagino che, solo questo, non significhi molto.
-A tal proposito partirei dalla relazione fra hacker e dubbio.
-Chi è un hacker? Una definizione di hacker che va dritta al punto è:
-Un hacker non è altro che una persona che ama capire come funzionano le cose.</description>
+      <description>Hacker e dubbio Col tempo ho eguagliato la cultura hacker alla cultura del dubbio.&#xA;Dunque contribuire alla cultura hacker significherebbe contribure alla cultura del dubbio. E immagino che, solo questo, non significhi molto.&#xA;A tal proposito partirei dalla relazione fra hacker e dubbio.&#xA;Chi è un hacker? Una definizione di hacker che va dritta al punto è:&#xA;Un hacker non è altro che una persona che ama capire come funzionano le cose.</description>
     </item>
   </channel>
 </rss>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>cracking on raffaeleflorio ~/</title>
+    <title>Cracking on raffaeleflorio ~/</title>
     <link>https://www.raffaeleflorio.com/tags/cracking/</link>
-    <description>Recent content in cracking on raffaeleflorio ~/</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Cracking on raffaeleflorio ~/</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.raffaeleflorio.com/tags/cracking/index.xml" rel="self" type="application/rss+xml" />
@@ -13,14 +13,7 @@
       <link>https://www.raffaeleflorio.com/post/password-cracking-challenges-auctf2020/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
       <guid>https://www.raffaeleflorio.com/post/password-cracking-challenges-auctf2020/</guid>
-      <description>Salty This challenge was solved 148 times and it was worth 357 points.
-Description:
-You might need this: 1337
-Hash: 5eaff45e09bec5222a9cfa9502a4740d
-NOTE: The flag is NOT in the standard auctf{} format
-The hash seems a salted MD5.
-The correct hash mode is md5($salt.$pass). So with hashcat:
-$ hashcat -a 0 -m 20 salty rockyou.txt ..... 5eaff45e09bec5222a9cfa9502a4740d:1337:treetop ..... Crack Me 2 This challenge was solved 108 times and it was worth 880 points.</description>
+      <description>Salty This challenge was solved 148 times and it was worth 357 points.&#xA;Description:&#xA;You might need this: 1337&#xA;Hash: 5eaff45e09bec5222a9cfa9502a4740d&#xA;NOTE: The flag is NOT in the standard auctf{} format&#xA;The hash seems a salted MD5.&#xA;The correct hash mode is md5($salt.$pass). So with hashcat:&#xA;$ hashcat -a 0 -m 20 salty rockyou.txt ..... 5eaff45e09bec5222a9cfa9502a4740d:1337:treetop ..... Crack Me 2 This challenge was solved 108 times and it was worth 880 points.</description>
     </item>
   </channel>
 </rss>

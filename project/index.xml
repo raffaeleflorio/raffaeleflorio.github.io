@@ -4,21 +4,14 @@
     <title>Projects on raffaeleflorio ~/</title>
     <link>https://www.raffaeleflorio.com/project/</link>
     <description>Recent content in Projects on raffaeleflorio ~/</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="https://www.raffaeleflorio.com/project/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>dmenu for Qubes OS</title>
-      <link>https://www.raffaeleflorio.com/project/qubes-dmenu/</link>
+      <title>OOGent (Object-Oriented aGent)</title>
+      <link>https://www.raffaeleflorio.com/project/oogent/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/project/qubes-dmenu/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>dwm for Qubes OS</title>
-      <link>https://www.raffaeleflorio.com/project/qubes-dwm/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/project/qubes-dwm/</guid>
+      <guid>https://www.raffaeleflorio.com/project/oogent/</guid>
       <description></description>
     </item>
     <item>
@@ -33,6 +26,20 @@
       <link>https://www.raffaeleflorio.com/project/qubes-url-redirector/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://www.raffaeleflorio.com/project/qubes-url-redirector/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>dwm for Qubes OS</title>
+      <link>https://www.raffaeleflorio.com/project/qubes-dwm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/project/qubes-dwm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>dmenu for Qubes OS</title>
+      <link>https://www.raffaeleflorio.com/project/qubes-dmenu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/project/qubes-dmenu/</guid>
       <description></description>
     </item>
     <item>

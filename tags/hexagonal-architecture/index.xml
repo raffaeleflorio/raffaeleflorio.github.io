@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hexagonal architecture on raffaeleflorio ~/</title>
+    <title>Hexagonal Architecture on raffaeleflorio ~/</title>
     <link>https://www.raffaeleflorio.com/tags/hexagonal-architecture/</link>
-    <description>Recent content in hexagonal architecture on raffaeleflorio ~/</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Hexagonal Architecture on raffaeleflorio ~/</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 23 Jul 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.raffaeleflorio.com/tags/hexagonal-architecture/index.xml" rel="self" type="application/rss+xml" />
@@ -13,13 +13,7 @@
       <link>https://www.raffaeleflorio.com/post/road-to-simplicity-hexagonal-architecture-part-one/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
       <guid>https://www.raffaeleflorio.com/post/road-to-simplicity-hexagonal-architecture-part-one/</guid>
-      <description>Intro Software writing taught me that: a well written software is a simple software.
-So I started to think how to achieve simplicity in a methodological way. This is the first post of a series about this methodology.
-Naturally it&amp;rsquo;s a snapshot because it&amp;rsquo;s in constant evolution.
-Simplicity A definition of simplicity is:
-The quality or condition of being easy to understand or do.
-Oxford dictionary (https://www.lexico.com/en/definition/simplicity)
-So, a simple software is a software that is easy to understand.</description>
+      <description>Intro Software writing taught me that: a well written software is a simple software.&#xA;So I started to think how to achieve simplicity in a methodological way. This is the first post of a series about this methodology.&#xA;Naturally it&amp;rsquo;s a snapshot because it&amp;rsquo;s in constant evolution.&#xA;Simplicity A definition of simplicity is:&#xA;The quality or condition of being easy to understand or do.&#xA;Oxford dictionary (https://www.lexico.com/en/definition/simplicity)&#xA;So, a simple software is a software that is easy to understand.</description>
     </item>
   </channel>
 </rss>

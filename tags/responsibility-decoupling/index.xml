@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>responsibility-decoupling on raffaeleflorio ~/</title>
+    <title>Responsibility-Decoupling on raffaeleflorio ~/</title>
     <link>https://www.raffaeleflorio.com/tags/responsibility-decoupling/</link>
-    <description>Recent content in responsibility-decoupling on raffaeleflorio ~/</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Responsibility-Decoupling on raffaeleflorio ~/</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 18 Dec 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.raffaeleflorio.com/tags/responsibility-decoupling/index.xml" rel="self" type="application/rss+xml" />
@@ -13,9 +13,7 @@
       <link>https://www.raffaeleflorio.com/post/java-the-object-equality-problem/</link>
       <pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
       <guid>https://www.raffaeleflorio.com/post/java-the-object-equality-problem/</guid>
-      <description>I was writing some Java test code when I faced up the voracity of the equals method. It presents, despite its ostensible simplicity, a tricky problem.
-I&amp;rsquo;d like to emphasize that this is not a specific Java issue. For example C# has a homologous way.
-A bit of Java context The Object class is the root of every class. It defines various methods and equals is one of them. By default this method has a simple behavior: an object x is only equals to itself.</description>
+      <description>I was writing some Java test code when I faced up the voracity of the equals method. It presents, despite its ostensible simplicity, a tricky problem.&#xA;I&amp;rsquo;d like to emphasize that this is not a specific Java issue. For example C# has a homologous way.&#xA;A bit of Java context The Object class is the root of every class. It defines various methods and equals is one of them. By default this method has a simple behavior: an object x is only equals to itself.</description>
     </item>
   </channel>
 </rss>

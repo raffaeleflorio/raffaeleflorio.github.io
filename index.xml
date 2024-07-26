@@ -4,260 +4,16 @@
     <title>raffaeleflorio ~/</title>
     <link>https://www.raffaeleflorio.com/</link>
     <description>Recent content on raffaeleflorio ~/</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 14 Nov 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.raffaeleflorio.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Playwright on Steroids: Overcoming Limits With Object-Oriented Programming</title>
-      <link>https://www.raffaeleflorio.com/post/playwright-on-steroids-overcoming-limits-with-oop/</link>
-      <pubDate>Tue, 14 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/playwright-on-steroids-overcoming-limits-with-oop/</guid>
-      <description>Recently, I worked on a Playwright Java project. One of its characteristics is its single-thread nature. This means we have to use a Playwright instance in a single thread at a time. For the performance’s sake, we need to overcome this limit.
-To get to the point, in the following demo, we’ll expose an HTTP endpoint that screenshots a web page given its URL. And we’ll build various solutions along with their benchmark when it’s useful to do so.</description>
-    </item>
-    <item>
-      <title>The Science Behind Full-Text Search Engines</title>
-      <link>https://www.raffaeleflorio.com/post/the-science-behind-full-text-search-engines/</link>
-      <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/the-science-behind-full-text-search-engines/</guid>
-      <description>Recently I started using Elasticsearch, which is one of the most known search engine. The things it allows to do fascinated me. That’s why I dove into informational retrieval (IR), the science behind it. It’s a huge topic, and a silver bullet for search engines doesn&amp;rsquo;t exist. It is user needs and expectations that tailors the model and the process to find information. This user-centric vision to measure the quality of an IR system captured me.</description>
-    </item>
-    <item>
-      <title>How to Run Podman and Docker-Compose on Windows</title>
-      <link>https://www.raffaeleflorio.com/post/how-to-run-podman-and-docker-compose-on-windows/</link>
-      <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/how-to-run-podman-and-docker-compose-on-windows/</guid>
-      <description>As you know containers are a Linux thing. Microsoft introduced its solution but I’ve never seen them used.
-To use containers we have mainly two alternatives: docker and podman. I prefer the latter for two reasons. Because it has a daemonless architecture and because it doesn’t need root permission. But using it with docker-compose on Windows is tough. That’s why I decided to write and share this story.
-Motivation I think using Docker Desktop on Windows is the fastest way to use containers.</description>
-    </item>
-    <item>
-      <title>Uncover the Alias Pattern</title>
-      <link>https://www.raffaeleflorio.com/post/uncover-the-alias-pattern/</link>
-      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/uncover-the-alias-pattern/</guid>
-      <description>While I write OOP code I apply some practices of Elegant Objects.
-One of them is that classes should be final. This means that they cannot be extended through inheritance but only through composition.
-The advantage is simplicity. I mean that, in this way, each object is seen as a cohesive block. What interest to its clients is its exposed behaviour. Nothing more. Instead, through extension, a client can break it.</description>
-    </item>
-    <item>
-      <title>Object Thinking, Boundaries and Reality</title>
-      <link>https://www.raffaeleflorio.com/post/object-thinking-boundaries-and-reality/</link>
-      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/object-thinking-boundaries-and-reality/</guid>
-      <description>Ask a software developer, what is &amp;lsquo;good code?&amp;rsquo; They likely will answer something along the lines of, &amp;ldquo;it&amp;rsquo;s clean or elegant code.&amp;rdquo;
-It&amp;rsquo;s likely this person will further list SOLID principles and design patterns as a way to legitimize cleanliness or elegance.
-I think the way this relationship dynamic is interpreted is wrong. What I mean is that SOLID and design patterns do not simply imply good code. It&amp;rsquo;s actually the other way around.</description>
-    </item>
-    <item>
-      <title>Implementing an Event Loop in Java for Fun and Profit</title>
-      <link>https://www.raffaeleflorio.com/post/implementing-an-event-loop-in-java-for-fun-and-profit/</link>
-      <pubDate>Fri, 12 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/implementing-an-event-loop-in-java-for-fun-and-profit/</guid>
-      <description>The event loop pattern always fascinated me. I found it interesting, useful, and compatible with object-oriented programming. A lot of us know it thanks to Node.js.
-For some reason, recently, I have been looking to implement it and experiment with it. And I finally got the opportunity to do so at work.
-Event Loop Concepts An event loop doesn&amp;rsquo;t do too much. We can ask it to start and stop itself.</description>
-    </item>
-    <item>
-      <title>Objects &amp; Pursuit of Happiness: Understanding Object Oriented Programming (OOP)</title>
-      <link>https://www.raffaeleflorio.com/post/object-and-pursuit-of-happiness/</link>
-      <pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/object-and-pursuit-of-happiness/</guid>
-      <description>Responsibilities are what differentiate objects. They represent what an object can do for us. And in a good object-oriented system, each object should have correct responsibilities.
-Is there any criterion to help us to verify and find them? I think happiness is a good answer.
-A metaphor The common way to define objects is wrong. Objects are not just data plus functions. In other words, objects are not a C file containing structs and related functions.</description>
-    </item>
-    <item>
-      <title>Java: The Object Equality Problem</title>
-      <link>https://www.raffaeleflorio.com/post/java-the-object-equality-problem/</link>
-      <pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/java-the-object-equality-problem/</guid>
-      <description>I was writing some Java test code when I faced up the voracity of the equals method. It presents, despite its ostensible simplicity, a tricky problem.
-I&amp;rsquo;d like to emphasize that this is not a specific Java issue. For example C# has a homologous way.
-A bit of Java context The Object class is the root of every class. It defines various methods and equals is one of them. By default this method has a simple behavior: an object x is only equals to itself.</description>
-    </item>
-    <item>
-      <title>Spring Framework: To Use Or Not To Use, That Is The Question</title>
-      <link>https://www.raffaeleflorio.com/post/spring-to-use-or-not-to-use/</link>
-      <pubDate>Wed, 18 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/spring-to-use-or-not-to-use/</guid>
-      <description>It&amp;rsquo;s impossible to write OOP code with Spring. From its core it promotes the use of singletons and anemic data structures a.k.a. data &amp;ldquo;objects&amp;rdquo; a.k.a. DTO. This fuels procedural programming and kills OOP.
-In the next paragraphs I&amp;rsquo;ll highlight three major Spring components involved. I start from the core.
-IoC Container The core of Spring is the IoC container, represented by the ApplicationContext interface. Basically it defines a context through which we get beans.</description>
-    </item>
-    <item>
-      <title>Road to Simplicity: Tests Are Not Tests [Part Two]</title>
-      <link>https://www.raffaeleflorio.com/post/road-to-simplicity-tests-are-not-tests-part-two/</link>
-      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/road-to-simplicity-tests-are-not-tests-part-two/</guid>
-      <description>Intro This is the second post of Road to Simplicity. And it&amp;rsquo;s about the role of tests in software writing.
-(The first part is about the goal of the series and hexagonal architecture)
-Test and correctness I think that it&amp;rsquo;s inappropriate to associate test with verification of correctness. After all with a test we can verify that a software module (e.g. a function) returns an expected output with a given input.</description>
-    </item>
-    <item>
-      <title>Road to Simplicity: Hexagonal Architecture [Part One]</title>
-      <link>https://www.raffaeleflorio.com/post/road-to-simplicity-hexagonal-architecture-part-one/</link>
-      <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/road-to-simplicity-hexagonal-architecture-part-one/</guid>
-      <description>Intro Software writing taught me that: a well written software is a simple software.
-So I started to think how to achieve simplicity in a methodological way. This is the first post of a series about this methodology.
-Naturally it&amp;rsquo;s a snapshot because it&amp;rsquo;s in constant evolution.
-Simplicity A definition of simplicity is:
-The quality or condition of being easy to understand or do.
-Oxford dictionary (https://www.lexico.com/en/definition/simplicity)
-So, a simple software is a software that is easy to understand.</description>
-    </item>
-    <item>
-      <title>Cosa significa contribuire alla cultura hacker?</title>
-      <link>https://www.raffaeleflorio.com/post/cultura-hacker/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/cultura-hacker/</guid>
-      <description>Hacker e dubbio Col tempo ho eguagliato la cultura hacker alla cultura del dubbio.
-Dunque contribuire alla cultura hacker significherebbe contribure alla cultura del dubbio. E immagino che, solo questo, non significhi molto.
-A tal proposito partirei dalla relazione fra hacker e dubbio.
-Chi è un hacker? Una definizione di hacker che va dritta al punto è:
-Un hacker non è altro che una persona che ama capire come funzionano le cose.</description>
-    </item>
-    <item>
-      <title>What does it mean to contribute to the hacker culture?</title>
-      <link>https://www.raffaeleflorio.com/post/hacker-culture/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/hacker-culture/</guid>
-      <description>Hacker and doubt Over time I matched the hacker culture with the culture of doubt.
-So contributing to the hacker culture would mean contributing to the culture of doubt. But I guess this doesn’t mean a lot.
-In this regard, I would start from the relationship between hackers and doubt.
-Who is a hacker? A definition of hacker that goes straight to the point is:
-A hacker is nothing but a person who loves to understand how things work.</description>
-    </item>
-    <item>
-      <title>AUCTF 2020 Writeup - Pick Up That CAN</title>
-      <link>https://www.raffaeleflorio.com/post/pick-up-that-can-auctf2020/</link>
-      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/pick-up-that-can-auctf2020/</guid>
-      <description>Intro This is the only challenge I solved in the Signals section.
-It’s been solved 59 times and it was worth 965 points.
-Description:
-Here’s a log of some kind of network traffic. The BASH script will help you set up your tools, and probably give you a hint as to what kind of network this is.
-You can download the log here.
-$ sha256sum pickupthatcan.log 6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba6a44a0af03e95a pickupthatcan.log The shell script is really short.</description>
-    </item>
-    <item>
-      <title>AUCTF 2020 Writeup - Password Cracking Challenges</title>
-      <link>https://www.raffaeleflorio.com/post/password-cracking-challenges-auctf2020/</link>
-      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/password-cracking-challenges-auctf2020/</guid>
-      <description>Salty This challenge was solved 148 times and it was worth 357 points.
-Description:
-You might need this: 1337
-Hash: 5eaff45e09bec5222a9cfa9502a4740d
-NOTE: The flag is NOT in the standard auctf{} format
-The hash seems a salted MD5.
-The correct hash mode is md5($salt.$pass). So with hashcat:
-$ hashcat -a 0 -m 20 salty rockyou.txt ..... 5eaff45e09bec5222a9cfa9502a4740d:1337:treetop ..... Crack Me 2 This challenge was solved 108 times and it was worth 880 points.</description>
-    </item>
-    <item>
-      <title>AUCTF 2020 Writeup - Remote School</title>
-      <link>https://www.raffaeleflorio.com/post/remote-school-auctf2020/</link>
-      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/remote-school-auctf2020/</guid>
-      <description>Intro This is the fourth and last pwn challenge. It was solved 63 times and it was worth 960 points.
-Description:
-Dear Student,
-Due to COVID-19 concerns our curriculum will be moving completely to online courses… I know we haven’t even started our school year yet so this may come as a shock. But I promise it won’t be too bad! You can login at challenges.auctf.com 30013.
-Best, Dean of Eon Pillars</description>
-    </item>
-    <item>
-      <title>AUCTF 2020 Writeup - House of Madness</title>
-      <link>https://www.raffaeleflorio.com/post/house-of-madness-auctf2020/</link>
-      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/house-of-madness-auctf2020/</guid>
-      <description>Intro This is the third pwn challenge. It was solved 100 times and it was worth 897 points.
-Description:
-Welcome to the House of Madness. Can you pwn your way to the keys to get the relic?
-nc challenges.auctf.com 30012
-Note: ASLR is disabled for this challenge
-You could download the binary here.
-$ sha256sum ./house_of_madness 15b1a68ae0e1d4eee4f917cc92412d90fd3a4adbb5a55a83b115e0f438baaf93 house_of_madness Exploitation When we launch the program shows a banner and it asks us to make a choice.</description>
-    </item>
-    <item>
-      <title>AUCTF 2020 Writeup - Thanksgiving Dinner</title>
-      <link>https://www.raffaeleflorio.com/post/thanksgiving-dinner-auctf2020/</link>
-      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/thanksgiving-dinner-auctf2020/</guid>
-      <description>Intro This is the second pwn challenge of AUCTF 2020. It was solved 238 times and it was worth 408 points.
-Description:
-I just ate a huge dinner. I can barley eat anymore… so please don’t give me too much!
-nc challenges.auctf.com 30011
-Note: ASLR is disabled for this challenge
-You could download the binary here
-$ sha256sum ./thanksgiving_dinner 2307af59beead6a2377c3beb2ff26f70d5732ec6b651b5c31e58b8f692bfb70c thanksgiving_dinner Exploitation The program simply ask for an input. But it seems not vulnerable to a buffer overflow:</description>
-    </item>
-    <item>
-      <title>Shellcode Injection - Old but gold</title>
-      <link>https://www.raffaeleflorio.com/post/mprotect-urop/</link>
-      <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/mprotect-urop/</guid>
-      <description>Intro Some time ago, a friend of mine (dag-tech), asked me about a technique to run a shellcode with NX enabled. So he gave me a simple program:
-//src.c #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; int main(int argc, char **argv) { char buf[16]; puts(&amp;#34;Can you pwn me????&amp;#34;); read(0, buf, 512); return 0; } $ gcc -z noexecstack -fno-stack-protector -o vuln src.c $ checksec vuln Arch: amd64-64-little RELRO: Partial RELRO Stack: No canary found NX: NX enabled PIE: No PIE (0x400000) The approach The issue with NX is that we cannot execute code in writable memory segment.</description>
-    </item>
-    <item>
-      <title>HackCon&#39;19 writeup - baby b0f</title>
-      <link>https://www.raffaeleflorio.com/post/babyb0f-hackcon19/</link>
-      <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/babyb0f-hackcon19/</guid>
-      <description>Intro This is the first and easiest pwn challenge. It was solved 117 times and it’s worth 100 points.
-Description:
-It’s a b0f , Can’t be easier than that.
-You could download the binary here.
-$ sha256sum ./babyb0f 68344bb2c6aa56fdcc75379b3ced882abdf4e9bffa0bba63006dfb6c11ed7c47 babyb0f Exploitation The program simply asks for an input that overflow a buffer:
-$ ./baby_b0f AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA Try Again Segmentation fault (core dumped) $ checksec ./baby_b0f Arch: amd64-64-little RELRO: Partial RELRO Stack: No canary found NX: NX enabled PIE: No PIE (0x400000) As usual I opened the binary with r2.</description>
-    </item>
-    <item>
-      <title>HackCon&#39;19 writeup - babypwn</title>
-      <link>https://www.raffaeleflorio.com/post/babypwn-hackcon19/</link>
-      <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/babypwn-hackcon19/</guid>
-      <description>Intro This is the second pwn challenge. It was solved 36 times and it’s worth 451 points.
-Description:
-You don’t need eip control for every pwn.
-You can download the binary here
-$ sha256sum ./babypwn 57b32556465e890bdefdcccd6e515f6a2888300f48e9b7a7df0bb66694bda45b babypwn Exploitation The program asks five input, echoes them back and prints a message of failure. However there is a segfault caused by a buffer overflow.
-$ ./babypwn 1 2 3 4 5 1 2 3 4 5 Naaa , Try HArder $ .</description>
-    </item>
-    <item>
-      <title>HackCon&#39;19 writeup - Not So Easy B0f</title>
-      <link>https://www.raffaeleflorio.com/post/notsoeasyb0f-hackcon19/</link>
-      <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/post/notsoeasyb0f-hackcon19/</guid>
-      <description>Intro This is the third pwn challenge. It was solved 29 times and it’s worth 469 points.
-Description:
-I have stack canaries enabled, Can you still B0f me ?
-In addition to the binary there is also a specific libc.
-You can download the binary here and the libc here
-$ sha256sum notsoeasyb0f notsoeasyb0f-libc.so 9cdc861043359904c6807d31990f7369c1fec2d25e545e263bb4ae2e5786883e notsoeasyb0f 74ca69ada4429ae5fce87f7e3addb56f1b53964599e8526244fecd164b3c4b44 notsoeasyb0f-libc.so Exploitation This program asks for a name, echoes it back, then it asks a sentence.</description>
-    </item>
-    <item>
-      <title>dmenu for Qubes OS</title>
-      <link>https://www.raffaeleflorio.com/project/qubes-dmenu/</link>
+      <title>OOGent (Object-Oriented aGent)</title>
+      <link>https://www.raffaeleflorio.com/project/oogent/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/project/qubes-dmenu/</guid>
+      <guid>https://www.raffaeleflorio.com/project/oogent/</guid>
       <description></description>
-    </item>
-    <item>
-      <title>dwm for Qubes OS</title>
-      <link>https://www.raffaeleflorio.com/project/qubes-dwm/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/project/qubes-dwm/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Friends</title>
-      <link>https://www.raffaeleflorio.com/friends/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.raffaeleflorio.com/friends/</guid>
-      <description>Giacomo Iengo In his blog he takes care of CTF writeup and whatever inspires him.
-Here is the link on github.io: giacomoiengo</description>
     </item>
     <item>
       <title>Luks 2FA for dracut</title>
@@ -274,11 +30,186 @@ Here is the link on github.io: giacomoiengo</description>
       <description></description>
     </item>
     <item>
+      <title>dwm for Qubes OS</title>
+      <link>https://www.raffaeleflorio.com/project/qubes-dwm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/project/qubes-dwm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>dmenu for Qubes OS</title>
+      <link>https://www.raffaeleflorio.com/project/qubes-dmenu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/project/qubes-dmenu/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>WebExtension Browser Proxy</title>
       <link>https://www.raffaeleflorio.com/project/webextension-browser-proxy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://www.raffaeleflorio.com/project/webextension-browser-proxy/</guid>
       <description></description>
+    </item>
+    <item>
+      <title>Playwright on Steroids: Overcoming Limits With Object-Oriented Programming</title>
+      <link>https://www.raffaeleflorio.com/post/playwright-on-steroids-overcoming-limits-with-oop/</link>
+      <pubDate>Tue, 14 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/playwright-on-steroids-overcoming-limits-with-oop/</guid>
+      <description>Recently, I worked on a Playwright Java project. One of its characteristics is its single-thread nature. This means we have to use a Playwright instance in a single thread at a time. For the performance’s sake, we need to overcome this limit.&#xA;To get to the point, in the following demo, we’ll expose an HTTP endpoint that screenshots a web page given its URL. And we’ll build various solutions along with their benchmark when it’s useful to do so.</description>
+    </item>
+    <item>
+      <title>The Science Behind Full-Text Search Engines</title>
+      <link>https://www.raffaeleflorio.com/post/the-science-behind-full-text-search-engines/</link>
+      <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/the-science-behind-full-text-search-engines/</guid>
+      <description>Recently I started using Elasticsearch, which is one of the most known search engine. The things it allows to do fascinated me. That’s why I dove into informational retrieval (IR), the science behind it. It’s a huge topic, and a silver bullet for search engines doesn&amp;rsquo;t exist. It is user needs and expectations that tailors the model and the process to find information. This user-centric vision to measure the quality of an IR system captured me.</description>
+    </item>
+    <item>
+      <title>How to Run Podman and Docker-Compose on Windows</title>
+      <link>https://www.raffaeleflorio.com/post/how-to-run-podman-and-docker-compose-on-windows/</link>
+      <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/how-to-run-podman-and-docker-compose-on-windows/</guid>
+      <description>As you know containers are a Linux thing. Microsoft introduced its solution but I’ve never seen them used.&#xA;To use containers we have mainly two alternatives: docker and podman. I prefer the latter for two reasons. Because it has a daemonless architecture and because it doesn’t need root permission. But using it with docker-compose on Windows is tough. That’s why I decided to write and share this story.&#xA;Motivation I think using Docker Desktop on Windows is the fastest way to use containers.</description>
+    </item>
+    <item>
+      <title>Uncover the Alias Pattern</title>
+      <link>https://www.raffaeleflorio.com/post/uncover-the-alias-pattern/</link>
+      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/uncover-the-alias-pattern/</guid>
+      <description>While I write OOP code I apply some practices of Elegant Objects.&#xA;One of them is that classes should be final. This means that they cannot be extended through inheritance but only through composition.&#xA;The advantage is simplicity. I mean that, in this way, each object is seen as a cohesive block. What interest to its clients is its exposed behaviour. Nothing more. Instead, through extension, a client can break it.</description>
+    </item>
+    <item>
+      <title>Object Thinking, Boundaries and Reality</title>
+      <link>https://www.raffaeleflorio.com/post/object-thinking-boundaries-and-reality/</link>
+      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/object-thinking-boundaries-and-reality/</guid>
+      <description>Ask a software developer, what is &amp;lsquo;good code?&amp;rsquo; They likely will answer something along the lines of, &amp;ldquo;it&amp;rsquo;s clean or elegant code.&amp;rdquo;&#xA;It&amp;rsquo;s likely this person will further list SOLID principles and design patterns as a way to legitimize cleanliness or elegance.&#xA;I think the way this relationship dynamic is interpreted is wrong. What I mean is that SOLID and design patterns do not simply imply good code. It&amp;rsquo;s actually the other way around.</description>
+    </item>
+    <item>
+      <title>Implementing an Event Loop in Java for Fun and Profit</title>
+      <link>https://www.raffaeleflorio.com/post/implementing-an-event-loop-in-java-for-fun-and-profit/</link>
+      <pubDate>Fri, 12 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/implementing-an-event-loop-in-java-for-fun-and-profit/</guid>
+      <description>The event loop pattern always fascinated me. I found it interesting, useful, and compatible with object-oriented programming. A lot of us know it thanks to Node.js.&#xA;For some reason, recently, I have been looking to implement it and experiment with it. And I finally got the opportunity to do so at work.&#xA;Event Loop Concepts An event loop doesn&amp;rsquo;t do too much. We can ask it to start and stop itself.</description>
+    </item>
+    <item>
+      <title>Objects &amp; Pursuit of Happiness: Understanding Object Oriented Programming (OOP)</title>
+      <link>https://www.raffaeleflorio.com/post/object-and-pursuit-of-happiness/</link>
+      <pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/object-and-pursuit-of-happiness/</guid>
+      <description>Responsibilities are what differentiate objects. They represent what an object can do for us. And in a good object-oriented system, each object should have correct responsibilities.&#xA;Is there any criterion to help us to verify and find them? I think happiness is a good answer.&#xA;A metaphor The common way to define objects is wrong. Objects are not just data plus functions. In other words, objects are not a C file containing structs and related functions.</description>
+    </item>
+    <item>
+      <title>Java: The Object Equality Problem</title>
+      <link>https://www.raffaeleflorio.com/post/java-the-object-equality-problem/</link>
+      <pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/java-the-object-equality-problem/</guid>
+      <description>I was writing some Java test code when I faced up the voracity of the equals method. It presents, despite its ostensible simplicity, a tricky problem.&#xA;I&amp;rsquo;d like to emphasize that this is not a specific Java issue. For example C# has a homologous way.&#xA;A bit of Java context The Object class is the root of every class. It defines various methods and equals is one of them. By default this method has a simple behavior: an object x is only equals to itself.</description>
+    </item>
+    <item>
+      <title>Spring Framework: To Use Or Not To Use, That Is The Question</title>
+      <link>https://www.raffaeleflorio.com/post/spring-to-use-or-not-to-use/</link>
+      <pubDate>Wed, 18 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/spring-to-use-or-not-to-use/</guid>
+      <description>It&amp;rsquo;s impossible to write OOP code with Spring. From its core it promotes the use of singletons and anemic data structures a.k.a. data &amp;ldquo;objects&amp;rdquo; a.k.a. DTO. This fuels procedural programming and kills OOP.&#xA;In the next paragraphs I&amp;rsquo;ll highlight three major Spring components involved. I start from the core.&#xA;IoC Container The core of Spring is the IoC container, represented by the ApplicationContext interface. Basically it defines a context through which we get beans.</description>
+    </item>
+    <item>
+      <title>Road to Simplicity: Tests Are Not Tests [Part Two]</title>
+      <link>https://www.raffaeleflorio.com/post/road-to-simplicity-tests-are-not-tests-part-two/</link>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/road-to-simplicity-tests-are-not-tests-part-two/</guid>
+      <description>Intro This is the second post of Road to Simplicity. And it&amp;rsquo;s about the role of tests in software writing.&#xA;(The first part is about the goal of the series and hexagonal architecture)&#xA;Test and correctness I think that it&amp;rsquo;s inappropriate to associate test with verification of correctness. After all with a test we can verify that a software module (e.g. a function) returns an expected output with a given input.</description>
+    </item>
+    <item>
+      <title>Road to Simplicity: Hexagonal Architecture [Part One]</title>
+      <link>https://www.raffaeleflorio.com/post/road-to-simplicity-hexagonal-architecture-part-one/</link>
+      <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/road-to-simplicity-hexagonal-architecture-part-one/</guid>
+      <description>Intro Software writing taught me that: a well written software is a simple software.&#xA;So I started to think how to achieve simplicity in a methodological way. This is the first post of a series about this methodology.&#xA;Naturally it&amp;rsquo;s a snapshot because it&amp;rsquo;s in constant evolution.&#xA;Simplicity A definition of simplicity is:&#xA;The quality or condition of being easy to understand or do.&#xA;Oxford dictionary (https://www.lexico.com/en/definition/simplicity)&#xA;So, a simple software is a software that is easy to understand.</description>
+    </item>
+    <item>
+      <title>Cosa significa contribuire alla cultura hacker?</title>
+      <link>https://www.raffaeleflorio.com/post/cultura-hacker/</link>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/cultura-hacker/</guid>
+      <description>Hacker e dubbio Col tempo ho eguagliato la cultura hacker alla cultura del dubbio.&#xA;Dunque contribuire alla cultura hacker significherebbe contribure alla cultura del dubbio. E immagino che, solo questo, non significhi molto.&#xA;A tal proposito partirei dalla relazione fra hacker e dubbio.&#xA;Chi è un hacker? Una definizione di hacker che va dritta al punto è:&#xA;Un hacker non è altro che una persona che ama capire come funzionano le cose.</description>
+    </item>
+    <item>
+      <title>What does it mean to contribute to the hacker culture?</title>
+      <link>https://www.raffaeleflorio.com/post/hacker-culture/</link>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/hacker-culture/</guid>
+      <description>Hacker and doubt Over time I matched the hacker culture with the culture of doubt.&#xA;So contributing to the hacker culture would mean contributing to the culture of doubt. But I guess this doesn’t mean a lot.&#xA;In this regard, I would start from the relationship between hackers and doubt.&#xA;Who is a hacker? A definition of hacker that goes straight to the point is:&#xA;A hacker is nothing but a person who loves to understand how things work.</description>
+    </item>
+    <item>
+      <title>AUCTF 2020 Writeup - Pick Up That CAN</title>
+      <link>https://www.raffaeleflorio.com/post/pick-up-that-can-auctf2020/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/pick-up-that-can-auctf2020/</guid>
+      <description>Intro This is the only challenge I solved in the Signals section.&#xA;It’s been solved 59 times and it was worth 965 points.&#xA;Description:&#xA;Here’s a log of some kind of network traffic. The BASH script will help you set up your tools, and probably give you a hint as to what kind of network this is.&#xA;You can download the log here.&#xA;$ sha256sum pickupthatcan.log 6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba6a44a0af03e95a pickupthatcan.log The shell script is really short.</description>
+    </item>
+    <item>
+      <title>AUCTF 2020 Writeup - Password Cracking Challenges</title>
+      <link>https://www.raffaeleflorio.com/post/password-cracking-challenges-auctf2020/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/password-cracking-challenges-auctf2020/</guid>
+      <description>Salty This challenge was solved 148 times and it was worth 357 points.&#xA;Description:&#xA;You might need this: 1337&#xA;Hash: 5eaff45e09bec5222a9cfa9502a4740d&#xA;NOTE: The flag is NOT in the standard auctf{} format&#xA;The hash seems a salted MD5.&#xA;The correct hash mode is md5($salt.$pass). So with hashcat:&#xA;$ hashcat -a 0 -m 20 salty rockyou.txt ..... 5eaff45e09bec5222a9cfa9502a4740d:1337:treetop ..... Crack Me 2 This challenge was solved 108 times and it was worth 880 points.</description>
+    </item>
+    <item>
+      <title>AUCTF 2020 Writeup - Remote School</title>
+      <link>https://www.raffaeleflorio.com/post/remote-school-auctf2020/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/remote-school-auctf2020/</guid>
+      <description>Intro This is the fourth and last pwn challenge. It was solved 63 times and it was worth 960 points.&#xA;Description:&#xA;Dear Student,&#xA;Due to COVID-19 concerns our curriculum will be moving completely to online courses… I know we haven’t even started our school year yet so this may come as a shock. But I promise it won’t be too bad! You can login at challenges.auctf.com 30013.&#xA;Best, Dean of Eon Pillars</description>
+    </item>
+    <item>
+      <title>AUCTF 2020 Writeup - House of Madness</title>
+      <link>https://www.raffaeleflorio.com/post/house-of-madness-auctf2020/</link>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/house-of-madness-auctf2020/</guid>
+      <description>Intro This is the third pwn challenge. It was solved 100 times and it was worth 897 points.&#xA;Description:&#xA;Welcome to the House of Madness. Can you pwn your way to the keys to get the relic?&#xA;nc challenges.auctf.com 30012&#xA;Note: ASLR is disabled for this challenge&#xA;You could download the binary here.&#xA;$ sha256sum ./house_of_madness 15b1a68ae0e1d4eee4f917cc92412d90fd3a4adbb5a55a83b115e0f438baaf93 house_of_madness Exploitation When we launch the program shows a banner and it asks us to make a choice.</description>
+    </item>
+    <item>
+      <title>AUCTF 2020 Writeup - Thanksgiving Dinner</title>
+      <link>https://www.raffaeleflorio.com/post/thanksgiving-dinner-auctf2020/</link>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/thanksgiving-dinner-auctf2020/</guid>
+      <description>Intro This is the second pwn challenge of AUCTF 2020. It was solved 238 times and it was worth 408 points.&#xA;Description:&#xA;I just ate a huge dinner. I can barley eat anymore… so please don’t give me too much!&#xA;nc challenges.auctf.com 30011&#xA;Note: ASLR is disabled for this challenge&#xA;You could download the binary here&#xA;$ sha256sum ./thanksgiving_dinner 2307af59beead6a2377c3beb2ff26f70d5732ec6b651b5c31e58b8f692bfb70c thanksgiving_dinner Exploitation The program simply ask for an input. But it seems not vulnerable to a buffer overflow:</description>
+    </item>
+    <item>
+      <title>Shellcode Injection - Old but gold</title>
+      <link>https://www.raffaeleflorio.com/post/mprotect-urop/</link>
+      <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/mprotect-urop/</guid>
+      <description>Intro Some time ago, a friend of mine (dag-tech), asked me about a technique to run a shellcode with NX enabled. So he gave me a simple program:&#xA;//src.c #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; int main(int argc, char **argv) { char buf[16]; puts(&amp;#34;Can you pwn me????&amp;#34;); read(0, buf, 512); return 0; } $ gcc -z noexecstack -fno-stack-protector -o vuln src.c $ checksec vuln Arch: amd64-64-little RELRO: Partial RELRO Stack: No canary found NX: NX enabled PIE: No PIE (0x400000) The approach The issue with NX is that we cannot execute code in writable memory segment.</description>
+    </item>
+    <item>
+      <title>HackCon&#39;19 writeup - baby b0f</title>
+      <link>https://www.raffaeleflorio.com/post/babyb0f-hackcon19/</link>
+      <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/babyb0f-hackcon19/</guid>
+      <description>Intro This is the first and easiest pwn challenge. It was solved 117 times and it’s worth 100 points.&#xA;Description:&#xA;It’s a b0f , Can’t be easier than that.&#xA;You could download the binary here.&#xA;$ sha256sum ./babyb0f 68344bb2c6aa56fdcc75379b3ced882abdf4e9bffa0bba63006dfb6c11ed7c47 babyb0f Exploitation The program simply asks for an input that overflow a buffer:&#xA;$ ./baby_b0f AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA Try Again Segmentation fault (core dumped) $ checksec ./baby_b0f Arch: amd64-64-little RELRO: Partial RELRO Stack: No canary found NX: NX enabled PIE: No PIE (0x400000) As usual I opened the binary with r2.</description>
+    </item>
+    <item>
+      <title>HackCon&#39;19 writeup - babypwn</title>
+      <link>https://www.raffaeleflorio.com/post/babypwn-hackcon19/</link>
+      <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/babypwn-hackcon19/</guid>
+      <description>Intro This is the second pwn challenge. It was solved 36 times and it’s worth 451 points.&#xA;Description:&#xA;You don’t need eip control for every pwn.&#xA;You can download the binary here&#xA;$ sha256sum ./babypwn 57b32556465e890bdefdcccd6e515f6a2888300f48e9b7a7df0bb66694bda45b babypwn Exploitation The program asks five input, echoes them back and prints a message of failure. However there is a segfault caused by a buffer overflow.&#xA;$ ./babypwn 1 2 3 4 5 1 2 3 4 5 Naaa , Try HArder $ .</description>
+    </item>
+    <item>
+      <title>HackCon&#39;19 writeup - Not So Easy B0f</title>
+      <link>https://www.raffaeleflorio.com/post/notsoeasyb0f-hackcon19/</link>
+      <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/post/notsoeasyb0f-hackcon19/</guid>
+      <description>Intro This is the third pwn challenge. It was solved 29 times and it’s worth 469 points.&#xA;Description:&#xA;I have stack canaries enabled, Can you still B0f me ?&#xA;In addition to the binary there is also a specific libc.&#xA;You can download the binary here and the libc here&#xA;$ sha256sum notsoeasyb0f notsoeasyb0f-libc.so 9cdc861043359904c6807d31990f7369c1fec2d25e545e263bb4ae2e5786883e notsoeasyb0f 74ca69ada4429ae5fce87f7e3addb56f1b53964599e8526244fecd164b3c4b44 notsoeasyb0f-libc.so Exploitation This program asks for a name, echoes it back, then it asks a sentence.</description>
+    </item>
+    <item>
+      <title>Friends</title>
+      <link>https://www.raffaeleflorio.com/friends/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.raffaeleflorio.com/friends/</guid>
+      <description>Giacomo Iengo In his blog he takes care of CTF writeup and whatever inspires him.&#xA;Here is the link on github.io: giacomoiengo</description>
     </item>
   </channel>
 </rss>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>design pattern on raffaeleflorio ~/</title>
+    <title>Design Pattern on raffaeleflorio ~/</title>
     <link>https://www.raffaeleflorio.com/tags/design-pattern/</link>
-    <description>Recent content in design pattern on raffaeleflorio ~/</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Design Pattern on raffaeleflorio ~/</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.raffaeleflorio.com/tags/design-pattern/index.xml" rel="self" type="application/rss+xml" />
@@ -13,9 +13,7 @@
       <link>https://www.raffaeleflorio.com/post/uncover-the-alias-pattern/</link>
       <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
       <guid>https://www.raffaeleflorio.com/post/uncover-the-alias-pattern/</guid>
-      <description>While I write OOP code I apply some practices of Elegant Objects.
-One of them is that classes should be final. This means that they cannot be extended through inheritance but only through composition.
-The advantage is simplicity. I mean that, in this way, each object is seen as a cohesive block. What interest to its clients is its exposed behaviour. Nothing more. Instead, through extension, a client can break it.</description>
+      <description>While I write OOP code I apply some practices of Elegant Objects.&#xA;One of them is that classes should be final. This means that they cannot be extended through inheritance but only through composition.&#xA;The advantage is simplicity. I mean that, in this way, each object is seen as a cohesive block. What interest to its clients is its exposed behaviour. Nothing more. Instead, through extension, a client can break it.</description>
     </item>
   </channel>
 </rss>
