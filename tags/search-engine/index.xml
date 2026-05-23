@@ -13,7 +13,7 @@
       <link>https://www.raffaeleflorio.com/post/the-science-behind-full-text-search-engines/</link>
       <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
       <guid>https://www.raffaeleflorio.com/post/the-science-behind-full-text-search-engines/</guid>
-      <description>Recently I started using Elasticsearch, which is one of the most known search engine. The things it allows to do fascinated me. That’s why I dove into informational retrieval (IR), the science behind it. It’s a huge topic, and a silver bullet for search engines doesn&amp;rsquo;t exist. It is user needs and expectations that tailors the model and the process to find information. This user-centric vision to measure the quality of an IR system captured me.</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.raffaeleflorio.com/img/the-science-behind-full-text-search-engines/cover.jpeg&#34; alt=&#34;The article cover&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Recently I started using Elasticsearch, which is one of the most known search engine. The things it allows to do&#xA;fascinated me. That’s why I dove into informational retrieval (IR), the science behind it. It’s a huge topic, and a&#xA;silver bullet for search engines doesn&amp;rsquo;t exist. It is user needs and expectations that tailors the model and the process&#xA;to find information. This user-centric vision to measure the quality of an IR system captured me.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

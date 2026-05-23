@@ -68,9 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.129.0">
-        
-
+ <meta name="generator" content="Hugo 0.161.1">
         
 
         
@@ -113,15 +111,11 @@
                     
                         <ul class="nav navbar-nav navbar-right">
                             
-                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
-                            
                                 <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaeleflorio"><i class="fab fa-linkedin"></i></a></li>
-                            
-                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
                             
                                 <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
                             
                                 <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
                             
@@ -191,12 +185,12 @@ Furthermore, because test is more code, we don&rsquo;t want to write unnecessary
 The project is hosted on <a href="https://github.com/raffaeleflorio/client-analyzer">github</a>.</p>
 <p>The software analyzes the capabilities (e.g. java version) of the machine. Then it will expose them through REST API.</p>
 <p>In the previous part we expressed our use case (<code>GetCapabilitiesUseCase</code>) as:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetCapabilitiesUseCase</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">GetCapabilitiesUseCase</span> {
 </span></span><span style="display:flex;"><span>  Single<span style="color:#f92672">&lt;</span>Capabilities<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getCapabilities</span>();
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>So here the first test definition. I&rsquo;m using <a href="https://junit.org/junit5/">JUnit 5</a> with <a href="http://reactivex.io/">ReactiveX</a> test facility.
 It verifies that the returned capabilities object is correct. We are passing to the use case factory two mocked port out implementations:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GetCapabilitiesUseCaseTest</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GetCapabilitiesUseCaseTest</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Test</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ok</span>() <span style="color:#66d9ef">throws</span> Throwable {
 </span></span><span style="display:flex;"><span>    String javaVersion <span style="color:#f92672">=</span> randomString();
@@ -225,7 +219,7 @@ It verifies that the returned capabilities object is correct. We are passing to 
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>During the writing I discovered that there is a room of improvement. Currently our use case could return negative network speed.</p>
 <p>This is possible because the <code>Capabilities</code> class allows these values. So I improved its constructor with an exception:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Value</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Value</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Builder</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Capabilities</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Capabilities</span>(String javaVersion, Long networkSpeed) {
@@ -239,7 +233,7 @@ It verifies that the returned capabilities object is correct. We are passing to 
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Long networkSpeed;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Then I added the test class about <code>Capabilities</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CapabilitiesTest</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CapabilitiesTest</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Test</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">with_negative_network_speed</span>() <span style="color:#66d9ef">throws</span> Throwable {
 </span></span><span style="display:flex;"><span>    String javaVersion <span style="color:#f92672">=</span> randomString();
@@ -261,7 +255,7 @@ It verifies that the returned capabilities object is correct. We are passing to 
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>And I updated the use case test:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GetCapabilitiesUseCaseTest</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GetCapabilitiesUseCaseTest</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Test</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">ok</span>() <span style="color:#66d9ef">throws</span> Throwable {
 </span></span><span style="display:flex;"><span>    String javaVersion <span style="color:#f92672">=</span> randomString();
@@ -380,9 +374,6 @@ Tests are for the future because they guarantee malleability, extensibility and 
 
 </div>
  
-    
-
-    
     
 
 </main>

@@ -13,7 +13,7 @@
       <link>https://www.raffaeleflorio.com/post/uncover-the-alias-pattern/</link>
       <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
       <guid>https://www.raffaeleflorio.com/post/uncover-the-alias-pattern/</guid>
-      <description>While I write OOP code I apply some practices of Elegant Objects.&#xA;One of them is that classes should be final. This means that they cannot be extended through inheritance but only through composition.&#xA;The advantage is simplicity. I mean that, in this way, each object is seen as a cohesive block. What interest to its clients is its exposed behaviour. Nothing more. Instead, through extension, a client can break it.</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.raffaeleflorio.com/img/uncover-the-alias-pattern/cover.jpeg&#34; alt=&#34;The article cover&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;While I write OOP code I apply some practices of Elegant Objects.&lt;/p&gt;&#xA;&lt;p&gt;One of them is that classes should be final. This means that they cannot be extended through inheritance but only&#xA;through composition.&lt;/p&gt;&#xA;&lt;p&gt;The advantage is simplicity. I mean that, in this way, each object is seen as a cohesive block. What interest to its&#xA;clients is its exposed behaviour. Nothing more. Instead, through extension, a client can break it.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

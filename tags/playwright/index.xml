@@ -13,7 +13,7 @@
       <link>https://www.raffaeleflorio.com/post/playwright-on-steroids-overcoming-limits-with-oop/</link>
       <pubDate>Tue, 14 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://www.raffaeleflorio.com/post/playwright-on-steroids-overcoming-limits-with-oop/</guid>
-      <description>Recently, I worked on a Playwright Java project. One of its characteristics is its single-thread nature. This means we have to use a Playwright instance in a single thread at a time. For the performance’s sake, we need to overcome this limit.&#xA;To get to the point, in the following demo, we’ll expose an HTTP endpoint that screenshots a web page given its URL. And we’ll build various solutions along with their benchmark when it’s useful to do so.</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.raffaeleflorio.com/img/playwright-on-steroids-overcoming-limits-with-oop/cover.jpeg&#34; alt=&#34;The article cover&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Recently, I worked on a Playwright Java project. One of its characteristics is its single-thread nature. This means we&#xA;have to use a Playwright instance in a single thread at a time. For the performance’s sake, we need to overcome this&#xA;limit.&lt;/p&gt;&#xA;&lt;p&gt;To get to the point, in the following demo, we’ll expose an HTTP endpoint that screenshots a web page given its URL. And&#xA;we’ll build various solutions along with their benchmark when it’s useful to do so. These solutions will use the&#xA;following interfaces. And they differ only by the &lt;code&gt;Browser&lt;/code&gt; implementation.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -68,9 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.129.0">
-        
-
+ <meta name="generator" content="Hugo 0.161.1">
         
 
         
@@ -113,15 +111,11 @@
                     
                         <ul class="nav navbar-nav navbar-right">
                             
-                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
-                            
                                 <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaeleflorio"><i class="fab fa-linkedin"></i></a></li>
-                            
-                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
                             
                                 <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
                             
                                 <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
                             
@@ -159,10 +153,10 @@
 <p>Here’s a log of some kind of network traffic. The BASH script will help you set up your tools, and probably give you a hint as to what kind of network this is.</p>
 </blockquote>
 <p>You can download the log <a href="/ctf/auctf2020/signals/pickupthatcan.log">here</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sha256sum pickupthatcan.log 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sha256sum pickupthatcan.log 
 </span></span><span style="display:flex;"><span>6cd893bf99bf233d452aaa56ed65fcca51fef4e97493efa3ba6a44a0af03e95a  pickupthatcan.log
 </span></span></code></pre></div><p>The shell script is really short. It’s composed of three lines:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>modprobe vcan
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>modprobe vcan
 </span></span><span style="display:flex;"><span>sudo ip link add dev vcan0 type vcan
 </span></span><span style="display:flex;"><span>sudo ip link set up vcan0
 </span></span></code></pre></div><h1 id="analysis">Analysis</h1>
@@ -213,7 +207,7 @@ About that I found this interesting entry on Wikipedia: <a href="https://en.wiki
 (1563316371.279102) can0 005#4D616E7D
 .....
 </code></pre><p>I decoded the hexadecimal strings, concatened the results and here is the flag:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ cat flag.txt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ cat flag.txt
 </span></span><span style="display:flex;"><span>auctf<span style="color:#f92672">{</span>ImTheTrashMan<span style="color:#f92672">}</span>
 </span></span></code></pre></div><p><img src="/ctf/auctf2020/images/pickupthatcan-solved.png" alt="pickupthatcan solved banner"></p>
 </div>
@@ -300,9 +294,6 @@ About that I found this interesting entry on Wikipedia: <a href="https://en.wiki
 
 </div>
  
-    
-
-    
     
 
 </main>

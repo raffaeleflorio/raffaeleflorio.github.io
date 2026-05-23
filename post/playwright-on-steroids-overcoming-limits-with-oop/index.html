@@ -68,9 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.129.0">
-        
-
+ <meta name="generator" content="Hugo 0.161.1">
         
 
         
@@ -113,15 +111,11 @@
                     
                         <ul class="nav navbar-nav navbar-right">
                             
-                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
-                            
                                 <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaeleflorio"><i class="fab fa-linkedin"></i></a></li>
-                            
-                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
                             
                                 <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
                             
                                 <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
                             
@@ -160,7 +154,7 @@ limit.</p>
 <p>To get to the point, in the following demo, we’ll expose an HTTP endpoint that screenshots a web page given its URL. And
 we’ll build various solutions along with their benchmark when it’s useful to do so. These solutions will use the
 following interfaces. And they differ only by the <code>Browser</code> implementation.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Browser</span> <span style="color:#66d9ef">extends</span> AutoCloseable {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Browser</span> <span style="color:#66d9ef">extends</span> AutoCloseable {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    Screenshot <span style="color:#a6e22e">screenshot</span>(URL url);
 </span></span><span style="display:flex;"><span>}
@@ -173,7 +167,7 @@ following interfaces. And they differ only by the <code>Browser</code> implement
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h1 id="unsafe-solution">Unsafe solution</h1>
 <p>The first and unsafe (i.e., not thread-safe) solution could be the following one.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UnsafePlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UnsafePlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Playwright playwright;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Page page;
@@ -221,7 +215,7 @@ solution.</p>
 <h1 id="lock-based-solution">Lock based solution</h1>
 <p>This solution implements the <code>Browser</code> interface considering the single-thread nature of Playwright. It composes the
 <code>UnsafePlaywright</code> and the general-purpose <code>LockBasedBrowser</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LockBasedPlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LockBasedPlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Browser origin;
 </span></span><span style="display:flex;"><span>
@@ -294,7 +288,7 @@ the <a href="https://www.raffaeleflorio.com/post/uncover-the-alias-pattern/">ali
 performance.</p>
 <h2 id="benchmark">Benchmark</h2>
 <p>We’ll do three benchmarks with <a href="https://www.joedog.org/siege-home">siege</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">25</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">25</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Transactions:		         <span style="color:#ae81ff">250</span> hits
 </span></span><span style="display:flex;"><span>Availability:		      100.00 %
@@ -347,7 +341,7 @@ increasing concurrent users, the response time increases. The behavior of this i
 <h1 id="on-demand-solution">On-demand solution</h1>
 <p>The next solution is to try to overcome the single thread limit in a naive way. On each request, it will create a new
 browser instance. This implementation composes <code>UnsafePlaywright</code> with the general-purpose <code>OnDemandBrowser</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OnDemandPlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OnDemandPlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Browser origin;
 </span></span><span style="display:flex;"><span>
@@ -401,7 +395,7 @@ objects. This means the process will run out of memory in case of requests spike
 request because of the <code>UnsafePlaywright</code> instantiation process.</p>
 <h2 id="benchmark-1">Benchmark</h2>
 <p>The following benchmarks express the weaknesses of this approach. They also impact in case of a few requests.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">25</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">25</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Transactions:		         <span style="color:#ae81ff">250</span> hits
 </span></span><span style="display:flex;"><span>Availability:		      100.00 %
@@ -417,7 +411,37 @@ request because of the <code>UnsafePlaywright</code> instantiation process.</p>
 </span></span><span style="display:flex;"><span>Shortest transaction:	        3.94
 </span></span></code></pre></div><h1 id="building-on-top-the-previous-approaches">Building on top the previous approaches</h1>
 <p>The previous two approaches have both pros and cons.</p>
-<!-- raw HTML omitted -->
+<table>
+  <thead>
+      <tr>
+          <th>Approach</th>
+          <th>Pros</th>
+          <th>Cons</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Lock based</td>
+          <td>Pre-instantiated Playwright objects reused across requests</td>
+          <td>Serialized requests handling</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>Predictable resource consumption</td>
+          <td>Serialized requests handling</td>
+      </tr>
+      <tr>
+          <td>On-demand</td>
+          <td>Parallelized requests handling</td>
+          <td>Delayed requests due Playwright instantiation process</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>Unpredictable resource consumption</td>
+      </tr>
+  </tbody>
+</table>
 <p>Well, it seems they compensate each other. And this suggests to us another approach that mitigates weakness and boosts
 strengths. Indeed, we can say that a set of pre-instantiated <code>Browser</code> objects consume a predictable amount of memory.
 And at the same time, they can parallelize a fixed number of requests.</p>
@@ -425,7 +449,7 @@ And at the same time, they can parallelize a fixed number of requests.</p>
 <p>The aforesaid ideas translate to a pool of <code>Browser</code> objects.</p>
 <p>In the following implementation, we’ll compose the general-purpose <code>PoolBrowser</code> and <code>LockBasedPlaywright</code>. We used the
 latter because <code>Browser</code> objects in the pool are shared among the requests. So, we need thread-safety.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PoolPlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PoolPlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Browser origin;
 </span></span><span style="display:flex;"><span>
@@ -526,7 +550,7 @@ time a screenshot will take. Overall, we are improving the software&rsquo;s pred
 <h2 id="semaphore-solution">Semaphore solution</h2>
 <p>We have many choices to implement the bounded behavior. One of them is to use a <code>Semaphore</code> to limit access to a
 single <code>LockBasedBrowser</code> instance.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SemaphorePlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SemaphorePlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Browser origin;
 </span></span><span style="display:flex;"><span>
@@ -601,7 +625,7 @@ single <code>LockBasedBrowser</code> instance.</p>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="pool-and-semaphore-solution">Pool and semaphore solution</h2>
 <p>Finally, we need to compose the last two <code>Browser</code> implementations.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PoolSemaphorePlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PoolSemaphorePlaywright</span> <span style="color:#66d9ef">implements</span> Browser {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Browser origin;
 </span></span><span style="display:flex;"><span>
@@ -651,7 +675,7 @@ single <code>LockBasedBrowser</code> instance.</p>
 pool having a single semaphore.</p>
 <h2 id="benchmark-2">Benchmark</h2>
 <p>The following three benchmarks are about the pool-based approach. The pool size is two.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">25</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">25</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Transactions:		         <span style="color:#ae81ff">250</span> hits
 </span></span><span style="display:flex;"><span>Availability:		      100.00 %
@@ -701,7 +725,7 @@ note we have doubled the throughput compared to the lock-based solution. This im
 <p>At this point, we can benchmark the pool and semaphore approach. The pool size is two, and the maximum number of
 requests bound is thirty-two. This means we can handle sixty-four requests in parallel. After reaching this limit, the
 service will return an unsuccessful response.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">25</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ siege -c <span style="color:#ae81ff">25</span> -r <span style="color:#ae81ff">10</span> -b -H <span style="color:#e6db74">&#39;Accept:image/png&#39;</span> <span style="color:#e6db74">&#39;http://localhost:8080/screenshot?url=http%3A%2F%2Flocalhost%3A8080&#39;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Transactions:		         <span style="color:#ae81ff">250</span> hits
 </span></span><span style="display:flex;"><span>Availability:		      100.00 %
@@ -835,9 +859,6 @@ and it’s a great gift of OOP.</p>
 
 </div>
  
-    
-
-    
     
 
 </main>

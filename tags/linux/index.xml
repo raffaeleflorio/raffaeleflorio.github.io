@@ -41,7 +41,7 @@
       <link>https://www.raffaeleflorio.com/post/how-to-run-podman-and-docker-compose-on-windows/</link>
       <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
       <guid>https://www.raffaeleflorio.com/post/how-to-run-podman-and-docker-compose-on-windows/</guid>
-      <description>As you know containers are a Linux thing. Microsoft introduced its solution but I’ve never seen them used.&#xA;To use containers we have mainly two alternatives: docker and podman. I prefer the latter for two reasons. Because it has a daemonless architecture and because it doesn’t need root permission. But using it with docker-compose on Windows is tough. That’s why I decided to write and share this story.&#xA;Motivation I think using Docker Desktop on Windows is the fastest way to use containers.</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.raffaeleflorio.com/img/how-to-run-podman-and-docker-compose-on-windows/cover.jpeg&#34; alt=&#34;The article cover&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;As you know containers are a Linux thing. Microsoft introduced&#xA;its &lt;a href=&#34;https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/&#34;&gt;solution&lt;/a&gt; but I’ve never seen them used.&lt;/p&gt;&#xA;&lt;p&gt;To use containers we have mainly two alternatives: docker and podman. I prefer the latter for two reasons. Because it&#xA;has a daemonless architecture and because it doesn’t need root permission. But using it with docker-compose on Windows&#xA;is tough. That’s why I decided to write and share this story.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
